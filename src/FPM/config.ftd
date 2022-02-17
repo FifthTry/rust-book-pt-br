@@ -59,7 +59,8 @@ $processor$: toc
 
 - 🇧🇷 Tipos Genéricos, _Traits_, e Tempos de vida (_Lifetimes_: /ch10-00-generics/
   - 🇧🇷 Tipos Genéricos de Dados: /ch10-01-syntax/
-  - 🇧🇷 Traits: Definindo Comportamento Compartilhado: /ch10-02-traits/ - NEED DEFAULT METHOD IMPLEMENTATIONS
+  - 🇧🇷 Traits: Definindo Comportamento Compartilhado
+    url: /ch10-02-traits/
   - 🇧🇷 Validating References with Lifetimes: /ch10-03-lifetime-syntax/
 
 - Testing: /ch11-00-testing/

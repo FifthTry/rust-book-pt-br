@@ -2,10 +2,10 @@
 -- import: fpm
 
 
--- fpm.package: fifthtry.github.io/rust-book-pt-br/
+-- fpm.package: fifthtry.github.io/rust-book-pt-br
 zip: github.com/fifthtry/rust-book-pt-br/archive/refs/heads/main.zip
-language: pt-br
-
+language: 🇧🇷Portuguese(BR)
+translation-of: fifthtry.github.io/rust-book-en
 
 -- fpm.dependency: fifthtry.github.io/Forest-Theme as ft
 
