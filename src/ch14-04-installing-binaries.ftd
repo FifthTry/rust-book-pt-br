@@ -1,0 +1,4 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h1: Installing Binaries from Crates.io with `cargo install`
