@@ -12,6 +12,429 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,10,0": {
+    "value": "\"let mut v = Vec::new();\\n\\nv.push(5);\\nv.push(6);\\nv.push(7);\\nv.push(8);\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,11": {
+    "value": "\"Como qualquer variável que discutimos no Capítulo 3, se quisermos poder\\nalterar seu valor, precisamos fazê-lo mutável com a palavra-chave `mut`. Os \\nnúmeros que inserimos são todos do tipo `i32`, e Rust infere isso dos\\ndados, por isso não precisamos da anotação `Vec \u003Ci32\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,12": {
+    "value": "\"Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,12,1,0": {
+    "value": "\"Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,13,0": {
+    "value": "\"{\\n    let v = vec![1, 2, 3, 4];\\n\\n    // use as informações em v\\n\\n} // \u003C- v sai do escopo e é liberado aqui\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,14": {
+    "value": "\"Quando o vetor é descartado, todos os seus conteúdos também será descartado, o que significa\\nesses inteiros que ele contém serão limpos. Isso pode parecer um\\nponto direto, mas pode ficar um pouco mais complicado quando começamos a\\nintroduzir referências aos elementos do vetor. Vamos abordar isso em seguida!\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,15": {
+    "value": "\"Agora que você sabe como criar, atualizar e destruir vetores, \\nsaber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a\\nvalores armazenados em um vetor. Nos exemplos, anotamos os tipos de\\nvalores que são retornados dessas funções para maior clareza.\\n\\nEste exemplo mostra os dois métodos de acesso a um valor em um vetor com\\nsintaxe de indexação ou o método `get`:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,15,1,0": {
+    "value": "\"Agora que você sabe como criar, atualizar e destruir vetores, \\nsaber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a\\nvalores armazenados em um vetor. Nos exemplos, anotamos os tipos de\\nvalores que são retornados dessas funções para maior clareza.\\n\\nEste exemplo mostra os dois métodos de acesso a um valor em um vetor com\\nsintaxe de indexação ou o método `get`:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,16,0": {
+    "value": "\"let v = vec![1, 2, 3, 4, 5];\\n\\nlet third: \u0026i32 = \u0026v[2];\\nlet third: Option\u003C\u0026i32\u003E = v.get(2);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,17": {
+    "value": "\"Há algumas coisas a serem observadas aqui. Primeiro, que usamos o valor do índice de `2`\\npara obter o terceiro elemento: os vetores são indexados por número, começando em zero.\\nEm segundo lugar, as duas maneiras diferentes de obter o terceiro elemento são: usando `\u0026` e\\n`[]`, que nos dá uma referência, ou usando o método `get` com o índice\\npassado como um argumento, o que nos dá uma `Option\u003C\u0026T\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,18": {
+    "value": "\"A razão pela qual Rust tem duas maneiras de fazer referência a um elemento é para que você possa escolher\\ncomo o programa se comporta quando você tenta usar um valor de índice para o qual \\no vetor não tem um elemento correspondente. Por exemplo, o que um programa deve fazer se tiver\\num vetor que contém cinco elementos, então tenta acessar um elemento no índice 100\\ndessa maneira:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,19,0": {
+    "value": "\"let v = vec![1, 2, 3, 4, 5];\\n\\nlet does_not_exist = \u0026v[100];\\nlet does_not_exist = v.get(100);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,2": {
+    "value": "\"O primeiro tipo que iremos ver é `Vec\u003CT\u003E`, também conhecido como *vetor*. Vetores\\npermitem guardar mais de um valor na mesma estrutura de dados que coloca todos\\nos valores um ao lado do outro na memória. Vetores só podem guardar valores do\\nmesmo tipo. Eles são úteis em situações onde há uma lista de itens, como\\nas linha de texto em um arquivo ou preços de itens em um carrinho de compras.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,2,1,0": {
+    "value": "\"O primeiro tipo que iremos ver é `Vec\u003CT\u003E`, também conhecido como *vetor*. Vetores\\npermitem guardar mais de um valor na mesma estrutura de dados que coloca todos\\nos valores um ao lado do outro na memória. Vetores só podem guardar valores do\\nmesmo tipo. Eles são úteis em situações onde há uma lista de itens, como\\nas linha de texto em um arquivo ou preços de itens em um carrinho de compras.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,20": {
+    "value": "\"Quando você executar isso, você verá que com o primeiro método `[]`, Rust irá\\ncausar um `panic!` quando um elemento inexistente é referenciado. Este método seria\\npreferível se você quiser que seu programa considere uma tentativa de acessar um\\nelemento, passado o fim do vetor, para ser um erro fatal que deve finalizar o\\nprograma.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,21": {
+    "value": "\"Quando é passado um índice que está fora da matriz para o método `get`, ele \\nretorna `None` sem entrar em pânico. Você usaria isso se acessar um elemento\\nalém do alcance do vetor ocorrerá ocasionalmente sob \\ncircunstâncias normais. Seu código pode então ter lógica para lidar tanto com\\n`Some(\u0026element)` ou `None`, como discutimos no Capítulo 6. Por exemplo, o\\nO índice pode ser proveniente de uma pessoa que digite um número. Se eles acidentalmente\\ninsira um número que é muito grande e seu programa recebe um valor `None`, você poderia\\ndizer ao usuário quantos itens estão no atual `Vec` e dar uma nova\\nchance de inserir um valor válido. Isso seria mais amigável do que quebrar o\\nprograma por um erro de digitação!\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,22": {
+    "value": "\"Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer\\nas regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e\\nquaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra\\nque diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo.\\nEssa regra se aplica neste exemplo, onde mantemos uma referência imutável ao\\nprimeiro elemento em um vetor e tentamos adicionar um elemento ao final:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,22,1,0": {
+    "value": "\"Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer\\nas regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e\\nquaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra\\nque diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo.\\nEssa regra se aplica neste exemplo, onde mantemos uma referência imutável ao\\nprimeiro elemento em um vetor e tentamos adicionar um elemento ao final:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,23,0": {
+    "value": "\"let mut v = vec![1, 2, 3, 4, 5];\\n\\nlet first = \u0026v[0];\\n\\nv.push(6);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,24": {
+    "value": "\"Compilar isso nos dará esse erro:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,25,0": {
+    "value": "\"error borrow `v` as mutable because it is also borrowed as\\nimmutable\\n  |\\n4 | let first = \u0026v[0];\\n  |              - immutable borrow occurs here\\n5 |\\n6 | v.push(6);\\n  | ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,26": {
+    "value": "\"Este código pode parecer que deveria funcionar: por que uma referência ao primeiro\\nelemento deveria se preocupar com o que muda sobre o final do vetor? A razão porque\\neste código não é permitido é devido à forma como os vetores funcionam. Adicionando um novo elemento\\nno final do vetor pode exigir a atribuição de nova alocação de memória e copiar os\\nelementos antigos para o novo espaço, na circunstância de não haver espaço suficiente\\npara colocar todos os elementos próximos um do outro onde o vetor estava. Nesse\\ncaso, a referência ao primeiro elemento apontaria para memória não alocada.\\nAs regras de empréstimo impedem que os programas acabem nessa situação.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,27": {
+    "value": "\"\u003E Nota: para mais informações, veja o Rustonomicon em\\n*https://doc.rust-lang.org/stable/nomicon/vec.html*.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,28": {
+    "value": "\"No início deste capítulo, dissemos que os vetores só podem armazenar valores\\nque são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos \\nde uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,\\nas variantes de um enum são todas definidas sob o mesmo tipo de enum, então, quando precisamos\\narmazenar elementos de um tipo diferente em um vetor, podemos definir e usar um\\nenum!\\n\\nPor exemplo, digamos que queremos obter valores de uma linha em uma planilha, onde\\nalgumas das colunas da linha contêm números inteiros, alguns números de ponto flutuante,\\ne algumas strings. Podemos definir um enum cujas variantes guardarão os diferentes\\ntipos de valor, e então todas as variantes de enum serão consideradas do mesmos\\ntipo, o do enum. Então, podemos criar um vetor que contenha esse enum e\\nentão, em última instância, possui diferentes tipos:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,28,1,0": {
+    "value": "\"No início deste capítulo, dissemos que os vetores só podem armazenar valores\\nque são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos \\nde uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,\\nas variantes de um enum são todas definidas sob o mesmo tipo de enum, então, quando precisamos\\narmazenar elementos de um tipo diferente em um vetor, podemos definir e usar um\\nenum!\\n\\nPor exemplo, digamos que queremos obter valores de uma linha em uma planilha, onde\\nalgumas das colunas da linha contêm números inteiros, alguns números de ponto flutuante,\\ne algumas strings. Podemos definir um enum cujas variantes guardarão os diferentes\\ntipos de valor, e então todas as variantes de enum serão consideradas do mesmos\\ntipo, o do enum. Então, podemos criar um vetor que contenha esse enum e\\nentão, em última instância, possui diferentes tipos:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,29,0": {
+    "value": "\"enum SpreadsheetCell {\\n    Int(i32),\\n    Float(f64),\\n    Text(String),\\n}\\n\\nlet row = vec![\\n    SpreadsheetCell::Int(3),\\n    SpreadsheetCell::Text(String::from(\\\"blue\\\")),\\n    SpreadsheetCell::Float(10.12),\\n];\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,3": {
+    "value": "\"Para criar um novo vetor, vazio, chamamos a função `Vec::new`:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,3,1,0": {
+    "value": "\"Para criar um novo vetor, vazio, chamamos a função `Vec::new`:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,30": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 8-1: Definindo um enum para poder guardar\\ndiferentes tipos de dados em um vetor\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,31": {
+    "value": "\"A razão pela qual Rust precisa saber exatamente quais tipos estarão no vetor em\\ntempo de compilação é para que ele saiba exatamente a quantidade de memória no heap que será\\nnecessária para armazenar cada elemento. Uma vantagem secundária para isso é que podemos ser\\nexplícitos sobre quais tipos são permitidos neste vetor. Se Rust permitisse um vetor\\nguardar qualquer tipo, haveria uma chance de que um ou mais dos tipos\\ncausar erros com as operações realizadas nos elementos do vetor. Usando\\num enum mais um `match` significa que a Rust garantirá no tempo de compilação que nós\\nsempre lidaremos com todos os casos possíveis, como discutimos no Capítulo 6.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,32": {
+    "value": "\"Se você não sabe no momento em que você está escrevendo um programa, o conjunto exaustivo\\ndos tipos que o programa irá precisar no tempo de execução para armazenar em um vetor, a técnica de usar\\no enum não funcionará. Em vez disso, você pode usar um objeto trait, que abordaremos no\\nCapítulo 17.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,33": {
+    "value": "\"Agora que examinamos algumas das maneiras mais comuns de usar vetores, certifique-se\\npara dar uma olhada na documentação da API para todos os muitos métodos úteis\\ndefinidos no `Vec` pela biblioteca padrão. Por exemplo, além de `push`\\nexiste um método `pop` que irá remover e retornar o último elemento. Vamos mover\\npara o próximo tipo de coleção: `String`!\"",
+    "dependencies": {
+      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,4,0": {
+    "value": "\"let v: Vec\u003Ci32\u003E = Vec::new();\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,5": {
+    "value": "\"Note que adicionamos uma anotação de tipo aqui. Como não estamos inserindo nenhum valor\\nno vetor, Rust não sabe o tipo de elementos que irá guardar.\\nIsto é um ponto importante. Vetores são homogêneos: eles podem guardar muitos \\nvalores, mas todos esses valores devem ser do mesmo tipo. Vetores são implementados\\nusando genéricos, onde o capítulo 10 irá cobrir como usar em seus tipos. Por\\nagora, tudo o que precisa saber é que o tipo `Vec` fornecido pela biblioteca\\npadrão pode conter qualquer tipo, e quando um `Vec` específico possui um tipo específico, o\\ntipo vai dentro de `\u003C \u003E`. Falamos para Rust que `Vec` em `v` guardará\\nelementos do tipo `i32`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,6": {
+    "value": "\"No código real, a Rust pode inferir o tipo de valor que queremos armazenar uma vez que inserimos\\nvalores, então você raramente precisa fazer essa anotação de tipo. É mais comum\\ncriar um `Vec` que possui valores iniciais, e o Rust fornece a macro `vec!` por\\nconveniência. A macro criará um novo `Vec` que contém os valores que damos\\n. Isso criará um novo `Vec \u003Ci32\u003E` que contém os valores `1`,` 2` e `3`:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,7,0": {
+    "value": "\"let v = vec![1, 2, 3];\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,8": {
+    "value": "\"Como nós damos valores iniciais  `i32`, Rust pode inferir que o tipo de `v`\\né `Vec \u003Ci32\u003E`, e a anotação de tipo não é necessária. Vejamos a seguir como\\nmodificar um vetor.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,9": {
+    "value": "\"Para criar um vetor e adicionar elementos a ele, podemos usar o método `push`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#body@0,9,1,0": {
+    "value": "\"Para criar um vetor e adicionar elementos a ele, podemos usar o método `push`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,10,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,13,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,6,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,6,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,29,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,12": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,15": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,22": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,28": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,9": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,12": {
+    "value": "\"Descartar um Vetor Descarta seus Elementos\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,15": {
+    "value": "\"Lendo Elementos do Vetor\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,2": {
+    "value": "\"Vetores\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,22": {
+    "value": "\"Referências Inválidas\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,28": {
+    "value": "\"Usando um Enum para Armazenar Vários Tipos\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,3": {
+    "value": "\"Criando um Novo Vetor\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#title@0,9": {
+    "value": "\"Modificando um Vetor\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -292,429 +715,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch08-01-vectors#body@0,10,0": {
-    "value": "\"let mut v = Vec::new();\\n\\nv.push(5);\\nv.push(6);\\nv.push(7);\\nv.push(8);\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,11": {
-    "value": "\"Como qualquer variável que discutimos no Capítulo 3, se quisermos poder\\nalterar seu valor, precisamos fazê-lo mutável com a palavra-chave `mut`. Os \\nnúmeros que inserimos são todos do tipo `i32`, e Rust infere isso dos\\ndados, por isso não precisamos da anotação `Vec \u003Ci32\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,12": {
-    "value": "\"Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,12,1,0": {
-    "value": "\"Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,13,0": {
-    "value": "\"{\\n    let v = vec![1, 2, 3, 4];\\n\\n    // use as informações em v\\n\\n} // \u003C- v sai do escopo e é liberado aqui\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,14": {
-    "value": "\"Quando o vetor é descartado, todos os seus conteúdos também será descartado, o que significa\\nesses inteiros que ele contém serão limpos. Isso pode parecer um\\nponto direto, mas pode ficar um pouco mais complicado quando começamos a\\nintroduzir referências aos elementos do vetor. Vamos abordar isso em seguida!\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,15": {
-    "value": "\"Agora que você sabe como criar, atualizar e destruir vetores, \\nsaber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a\\nvalores armazenados em um vetor. Nos exemplos, anotamos os tipos de\\nvalores que são retornados dessas funções para maior clareza.\\n\\nEste exemplo mostra os dois métodos de acesso a um valor em um vetor com\\nsintaxe de indexação ou o método `get`:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,15,1,0": {
-    "value": "\"Agora que você sabe como criar, atualizar e destruir vetores, \\nsaber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a\\nvalores armazenados em um vetor. Nos exemplos, anotamos os tipos de\\nvalores que são retornados dessas funções para maior clareza.\\n\\nEste exemplo mostra os dois métodos de acesso a um valor em um vetor com\\nsintaxe de indexação ou o método `get`:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,16,0": {
-    "value": "\"let v = vec![1, 2, 3, 4, 5];\\n\\nlet third: \u0026i32 = \u0026v[2];\\nlet third: Option\u003C\u0026i32\u003E = v.get(2);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,17": {
-    "value": "\"Há algumas coisas a serem observadas aqui. Primeiro, que usamos o valor do índice de `2`\\npara obter o terceiro elemento: os vetores são indexados por número, começando em zero.\\nEm segundo lugar, as duas maneiras diferentes de obter o terceiro elemento são: usando `\u0026` e\\n`[]`, que nos dá uma referência, ou usando o método `get` com o índice\\npassado como um argumento, o que nos dá uma `Option\u003C\u0026T\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,18": {
-    "value": "\"A razão pela qual Rust tem duas maneiras de fazer referência a um elemento é para que você possa escolher\\ncomo o programa se comporta quando você tenta usar um valor de índice para o qual \\no vetor não tem um elemento correspondente. Por exemplo, o que um programa deve fazer se tiver\\num vetor que contém cinco elementos, então tenta acessar um elemento no índice 100\\ndessa maneira:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,19,0": {
-    "value": "\"let v = vec![1, 2, 3, 4, 5];\\n\\nlet does_not_exist = \u0026v[100];\\nlet does_not_exist = v.get(100);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,2": {
-    "value": "\"O primeiro tipo que iremos ver é `Vec\u003CT\u003E`, também conhecido como *vetor*. Vetores\\npermitem guardar mais de um valor na mesma estrutura de dados que coloca todos\\nos valores um ao lado do outro na memória. Vetores só podem guardar valores do\\nmesmo tipo. Eles são úteis em situações onde há uma lista de itens, como\\nas linha de texto em um arquivo ou preços de itens em um carrinho de compras.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,2,1,0": {
-    "value": "\"O primeiro tipo que iremos ver é `Vec\u003CT\u003E`, também conhecido como *vetor*. Vetores\\npermitem guardar mais de um valor na mesma estrutura de dados que coloca todos\\nos valores um ao lado do outro na memória. Vetores só podem guardar valores do\\nmesmo tipo. Eles são úteis em situações onde há uma lista de itens, como\\nas linha de texto em um arquivo ou preços de itens em um carrinho de compras.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,20": {
-    "value": "\"Quando você executar isso, você verá que com o primeiro método `[]`, Rust irá\\ncausar um `panic!` quando um elemento inexistente é referenciado. Este método seria\\npreferível se você quiser que seu programa considere uma tentativa de acessar um\\nelemento, passado o fim do vetor, para ser um erro fatal que deve finalizar o\\nprograma.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,21": {
-    "value": "\"Quando é passado um índice que está fora da matriz para o método `get`, ele \\nretorna `None` sem entrar em pânico. Você usaria isso se acessar um elemento\\nalém do alcance do vetor ocorrerá ocasionalmente sob \\ncircunstâncias normais. Seu código pode então ter lógica para lidar tanto com\\n`Some(\u0026element)` ou `None`, como discutimos no Capítulo 6. Por exemplo, o\\nO índice pode ser proveniente de uma pessoa que digite um número. Se eles acidentalmente\\ninsira um número que é muito grande e seu programa recebe um valor `None`, você poderia\\ndizer ao usuário quantos itens estão no atual `Vec` e dar uma nova\\nchance de inserir um valor válido. Isso seria mais amigável do que quebrar o\\nprograma por um erro de digitação!\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,22": {
-    "value": "\"Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer\\nas regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e\\nquaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra\\nque diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo.\\nEssa regra se aplica neste exemplo, onde mantemos uma referência imutável ao\\nprimeiro elemento em um vetor e tentamos adicionar um elemento ao final:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,22,1,0": {
-    "value": "\"Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer\\nas regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e\\nquaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra\\nque diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo.\\nEssa regra se aplica neste exemplo, onde mantemos uma referência imutável ao\\nprimeiro elemento em um vetor e tentamos adicionar um elemento ao final:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,23,0": {
-    "value": "\"let mut v = vec![1, 2, 3, 4, 5];\\n\\nlet first = \u0026v[0];\\n\\nv.push(6);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,24": {
-    "value": "\"Compilar isso nos dará esse erro:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,25,0": {
-    "value": "\"error borrow `v` as mutable because it is also borrowed as\\nimmutable\\n  |\\n4 | let first = \u0026v[0];\\n  |              - immutable borrow occurs here\\n5 |\\n6 | v.push(6);\\n  | ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,26": {
-    "value": "\"Este código pode parecer que deveria funcionar: por que uma referência ao primeiro\\nelemento deveria se preocupar com o que muda sobre o final do vetor? A razão porque\\neste código não é permitido é devido à forma como os vetores funcionam. Adicionando um novo elemento\\nno final do vetor pode exigir a atribuição de nova alocação de memória e copiar os\\nelementos antigos para o novo espaço, na circunstância de não haver espaço suficiente\\npara colocar todos os elementos próximos um do outro onde o vetor estava. Nesse\\ncaso, a referência ao primeiro elemento apontaria para memória não alocada.\\nAs regras de empréstimo impedem que os programas acabem nessa situação.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,27": {
-    "value": "\"\u003E Nota: para mais informações, veja o Rustonomicon em\\n*https://doc.rust-lang.org/stable/nomicon/vec.html*.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,28": {
-    "value": "\"No início deste capítulo, dissemos que os vetores só podem armazenar valores\\nque são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos \\nde uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,\\nas variantes de um enum são todas definidas sob o mesmo tipo de enum, então, quando precisamos\\narmazenar elementos de um tipo diferente em um vetor, podemos definir e usar um\\nenum!\\n\\nPor exemplo, digamos que queremos obter valores de uma linha em uma planilha, onde\\nalgumas das colunas da linha contêm números inteiros, alguns números de ponto flutuante,\\ne algumas strings. Podemos definir um enum cujas variantes guardarão os diferentes\\ntipos de valor, e então todas as variantes de enum serão consideradas do mesmos\\ntipo, o do enum. Então, podemos criar um vetor que contenha esse enum e\\nentão, em última instância, possui diferentes tipos:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,28,1,0": {
-    "value": "\"No início deste capítulo, dissemos que os vetores só podem armazenar valores\\nque são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos \\nde uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,\\nas variantes de um enum são todas definidas sob o mesmo tipo de enum, então, quando precisamos\\narmazenar elementos de um tipo diferente em um vetor, podemos definir e usar um\\nenum!\\n\\nPor exemplo, digamos que queremos obter valores de uma linha em uma planilha, onde\\nalgumas das colunas da linha contêm números inteiros, alguns números de ponto flutuante,\\ne algumas strings. Podemos definir um enum cujas variantes guardarão os diferentes\\ntipos de valor, e então todas as variantes de enum serão consideradas do mesmos\\ntipo, o do enum. Então, podemos criar um vetor que contenha esse enum e\\nentão, em última instância, possui diferentes tipos:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,29,0": {
-    "value": "\"enum SpreadsheetCell {\\n    Int(i32),\\n    Float(f64),\\n    Text(String),\\n}\\n\\nlet row = vec![\\n    SpreadsheetCell::Int(3),\\n    SpreadsheetCell::Text(String::from(\\\"blue\\\")),\\n    SpreadsheetCell::Float(10.12),\\n];\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,3": {
-    "value": "\"Para criar um novo vetor, vazio, chamamos a função `Vec::new`:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,3,1,0": {
-    "value": "\"Para criar um novo vetor, vazio, chamamos a função `Vec::new`:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,30": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 8-1: Definindo um enum para poder guardar\\ndiferentes tipos de dados em um vetor\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,31": {
-    "value": "\"A razão pela qual Rust precisa saber exatamente quais tipos estarão no vetor em\\ntempo de compilação é para que ele saiba exatamente a quantidade de memória no heap que será\\nnecessária para armazenar cada elemento. Uma vantagem secundária para isso é que podemos ser\\nexplícitos sobre quais tipos são permitidos neste vetor. Se Rust permitisse um vetor\\nguardar qualquer tipo, haveria uma chance de que um ou mais dos tipos\\ncausar erros com as operações realizadas nos elementos do vetor. Usando\\num enum mais um `match` significa que a Rust garantirá no tempo de compilação que nós\\nsempre lidaremos com todos os casos possíveis, como discutimos no Capítulo 6.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,32": {
-    "value": "\"Se você não sabe no momento em que você está escrevendo um programa, o conjunto exaustivo\\ndos tipos que o programa irá precisar no tempo de execução para armazenar em um vetor, a técnica de usar\\no enum não funcionará. Em vez disso, você pode usar um objeto trait, que abordaremos no\\nCapítulo 17.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,33": {
-    "value": "\"Agora que examinamos algumas das maneiras mais comuns de usar vetores, certifique-se\\npara dar uma olhada na documentação da API para todos os muitos métodos úteis\\ndefinidos no `Vec` pela biblioteca padrão. Por exemplo, além de `push`\\nexiste um método `pop` que irá remover e retornar o último elemento. Vamos mover\\npara o próximo tipo de coleção: `String`!\"",
-    "dependencies": {
-      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,4,0": {
-    "value": "\"let v: Vec\u003Ci32\u003E = Vec::new();\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,5": {
-    "value": "\"Note que adicionamos uma anotação de tipo aqui. Como não estamos inserindo nenhum valor\\nno vetor, Rust não sabe o tipo de elementos que irá guardar.\\nIsto é um ponto importante. Vetores são homogêneos: eles podem guardar muitos \\nvalores, mas todos esses valores devem ser do mesmo tipo. Vetores são implementados\\nusando genéricos, onde o capítulo 10 irá cobrir como usar em seus tipos. Por\\nagora, tudo o que precisa saber é que o tipo `Vec` fornecido pela biblioteca\\npadrão pode conter qualquer tipo, e quando um `Vec` específico possui um tipo específico, o\\ntipo vai dentro de `\u003C \u003E`. Falamos para Rust que `Vec` em `v` guardará\\nelementos do tipo `i32`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,6": {
-    "value": "\"No código real, a Rust pode inferir o tipo de valor que queremos armazenar uma vez que inserimos\\nvalores, então você raramente precisa fazer essa anotação de tipo. É mais comum\\ncriar um `Vec` que possui valores iniciais, e o Rust fornece a macro `vec!` por\\nconveniência. A macro criará um novo `Vec` que contém os valores que damos\\n. Isso criará um novo `Vec \u003Ci32\u003E` que contém os valores `1`,` 2` e `3`:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,7,0": {
-    "value": "\"let v = vec![1, 2, 3];\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,8": {
-    "value": "\"Como nós damos valores iniciais  `i32`, Rust pode inferir que o tipo de `v`\\né `Vec \u003Ci32\u003E`, e a anotação de tipo não é necessária. Vejamos a seguir como\\nmodificar um vetor.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,9": {
-    "value": "\"Para criar um vetor e adicionar elementos a ele, podemos usar o método `push`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#body@0,9,1,0": {
-    "value": "\"Para criar um vetor e adicionar elementos a ele, podemos usar o método `push`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,10,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,13,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,6,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,6,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,29,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,12": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,15": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,22": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,28": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#open@0,9": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,12": {
-    "value": "\"Descartar um Vetor Descarta seus Elementos\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,15": {
-    "value": "\"Lendo Elementos do Vetor\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,2": {
-    "value": "\"Vetores\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,22": {
-    "value": "\"Referências Inválidas\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,28": {
-    "value": "\"Usando um Enum para Armazenar Vários Tipos\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,3": {
-    "value": "\"Criando um Novo Vetor\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-01-vectors#title@0,9": {
-    "value": "\"Modificando um Vetor\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -957,7 +957,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1154,9 +1154,9 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="vetores" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Vetores</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="vetores" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Vetores</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O primeiro tipo que iremos ver é <code>Vec&lt;T&gt;</code>, também conhecido como <em>vetor</em>. Vetores permitem guardar mais de um valor na mesma estrutura de dados que coloca todos os valores um ao lado do outro na memória. Vetores só podem guardar valores do mesmo tipo. Eles são úteis em situações onde há uma lista de itens, como as linha de texto em um arquivo ou preços de itens em um carrinho de compras.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-novo-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um Novo Vetor</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-novo-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um Novo Vetor</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para criar um novo vetor, vazio, chamamos a função <code>Vec::new</code>:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let v: Vec&lt;i32&gt; = Vec::new();
@@ -1175,7 +1175,7 @@ body.fpm-dark .ft_md a:visited code {
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Como nós damos valores iniciais  <code>i32</code>, Rust pode inferir que o tipo de <code>v</code> é <code>Vec &lt;i32&gt;</code>, e a anotação de tipo não é necessária. Vejamos a seguir como modificar um vetor.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="modificando-um-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,9&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Modificando um Vetor</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="modificando-um-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,9&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Modificando um Vetor</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para criar um vetor e adicionar elementos a ele, podemos usar o método <code>push</code>:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let mut v = Vec::new();
@@ -1195,7 +1195,7 @@ body.fpm-dark .ft_md a:visited code {
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Como qualquer variável que discutimos no Capítulo 3, se quisermos poder alterar seu valor, precisamos fazê-lo mutável com a palavra-chave <code>mut</code>. Os números que inserimos são todos do tipo <code>i32</code>, e Rust infere isso dos dados, por isso não precisamos da anotação <code>Vec &lt;i32&gt;</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="descartar-um-vetor-descarta-seus-elementos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,12&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Descartar um Vetor Descarta seus Elementos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="descartar-um-vetor-descarta-seus-elementos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,12&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Descartar um Vetor Descarta seus Elementos</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Como qualquer outro <code>struct</code>, um vetor será liberado quando ele sair do escopo:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">{
@@ -1215,7 +1215,7 @@ body.fpm-dark .ft_md a:visited code {
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Quando o vetor é descartado, todos os seus conteúdos também será descartado, o que significa esses inteiros que ele contém serão limpos. Isso pode parecer um ponto direto, mas pode ficar um pouco mais complicado quando começamos a introduzir referências aos elementos do vetor. Vamos abordar isso em seguida!</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="lendo-elementos-do-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Lendo Elementos do Vetor</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="lendo-elementos-do-vetor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Lendo Elementos do Vetor</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Agora que você sabe como criar, atualizar e destruir vetores,
 saber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a
 valores armazenados em um vetor. Nos exemplos, anotamos os tipos de
@@ -1254,7 +1254,7 @@ sintaxe de indexação ou o método <code>get</code>:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Quando você executar isso, você verá que com o primeiro método <code>[]</code>, Rust irá causar um <code>panic!</code> quando um elemento inexistente é referenciado. Este método seria preferível se você quiser que seu programa considere uma tentativa de acessar um elemento, passado o fim do vetor, para ser um erro fatal que deve finalizar o programa.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Quando é passado um índice que está fora da matriz para o método <code>get</code>, ele retorna <code>None</code> sem entrar em pânico. Você usaria isso se acessar um elemento além do alcance do vetor ocorrerá ocasionalmente sob circunstâncias normais. Seu código pode então ter lógica para lidar tanto com <code>Some(&amp;element)</code> ou <code>None</code>, como discutimos no Capítulo 6. Por exemplo, o O índice pode ser proveniente de uma pessoa que digite um número. Se eles acidentalmente insira um número que é muito grande e seu programa recebe um valor <code>None</code>, você poderia dizer ao usuário quantos itens estão no atual <code>Vec</code> e dar uma nova chance de inserir um valor válido. Isso seria mais amigável do que quebrar o programa por um erro de digitação!</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="referencias-invalidas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Referências Inválidas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="referencias-invalidas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Referências Inválidas</div>
 <div data-id="inner:0,0,0,1,3,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer as regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e quaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra que diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo. Essa regra se aplica neste exemplo, onde mantemos uma referência imutável ao primeiro elemento em um vetor e tentamos adicionar um elemento ao final:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" data-id="0,0,0,1,3,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,6,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,3,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let mut v = vec![1, 2, 3, 4, 5];
@@ -1299,7 +1299,7 @@ sintaxe de indexação ou o método <code>get</code>:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" data-id="0,0,0,1,3,1,6,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Este código pode parecer que deveria funcionar: por que uma referência ao primeiro elemento deveria se preocupar com o que muda sobre o final do vetor? A razão porque este código não é permitido é devido à forma como os vetores funcionam. Adicionando um novo elemento no final do vetor pode exigir a atribuição de nova alocação de memória e copiar os elementos antigos para o novo espaço, na circunstância de não haver espaço suficiente para colocar todos os elementos próximos um do outro onde o vetor estava. Nesse caso, a referência ao primeiro elemento apontaria para memória não alocada. As regras de empréstimo impedem que os programas acabem nessa situação.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" data-id="0,0,0,1,3,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,6:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><blockquote> <p>Nota: para mais informações, veja o Rustonomicon em <em><a href="https://doc.rust-lang.org/stable/nomicon/vec.html">https://doc.rust-lang.org/stable/nomicon/vec.html</a></em>.</p> </blockquote></div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="usando-um-enum-para-armazenar-varios-tipos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-01-vectors#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando um Enum para Armazenar Vários Tipos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="usando-um-enum-para-armazenar-varios-tipos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-01-vectors#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando um Enum para Armazenar Vários Tipos</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>No início deste capítulo, dissemos que os vetores só podem armazenar valores
 que são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos
 de uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,

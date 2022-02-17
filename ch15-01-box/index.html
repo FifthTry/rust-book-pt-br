@@ -12,6 +12,429 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,10,0": {
+    "value": "\"enum List {\\n    Cons(i32, List),\\n    Nil,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,11": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-2: A primeira tentativa de definir um enum\\npara representar uma estrutura de dados _cons list_ de valores `i32` \u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,12": {
+    "value": "\"\u003E Nota: estamos implementando uma cons list que guarda apenas valores `i32` para\\n\u003E os propósitos deste exemplo. Poderíamos tê-la implementado usando tipos\\n\u003E genéricos, conforme discutimos no Capítulo 10, para definir um tipo cons list\\n\u003E que poderia armazenar valores de qualquer tipo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,13": {
+    "value": "\"A listagem 15-3 mostra como fica o uso do tipo `List` para armazenar a lista\\n`1, 2, 3`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,14": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,15,0": {
+    "value": "\"use List::{Cons, Nil};\\n\\nfn main() {\\n    let list = Cons(1, Cons(2, Cons(3, Nil)));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,16": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-3: Usando o enum `List` para armazenar a lista\\n`1, 2, 3`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,17": {
+    "value": "\"O primeiro valor `Cons` contém `1` e outro valor `List`. Esse valor `List` é\\noutro `Cons` que contém `2` e outro valor `List`. Esse valor `List` é mais um\\n`Cons` que contém 3 e um valor `List`, que finalmente é `Nil`, a variante não\\nrecursiva que sinaliza o final da lista.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,18": {
+    "value": "\"Se tentarmos compilar o código na listagem 15-3, receberemos o erro mostrado na\\nlistagem 15-4:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,19,0": {
+    "value": "\"erro recursivo `List` tem tamanho infinito\\n --\u003E src/main.rs:1:1\\n  |\\n1 | enum List {\\n  | ^^^^^^^^^ tipo recursivo tem tamanho infinito\\n2 |     Cons(i32, List),\\n  |               ----- recursivo sem indireção\\n  |\\n  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `\u0026`) em algum lugar para\\n  tornar `List` representável\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,2": {
+    "value": "\"O ponteiro inteligente mais simples é um _box_ (literalmente, \\\"caixa\\\"), cujo\\ntipo é escrito `Box\u003CT\u003E`. _Boxes_ (plural de _box_) lhe permitem armazenar dados\\nno heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no\\nheap. Confira o Capítulo 4 para rever a diferença entre pilha e heap.\\n\\nBoxes não têm custo adicional de desempenho além de armazenar dados no heap em\\nvez de na pilha. Mas eles também não têm muitas habilidades a mais. Você irá\\nusá-los mais comumente nestas situações:\\n\\n- Quando você tem um tipo cujo tamanho não é possível saber em tempo de\\n  compilação, e você quer usar um valor desse tipo em um contexto que precisa\\n  saber um tamanho exato;\\n- Quando você tem uma quantidade grande de dados e você quer transferir a posse\\n  mas garantir que os dados não serão copiados quando você o fizer;\\n- Quando você quer possuir um valor e só se importa se é um tipo que implementa\\n  uma trait específica, em vez de saber o tipo concreto.\\n\\nVamos demonstrar a primeira situação nesta seção. Mas antes disso, vamos falar\\num pouco mais sobre as outras duas situações: no segundo caso, transferir posse\\nde uma quantidade grande de dados pode levar muito tempo porque os dados são\\ncopiados de um lado para o outro na pilha. Para melhorar o desempenho nessa\\nsituação, podemos armazenar essa quantidade grande de dados no heap em um box.\\nAssim, apenas uma quantidade pequena de dados referentes ao ponteiro é copiada\\nna pilha, e os dados em si ficam em um lugar só no heap. O terceiro caso é\\nconhecido como um _objeto de trait_ (_trait object_), e o Capítulo 17 dedica uma\\nseção inteira somente a esse tópico. Então o que você aprender aqui você irá\\naplicar de novo no Capítulo 17!\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,2,1,0": {
+    "value": "\"O ponteiro inteligente mais simples é um _box_ (literalmente, \\\"caixa\\\"), cujo\\ntipo é escrito `Box\u003CT\u003E`. _Boxes_ (plural de _box_) lhe permitem armazenar dados\\nno heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no\\nheap. Confira o Capítulo 4 para rever a diferença entre pilha e heap.\\n\\nBoxes não têm custo adicional de desempenho além de armazenar dados no heap em\\nvez de na pilha. Mas eles também não têm muitas habilidades a mais. Você irá\\nusá-los mais comumente nestas situações:\\n\\n- Quando você tem um tipo cujo tamanho não é possível saber em tempo de\\n  compilação, e você quer usar um valor desse tipo em um contexto que precisa\\n  saber um tamanho exato;\\n- Quando você tem uma quantidade grande de dados e você quer transferir a posse\\n  mas garantir que os dados não serão copiados quando você o fizer;\\n- Quando você quer possuir um valor e só se importa se é um tipo que implementa\\n  uma trait específica, em vez de saber o tipo concreto.\\n\\nVamos demonstrar a primeira situação nesta seção. Mas antes disso, vamos falar\\num pouco mais sobre as outras duas situações: no segundo caso, transferir posse\\nde uma quantidade grande de dados pode levar muito tempo porque os dados são\\ncopiados de um lado para o outro na pilha. Para melhorar o desempenho nessa\\nsituação, podemos armazenar essa quantidade grande de dados no heap em um box.\\nAssim, apenas uma quantidade pequena de dados referentes ao ponteiro é copiada\\nna pilha, e os dados em si ficam em um lugar só no heap. O terceiro caso é\\nconhecido como um _objeto de trait_ (_trait object_), e o Capítulo 17 dedica uma\\nseção inteira somente a esse tópico. Então o que você aprender aqui você irá\\naplicar de novo no Capítulo 17!\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,20": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-4: O erro que recebemos quando tentamos\\ndefinir um enum recursivo\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,21": {
+    "value": "\"O erro diz que esse tipo \\\"tem tamanho infinito\\\". A razão é que nós definimos\\n`List` com uma variante que é recursiva: ela contém um outro valor de si mesma\\ndiretamente. Como resultado, o Rust não consegue determinar quanto espaço ele\\nprecisa para armazenar um valor `List`. Vamos analizar por partes por que\\nrecebemos esse erro: primeiro, vamos ver como o Rust decide quanto espaço\\nprecisa para armazenar o valor de um tipo _não_ recursivo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,22": {
+    "value": "\"Recorde o enum `Mensagem` que definimos na Listagem 6-2 quando discutimos\\ndefinições de enums no Capítulo 6:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,22,1,0": {
+    "value": "\"Recorde o enum `Mensagem` que definimos na Listagem 6-2 quando discutimos\\ndefinições de enums no Capítulo 6:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,23,0": {
+    "value": "\"enum Mensagem {\\n    Sair,\\n    Mover { x: i32, y: i32 },\\n    Escrever(String),\\n    MudarCor(i32, i32, i32),\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,24": {
+    "value": "\"Para determinar quanto espaço alocar para um valor `Mensagem`, o Rust percorre\\ncada variante para ver qual precisa de mais espaço. O Rust vê que\\n`Mensagem::Sair` não precisa de nenhum espaço, `Mensagem::Mover` precisa de\\nespaço suficiente para armazenar dois valores `i32`, e assim por diante. Como\\napenas uma variante será usada, o máximo de espaço de que um valor `Mensagem`\\nvai precisar é o espaço que levaria para armazenar a maior de suas variantes.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,25": {
+    "value": "\"Contraste isso com o que acontece quando o Rust tenta determinar quanto espaço é\\nnecessário para um tipo recursivo como o enum `List` na Listagem 15-2. O\\ncompilador começa olhando a variante `Cons`, que contém um valor do tipo `i32` e\\num valor do tipo `List`. Portanto, `Cons` precisa de uma quantidade de espaço\\nigual ao tamanho de um `i32` mais o tamanho de um `List`. Para determinar de\\nquanta memória o tipo `List` precisa, o compilador olha para suas variantes,\\ncomeçando com a `Cons`. A variante `Cons` contém um valor do tipo `i32` e um\\nvalor do tipo `List`, e esse processo continua infinitamente, conforme mostra a\\nFigura 15-1:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,26": {
+    "value": "\"\u003Cimg alt=\\\"Uma cons list infinita\\\" src=\\\"img/trpl15-01.svg\\\" class=\\\"center\\\"\\nstyle=\\\"width: 50%;\\\" /\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-1: Uma `List` infinita feita de infinitas\\nvariantes `Cons`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,28": {
+    "value": "\"Como o Rust não consegue descobrir quanto espaço alocar para tipos definidos\\nrecursivamente, o compilador dá o erro na Listagem 15-4. Mas o erro inclui esta\\nútil sugestão:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,28,1,0": {
+    "value": "\"Como o Rust não consegue descobrir quanto espaço alocar para tipos definidos\\nrecursivamente, o compilador dá o erro na Listagem 15-4. Mas o erro inclui esta\\nútil sugestão:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,29,0": {
+    "value": "\"  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `\u0026`) em algum lugar para\\n  tornar `List` representável\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,3": {
+    "value": "\"Antes de discutirmos esse caso de uso para o `Box\u003CT\u003E`, vamos cobrir a sintaxe e\\ncomo interagir com valores armazenados dentro de um `Box\u003CT\u003E`.\\n\\nA Listagem 15-1 mostra como usar um box para armazenar um valor `i32` no heap:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,3,1,0": {
+    "value": "\"Antes de discutirmos esse caso de uso para o `Box\u003CT\u003E`, vamos cobrir a sintaxe e\\ncomo interagir com valores armazenados dentro de um `Box\u003CT\u003E`.\\n\\nA Listagem 15-1 mostra como usar um box para armazenar um valor `i32` no heap:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,30": {
+    "value": "\"Nessa sugestão, \\\"indireção\\\" significa que, em vez de armazenar um valor\\ndiretamente, devemos mudar a estrutura de dados para armazenar um ponteiro para\\no valor.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,31": {
+    "value": "\"Como um `Box\u003CT\u003E` é um ponteiro, o Rust sempre sabe de quanto espaço ele precisa:\\no tamanho de um ponteiro não muda dependendo da quantidade de dados para a qual\\nele aponta. Isso significa que podemos colocar um `Box\u003CT\u003E` dentro da variante\\n`Cons` em vez de outro valor `List` diretamente. O `Box\u003CT\u003E` vai apontar para o\\npróximo valor `List`, que vai estar no heap em vez de dentro da variante `Cons`.\\nConceitualmente, ainda temos uma lista, criada de listas \\\"contendo\\\" outras\\nlistas, mas essa implementação agora é mais como os itens estando um do lado do\\noutro do que um dentro do outro.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,32": {
+    "value": "\"Podemos mudar a definição do enum `List` na Listagem 15-2 e o uso de `List` na\\nListagem 15-3 para o código na Listagem 15-5, que compila:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,33": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,34,0": {
+    "value": "\"enum List {\\n    Cons(i32, Box\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\n\\nfn main() {\\n    let list = Cons(1,\\n        Box::new(Cons(2,\\n            Box::new(Cons(3,\\n                Box::new(Nil))))));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,35": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-5: Definição de `List` que usa `Box\u003CT\u003E` para\\nter um tamanho conhecido\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,36": {
+    "value": "\"A variante `Cons` vai precisar do tamanho de um `i32` mais o espaço para\\narmazenar os dados do ponteiro box. A variante `Nil` não armazena nenhum valor,\\nentão ela precisa de menos espaço que a variante `Cons`. Agora sabemos que\\nqualquer valor `List` irá ocupar o tamanho de um `i32` mais o tamanho dos dados\\nde um ponteiro box. Usando um box, nós quebramos a cadeia recursiva, infinita,\\npara que o compilador pudesse determinar o espaço que ele precisa para\\narmarzenar um valor `List`. A Figura 15-2 mostra como ficou a variante `Cons`\\nagora:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,37": {
+    "value": "\"\u003Cimg alt=\\\"Uma lista de Cons infinita\\\" src=\\\"img/trpl15-02.svg\\\" class=\\\"center\\\" /\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,38": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-2: Um `List` que não tem tamanho infinito porque\\n`Cons` contém um `Box`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,39": {
+    "value": "\"Boxes apenas proveem a indireção e a alocação no heap; eles não têm nenhuma\\noutra habilidade especial, como as que vamos ver nos outros tipos de ponteiros\\ninteligentes. Eles também não têm nenhum dos custos adicionais de desempenho que\\nessas habilidades demandam, então eles podem ser úteis em casos como o da cons\\nlist onde a indireção é a única funcionalidade de que precisamos. No Capítulo\\n17 também vamos ver mais casos de uso para as boxes.\\n\\nO tipo `Box\u003CT\u003E` é um ponteiro inteligente porque ele implementa a trait `Deref`,\\no que permite que valores `Box\u003CT\u003E` sejam usados como referências. Quando um\\nvalor `Box\u003CT\u003E` sai de escopo, os dados do heap para os quais o box aponta também\\nsão liberados porque o tipo implementa a trait `Drop`. Vamos explorar essas duas\\ntraits em mais detalhe. Elas serão ainda mais importantes para a funcionalidade\\nprovida pelos outros ponteiros inteligentes que vamos discutir no resto deste\\ncapítulo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,4,0": {
+    "value": "\"fn main() {\\n    let b = Box::new(5);\\n    println!(\\\"b = {}\\\", b);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-1: Armazenando um valor `i32` no heap usando\\num box\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,6": {
+    "value": "\"Nós definimos a variável `b` como tendo o valor de um `Box` que aponta para o\\nvalor `5`, que está alocado no heap. Esse programa irá imprimir `b = 5`; nesse\\ncaso, podemos acessar o dado no box de um jeito similar ao que usaríamos se esse\\ndado estivesse na pilha. Da mesma forma que com qualquer valor possuído, quando\\num box sai de escopo, como o `b` no fim da `main`, ele é desalocado. A\\ndesalocação acontece para o box (armazenado na pilha) e para os dados aos quais\\nele aponta (armazenados no heap).\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,7": {
+    "value": "\"Colocar um único valor no heap não é muito útil, então você normalmente não vai\\nusar boxes sozinhos desse jeito. Ter valores como um único `i32` na pilha, onde\\nsão armazenados por padrão, é mais apropriado para a maioria das situações.\\nVamos dar uma olhada em um caso onde o box nos possibilita definir tipos que não\\npoderíamos definir sem ele.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,8": {
+    "value": "\"Em tempo de compilação, o Rust precisa saber quanto espaço um tipo ocupa. Um\\n_tipo recursivo_ (_recursive type_), onde um valor pode ter como parte de si\\nmesmo outro valor do mesmo tipo, é um tipo cujo tamanho não se pode saber em\\ntempo de compilação. Como esse aninhamento de valores poderia em teoria\\ncontinuar infinitamente, o Rust não sabe quanto espaço um valor de um tipo\\nrecursivo precisa. Porém, boxes têm um tamanho conhecido, então podemos ter\\ntipos recursivos inserindo um box em sua definição.\\n\\nVamos explorar a _lista ligada_ (_cons list_), que é um tipo de dados comum em\\nlinguagens de programação funcional, como um exemplo de tipo recursivo. O tipo\\npara lista ligada que vamos definir é bem básico exceto pela recursão; portanto,\\nos conceitos no exemplo que vamos trabalhar vão ser úteis sempre que você se\\nencontrar em situações mais complexas envolvendo tipos recursivos.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,8,1,0": {
+    "value": "\"Em tempo de compilação, o Rust precisa saber quanto espaço um tipo ocupa. Um\\n_tipo recursivo_ (_recursive type_), onde um valor pode ter como parte de si\\nmesmo outro valor do mesmo tipo, é um tipo cujo tamanho não se pode saber em\\ntempo de compilação. Como esse aninhamento de valores poderia em teoria\\ncontinuar infinitamente, o Rust não sabe quanto espaço um valor de um tipo\\nrecursivo precisa. Porém, boxes têm um tamanho conhecido, então podemos ter\\ntipos recursivos inserindo um box em sua definição.\\n\\nVamos explorar a _lista ligada_ (_cons list_), que é um tipo de dados comum em\\nlinguagens de programação funcional, como um exemplo de tipo recursivo. O tipo\\npara lista ligada que vamos definir é bem básico exceto pela recursão; portanto,\\nos conceitos no exemplo que vamos trabalhar vão ser úteis sempre que você se\\nencontrar em situações mais complexas envolvendo tipos recursivos.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,9": {
+    "value": "\"A _cons list_ é uma estrutura de dados que vem da linguagem de programação Lisp\\ne seus dialetos. Em Lisp, a função `cons` (abreviação de \\\"construction\\nfunction\\\", função de construção) constrói um novo par a partir de seus dois\\nargumentos, que geralmente são um valor único e um outro par. Esses pares\\ncontendo pares formam uma lista.\\n\\nO conceito da função cons acabou se tornando parte do jargão mais geral de\\nprogramação funcional: \\\"to cons x onto y\\\" (\\\"consar\\\" x em y, grosso modo) em\\ninglês informalmente significa construir uma nova instância de um par, colocando\\no elemento x no começo desse novo par, seguido pelo par y.\\n\\nCada item em uma cons list contém dois elementos: o valor do item atual e o\\npróximo item. O último item na lista contém apenas um valor chamado de `Nil`,\\nsem um próximo item. Uma cons list é produzida chamando-se recursivamente a\\nfunção `cons`. O nome canônico que denota o caso base da recursão é `Nil`. Note\\nque isso não é o mesmo que o conceito de \\\"null\\\" ou \\\"nil\\\" visto no Capítulo 6,\\nque é um valor inválido ou ausente.\\n\\nApesar de linguagens de programação funcionais usarem cons lists frequentemente,\\nessa não é uma estrutura de dados muito usada em Rust. Na maioria das vezes em\\nque você tem uma lista de itens em Rust, `Vec\u003CT\u003E` é uma escolha melhor. Outros\\ntipos recursivos _são_ úteis em diversas situações. Mas começando com a cons\\nlist, podemos explorar como boxes nos permitem definir um tipo recursivo sem\\nmuita distração.\\n\\nA Listagem 15-2 contém uma definição de um enum para a cons list. Note que este\\ncódigo não compila ainda porque o tipo `List` não tem um tamanho conhecido, como\\ndemonstraremos:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#body@0,9,1,0": {
+    "value": "\"A _cons list_ é uma estrutura de dados que vem da linguagem de programação Lisp\\ne seus dialetos. Em Lisp, a função `cons` (abreviação de \\\"construction\\nfunction\\\", função de construção) constrói um novo par a partir de seus dois\\nargumentos, que geralmente são um valor único e um outro par. Esses pares\\ncontendo pares formam uma lista.\\n\\nO conceito da função cons acabou se tornando parte do jargão mais geral de\\nprogramação funcional: \\\"to cons x onto y\\\" (\\\"consar\\\" x em y, grosso modo) em\\ninglês informalmente significa construir uma nova instância de um par, colocando\\no elemento x no começo desse novo par, seguido pelo par y.\\n\\nCada item em uma cons list contém dois elementos: o valor do item atual e o\\npróximo item. O último item na lista contém apenas um valor chamado de `Nil`,\\nsem um próximo item. Uma cons list é produzida chamando-se recursivamente a\\nfunção `cons`. O nome canônico que denota o caso base da recursão é `Nil`. Note\\nque isso não é o mesmo que o conceito de \\\"null\\\" ou \\\"nil\\\" visto no Capítulo 6,\\nque é um valor inválido ou ausente.\\n\\nApesar de linguagens de programação funcionais usarem cons lists frequentemente,\\nessa não é uma estrutura de dados muito usada em Rust. Na maioria das vezes em\\nque você tem uma lista de itens em Rust, `Vec\u003CT\u003E` é uma escolha melhor. Outros\\ntipos recursivos _são_ úteis em diversas situações. Mas começando com a cons\\nlist, podemos explorar como boxes nos permitem definir um tipo recursivo sem\\nmuita distração.\\n\\nA Listagem 15-2 contém uma definição de um enum para a cons list. Note que este\\ncódigo não compila ainda porque o tipo `List` não tem um tamanho conhecido, como\\ndemonstraremos:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,10,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,29,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,34,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,22": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,28": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,8": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,9": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,2": {
+    "value": "\"`Box\u003CT\u003E` Aponta para Dados no Heap e Tem Tamanho Conhecido\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,22": {
+    "value": "\"Computando o Tamanho de um Tipo Não Recursivo\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,28": {
+    "value": "\"Usando `Box\u003CT\u003E` para Conseguir um Tipo Recursivo de Tamanho Conhecido\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,3": {
+    "value": "\"Usando um `Box\u003CT\u003E` para Armazenar Dados no Heap\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,8": {
+    "value": "\"Boxes Possibilitam Tipos Recursivos\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-01-box#title@0,9": {
+    "value": "\"Mais Informações sobre a Cons List\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -295,429 +718,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-01-box#body@0,10,0": {
-    "value": "\"enum List {\\n    Cons(i32, List),\\n    Nil,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,11": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-2: A primeira tentativa de definir um enum\\npara representar uma estrutura de dados _cons list_ de valores `i32` \u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,12": {
-    "value": "\"\u003E Nota: estamos implementando uma cons list que guarda apenas valores `i32` para\\n\u003E os propósitos deste exemplo. Poderíamos tê-la implementado usando tipos\\n\u003E genéricos, conforme discutimos no Capítulo 10, para definir um tipo cons list\\n\u003E que poderia armazenar valores de qualquer tipo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,13": {
-    "value": "\"A listagem 15-3 mostra como fica o uso do tipo `List` para armazenar a lista\\n`1, 2, 3`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,14": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,15,0": {
-    "value": "\"use List::{Cons, Nil};\\n\\nfn main() {\\n    let list = Cons(1, Cons(2, Cons(3, Nil)));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,16": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-3: Usando o enum `List` para armazenar a lista\\n`1, 2, 3`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,17": {
-    "value": "\"O primeiro valor `Cons` contém `1` e outro valor `List`. Esse valor `List` é\\noutro `Cons` que contém `2` e outro valor `List`. Esse valor `List` é mais um\\n`Cons` que contém 3 e um valor `List`, que finalmente é `Nil`, a variante não\\nrecursiva que sinaliza o final da lista.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,18": {
-    "value": "\"Se tentarmos compilar o código na listagem 15-3, receberemos o erro mostrado na\\nlistagem 15-4:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,19,0": {
-    "value": "\"erro recursivo `List` tem tamanho infinito\\n --\u003E src/main.rs:1:1\\n  |\\n1 | enum List {\\n  | ^^^^^^^^^ tipo recursivo tem tamanho infinito\\n2 |     Cons(i32, List),\\n  |               ----- recursivo sem indireção\\n  |\\n  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `\u0026`) em algum lugar para\\n  tornar `List` representável\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,2": {
-    "value": "\"O ponteiro inteligente mais simples é um _box_ (literalmente, \\\"caixa\\\"), cujo\\ntipo é escrito `Box\u003CT\u003E`. _Boxes_ (plural de _box_) lhe permitem armazenar dados\\nno heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no\\nheap. Confira o Capítulo 4 para rever a diferença entre pilha e heap.\\n\\nBoxes não têm custo adicional de desempenho além de armazenar dados no heap em\\nvez de na pilha. Mas eles também não têm muitas habilidades a mais. Você irá\\nusá-los mais comumente nestas situações:\\n\\n- Quando você tem um tipo cujo tamanho não é possível saber em tempo de\\n  compilação, e você quer usar um valor desse tipo em um contexto que precisa\\n  saber um tamanho exato;\\n- Quando você tem uma quantidade grande de dados e você quer transferir a posse\\n  mas garantir que os dados não serão copiados quando você o fizer;\\n- Quando você quer possuir um valor e só se importa se é um tipo que implementa\\n  uma trait específica, em vez de saber o tipo concreto.\\n\\nVamos demonstrar a primeira situação nesta seção. Mas antes disso, vamos falar\\num pouco mais sobre as outras duas situações: no segundo caso, transferir posse\\nde uma quantidade grande de dados pode levar muito tempo porque os dados são\\ncopiados de um lado para o outro na pilha. Para melhorar o desempenho nessa\\nsituação, podemos armazenar essa quantidade grande de dados no heap em um box.\\nAssim, apenas uma quantidade pequena de dados referentes ao ponteiro é copiada\\nna pilha, e os dados em si ficam em um lugar só no heap. O terceiro caso é\\nconhecido como um _objeto de trait_ (_trait object_), e o Capítulo 17 dedica uma\\nseção inteira somente a esse tópico. Então o que você aprender aqui você irá\\naplicar de novo no Capítulo 17!\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,2,1,0": {
-    "value": "\"O ponteiro inteligente mais simples é um _box_ (literalmente, \\\"caixa\\\"), cujo\\ntipo é escrito `Box\u003CT\u003E`. _Boxes_ (plural de _box_) lhe permitem armazenar dados\\nno heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no\\nheap. Confira o Capítulo 4 para rever a diferença entre pilha e heap.\\n\\nBoxes não têm custo adicional de desempenho além de armazenar dados no heap em\\nvez de na pilha. Mas eles também não têm muitas habilidades a mais. Você irá\\nusá-los mais comumente nestas situações:\\n\\n- Quando você tem um tipo cujo tamanho não é possível saber em tempo de\\n  compilação, e você quer usar um valor desse tipo em um contexto que precisa\\n  saber um tamanho exato;\\n- Quando você tem uma quantidade grande de dados e você quer transferir a posse\\n  mas garantir que os dados não serão copiados quando você o fizer;\\n- Quando você quer possuir um valor e só se importa se é um tipo que implementa\\n  uma trait específica, em vez de saber o tipo concreto.\\n\\nVamos demonstrar a primeira situação nesta seção. Mas antes disso, vamos falar\\num pouco mais sobre as outras duas situações: no segundo caso, transferir posse\\nde uma quantidade grande de dados pode levar muito tempo porque os dados são\\ncopiados de um lado para o outro na pilha. Para melhorar o desempenho nessa\\nsituação, podemos armazenar essa quantidade grande de dados no heap em um box.\\nAssim, apenas uma quantidade pequena de dados referentes ao ponteiro é copiada\\nna pilha, e os dados em si ficam em um lugar só no heap. O terceiro caso é\\nconhecido como um _objeto de trait_ (_trait object_), e o Capítulo 17 dedica uma\\nseção inteira somente a esse tópico. Então o que você aprender aqui você irá\\naplicar de novo no Capítulo 17!\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,20": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-4: O erro que recebemos quando tentamos\\ndefinir um enum recursivo\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,21": {
-    "value": "\"O erro diz que esse tipo \\\"tem tamanho infinito\\\". A razão é que nós definimos\\n`List` com uma variante que é recursiva: ela contém um outro valor de si mesma\\ndiretamente. Como resultado, o Rust não consegue determinar quanto espaço ele\\nprecisa para armazenar um valor `List`. Vamos analizar por partes por que\\nrecebemos esse erro: primeiro, vamos ver como o Rust decide quanto espaço\\nprecisa para armazenar o valor de um tipo _não_ recursivo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,22": {
-    "value": "\"Recorde o enum `Mensagem` que definimos na Listagem 6-2 quando discutimos\\ndefinições de enums no Capítulo 6:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,22,1,0": {
-    "value": "\"Recorde o enum `Mensagem` que definimos na Listagem 6-2 quando discutimos\\ndefinições de enums no Capítulo 6:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,23,0": {
-    "value": "\"enum Mensagem {\\n    Sair,\\n    Mover { x: i32, y: i32 },\\n    Escrever(String),\\n    MudarCor(i32, i32, i32),\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,24": {
-    "value": "\"Para determinar quanto espaço alocar para um valor `Mensagem`, o Rust percorre\\ncada variante para ver qual precisa de mais espaço. O Rust vê que\\n`Mensagem::Sair` não precisa de nenhum espaço, `Mensagem::Mover` precisa de\\nespaço suficiente para armazenar dois valores `i32`, e assim por diante. Como\\napenas uma variante será usada, o máximo de espaço de que um valor `Mensagem`\\nvai precisar é o espaço que levaria para armazenar a maior de suas variantes.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,25": {
-    "value": "\"Contraste isso com o que acontece quando o Rust tenta determinar quanto espaço é\\nnecessário para um tipo recursivo como o enum `List` na Listagem 15-2. O\\ncompilador começa olhando a variante `Cons`, que contém um valor do tipo `i32` e\\num valor do tipo `List`. Portanto, `Cons` precisa de uma quantidade de espaço\\nigual ao tamanho de um `i32` mais o tamanho de um `List`. Para determinar de\\nquanta memória o tipo `List` precisa, o compilador olha para suas variantes,\\ncomeçando com a `Cons`. A variante `Cons` contém um valor do tipo `i32` e um\\nvalor do tipo `List`, e esse processo continua infinitamente, conforme mostra a\\nFigura 15-1:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,26": {
-    "value": "\"\u003Cimg alt=\\\"Uma cons list infinita\\\" src=\\\"img/trpl15-01.svg\\\" class=\\\"center\\\"\\nstyle=\\\"width: 50%;\\\" /\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-1: Uma `List` infinita feita de infinitas\\nvariantes `Cons`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,28": {
-    "value": "\"Como o Rust não consegue descobrir quanto espaço alocar para tipos definidos\\nrecursivamente, o compilador dá o erro na Listagem 15-4. Mas o erro inclui esta\\nútil sugestão:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,28,1,0": {
-    "value": "\"Como o Rust não consegue descobrir quanto espaço alocar para tipos definidos\\nrecursivamente, o compilador dá o erro na Listagem 15-4. Mas o erro inclui esta\\nútil sugestão:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,29,0": {
-    "value": "\"  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `\u0026`) em algum lugar para\\n  tornar `List` representável\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,3": {
-    "value": "\"Antes de discutirmos esse caso de uso para o `Box\u003CT\u003E`, vamos cobrir a sintaxe e\\ncomo interagir com valores armazenados dentro de um `Box\u003CT\u003E`.\\n\\nA Listagem 15-1 mostra como usar um box para armazenar um valor `i32` no heap:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,3,1,0": {
-    "value": "\"Antes de discutirmos esse caso de uso para o `Box\u003CT\u003E`, vamos cobrir a sintaxe e\\ncomo interagir com valores armazenados dentro de um `Box\u003CT\u003E`.\\n\\nA Listagem 15-1 mostra como usar um box para armazenar um valor `i32` no heap:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,30": {
-    "value": "\"Nessa sugestão, \\\"indireção\\\" significa que, em vez de armazenar um valor\\ndiretamente, devemos mudar a estrutura de dados para armazenar um ponteiro para\\no valor.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,31": {
-    "value": "\"Como um `Box\u003CT\u003E` é um ponteiro, o Rust sempre sabe de quanto espaço ele precisa:\\no tamanho de um ponteiro não muda dependendo da quantidade de dados para a qual\\nele aponta. Isso significa que podemos colocar um `Box\u003CT\u003E` dentro da variante\\n`Cons` em vez de outro valor `List` diretamente. O `Box\u003CT\u003E` vai apontar para o\\npróximo valor `List`, que vai estar no heap em vez de dentro da variante `Cons`.\\nConceitualmente, ainda temos uma lista, criada de listas \\\"contendo\\\" outras\\nlistas, mas essa implementação agora é mais como os itens estando um do lado do\\noutro do que um dentro do outro.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,32": {
-    "value": "\"Podemos mudar a definição do enum `List` na Listagem 15-2 e o uso de `List` na\\nListagem 15-3 para o código na Listagem 15-5, que compila:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,33": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,34,0": {
-    "value": "\"enum List {\\n    Cons(i32, Box\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\n\\nfn main() {\\n    let list = Cons(1,\\n        Box::new(Cons(2,\\n            Box::new(Cons(3,\\n                Box::new(Nil))))));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,35": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-5: Definição de `List` que usa `Box\u003CT\u003E` para\\nter um tamanho conhecido\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,36": {
-    "value": "\"A variante `Cons` vai precisar do tamanho de um `i32` mais o espaço para\\narmazenar os dados do ponteiro box. A variante `Nil` não armazena nenhum valor,\\nentão ela precisa de menos espaço que a variante `Cons`. Agora sabemos que\\nqualquer valor `List` irá ocupar o tamanho de um `i32` mais o tamanho dos dados\\nde um ponteiro box. Usando um box, nós quebramos a cadeia recursiva, infinita,\\npara que o compilador pudesse determinar o espaço que ele precisa para\\narmarzenar um valor `List`. A Figura 15-2 mostra como ficou a variante `Cons`\\nagora:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,37": {
-    "value": "\"\u003Cimg alt=\\\"Uma lista de Cons infinita\\\" src=\\\"img/trpl15-02.svg\\\" class=\\\"center\\\" /\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,38": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-2: Um `List` que não tem tamanho infinito porque\\n`Cons` contém um `Box`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,39": {
-    "value": "\"Boxes apenas proveem a indireção e a alocação no heap; eles não têm nenhuma\\noutra habilidade especial, como as que vamos ver nos outros tipos de ponteiros\\ninteligentes. Eles também não têm nenhum dos custos adicionais de desempenho que\\nessas habilidades demandam, então eles podem ser úteis em casos como o da cons\\nlist onde a indireção é a única funcionalidade de que precisamos. No Capítulo\\n17 também vamos ver mais casos de uso para as boxes.\\n\\nO tipo `Box\u003CT\u003E` é um ponteiro inteligente porque ele implementa a trait `Deref`,\\no que permite que valores `Box\u003CT\u003E` sejam usados como referências. Quando um\\nvalor `Box\u003CT\u003E` sai de escopo, os dados do heap para os quais o box aponta também\\nsão liberados porque o tipo implementa a trait `Drop`. Vamos explorar essas duas\\ntraits em mais detalhe. Elas serão ainda mais importantes para a funcionalidade\\nprovida pelos outros ponteiros inteligentes que vamos discutir no resto deste\\ncapítulo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,4,0": {
-    "value": "\"fn main() {\\n    let b = Box::new(5);\\n    println!(\\\"b = {}\\\", b);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-1: Armazenando um valor `i32` no heap usando\\num box\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,6": {
-    "value": "\"Nós definimos a variável `b` como tendo o valor de um `Box` que aponta para o\\nvalor `5`, que está alocado no heap. Esse programa irá imprimir `b = 5`; nesse\\ncaso, podemos acessar o dado no box de um jeito similar ao que usaríamos se esse\\ndado estivesse na pilha. Da mesma forma que com qualquer valor possuído, quando\\num box sai de escopo, como o `b` no fim da `main`, ele é desalocado. A\\ndesalocação acontece para o box (armazenado na pilha) e para os dados aos quais\\nele aponta (armazenados no heap).\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,7": {
-    "value": "\"Colocar um único valor no heap não é muito útil, então você normalmente não vai\\nusar boxes sozinhos desse jeito. Ter valores como um único `i32` na pilha, onde\\nsão armazenados por padrão, é mais apropriado para a maioria das situações.\\nVamos dar uma olhada em um caso onde o box nos possibilita definir tipos que não\\npoderíamos definir sem ele.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,8": {
-    "value": "\"Em tempo de compilação, o Rust precisa saber quanto espaço um tipo ocupa. Um\\n_tipo recursivo_ (_recursive type_), onde um valor pode ter como parte de si\\nmesmo outro valor do mesmo tipo, é um tipo cujo tamanho não se pode saber em\\ntempo de compilação. Como esse aninhamento de valores poderia em teoria\\ncontinuar infinitamente, o Rust não sabe quanto espaço um valor de um tipo\\nrecursivo precisa. Porém, boxes têm um tamanho conhecido, então podemos ter\\ntipos recursivos inserindo um box em sua definição.\\n\\nVamos explorar a _lista ligada_ (_cons list_), que é um tipo de dados comum em\\nlinguagens de programação funcional, como um exemplo de tipo recursivo. O tipo\\npara lista ligada que vamos definir é bem básico exceto pela recursão; portanto,\\nos conceitos no exemplo que vamos trabalhar vão ser úteis sempre que você se\\nencontrar em situações mais complexas envolvendo tipos recursivos.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,8,1,0": {
-    "value": "\"Em tempo de compilação, o Rust precisa saber quanto espaço um tipo ocupa. Um\\n_tipo recursivo_ (_recursive type_), onde um valor pode ter como parte de si\\nmesmo outro valor do mesmo tipo, é um tipo cujo tamanho não se pode saber em\\ntempo de compilação. Como esse aninhamento de valores poderia em teoria\\ncontinuar infinitamente, o Rust não sabe quanto espaço um valor de um tipo\\nrecursivo precisa. Porém, boxes têm um tamanho conhecido, então podemos ter\\ntipos recursivos inserindo um box em sua definição.\\n\\nVamos explorar a _lista ligada_ (_cons list_), que é um tipo de dados comum em\\nlinguagens de programação funcional, como um exemplo de tipo recursivo. O tipo\\npara lista ligada que vamos definir é bem básico exceto pela recursão; portanto,\\nos conceitos no exemplo que vamos trabalhar vão ser úteis sempre que você se\\nencontrar em situações mais complexas envolvendo tipos recursivos.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,9": {
-    "value": "\"A _cons list_ é uma estrutura de dados que vem da linguagem de programação Lisp\\ne seus dialetos. Em Lisp, a função `cons` (abreviação de \\\"construction\\nfunction\\\", função de construção) constrói um novo par a partir de seus dois\\nargumentos, que geralmente são um valor único e um outro par. Esses pares\\ncontendo pares formam uma lista.\\n\\nO conceito da função cons acabou se tornando parte do jargão mais geral de\\nprogramação funcional: \\\"to cons x onto y\\\" (\\\"consar\\\" x em y, grosso modo) em\\ninglês informalmente significa construir uma nova instância de um par, colocando\\no elemento x no começo desse novo par, seguido pelo par y.\\n\\nCada item em uma cons list contém dois elementos: o valor do item atual e o\\npróximo item. O último item na lista contém apenas um valor chamado de `Nil`,\\nsem um próximo item. Uma cons list é produzida chamando-se recursivamente a\\nfunção `cons`. O nome canônico que denota o caso base da recursão é `Nil`. Note\\nque isso não é o mesmo que o conceito de \\\"null\\\" ou \\\"nil\\\" visto no Capítulo 6,\\nque é um valor inválido ou ausente.\\n\\nApesar de linguagens de programação funcionais usarem cons lists frequentemente,\\nessa não é uma estrutura de dados muito usada em Rust. Na maioria das vezes em\\nque você tem uma lista de itens em Rust, `Vec\u003CT\u003E` é uma escolha melhor. Outros\\ntipos recursivos _são_ úteis em diversas situações. Mas começando com a cons\\nlist, podemos explorar como boxes nos permitem definir um tipo recursivo sem\\nmuita distração.\\n\\nA Listagem 15-2 contém uma definição de um enum para a cons list. Note que este\\ncódigo não compila ainda porque o tipo `List` não tem um tamanho conhecido, como\\ndemonstraremos:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#body@0,9,1,0": {
-    "value": "\"A _cons list_ é uma estrutura de dados que vem da linguagem de programação Lisp\\ne seus dialetos. Em Lisp, a função `cons` (abreviação de \\\"construction\\nfunction\\\", função de construção) constrói um novo par a partir de seus dois\\nargumentos, que geralmente são um valor único e um outro par. Esses pares\\ncontendo pares formam uma lista.\\n\\nO conceito da função cons acabou se tornando parte do jargão mais geral de\\nprogramação funcional: \\\"to cons x onto y\\\" (\\\"consar\\\" x em y, grosso modo) em\\ninglês informalmente significa construir uma nova instância de um par, colocando\\no elemento x no começo desse novo par, seguido pelo par y.\\n\\nCada item em uma cons list contém dois elementos: o valor do item atual e o\\npróximo item. O último item na lista contém apenas um valor chamado de `Nil`,\\nsem um próximo item. Uma cons list é produzida chamando-se recursivamente a\\nfunção `cons`. O nome canônico que denota o caso base da recursão é `Nil`. Note\\nque isso não é o mesmo que o conceito de \\\"null\\\" ou \\\"nil\\\" visto no Capítulo 6,\\nque é um valor inválido ou ausente.\\n\\nApesar de linguagens de programação funcionais usarem cons lists frequentemente,\\nessa não é uma estrutura de dados muito usada em Rust. Na maioria das vezes em\\nque você tem uma lista de itens em Rust, `Vec\u003CT\u003E` é uma escolha melhor. Outros\\ntipos recursivos _são_ úteis em diversas situações. Mas começando com a cons\\nlist, podemos explorar como boxes nos permitem definir um tipo recursivo sem\\nmuita distração.\\n\\nA Listagem 15-2 contém uma definição de um enum para a cons list. Note que este\\ncódigo não compila ainda porque o tipo `List` não tem um tamanho conhecido, como\\ndemonstraremos:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,10,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,29,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,34,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,22": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,28": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,8": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#open@0,9": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,2": {
-    "value": "\"`Box\u003CT\u003E` Aponta para Dados no Heap e Tem Tamanho Conhecido\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,22": {
-    "value": "\"Computando o Tamanho de um Tipo Não Recursivo\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,28": {
-    "value": "\"Usando `Box\u003CT\u003E` para Conseguir um Tipo Recursivo de Tamanho Conhecido\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,3": {
-    "value": "\"Usando um `Box\u003CT\u003E` para Armazenar Dados no Heap\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,8": {
-    "value": "\"Boxes Possibilitam Tipos Recursivos\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-01-box#title@0,9": {
-    "value": "\"Mais Informações sobre a Cons List\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -952,7 +952,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1149,7 +1149,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="box-t-aponta-para-dados-no-heap-e-tem-tamanho-conhecido" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>Box&lt;T&gt;</code> Aponta para Dados no Heap e Tem Tamanho Conhecido</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="box-t-aponta-para-dados-no-heap-e-tem-tamanho-conhecido" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>Box&lt;T&gt;</code> Aponta para Dados no Heap e Tem Tamanho Conhecido</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>O ponteiro inteligente mais simples é um <em>box</em> (literalmente, “caixa”), cujo
 tipo é escrito <code>Box&lt;T&gt;</code>. <em>Boxes</em> (plural de <em>box</em>) lhe permitem armazenar dados
 no heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no
@@ -1180,7 +1180,7 @@ conhecido como um <em>objeto de trait</em> (<em>trait object</em>), e o Capítul
 seção inteira somente a esse tópico. Então o que você aprender aqui você irá
 aplicar de novo no Capítulo 17!</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="usando-um-box-t-para-armazenar-dados-no-heap" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando um <code>Box&lt;T&gt;</code> para Armazenar Dados no Heap</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="usando-um-box-t-para-armazenar-dados-no-heap" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando um <code>Box&lt;T&gt;</code> para Armazenar Dados no Heap</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Antes de discutirmos esse caso de uso para o <code>Box&lt;T&gt;</code>, vamos cobrir a sintaxe e
 como interagir com valores armazenados dentro de um <code>Box&lt;T&gt;</code>.</p>
 </p>
@@ -1204,7 +1204,7 @@ como interagir com valores armazenados dentro de um <code>Box&lt;T&gt;</code>.</
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-1: Armazenando um valor <code>i32</code> no heap usando um box<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nós definimos a variável <code>b</code> como tendo o valor de um <code>Box</code> que aponta para o valor <code>5</code>, que está alocado no heap. Esse programa irá imprimir <code>b = 5</code>; nesse caso, podemos acessar o dado no box de um jeito similar ao que usaríamos se esse dado estivesse na pilha. Da mesma forma que com qualquer valor possuído, quando um box sai de escopo, como o <code>b</code> no fim da <code>main</code>, ele é desalocado. A desalocação acontece para o box (armazenado na pilha) e para os dados aos quais ele aponta (armazenados no heap).</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Colocar um único valor no heap não é muito útil, então você normalmente não vai usar boxes sozinhos desse jeito. Ter valores como um único <code>i32</code> na pilha, onde são armazenados por padrão, é mais apropriado para a maioria das situações. Vamos dar uma olhada em um caso onde o box nos possibilita definir tipos que não poderíamos definir sem ele.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="boxes-possibilitam-tipos-recursivos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Boxes Possibilitam Tipos Recursivos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="boxes-possibilitam-tipos-recursivos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Boxes Possibilitam Tipos Recursivos</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Em tempo de compilação, o Rust precisa saber quanto espaço um tipo ocupa. Um
 <em>tipo recursivo</em> (<em>recursive type</em>), onde um valor pode ter como parte de si
 mesmo outro valor do mesmo tipo, é um tipo cujo tamanho não se pode saber em
@@ -1219,7 +1219,7 @@ para lista ligada que vamos definir é bem básico exceto pela recursão; portan
 os conceitos no exemplo que vamos trabalhar vão ser úteis sempre que você se
 encontrar em situações mais complexas envolvendo tipos recursivos.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="mais-informacoes-sobre-a-cons-list" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,9&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Mais Informações sobre a Cons List</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="mais-informacoes-sobre-a-cons-list" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,9&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Mais Informações sobre a Cons List</div>
 <div data-id="inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A <em>cons list</em> é uma estrutura de dados que vem da linguagem de programação Lisp
 e seus dialetos. Em Lisp, a função <code>cons</code> (abreviação de “construction
 function”, função de construção) constrói um novo par a partir de seus dois
@@ -1313,7 +1313,7 @@ demonstraremos:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-4: O erro que recebemos quando tentamos definir um enum recursivo<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O erro diz que esse tipo “tem tamanho infinito”. A razão é que nós definimos <code>List</code> com uma variante que é recursiva: ela contém um outro valor de si mesma diretamente. Como resultado, o Rust não consegue determinar quanto espaço ele precisa para armazenar um valor <code>List</code>. Vamos analizar por partes por que recebemos esse erro: primeiro, vamos ver como o Rust decide quanto espaço precisa para armazenar o valor de um tipo <em>não</em> recursivo.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="computando-o-tamanho-de-um-tipo-nao-recursivo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Computando o Tamanho de um Tipo Não Recursivo</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="computando-o-tamanho-de-um-tipo-nao-recursivo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Computando o Tamanho de um Tipo Não Recursivo</div>
 <div data-id="inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Recorde o enum <code>Mensagem</code> que definimos na Listagem 6-2 quando discutimos definições de enums no Capítulo 6:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">enum Mensagem {
@@ -1336,7 +1336,7 @@ demonstraremos:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Contraste isso com o que acontece quando o Rust tenta determinar quanto espaço é necessário para um tipo recursivo como o enum <code>List</code> na Listagem 15-2. O compilador começa olhando a variante <code>Cons</code>, que contém um valor do tipo <code>i32</code> e um valor do tipo <code>List</code>. Portanto, <code>Cons</code> precisa de uma quantidade de espaço igual ao tamanho de um <code>i32</code> mais o tamanho de um <code>List</code>. Para determinar de quanta memória o tipo <code>List</code> precisa, o compilador olha para suas variantes, começando com a <code>Cons</code>. A variante <code>Cons</code> contém um valor do tipo <code>i32</code> e um valor do tipo <code>List</code>, e esse processo continua infinitamente, conforme mostra a Figura 15-1:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Figura 15-1: Uma <code>List</code> infinita feita de infinitas variantes <code>Cons</code><!-- raw HTML omitted --></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="usando-box-t-para-conseguir-um-tipo-recursivo-de-tamanho-conhecido" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-01-box#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Usando <code>Box&lt;T&gt;</code> para Conseguir um Tipo Recursivo de Tamanho Conhecido</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="usando-box-t-para-conseguir-um-tipo-recursivo-de-tamanho-conhecido" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-01-box#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Usando <code>Box&lt;T&gt;</code> para Conseguir um Tipo Recursivo de Tamanho Conhecido</div>
 <div data-id="inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Como o Rust não consegue descobrir quanto espaço alocar para tipos definidos recursivamente, o compilador dá o erro na Listagem 15-4. Mas o erro inclui esta útil sugestão:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" data-id="0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `&amp;`) em algum lugar para

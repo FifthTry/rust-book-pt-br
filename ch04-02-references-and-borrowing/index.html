@@ -12,6 +12,564 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,10,0": {
+    "value": "\"# fn calcula_tamanho(s: \u0026String) -\u003E usize {\\n#     s.len()\\n# }\\nlet s1 = String::from(\\\"texto\\\");\\n\\nlet tamanho = calcula_tamanho(\u0026s1);\"",
+    "dependencies": {
+      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,11": {
+    "value": "\"A sintaxe `\u0026s1` nos permite criar uma referência que *se refere* ao valor `s1`,\\nmas não o possui. Como ela não o possui, o valor a que ela aponta não será\\ndestruído quando a referência sair de escopo.\"",
+    "dependencies": {
+      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,12": {
+    "value": "\"Da mesma forma, a assinatura da função usa `\u0026` para indicar que o tipo do\\nparâmetro `s` é uma referência. Vamos adicionar algumas anotações para explicar:\"",
+    "dependencies": {
+      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,13,0": {
+    "value": "\"fn calcula_tamanho(s: \u0026String) -\u003E usize { // s é uma referência para uma String\\n    s.len()\\n} // Aqui, s sai de escopo. Mas como ela não possui o valor a que se refere,\\n  // nada acontece.\"",
+    "dependencies": {
+      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,14": {
+    "value": "\"O escopo no qual a variável `s` é válida é o mesmo escopo de qualquer parâmetro\\nde função, mas não destruímos o valor apontado pela referência quando ela sai de\\nescopo, pois ela não tem posse dele. Funções que têm referências como\\nparâmetros, em vez dos próprios valores, não precisam retornar os valores para\\ndevolver a posse deles, já que nunca tiveram esta posse.\"",
+    "dependencies": {
+      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,15": {
+    "value": "\"Colocar referências como parâmetros de funções é chamado de *borrowing* (do\\ninglês, empréstimo). Assim como na vida real, se uma pessoa possui alguma coisa,\\nvocê pode pegar emprestado dela. Quando você termina de usar, você deve\\ndevolver.\"",
+    "dependencies": {
+      "0,0,0,1,12:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,16": {
+    "value": "\"E o que acontece se tentarmos modificar alguma coisa que pegamos emprestado?\\nTente rodar o código da Listagem 4-4. Alerta de spoiler: não funciona!\"",
+    "dependencies": {
+      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,18,0": {
+    "value": "\"fn main() {\\n    let s = String::from(\\\"texto\\\");\\n\\n    modifica(\u0026s);\\n}\\n\\nfn modifica(uma_string: \u0026String) {\\n    uma_string.push_str(\\\" longo\\\");\\n}\"",
+    "dependencies": {
+      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,19": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-4: Tentativa de modificar um valor emprestado\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,16:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,2": {
+    "value": "\"O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos\\nretornar a `String`, de forma que ainda possamos usá-la após a chamada à função\\n`calcula_tamanho`, para dentro da qual a `String` foi movida.\\n\\nAqui está uma forma de como você poderia definir e usar uma função\\n`calcula_tamanho` que recebe uma *referência* para um objeto como parâmetro, em\\nvez de pegar este valor para si:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,2,1,0": {
+    "value": "\"O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos\\nretornar a `String`, de forma que ainda possamos usá-la após a chamada à função\\n`calcula_tamanho`, para dentro da qual a `String` foi movida.\\n\\nAqui está uma forma de como você poderia definir e usar uma função\\n`calcula_tamanho` que recebe uma *referência* para um objeto como parâmetro, em\\nvez de pegar este valor para si:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,20": {
+    "value": "\"Aqui está o erro:\"",
+    "dependencies": {
+      "0,0,0,1,17:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,21,0": {
+    "value": "\"error borrow immutable borrowed content `*uma_string` as mutable\\n --\u003E main.rs:8:5\\n  |\\n7 | fn modifica(uma_string: \u0026String) {\\n  |                         ------- use `\u0026mut String` here to make mutable\\n8 |     uma_string.push_str(\\\" longo\\\");\\n  |     ^^^^^^^^^^ cannot borrow as mutable\"",
+    "dependencies": {
+      "0,0,0,1,18,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,18,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,22": {
+    "value": "\"Assim como as variáveis são imutáveis por padrão, referências também são. Não\\ntemos permissão para modificar algo para o qual temos uma referência.\"",
+    "dependencies": {
+      "0,0,0,1,19:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,23": {
+    "value": "\"Podemos corrigir o erro no código da Listagem 4-4 com um pequeno ajuste:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,20,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,23,1,0": {
+    "value": "\"Podemos corrigir o erro no código da Listagem 4-4 com um pequeno ajuste:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,20,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,24,0": {
+    "value": "\"fn main() {\\n    let mut s = String::from(\\\"texto\\\");\\n\\n    modifica(\u0026mut s);\\n}\\n\\nfn modifica(uma_string: \u0026mut String) {\\n    uma_string.push_str(\\\" longo\\\");\\n}\"",
+    "dependencies": {
+      "0,0,0,1,20,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,25": {
+    "value": "\"Primeiro, temos que fazer com que `s` seja `mut`. Depois, temos que criar uma\\nreferência mutável com `\u0026mut s` e aceitar uma referência mutável com\\n`uma_string: \u0026mut String`.\"",
+    "dependencies": {
+      "0,0,0,1,20,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,26": {
+    "value": "\"Mas referências mutáveis possuem uma grande restrição: você só pode ter uma\\nreferência mutável para um determinado dado em um determinado escopo. Este\\ncódigo vai falhar:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,20,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,28,0": {
+    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\nlet r1 = \u0026mut s;\\nlet r2 = \u0026mut s;\"",
+    "dependencies": {
+      "0,0,0,1,20,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,29": {
+    "value": "\"Aqui está o erro:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,3,0": {
+    "value": "\"fn main() {\\n    let s1 = String::from(\\\"texto\\\");\\n\\n    let tamanho = calcula_tamanho(\u0026s1);\\n\\n    println!(\\\"O tamanho de '{}' é {}.\\\", s1, tamanho);\\n}\\n\\nfn calcula_tamanho(s: \u0026String) -\u003E usize {\\n    s.len()\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,30,0": {
+    "value": "\"error borrow `s` as mutable more than once at a time\\n --\u003E main.rs:5:19\\n  |\\n4 |     let r1 = \u0026mut s;\\n  |                   - first mutable borrow occurs here\\n5 |     let r2 = \u0026mut s;\\n  |                   ^ second mutable borrow occurs here\\n6 | }\\n  | - first borrow ends here\"",
+    "dependencies": {
+      "0,0,0,1,20,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,31": {
+    "value": "\"Esta restrição permite a mutação, mas de uma forma bem controlada. Isto é algo\\ncom que novos Rustáceos passam trabalho, porque a maioria das linguagens de\\nprogramação permitem modificar um valor quando você quiser. O benefício de ter\\nesta restrição é que o Rust previne _data races_ em tempo de compilação.\"",
+    "dependencies": {
+      "0,0,0,1,20,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,32": {
+    "value": "\"Um *data race* é parecido com uma condição de corrida, e acontece quando esses\\ntrês fatores ocorrem:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,33": {
+    "value": "\"1. Dois ou mais ponteiros acessam o mesmo dado ao mesmo tempo.\\n1. Ao menos um dos ponteiros é usado para escrever sobre o dado.\\n1. Não há nenhum mecanismo sendo usado para sincronizar o acesso ao dado.\\n\\nData races causam comportamento indefinido e pode ser difíceis de diagnosticar\\ne corrigir quando você está tentando rastreá-los em tempo de execução. Rust\\nprevine este problema de acontecer porque não vai nem deixar compilar um código\\ncom data races!\\n\\nComo sempre, podemos usar chaves (`{}`) para criar um novo escopo, permitindo\\nmúltiplas referências mutáveis, mas não *simultâneas*:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,34,0": {
+    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\n{\\n    let r1 = \u0026mut s;\\n\\n} // aqui r1 sai de escopo, então já podemos criar uma nova referência sem\\n  // problema nenhum.\\n\\nlet r2 = \u0026mut s;\"",
+    "dependencies": {
+      "0,0,0,1,20,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,35": {
+    "value": "\"Existe uma regra parecida para combinar referências mutáveis e imutáveis. Este\\ncódigo resulta em erro:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,36,0": {
+    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\nlet r1 = \u0026s; // sem problema\\nlet r2 = \u0026s; // sem problema\\nlet r3 = \u0026mut s; // PROBLEMA GRANDE\"",
+    "dependencies": {
+      "0,0,0,1,20,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,37": {
+    "value": "\"Aqui está o erro:\"",
+    "dependencies": {
+      "0,0,0,1,20,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,38,0": {
+    "value": "\"error borrow `s` as mutable because it is also borrowed as\\nimmutable\\n --\u003E main.rs:6:19\\n  |\\n4 |     let r1 = \u0026s; // sem problema\\n  |               - immutable borrow occurs here\\n5 |     let r2 = \u0026s; // sem problema\\n6 |     let r3 = \u0026mut s; // PROBLEMA GRANDE\\n  |                   ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
+    "dependencies": {
+      "0,0,0,1,20,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,39": {
+    "value": "\"Eita! Nós *também* não podemos ter uma referência mutável enquanto temos uma\\nimutável. Usuários de uma referência imutável não esperam que os valores mudem\\nde repente! Porém, múltiplas referências imutáveis são permitidas, pois ninguém\\nque esteja apenas lendo os dados será capaz de afetar a leitura que está sendo\\nfeita em outra parte do código.\"",
+    "dependencies": {
+      "0,0,0,1,20,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,4": {
+    "value": "\"Primeiro, repare que todo aquele código usando uma tupla na declaração da\\nvariável e no retorno da função já se foi. Segundo, note que passamos `\u0026s1` para\\n`calcula_tamanho`, e na sua definição, temos `\u0026String` em vez de apenas\\n`String`.\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,40": {
+    "value": "\"Mesmo que esses erros sejam frustrantes às vezes, lembre-se que é o compilador\\ndo Rust apontando um bug potencial antecipadamente (em tempo de compilação,\\nem vez de execução), e mostrando exatamente onde está o problema, em vez de você\\nter que investigar por que algumas vezes os seus dados não são aquilo que você\\nesperava que fosse.\"",
+    "dependencies": {
+      "0,0,0,1,20,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,41": {
+    "value": "\"Em linguagens com ponteiros, é fácil criar erroneamente um *ponteiro solto*, um\\nponteiro que referencia um local na memória que pode ter sido dado para outra\\nparte do programa, basta liberar alguma memória e preservar um ponteiro para\\nela. Por outro lado, em Rust, o compilador garante que nenhuma referência será\\numa referência solta: se temos uma referência para algum dado, o compilador vai\\nse certificar que esse dado não vai sair de escopo antes da referência.\\n\\nVamos tentar criar uma referência solta, que o Rust vai impedir com um erro em\\ntempo de compilação:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,21,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,41,1,0": {
+    "value": "\"Em linguagens com ponteiros, é fácil criar erroneamente um *ponteiro solto*, um\\nponteiro que referencia um local na memória que pode ter sido dado para outra\\nparte do programa, basta liberar alguma memória e preservar um ponteiro para\\nela. Por outro lado, em Rust, o compilador garante que nenhuma referência será\\numa referência solta: se temos uma referência para algum dado, o compilador vai\\nse certificar que esse dado não vai sair de escopo antes da referência.\\n\\nVamos tentar criar uma referência solta, que o Rust vai impedir com um erro em\\ntempo de compilação:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,21,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,42,0": {
+    "value": "\"fn main() {\\n    let referencia_para_o_nada = soltar();\\n}\\n\\nfn soltar() -\u003E \u0026String {\\n    let s = String::from(\\\"texto\\\");\\n\\n    \u0026s\\n}\"",
+    "dependencies": {
+      "0,0,0,1,21,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,43": {
+    "value": "\"Aqui está o erro:\"",
+    "dependencies": {
+      "0,0,0,1,21,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,44,0": {
+    "value": "\"error lifetime specifier\\n --\u003E main.rs:5:16\\n  |\\n5 | fn soltar() -\u003E \u0026String {\\n  |                ^ expected lifetime parameter\\n  |\\n  = help: this function's return type contains a borrowed value, but there is\\n  no value for it to be borrowed from\\n  = help: consider giving it a 'static lifetime\"",
+    "dependencies": {
+      "0,0,0,1,21,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,45": {
+    "value": "\"Esta mensagem de erro se refere a uma característica que não abordamos ainda:\\n*lifetimes*. Vamos discutir lifetimes em detalhe no Capítulo 10. Mas, se você\\ndesconsiderar a parte sobre lifetimes, a mensagem mostra a razão deste código\\nser um problema:\"",
+    "dependencies": {
+      "0,0,0,1,21,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,46,0": {
+    "value": "\"this function's return type contains a borrowed value, but there is no value\\nfor it to be borrowed from.\"",
+    "dependencies": {
+      "0,0,0,1,21,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,47": {
+    "value": "\"\u003E Tradução: o tipo de retorno desta função contém um valor emprestado, mas não\\n\u003E há nenhum valor que se possa pegar emprestado.\"",
+    "dependencies": {
+      "0,0,0,1,21,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,48": {
+    "value": "\"Vamos dar uma olhada mais de perto no que está acontecendo, exatamente, em cada\\nestágio da nossa função `soltar`:\"",
+    "dependencies": {
+      "0,0,0,1,21,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,49,0": {
+    "value": "\"fn soltar() -\u003E \u0026String { // soltar retorna uma referência a uma String\\n\\n    let s = String::from(\\\"texto\\\"); // s é uma nova String\\n\\n    \u0026s // retornamos uma referência a uma String, s\\n} // Aqui, s sai de escopo e é destruída. Sua memória é devolvida.\\n  // Perigo!\"",
+    "dependencies": {
+      "0,0,0,1,21,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,5": {
+    "value": "\"Esses `\u0026` são *referências*, e eles permitem que você se refira a algum valor\\nsem tomar posse dele. A Figura 4-5 mostra um diagrama.\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,50": {
+    "value": "\"Como `s` é criada dentro da função `soltar`, quando o código desta função\\ntermina, `s` é desalocada. Mas nós tentamos retornar uma referência para ela.\\nIsto significa que esta referência apontaria para uma `String` inválida! Isso\\nnão é bom. Rust não vai nos deixar fazer isso.\"",
+    "dependencies": {
+      "0,0,0,1,21,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,51": {
+    "value": "\"A solução aqui é retornar a `String` diretamente:\"",
+    "dependencies": {
+      "0,0,0,1,21,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,52,0": {
+    "value": "\"fn nao_soltar() -\u003E String {\\n    let s = String::from(\\\"texto\\\");\\n\\n    s\\n}\"",
+    "dependencies": {
+      "0,0,0,1,21,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,53": {
+    "value": "\"Isto funciona sem nenhum problema. A `String` é movida para fora, e nada é\\ndesalocado.\"",
+    "dependencies": {
+      "0,0,0,1,21,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,54": {
+    "value": "\"Vamos recapitular o que discutimos sobre referências:\\n\\n1. Em um dado momento, você pode ter *um ou outro*, mas não os dois:\\n  * Uma referência mutável.\\n  * Qualquer número de referências imutáveis.\\n2. Referências devem ser válidas sempre.\\n\\nEm seguida, vamos ver um tipo diferente de referências: _slices_.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,54,1,0": {
+    "value": "\"Vamos recapitular o que discutimos sobre referências:\\n\\n1. Em um dado momento, você pode ter *um ou outro*, mas não os dois:\\n  * Uma referência mutável.\\n  * Qualquer número de referências imutáveis.\\n2. Referências devem ser válidas sempre.\\n\\nEm seguida, vamos ver um tipo diferente de referências: _slices_.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,6": {
+    "value": "\"\u003Cimg alt=\\\"\u0026String s apontando para String s1\\\" src=\\\"img/trpl04-05.svg\\\" class=\\\"center\\\" /\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,7": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 4-5: `\u0026String s` apontando para `String s1`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,8": {
+    "value": "\"\u003E Nota: O oposto de referenciar usando `\u0026` é *derreferenciar*, feito por meio do\\n\u003E operador derreferenciador, `*`. Veremos alguns usos do operador\\n\u003E derreferenciador no Capítulo 8 e vamos discutir detalhes da derreferenciação\\n\u003E no Capítulo 15.\"",
+    "dependencies": {
+      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#body@0,9": {
+    "value": "\"Vamos olhar mais de perto esta chamada de função:\"",
+    "dependencies": {
+      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,10,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,13,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,10,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,15,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,18,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,18,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,18,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,24,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,28,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,34,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,36,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,38,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,20,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,20,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,20,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,42,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,21,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,21,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,44,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,21,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,21,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,46,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,21,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,21,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,49,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,21,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,21,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#caption@0,52,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,21,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,21,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,21,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,23": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,20,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,41": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,21,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,54": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,2": {
+    "value": "\"Referências e _Borrowing_\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,23": {
+    "value": "\"Referências Mutáveis\"",
+    "dependencies": {
+      "0,0,0,1,20,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,41": {
+    "value": "\"Referências Soltas\"",
+    "dependencies": {
+      "0,0,0,1,21,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#title@0,54": {
+    "value": "\"As Regras de Referências\"",
+    "dependencies": {
+      "0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -317,564 +875,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,10,0": {
-    "value": "\"# fn calcula_tamanho(s: \u0026String) -\u003E usize {\\n#     s.len()\\n# }\\nlet s1 = String::from(\\\"texto\\\");\\n\\nlet tamanho = calcula_tamanho(\u0026s1);\"",
-    "dependencies": {
-      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,11": {
-    "value": "\"A sintaxe `\u0026s1` nos permite criar uma referência que *se refere* ao valor `s1`,\\nmas não o possui. Como ela não o possui, o valor a que ela aponta não será\\ndestruído quando a referência sair de escopo.\"",
-    "dependencies": {
-      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,12": {
-    "value": "\"Da mesma forma, a assinatura da função usa `\u0026` para indicar que o tipo do\\nparâmetro `s` é uma referência. Vamos adicionar algumas anotações para explicar:\"",
-    "dependencies": {
-      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,13,0": {
-    "value": "\"fn calcula_tamanho(s: \u0026String) -\u003E usize { // s é uma referência para uma String\\n    s.len()\\n} // Aqui, s sai de escopo. Mas como ela não possui o valor a que se refere,\\n  // nada acontece.\"",
-    "dependencies": {
-      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,14": {
-    "value": "\"O escopo no qual a variável `s` é válida é o mesmo escopo de qualquer parâmetro\\nde função, mas não destruímos o valor apontado pela referência quando ela sai de\\nescopo, pois ela não tem posse dele. Funções que têm referências como\\nparâmetros, em vez dos próprios valores, não precisam retornar os valores para\\ndevolver a posse deles, já que nunca tiveram esta posse.\"",
-    "dependencies": {
-      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,15": {
-    "value": "\"Colocar referências como parâmetros de funções é chamado de *borrowing* (do\\ninglês, empréstimo). Assim como na vida real, se uma pessoa possui alguma coisa,\\nvocê pode pegar emprestado dela. Quando você termina de usar, você deve\\ndevolver.\"",
-    "dependencies": {
-      "0,0,0,1,12:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,16": {
-    "value": "\"E o que acontece se tentarmos modificar alguma coisa que pegamos emprestado?\\nTente rodar o código da Listagem 4-4. Alerta de spoiler: não funciona!\"",
-    "dependencies": {
-      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,18,0": {
-    "value": "\"fn main() {\\n    let s = String::from(\\\"texto\\\");\\n\\n    modifica(\u0026s);\\n}\\n\\nfn modifica(uma_string: \u0026String) {\\n    uma_string.push_str(\\\" longo\\\");\\n}\"",
-    "dependencies": {
-      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,19": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-4: Tentativa de modificar um valor emprestado\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,16:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,2": {
-    "value": "\"O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos\\nretornar a `String`, de forma que ainda possamos usá-la após a chamada à função\\n`calcula_tamanho`, para dentro da qual a `String` foi movida.\\n\\nAqui está uma forma de como você poderia definir e usar uma função\\n`calcula_tamanho` que recebe uma *referência* para um objeto como parâmetro, em\\nvez de pegar este valor para si:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,2,1,0": {
-    "value": "\"O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos\\nretornar a `String`, de forma que ainda possamos usá-la após a chamada à função\\n`calcula_tamanho`, para dentro da qual a `String` foi movida.\\n\\nAqui está uma forma de como você poderia definir e usar uma função\\n`calcula_tamanho` que recebe uma *referência* para um objeto como parâmetro, em\\nvez de pegar este valor para si:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,20": {
-    "value": "\"Aqui está o erro:\"",
-    "dependencies": {
-      "0,0,0,1,17:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,21,0": {
-    "value": "\"error borrow immutable borrowed content `*uma_string` as mutable\\n --\u003E main.rs:8:5\\n  |\\n7 | fn modifica(uma_string: \u0026String) {\\n  |                         ------- use `\u0026mut String` here to make mutable\\n8 |     uma_string.push_str(\\\" longo\\\");\\n  |     ^^^^^^^^^^ cannot borrow as mutable\"",
-    "dependencies": {
-      "0,0,0,1,18,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,18,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,22": {
-    "value": "\"Assim como as variáveis são imutáveis por padrão, referências também são. Não\\ntemos permissão para modificar algo para o qual temos uma referência.\"",
-    "dependencies": {
-      "0,0,0,1,19:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,23": {
-    "value": "\"Podemos corrigir o erro no código da Listagem 4-4 com um pequeno ajuste:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,20,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,23,1,0": {
-    "value": "\"Podemos corrigir o erro no código da Listagem 4-4 com um pequeno ajuste:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,20,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,24,0": {
-    "value": "\"fn main() {\\n    let mut s = String::from(\\\"texto\\\");\\n\\n    modifica(\u0026mut s);\\n}\\n\\nfn modifica(uma_string: \u0026mut String) {\\n    uma_string.push_str(\\\" longo\\\");\\n}\"",
-    "dependencies": {
-      "0,0,0,1,20,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,25": {
-    "value": "\"Primeiro, temos que fazer com que `s` seja `mut`. Depois, temos que criar uma\\nreferência mutável com `\u0026mut s` e aceitar uma referência mutável com\\n`uma_string: \u0026mut String`.\"",
-    "dependencies": {
-      "0,0,0,1,20,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,26": {
-    "value": "\"Mas referências mutáveis possuem uma grande restrição: você só pode ter uma\\nreferência mutável para um determinado dado em um determinado escopo. Este\\ncódigo vai falhar:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,20,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,28,0": {
-    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\nlet r1 = \u0026mut s;\\nlet r2 = \u0026mut s;\"",
-    "dependencies": {
-      "0,0,0,1,20,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,29": {
-    "value": "\"Aqui está o erro:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,3,0": {
-    "value": "\"fn main() {\\n    let s1 = String::from(\\\"texto\\\");\\n\\n    let tamanho = calcula_tamanho(\u0026s1);\\n\\n    println!(\\\"O tamanho de '{}' é {}.\\\", s1, tamanho);\\n}\\n\\nfn calcula_tamanho(s: \u0026String) -\u003E usize {\\n    s.len()\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,30,0": {
-    "value": "\"error borrow `s` as mutable more than once at a time\\n --\u003E main.rs:5:19\\n  |\\n4 |     let r1 = \u0026mut s;\\n  |                   - first mutable borrow occurs here\\n5 |     let r2 = \u0026mut s;\\n  |                   ^ second mutable borrow occurs here\\n6 | }\\n  | - first borrow ends here\"",
-    "dependencies": {
-      "0,0,0,1,20,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,31": {
-    "value": "\"Esta restrição permite a mutação, mas de uma forma bem controlada. Isto é algo\\ncom que novos Rustáceos passam trabalho, porque a maioria das linguagens de\\nprogramação permitem modificar um valor quando você quiser. O benefício de ter\\nesta restrição é que o Rust previne _data races_ em tempo de compilação.\"",
-    "dependencies": {
-      "0,0,0,1,20,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,32": {
-    "value": "\"Um *data race* é parecido com uma condição de corrida, e acontece quando esses\\ntrês fatores ocorrem:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,33": {
-    "value": "\"1. Dois ou mais ponteiros acessam o mesmo dado ao mesmo tempo.\\n1. Ao menos um dos ponteiros é usado para escrever sobre o dado.\\n1. Não há nenhum mecanismo sendo usado para sincronizar o acesso ao dado.\\n\\nData races causam comportamento indefinido e pode ser difíceis de diagnosticar\\ne corrigir quando você está tentando rastreá-los em tempo de execução. Rust\\nprevine este problema de acontecer porque não vai nem deixar compilar um código\\ncom data races!\\n\\nComo sempre, podemos usar chaves (`{}`) para criar um novo escopo, permitindo\\nmúltiplas referências mutáveis, mas não *simultâneas*:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,34,0": {
-    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\n{\\n    let r1 = \u0026mut s;\\n\\n} // aqui r1 sai de escopo, então já podemos criar uma nova referência sem\\n  // problema nenhum.\\n\\nlet r2 = \u0026mut s;\"",
-    "dependencies": {
-      "0,0,0,1,20,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,35": {
-    "value": "\"Existe uma regra parecida para combinar referências mutáveis e imutáveis. Este\\ncódigo resulta em erro:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,36,0": {
-    "value": "\"let mut s = String::from(\\\"texto\\\");\\n\\nlet r1 = \u0026s; // sem problema\\nlet r2 = \u0026s; // sem problema\\nlet r3 = \u0026mut s; // PROBLEMA GRANDE\"",
-    "dependencies": {
-      "0,0,0,1,20,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,37": {
-    "value": "\"Aqui está o erro:\"",
-    "dependencies": {
-      "0,0,0,1,20,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,38,0": {
-    "value": "\"error borrow `s` as mutable because it is also borrowed as\\nimmutable\\n --\u003E main.rs:6:19\\n  |\\n4 |     let r1 = \u0026s; // sem problema\\n  |               - immutable borrow occurs here\\n5 |     let r2 = \u0026s; // sem problema\\n6 |     let r3 = \u0026mut s; // PROBLEMA GRANDE\\n  |                   ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
-    "dependencies": {
-      "0,0,0,1,20,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,39": {
-    "value": "\"Eita! Nós *também* não podemos ter uma referência mutável enquanto temos uma\\nimutável. Usuários de uma referência imutável não esperam que os valores mudem\\nde repente! Porém, múltiplas referências imutáveis são permitidas, pois ninguém\\nque esteja apenas lendo os dados será capaz de afetar a leitura que está sendo\\nfeita em outra parte do código.\"",
-    "dependencies": {
-      "0,0,0,1,20,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,4": {
-    "value": "\"Primeiro, repare que todo aquele código usando uma tupla na declaração da\\nvariável e no retorno da função já se foi. Segundo, note que passamos `\u0026s1` para\\n`calcula_tamanho`, e na sua definição, temos `\u0026String` em vez de apenas\\n`String`.\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,40": {
-    "value": "\"Mesmo que esses erros sejam frustrantes às vezes, lembre-se que é o compilador\\ndo Rust apontando um bug potencial antecipadamente (em tempo de compilação,\\nem vez de execução), e mostrando exatamente onde está o problema, em vez de você\\nter que investigar por que algumas vezes os seus dados não são aquilo que você\\nesperava que fosse.\"",
-    "dependencies": {
-      "0,0,0,1,20,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,41": {
-    "value": "\"Em linguagens com ponteiros, é fácil criar erroneamente um *ponteiro solto*, um\\nponteiro que referencia um local na memória que pode ter sido dado para outra\\nparte do programa, basta liberar alguma memória e preservar um ponteiro para\\nela. Por outro lado, em Rust, o compilador garante que nenhuma referência será\\numa referência solta: se temos uma referência para algum dado, o compilador vai\\nse certificar que esse dado não vai sair de escopo antes da referência.\\n\\nVamos tentar criar uma referência solta, que o Rust vai impedir com um erro em\\ntempo de compilação:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,21,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,41,1,0": {
-    "value": "\"Em linguagens com ponteiros, é fácil criar erroneamente um *ponteiro solto*, um\\nponteiro que referencia um local na memória que pode ter sido dado para outra\\nparte do programa, basta liberar alguma memória e preservar um ponteiro para\\nela. Por outro lado, em Rust, o compilador garante que nenhuma referência será\\numa referência solta: se temos uma referência para algum dado, o compilador vai\\nse certificar que esse dado não vai sair de escopo antes da referência.\\n\\nVamos tentar criar uma referência solta, que o Rust vai impedir com um erro em\\ntempo de compilação:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,21,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,42,0": {
-    "value": "\"fn main() {\\n    let referencia_para_o_nada = soltar();\\n}\\n\\nfn soltar() -\u003E \u0026String {\\n    let s = String::from(\\\"texto\\\");\\n\\n    \u0026s\\n}\"",
-    "dependencies": {
-      "0,0,0,1,21,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,43": {
-    "value": "\"Aqui está o erro:\"",
-    "dependencies": {
-      "0,0,0,1,21,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,44,0": {
-    "value": "\"error lifetime specifier\\n --\u003E main.rs:5:16\\n  |\\n5 | fn soltar() -\u003E \u0026String {\\n  |                ^ expected lifetime parameter\\n  |\\n  = help: this function's return type contains a borrowed value, but there is\\n  no value for it to be borrowed from\\n  = help: consider giving it a 'static lifetime\"",
-    "dependencies": {
-      "0,0,0,1,21,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,45": {
-    "value": "\"Esta mensagem de erro se refere a uma característica que não abordamos ainda:\\n*lifetimes*. Vamos discutir lifetimes em detalhe no Capítulo 10. Mas, se você\\ndesconsiderar a parte sobre lifetimes, a mensagem mostra a razão deste código\\nser um problema:\"",
-    "dependencies": {
-      "0,0,0,1,21,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,46,0": {
-    "value": "\"this function's return type contains a borrowed value, but there is no value\\nfor it to be borrowed from.\"",
-    "dependencies": {
-      "0,0,0,1,21,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,47": {
-    "value": "\"\u003E Tradução: o tipo de retorno desta função contém um valor emprestado, mas não\\n\u003E há nenhum valor que se possa pegar emprestado.\"",
-    "dependencies": {
-      "0,0,0,1,21,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,48": {
-    "value": "\"Vamos dar uma olhada mais de perto no que está acontecendo, exatamente, em cada\\nestágio da nossa função `soltar`:\"",
-    "dependencies": {
-      "0,0,0,1,21,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,49,0": {
-    "value": "\"fn soltar() -\u003E \u0026String { // soltar retorna uma referência a uma String\\n\\n    let s = String::from(\\\"texto\\\"); // s é uma nova String\\n\\n    \u0026s // retornamos uma referência a uma String, s\\n} // Aqui, s sai de escopo e é destruída. Sua memória é devolvida.\\n  // Perigo!\"",
-    "dependencies": {
-      "0,0,0,1,21,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,5": {
-    "value": "\"Esses `\u0026` são *referências*, e eles permitem que você se refira a algum valor\\nsem tomar posse dele. A Figura 4-5 mostra um diagrama.\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,50": {
-    "value": "\"Como `s` é criada dentro da função `soltar`, quando o código desta função\\ntermina, `s` é desalocada. Mas nós tentamos retornar uma referência para ela.\\nIsto significa que esta referência apontaria para uma `String` inválida! Isso\\nnão é bom. Rust não vai nos deixar fazer isso.\"",
-    "dependencies": {
-      "0,0,0,1,21,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,51": {
-    "value": "\"A solução aqui é retornar a `String` diretamente:\"",
-    "dependencies": {
-      "0,0,0,1,21,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,52,0": {
-    "value": "\"fn nao_soltar() -\u003E String {\\n    let s = String::from(\\\"texto\\\");\\n\\n    s\\n}\"",
-    "dependencies": {
-      "0,0,0,1,21,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,53": {
-    "value": "\"Isto funciona sem nenhum problema. A `String` é movida para fora, e nada é\\ndesalocado.\"",
-    "dependencies": {
-      "0,0,0,1,21,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,54": {
-    "value": "\"Vamos recapitular o que discutimos sobre referências:\\n\\n1. Em um dado momento, você pode ter *um ou outro*, mas não os dois:\\n  * Uma referência mutável.\\n  * Qualquer número de referências imutáveis.\\n2. Referências devem ser válidas sempre.\\n\\nEm seguida, vamos ver um tipo diferente de referências: _slices_.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,54,1,0": {
-    "value": "\"Vamos recapitular o que discutimos sobre referências:\\n\\n1. Em um dado momento, você pode ter *um ou outro*, mas não os dois:\\n  * Uma referência mutável.\\n  * Qualquer número de referências imutáveis.\\n2. Referências devem ser válidas sempre.\\n\\nEm seguida, vamos ver um tipo diferente de referências: _slices_.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,6": {
-    "value": "\"\u003Cimg alt=\\\"\u0026String s apontando para String s1\\\" src=\\\"img/trpl04-05.svg\\\" class=\\\"center\\\" /\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,7": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 4-5: `\u0026String s` apontando para `String s1`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,8": {
-    "value": "\"\u003E Nota: O oposto de referenciar usando `\u0026` é *derreferenciar*, feito por meio do\\n\u003E operador derreferenciador, `*`. Veremos alguns usos do operador\\n\u003E derreferenciador no Capítulo 8 e vamos discutir detalhes da derreferenciação\\n\u003E no Capítulo 15.\"",
-    "dependencies": {
-      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#body@0,9": {
-    "value": "\"Vamos olhar mais de perto esta chamada de função:\"",
-    "dependencies": {
-      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,10,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,13,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,10,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,15,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,18,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,18,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,18,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,24,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,28,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,34,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,36,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,38,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,20,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,20,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,20,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,42,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,21,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,21,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,44,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,21,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,21,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,46,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,21,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,21,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,49,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,21,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,21,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#caption@0,52,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,21,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,21,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,21,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#open@0,23": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,20,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#open@0,41": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,21,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#open@0,54": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,2": {
-    "value": "\"Referências e _Borrowing_\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,23": {
-    "value": "\"Referências Mutáveis\"",
-    "dependencies": {
-      "0,0,0,1,20,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,41": {
-    "value": "\"Referências Soltas\"",
-    "dependencies": {
-      "0,0,0,1,21,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-02-references-and-borrowing#title@0,54": {
-    "value": "\"As Regras de Referências\"",
-    "dependencies": {
-      "0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1085,7 +1085,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1282,7 +1282,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="referencias-e-borrowing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-02-references-and-borrowing#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências e <em>Borrowing</em></div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="referencias-e-borrowing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências e <em>Borrowing</em></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos
 retornar a <code>String</code>, de forma que ainda possamos usá-la após a chamada à função
 <code>calcula_tamanho</code>, para dentro da qual a <code>String</code> foi movida.</p>
@@ -1407,7 +1407,7 @@ vez de pegar este valor para si:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,19:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Assim como as variáveis são imutáveis por padrão, referências também são. Não temos permissão para modificar algo para o qual temos uma referência.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,20:main-container-external:0.inner-external:0,0,0:main" id="referencias-mutaveis" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,20,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-02-references-and-borrowing#open@0,23&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências Mutáveis</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,20:main-container-external:0.inner-external:0,0,0:main" id="referencias-mutaveis" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,20,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,23&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências Mutáveis</div>
 <div data-id="inner:0,0,0,1,20,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,20,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,20,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Podemos corrigir o erro no código da Listagem 4-4 com um pequeno ajuste:</p>
 </p>
 <p data-id="0,0,0,1,20,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p><!-- raw HTML omitted -->Arquivo: src/main.rs<!-- raw HTML omitted --></p>
@@ -1547,7 +1547,7 @@ vez de pegar este valor para si:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20:main" data-id="0,0,0,1,20,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Eita! Nós <em>também</em> não podemos ter uma referência mutável enquanto temos uma imutável. Usuários de uma referência imutável não esperam que os valores mudem de repente! Porém, múltiplas referências imutáveis são permitidas, pois ninguém que esteja apenas lendo os dados será capaz de afetar a leitura que está sendo feita em outra parte do código.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20:main" data-id="0,0,0,1,20,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,20:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Mesmo que esses erros sejam frustrantes às vezes, lembre-se que é o compilador do Rust apontando um bug potencial antecipadamente (em tempo de compilação, em vez de execução), e mostrando exatamente onde está o problema, em vez de você ter que investigar por que algumas vezes os seus dados não são aquilo que você esperava que fosse.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,21:main-container-external:0.inner-external:0,0,0:main" id="referencias-soltas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,21,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-02-references-and-borrowing#open@0,41&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências Soltas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,21:main-container-external:0.inner-external:0,0,0:main" id="referencias-soltas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,21,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,41&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referências Soltas</div>
 <div data-id="inner:0,0,0,1,21,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,21,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,21,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Em linguagens com ponteiros, é fácil criar erroneamente um <em>ponteiro solto</em>, um
 ponteiro que referencia um local na memória que pode ter sido dado para outra
 parte do programa, basta liberar alguma memória e preservar um ponteiro para
@@ -1656,7 +1656,7 @@ tempo de compilação:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21:main" data-id="0,0,0,1,21,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,21:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Isto funciona sem nenhum problema. A <code>String</code> é movida para fora, e nada é desalocado.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,22:main-container-external:0.inner-external:0,0,0:main" id="as-regras-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-02-references-and-borrowing#open@0,54&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">As Regras de Referências</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,22:main-container-external:0.inner-external:0,0,0:main" id="as-regras-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-02-references-and-borrowing#open@0,54&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">As Regras de Referências</div>
 <div data-id="inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,22,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos recapitular o que discutimos sobre referências:</p>
 </p>
 <p data-id="0,0,0,1,22,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><ol>

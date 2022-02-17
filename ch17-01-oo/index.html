@@ -12,6 +12,204 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,10": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-2: Implementações dos métodos públicos\\n`adicionar`, `remover`, and `media` na `ColecaoDeMedia`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,11": {
+    "value": "\"Os métodos públicos `adicionar`, `remover` e `media` são as únicas maneiras de modificar\\numa instância de `ColecaoDeMedia`. Quando um item é adicionado à `lista` usando o\\nmétodo `adicionar` ou removido usando o método `remover`, as implementações de cada uma\\nchama o método privado `atualizar_media` que lida com a atualização do\\ncampo `media` também.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,12": {
+    "value": "\"Deixamos os campos da `lista` e `media` privados, então não há como um\\ncódigo externo adicionar ou remover itens para o campo `lista` diretamente; senão,\\no campo `media` pode ficar desatualizado quando a `lista` é modificada. O método `media`\\nretorna o valor contido no campo `media`, permitindo que código externo\\nleia a `media`, mas não a modifique.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,13": {
+    "value": "\"Porque encapsulamos os detalhes de implementação da `ColecaoDeMedia`,\\npodemos facilmente alterar aspectos, como a estrutura de dados, no futuro. Por\\nexemplo,  depomos usar um `HashSet` em vez de `Vec` para o campo `lista`. Contanto\\nque as assinaturas dos métodos públicos `adicionar`, `remover` e `media`\\nsejam os mesmos, o código que estiver usando `ColecaoDeMedia` não precisa ser alterado. Se tornássemos\\na `lista` pública, isso não seria necessariamente o caso: `HashSet`\\ne `Vec` têm métodos diferentes para adicionar e remover itens, então código externo\\nteria de mudar, se estivessemos modificando a `lista` diretamente.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,14": {
+    "value": "\"Se encapsulamento é um aspecto requirido para uma linguagem ser considerada orientada\\na objetos, então Rust atende a este requisito. A opção de usar `pub` ou não para\\ndiferentes partes do código permitem encapsulamento dos detalhes de implementação.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,15": {
+    "value": "\"*Herença* é um mecanismo pelo qual um objeto pode herdar de um outro\\ndefinição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem\\nque você precise definido-los novamente.\\n\\nSe a linguagem precisa ter herança para ser uma linguagem orientada a objetos, então\\nRust nao é. Não há como definir uma estrutura que herde\\nos campos e implementações de métodos da estrutura pai. No entanto, se você está acostumado a usar\\nherança nos seus programas, pode usar uma outra solução em Rust,\\ndependendo da sua razão pra obter a herança em primeiro lugar.\\n\\nVocê escolhe herança por dois motivos principais. Uma é para reuso de código: você pode\\nimplementar comportamento específico para um tipo e herança permite que você\\nreutilize essa implementação para um tipo diferente.  Você pode compartilhar códigos em Rust usando\\nimplementações do método de característica padrão, que você viu na Listagem 10-14,\\nquando adicionamos uma implementação padrão do método `resumir` no\\ntrait `Resumo`. Qualquer tipo de implementação de trait `Resumo` teria o\\nmétodo `resumir` disponível sem precisar de outro código. Isso é semelhante a\\numa classe pai tendo uma imeplementação de um método e uma classe filha\\nherdando a implementação do método. Também podemos sobrescrever a\\nimplementação padrão do método `resumir` quando implementamos o\\ntrait `Resumo`, que é similar a uma classe filha que sobrescreve a\\nimplementação do método herdado da classe pai.\\n\\nA outra razão para usar herança diz respeito ao sistema de tipos: permitir que um\\ntipo filho seja usado nos mesmos lugares que o tipo pai. Isso também é\\nchamado de *polimorfismo*, o que significa que você pode subistituir vários objetos um pelo\\noutro em tempo de execução se eles compartilham certas características.\\n\\n\u003E ### Polimorfismo\\n\u003E\\n\u003E Para muitas pessoas, polimorfismo é sinonimo de herança. Mas \\n\u003E na verdade, é um conceito muito mais geral que se refere ao código que pode trabalhar com dados\\n\u003E de vários tipos. Para herança, esses tipos geralmente são subclasses.\\n\u003E\\n\u003E Alternativamente, Rust isa genéricos para abstrair sobre diferentes tipos possíveis e\\n\u003Etrait bounds para impor restrições no que esses tipos devem fornecer. As vezes,\\n\u003E isso é chamado de *polimorfismo paramétrico limitado*\\n\\nRecentemente, herança caiu em desuso como uma solução de design de programação\\nem muitas linguagens de programação, porque muitas vezes corre o risco de compartilhar mais código\\nque o necessário. As subclasses nem sempre devem compartilhar todas as características de sua\\nclasse pai, mas o farão com herança. Isso pode fazer o design do programa\\nmenos flexível e introduzir a possibilidade de chamar métodos nas subclasses\\nque não fazem sentido ou que causam erros porque os métodos não se aplicam\\nà subclasse. Algumas linguagens também só permitem que uma subclasse herde de\\numa classe, restringindo a flexibilidade do design do programa.\\n\\nPor esses motivos, Rust usa abordagens diferentes, usando objetos trait em vez\\nde herança. Vamos ver como objetos trait possibilitam o polimorfismo em Rust.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,15,1,0": {
+    "value": "\"*Herença* é um mecanismo pelo qual um objeto pode herdar de um outro\\ndefinição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem\\nque você precise definido-los novamente.\\n\\nSe a linguagem precisa ter herança para ser uma linguagem orientada a objetos, então\\nRust nao é. Não há como definir uma estrutura que herde\\nos campos e implementações de métodos da estrutura pai. No entanto, se você está acostumado a usar\\nherança nos seus programas, pode usar uma outra solução em Rust,\\ndependendo da sua razão pra obter a herança em primeiro lugar.\\n\\nVocê escolhe herança por dois motivos principais. Uma é para reuso de código: você pode\\nimplementar comportamento específico para um tipo e herança permite que você\\nreutilize essa implementação para um tipo diferente.  Você pode compartilhar códigos em Rust usando\\nimplementações do método de característica padrão, que você viu na Listagem 10-14,\\nquando adicionamos uma implementação padrão do método `resumir` no\\ntrait `Resumo`. Qualquer tipo de implementação de trait `Resumo` teria o\\nmétodo `resumir` disponível sem precisar de outro código. Isso é semelhante a\\numa classe pai tendo uma imeplementação de um método e uma classe filha\\nherdando a implementação do método. Também podemos sobrescrever a\\nimplementação padrão do método `resumir` quando implementamos o\\ntrait `Resumo`, que é similar a uma classe filha que sobrescreve a\\nimplementação do método herdado da classe pai.\\n\\nA outra razão para usar herança diz respeito ao sistema de tipos: permitir que um\\ntipo filho seja usado nos mesmos lugares que o tipo pai. Isso também é\\nchamado de *polimorfismo*, o que significa que você pode subistituir vários objetos um pelo\\noutro em tempo de execução se eles compartilham certas características.\\n\\n\u003E ### Polimorfismo\\n\u003E\\n\u003E Para muitas pessoas, polimorfismo é sinonimo de herança. Mas \\n\u003E na verdade, é um conceito muito mais geral que se refere ao código que pode trabalhar com dados\\n\u003E de vários tipos. Para herança, esses tipos geralmente são subclasses.\\n\u003E\\n\u003E Alternativamente, Rust isa genéricos para abstrair sobre diferentes tipos possíveis e\\n\u003Etrait bounds para impor restrições no que esses tipos devem fornecer. As vezes,\\n\u003E isso é chamado de *polimorfismo paramétrico limitado*\\n\\nRecentemente, herança caiu em desuso como uma solução de design de programação\\nem muitas linguagens de programação, porque muitas vezes corre o risco de compartilhar mais código\\nque o necessário. As subclasses nem sempre devem compartilhar todas as características de sua\\nclasse pai, mas o farão com herança. Isso pode fazer o design do programa\\nmenos flexível e introduzir a possibilidade de chamar métodos nas subclasses\\nque não fazem sentido ou que causam erros porque os métodos não se aplicam\\nà subclasse. Algumas linguagens também só permitem que uma subclasse herde de\\numa classe, restringindo a flexibilidade do design do programa.\\n\\nPor esses motivos, Rust usa abordagens diferentes, usando objetos trait em vez\\nde herança. Vamos ver como objetos trait possibilitam o polimorfismo em Rust.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,2": {
+    "value": "\"Não existe um consenso na comunidade de programação sobre quais recursos uma\\nlinguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos\\nparadigmas diferentes, incluindo POO; por exemplo, exploramos os\\nrecursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO\\ncompartilham certas características comuns, nome para objetos, encapsulamento\\ne herença. Vamos ver o que cada uma dessas características significam e\\nse Rust as suportam.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,2,1,0": {
+    "value": "\"Não existe um consenso na comunidade de programação sobre quais recursos uma\\nlinguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos\\nparadigmas diferentes, incluindo POO; por exemplo, exploramos os\\nrecursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO\\ncompartilham certas características comuns, nome para objetos, encapsulamento\\ne herença. Vamos ver o que cada uma dessas características significam e\\nse Rust as suportam.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,3": {
+    "value": "\"O livro *Design Patterns: Elements of Reusable Object-Oriented Software*,\\ninformalmente referido como *O livro da Gangue dos Quatro*, é um catálogo de\\npadrões de design orientado a objetos. Ele define POO como:\\n\\n\u003E Programas orientados a objetos são feitos de objetos. Um *objeto* empacota ambos\\n\u003E dados e seus procedimentos que operam sobre estes dados. Os procedimentos são\\n\u003E tipicamente chamados de *métodos* or *operações*.\\n\\nUsando essa definição, Rust é orientada a objetos: structs e enums têm dados\\ne os blocos `impl` fornecem métodos em structs e enums. Embora structs e\\nenums com métodos não sejam *chamados* de objetos, eles fornecem a mesma\\nfuncionalidade, de acordo com a definição de objetos de Gangue dos Quatro.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,3,1,0": {
+    "value": "\"O livro *Design Patterns: Elements of Reusable Object-Oriented Software*,\\ninformalmente referido como *O livro da Gangue dos Quatro*, é um catálogo de\\npadrões de design orientado a objetos. Ele define POO como:\\n\\n\u003E Programas orientados a objetos são feitos de objetos. Um *objeto* empacota ambos\\n\u003E dados e seus procedimentos que operam sobre estes dados. Os procedimentos são\\n\u003E tipicamente chamados de *métodos* or *operações*.\\n\\nUsando essa definição, Rust é orientada a objetos: structs e enums têm dados\\ne os blocos `impl` fornecem métodos em structs e enums. Embora structs e\\nenums com métodos não sejam *chamados* de objetos, eles fornecem a mesma\\nfuncionalidade, de acordo com a definição de objetos de Gangue dos Quatro.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,4": {
+    "value": "\"Outro aspecto comumente associado a POO é a ideia de *encapsulamento*,\\no que significa que os detalhes de implementação de um objeto não são acessíveis ao\\ncódigo usando esse objeto. Portanto, a única maneira de interagir com um objeto é \\natravés de sua API pública; codigo usando o objeto não deve ser capaz de alcançar\\ncoisas internas ao objeto e alterar dados ou comportamento diretamente. Isso permite que o\\nprogramador altere e refatore as coisas internas de um objeto sem precisar\\nmudar o código que usa este objeto.\\n\\nDiscutimos como controlar o encapsulamento no Capítulo 7: podemos usar a palavra-chave `pub`\\npara determinar quais módulos, tipos, funções e métodos em nossso código\\ndevem ser públicos e, por padrão, todo o restante é privado. Por exemplo,\\npodemos definir uma estrutura `ColecaoDeMedia` que tem um campo contendo um vetor de\\nvalores de `i32`. A estrutura também pode ter um campo que contenha a média dos\\nvalores do vetor, o que significa que a média não precisa ser calculada\\ntoda vez que alguém precisar da média. Em outras palavras, `ColecaoDeMedia` irá\\narmazenar em cache a média calculada para nós. A Listagem 17-1 tem a definição da\\nestrutura `ColecaoDeMedia`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,4,1,0": {
+    "value": "\"Outro aspecto comumente associado a POO é a ideia de *encapsulamento*,\\no que significa que os detalhes de implementação de um objeto não são acessíveis ao\\ncódigo usando esse objeto. Portanto, a única maneira de interagir com um objeto é \\natravés de sua API pública; codigo usando o objeto não deve ser capaz de alcançar\\ncoisas internas ao objeto e alterar dados ou comportamento diretamente. Isso permite que o\\nprogramador altere e refatore as coisas internas de um objeto sem precisar\\nmudar o código que usa este objeto.\\n\\nDiscutimos como controlar o encapsulamento no Capítulo 7: podemos usar a palavra-chave `pub`\\npara determinar quais módulos, tipos, funções e métodos em nossso código\\ndevem ser públicos e, por padrão, todo o restante é privado. Por exemplo,\\npodemos definir uma estrutura `ColecaoDeMedia` que tem um campo contendo um vetor de\\nvalores de `i32`. A estrutura também pode ter um campo que contenha a média dos\\nvalores do vetor, o que significa que a média não precisa ser calculada\\ntoda vez que alguém precisar da média. Em outras palavras, `ColecaoDeMedia` irá\\narmazenar em cache a média calculada para nós. A Listagem 17-1 tem a definição da\\nestrutura `ColecaoDeMedia`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,5,0": {
+    "value": "\"pub struct ColecaoDeMedia {\\n    lista: Vec\u003Ci32\u003E,\\n    media: f64,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,6": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-1: A estrutura `ColecaoDeMedia`, que\\nmantém uma lista de inteiros e a média dos itens dessa\\ncoleção\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,7": {
+    "value": "\"A estrutura é marcada como `pub`, portanto, outro código possa usá-la, mas os campos dentro\\nda estrutura permanecem privados. Isso é importante nesse caso porque queremos\\ngarantir que sempre que um valor seja adicionado ou removido da lista, a média também seja\\natualizada. Fazemos isso implementando os métodos `adicionar` `remover` e `media`\\nna estrutura, conforme na Listagem 17-2:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,8": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#body@0,9,0": {
+    "value": "\"# pub struct ColecaoDeMedia {\\n#     lista: Vec\u003Ci32\u003E,\\n#     media: f64,\\n# }\\nimpl ColecaoDeMedia {\\n    pub fn adicionar(\u0026mut self, valor: i32) {\\n        self.lista.push(valor);\\n        self.atualizar_media();\\n    }\\n\\n    pub fn remover(\u0026mut self) -\u003E Option\u003Ci32\u003E {\\n        let resultado = self.lista.pop();\\n        match resultado {\\n            Some(valor) =\u003E {\\n                self.atualizar_media();\\n                Some(valor)\\n            },\\n            None =\u003E None,\\n        }\\n    }\\n\\n    pub fn media(\u0026self) -\u003E f64 {\\n        self.media\\n    }\\n\\n    fn atualizar_media(\u0026mut self) {\\n        let total: i32 = self.lista.iter().sum();\\n        self.media = total as f64 / self.lista.len() as f64;\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#caption@0,5,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#caption@0,9,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,15": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,4": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,15": {
+    "value": "\"Herança como um sistema de tipos e como compartilhamento de código\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,2": {
+    "value": "\"O que significa orientado a objetos?\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,3": {
+    "value": "\"Objetos contêm dados e comportamentos\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-01-oo#title@0,4": {
+    "value": "\"Encapsulamento que oculta detalhes de implementação\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -264,204 +462,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch17-01-oo#body@0,10": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-2: Implementações dos métodos públicos\\n`adicionar`, `remover`, and `media` na `ColecaoDeMedia`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,11": {
-    "value": "\"Os métodos públicos `adicionar`, `remover` e `media` são as únicas maneiras de modificar\\numa instância de `ColecaoDeMedia`. Quando um item é adicionado à `lista` usando o\\nmétodo `adicionar` ou removido usando o método `remover`, as implementações de cada uma\\nchama o método privado `atualizar_media` que lida com a atualização do\\ncampo `media` também.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,12": {
-    "value": "\"Deixamos os campos da `lista` e `media` privados, então não há como um\\ncódigo externo adicionar ou remover itens para o campo `lista` diretamente; senão,\\no campo `media` pode ficar desatualizado quando a `lista` é modificada. O método `media`\\nretorna o valor contido no campo `media`, permitindo que código externo\\nleia a `media`, mas não a modifique.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,13": {
-    "value": "\"Porque encapsulamos os detalhes de implementação da `ColecaoDeMedia`,\\npodemos facilmente alterar aspectos, como a estrutura de dados, no futuro. Por\\nexemplo,  depomos usar um `HashSet` em vez de `Vec` para o campo `lista`. Contanto\\nque as assinaturas dos métodos públicos `adicionar`, `remover` e `media`\\nsejam os mesmos, o código que estiver usando `ColecaoDeMedia` não precisa ser alterado. Se tornássemos\\na `lista` pública, isso não seria necessariamente o caso: `HashSet`\\ne `Vec` têm métodos diferentes para adicionar e remover itens, então código externo\\nteria de mudar, se estivessemos modificando a `lista` diretamente.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,14": {
-    "value": "\"Se encapsulamento é um aspecto requirido para uma linguagem ser considerada orientada\\na objetos, então Rust atende a este requisito. A opção de usar `pub` ou não para\\ndiferentes partes do código permitem encapsulamento dos detalhes de implementação.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,15": {
-    "value": "\"*Herença* é um mecanismo pelo qual um objeto pode herdar de um outro\\ndefinição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem\\nque você precise definido-los novamente.\\n\\nSe a linguagem precisa ter herança para ser uma linguagem orientada a objetos, então\\nRust nao é. Não há como definir uma estrutura que herde\\nos campos e implementações de métodos da estrutura pai. No entanto, se você está acostumado a usar\\nherança nos seus programas, pode usar uma outra solução em Rust,\\ndependendo da sua razão pra obter a herança em primeiro lugar.\\n\\nVocê escolhe herança por dois motivos principais. Uma é para reuso de código: você pode\\nimplementar comportamento específico para um tipo e herança permite que você\\nreutilize essa implementação para um tipo diferente.  Você pode compartilhar códigos em Rust usando\\nimplementações do método de característica padrão, que você viu na Listagem 10-14,\\nquando adicionamos uma implementação padrão do método `resumir` no\\ntrait `Resumo`. Qualquer tipo de implementação de trait `Resumo` teria o\\nmétodo `resumir` disponível sem precisar de outro código. Isso é semelhante a\\numa classe pai tendo uma imeplementação de um método e uma classe filha\\nherdando a implementação do método. Também podemos sobrescrever a\\nimplementação padrão do método `resumir` quando implementamos o\\ntrait `Resumo`, que é similar a uma classe filha que sobrescreve a\\nimplementação do método herdado da classe pai.\\n\\nA outra razão para usar herança diz respeito ao sistema de tipos: permitir que um\\ntipo filho seja usado nos mesmos lugares que o tipo pai. Isso também é\\nchamado de *polimorfismo*, o que significa que você pode subistituir vários objetos um pelo\\noutro em tempo de execução se eles compartilham certas características.\\n\\n\u003E ### Polimorfismo\\n\u003E\\n\u003E Para muitas pessoas, polimorfismo é sinonimo de herança. Mas \\n\u003E na verdade, é um conceito muito mais geral que se refere ao código que pode trabalhar com dados\\n\u003E de vários tipos. Para herança, esses tipos geralmente são subclasses.\\n\u003E\\n\u003E Alternativamente, Rust isa genéricos para abstrair sobre diferentes tipos possíveis e\\n\u003Etrait bounds para impor restrições no que esses tipos devem fornecer. As vezes,\\n\u003E isso é chamado de *polimorfismo paramétrico limitado*\\n\\nRecentemente, herança caiu em desuso como uma solução de design de programação\\nem muitas linguagens de programação, porque muitas vezes corre o risco de compartilhar mais código\\nque o necessário. As subclasses nem sempre devem compartilhar todas as características de sua\\nclasse pai, mas o farão com herança. Isso pode fazer o design do programa\\nmenos flexível e introduzir a possibilidade de chamar métodos nas subclasses\\nque não fazem sentido ou que causam erros porque os métodos não se aplicam\\nà subclasse. Algumas linguagens também só permitem que uma subclasse herde de\\numa classe, restringindo a flexibilidade do design do programa.\\n\\nPor esses motivos, Rust usa abordagens diferentes, usando objetos trait em vez\\nde herança. Vamos ver como objetos trait possibilitam o polimorfismo em Rust.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,15,1,0": {
-    "value": "\"*Herença* é um mecanismo pelo qual um objeto pode herdar de um outro\\ndefinição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem\\nque você precise definido-los novamente.\\n\\nSe a linguagem precisa ter herança para ser uma linguagem orientada a objetos, então\\nRust nao é. Não há como definir uma estrutura que herde\\nos campos e implementações de métodos da estrutura pai. No entanto, se você está acostumado a usar\\nherança nos seus programas, pode usar uma outra solução em Rust,\\ndependendo da sua razão pra obter a herança em primeiro lugar.\\n\\nVocê escolhe herança por dois motivos principais. Uma é para reuso de código: você pode\\nimplementar comportamento específico para um tipo e herança permite que você\\nreutilize essa implementação para um tipo diferente.  Você pode compartilhar códigos em Rust usando\\nimplementações do método de característica padrão, que você viu na Listagem 10-14,\\nquando adicionamos uma implementação padrão do método `resumir` no\\ntrait `Resumo`. Qualquer tipo de implementação de trait `Resumo` teria o\\nmétodo `resumir` disponível sem precisar de outro código. Isso é semelhante a\\numa classe pai tendo uma imeplementação de um método e uma classe filha\\nherdando a implementação do método. Também podemos sobrescrever a\\nimplementação padrão do método `resumir` quando implementamos o\\ntrait `Resumo`, que é similar a uma classe filha que sobrescreve a\\nimplementação do método herdado da classe pai.\\n\\nA outra razão para usar herança diz respeito ao sistema de tipos: permitir que um\\ntipo filho seja usado nos mesmos lugares que o tipo pai. Isso também é\\nchamado de *polimorfismo*, o que significa que você pode subistituir vários objetos um pelo\\noutro em tempo de execução se eles compartilham certas características.\\n\\n\u003E ### Polimorfismo\\n\u003E\\n\u003E Para muitas pessoas, polimorfismo é sinonimo de herança. Mas \\n\u003E na verdade, é um conceito muito mais geral que se refere ao código que pode trabalhar com dados\\n\u003E de vários tipos. Para herança, esses tipos geralmente são subclasses.\\n\u003E\\n\u003E Alternativamente, Rust isa genéricos para abstrair sobre diferentes tipos possíveis e\\n\u003Etrait bounds para impor restrições no que esses tipos devem fornecer. As vezes,\\n\u003E isso é chamado de *polimorfismo paramétrico limitado*\\n\\nRecentemente, herança caiu em desuso como uma solução de design de programação\\nem muitas linguagens de programação, porque muitas vezes corre o risco de compartilhar mais código\\nque o necessário. As subclasses nem sempre devem compartilhar todas as características de sua\\nclasse pai, mas o farão com herança. Isso pode fazer o design do programa\\nmenos flexível e introduzir a possibilidade de chamar métodos nas subclasses\\nque não fazem sentido ou que causam erros porque os métodos não se aplicam\\nà subclasse. Algumas linguagens também só permitem que uma subclasse herde de\\numa classe, restringindo a flexibilidade do design do programa.\\n\\nPor esses motivos, Rust usa abordagens diferentes, usando objetos trait em vez\\nde herança. Vamos ver como objetos trait possibilitam o polimorfismo em Rust.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,2": {
-    "value": "\"Não existe um consenso na comunidade de programação sobre quais recursos uma\\nlinguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos\\nparadigmas diferentes, incluindo POO; por exemplo, exploramos os\\nrecursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO\\ncompartilham certas características comuns, nome para objetos, encapsulamento\\ne herença. Vamos ver o que cada uma dessas características significam e\\nse Rust as suportam.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,2,1,0": {
-    "value": "\"Não existe um consenso na comunidade de programação sobre quais recursos uma\\nlinguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos\\nparadigmas diferentes, incluindo POO; por exemplo, exploramos os\\nrecursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO\\ncompartilham certas características comuns, nome para objetos, encapsulamento\\ne herença. Vamos ver o que cada uma dessas características significam e\\nse Rust as suportam.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,3": {
-    "value": "\"O livro *Design Patterns: Elements of Reusable Object-Oriented Software*,\\ninformalmente referido como *O livro da Gangue dos Quatro*, é um catálogo de\\npadrões de design orientado a objetos. Ele define POO como:\\n\\n\u003E Programas orientados a objetos são feitos de objetos. Um *objeto* empacota ambos\\n\u003E dados e seus procedimentos que operam sobre estes dados. Os procedimentos são\\n\u003E tipicamente chamados de *métodos* or *operações*.\\n\\nUsando essa definição, Rust é orientada a objetos: structs e enums têm dados\\ne os blocos `impl` fornecem métodos em structs e enums. Embora structs e\\nenums com métodos não sejam *chamados* de objetos, eles fornecem a mesma\\nfuncionalidade, de acordo com a definição de objetos de Gangue dos Quatro.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,3,1,0": {
-    "value": "\"O livro *Design Patterns: Elements of Reusable Object-Oriented Software*,\\ninformalmente referido como *O livro da Gangue dos Quatro*, é um catálogo de\\npadrões de design orientado a objetos. Ele define POO como:\\n\\n\u003E Programas orientados a objetos são feitos de objetos. Um *objeto* empacota ambos\\n\u003E dados e seus procedimentos que operam sobre estes dados. Os procedimentos são\\n\u003E tipicamente chamados de *métodos* or *operações*.\\n\\nUsando essa definição, Rust é orientada a objetos: structs e enums têm dados\\ne os blocos `impl` fornecem métodos em structs e enums. Embora structs e\\nenums com métodos não sejam *chamados* de objetos, eles fornecem a mesma\\nfuncionalidade, de acordo com a definição de objetos de Gangue dos Quatro.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,4": {
-    "value": "\"Outro aspecto comumente associado a POO é a ideia de *encapsulamento*,\\no que significa que os detalhes de implementação de um objeto não são acessíveis ao\\ncódigo usando esse objeto. Portanto, a única maneira de interagir com um objeto é \\natravés de sua API pública; codigo usando o objeto não deve ser capaz de alcançar\\ncoisas internas ao objeto e alterar dados ou comportamento diretamente. Isso permite que o\\nprogramador altere e refatore as coisas internas de um objeto sem precisar\\nmudar o código que usa este objeto.\\n\\nDiscutimos como controlar o encapsulamento no Capítulo 7: podemos usar a palavra-chave `pub`\\npara determinar quais módulos, tipos, funções e métodos em nossso código\\ndevem ser públicos e, por padrão, todo o restante é privado. Por exemplo,\\npodemos definir uma estrutura `ColecaoDeMedia` que tem um campo contendo um vetor de\\nvalores de `i32`. A estrutura também pode ter um campo que contenha a média dos\\nvalores do vetor, o que significa que a média não precisa ser calculada\\ntoda vez que alguém precisar da média. Em outras palavras, `ColecaoDeMedia` irá\\narmazenar em cache a média calculada para nós. A Listagem 17-1 tem a definição da\\nestrutura `ColecaoDeMedia`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,4,1,0": {
-    "value": "\"Outro aspecto comumente associado a POO é a ideia de *encapsulamento*,\\no que significa que os detalhes de implementação de um objeto não são acessíveis ao\\ncódigo usando esse objeto. Portanto, a única maneira de interagir com um objeto é \\natravés de sua API pública; codigo usando o objeto não deve ser capaz de alcançar\\ncoisas internas ao objeto e alterar dados ou comportamento diretamente. Isso permite que o\\nprogramador altere e refatore as coisas internas de um objeto sem precisar\\nmudar o código que usa este objeto.\\n\\nDiscutimos como controlar o encapsulamento no Capítulo 7: podemos usar a palavra-chave `pub`\\npara determinar quais módulos, tipos, funções e métodos em nossso código\\ndevem ser públicos e, por padrão, todo o restante é privado. Por exemplo,\\npodemos definir uma estrutura `ColecaoDeMedia` que tem um campo contendo um vetor de\\nvalores de `i32`. A estrutura também pode ter um campo que contenha a média dos\\nvalores do vetor, o que significa que a média não precisa ser calculada\\ntoda vez que alguém precisar da média. Em outras palavras, `ColecaoDeMedia` irá\\narmazenar em cache a média calculada para nós. A Listagem 17-1 tem a definição da\\nestrutura `ColecaoDeMedia`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,5,0": {
-    "value": "\"pub struct ColecaoDeMedia {\\n    lista: Vec\u003Ci32\u003E,\\n    media: f64,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,6": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-1: A estrutura `ColecaoDeMedia`, que\\nmantém uma lista de inteiros e a média dos itens dessa\\ncoleção\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,7": {
-    "value": "\"A estrutura é marcada como `pub`, portanto, outro código possa usá-la, mas os campos dentro\\nda estrutura permanecem privados. Isso é importante nesse caso porque queremos\\ngarantir que sempre que um valor seja adicionado ou removido da lista, a média também seja\\natualizada. Fazemos isso implementando os métodos `adicionar` `remover` e `media`\\nna estrutura, conforme na Listagem 17-2:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,8": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#body@0,9,0": {
-    "value": "\"# pub struct ColecaoDeMedia {\\n#     lista: Vec\u003Ci32\u003E,\\n#     media: f64,\\n# }\\nimpl ColecaoDeMedia {\\n    pub fn adicionar(\u0026mut self, valor: i32) {\\n        self.lista.push(valor);\\n        self.atualizar_media();\\n    }\\n\\n    pub fn remover(\u0026mut self) -\u003E Option\u003Ci32\u003E {\\n        let resultado = self.lista.pop();\\n        match resultado {\\n            Some(valor) =\u003E {\\n                self.atualizar_media();\\n                Some(valor)\\n            },\\n            None =\u003E None,\\n        }\\n    }\\n\\n    pub fn media(\u0026self) -\u003E f64 {\\n        self.media\\n    }\\n\\n    fn atualizar_media(\u0026mut self) {\\n        let total: i32 = self.lista.iter().sum();\\n        self.media = total as f64 / self.lista.len() as f64;\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#caption@0,5,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-01-oo#caption@0,9,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-01-oo#open@0,15": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#open@0,4": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,15": {
-    "value": "\"Herança como um sistema de tipos e como compartilhamento de código\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,2": {
-    "value": "\"O que significa orientado a objetos?\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,3": {
-    "value": "\"Objetos contêm dados e comportamentos\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-01-oo#title@0,4": {
-    "value": "\"Encapsulamento que oculta detalhes de implementação\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -664,7 +664,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -861,9 +861,9 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="o-que-significa-orientado-a-objetos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-01-oo#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">O que significa orientado a objetos?</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="o-que-significa-orientado-a-objetos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">O que significa orientado a objetos?</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Não existe um consenso na comunidade de programação sobre quais recursos uma linguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos paradigmas diferentes, incluindo POO; por exemplo, exploramos os recursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO compartilham certas características comuns, nome para objetos, encapsulamento e herença. Vamos ver o que cada uma dessas características significam e se Rust as suportam.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="objetos-contem-dados-e-comportamentos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-01-oo#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Objetos contêm dados e comportamentos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="objetos-contem-dados-e-comportamentos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Objetos contêm dados e comportamentos</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>O livro <em>Design Patterns: Elements of Reusable Object-Oriented Software</em>,
 informalmente referido como <em>O livro da Gangue dos Quatro</em>, é um catálogo de
 padrões de design orientado a objetos. Ele define POO como:</p>
@@ -879,7 +879,7 @@ e os blocos <code>impl</code> fornecem métodos em structs e enums. Embora struc
 enums com métodos não sejam <em>chamados</em> de objetos, eles fornecem a mesma
 funcionalidade, de acordo com a definição de objetos de Gangue dos Quatro.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="encapsulamento-que-oculta-detalhes-de-implementacao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-01-oo#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Encapsulamento que oculta detalhes de implementação</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="encapsulamento-que-oculta-detalhes-de-implementacao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Encapsulamento que oculta detalhes de implementação</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Outro aspecto comumente associado a POO é a ideia de <em>encapsulamento</em>,
 o que significa que os detalhes de implementação de um objeto não são acessíveis ao
 código usando esse objeto. Portanto, a única maneira de interagir com um objeto é
@@ -986,7 +986,7 @@ estrutura <code>ColecaoDeMedia</code>:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Deixamos os campos da <code>lista</code> e <code>media</code> privados, então não há como um código externo adicionar ou remover itens para o campo <code>lista</code> diretamente; senão, o campo <code>media</code> pode ficar desatualizado quando a <code>lista</code> é modificada. O método <code>media</code> retorna o valor contido no campo <code>media</code>, permitindo que código externo leia a <code>media</code>, mas não a modifique.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Porque encapsulamos os detalhes de implementação da <code>ColecaoDeMedia</code>, podemos facilmente alterar aspectos, como a estrutura de dados, no futuro. Por exemplo,  depomos usar um <code>HashSet</code> em vez de <code>Vec</code> para o campo <code>lista</code>. Contanto que as assinaturas dos métodos públicos <code>adicionar</code>, <code>remover</code> e <code>media</code> sejam os mesmos, o código que estiver usando <code>ColecaoDeMedia</code> não precisa ser alterado. Se tornássemos a <code>lista</code> pública, isso não seria necessariamente o caso: <code>HashSet</code> e <code>Vec</code> têm métodos diferentes para adicionar e remover itens, então código externo teria de mudar, se estivessemos modificando a <code>lista</code> diretamente.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Se encapsulamento é um aspecto requirido para uma linguagem ser considerada orientada a objetos, então Rust atende a este requisito. A opção de usar <code>pub</code> ou não para diferentes partes do código permitem encapsulamento dos detalhes de implementação.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="heranca-como-um-sistema-de-tipos-e-como-compartilhamento-de-codigo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-01-oo#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Herança como um sistema de tipos e como compartilhamento de código</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="heranca-como-um-sistema-de-tipos-e-como-compartilhamento-de-codigo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-01-oo#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Herança como um sistema de tipos e como compartilhamento de código</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p><em>Herença</em> é um mecanismo pelo qual um objeto pode herdar de um outro
 definição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem
 que você precise definido-los novamente.</p>

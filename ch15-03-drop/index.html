@@ -12,6 +12,270 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,10": {
+    "value": "\"Infelizmente, não é simples desabilitar a funcionalidade automática de `drop`.\\nDesabilitar o `drop` normalmente não é necessário; o ponto todo da trait `Drop`\\né que isso seja feito automaticamente. Mas ocasionalmente, você pode querer\\nlimpar um valor cedo. Um exemplo é quando usamos ponteiros inteligentes que\\ngerenciam locks: você pode querer forçar o método `drop` que libera o lock a\\nrodar para que outro código no mesmo escopo possa adquiri-lo. O Rust não nos\\ndeixa chamar o método `drop` da trait `Drop` manualmente; em vez disso, temos\\nque chamar a função `std::mem::drop` disponibilizada pela biblioteca padrão se\\nqueremos forçar um valor a ser destruído antes do fim de seu escopo.\\n\\nVamos ver o que acontece quando tentamos chamar o método `drop` da trait `Drop`\\nmanualmente, modificando a função `main` da Listagem 15-14, conforme mostra a\\nListagem 15-15:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,7,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,10,1,0": {
+    "value": "\"Infelizmente, não é simples desabilitar a funcionalidade automática de `drop`.\\nDesabilitar o `drop` normalmente não é necessário; o ponto todo da trait `Drop`\\né que isso seja feito automaticamente. Mas ocasionalmente, você pode querer\\nlimpar um valor cedo. Um exemplo é quando usamos ponteiros inteligentes que\\ngerenciam locks: você pode querer forçar o método `drop` que libera o lock a\\nrodar para que outro código no mesmo escopo possa adquiri-lo. O Rust não nos\\ndeixa chamar o método `drop` da trait `Drop` manualmente; em vez disso, temos\\nque chamar a função `std::mem::drop` disponibilizada pela biblioteca padrão se\\nqueremos forçar um valor a ser destruído antes do fim de seu escopo.\\n\\nVamos ver o que acontece quando tentamos chamar o método `drop` da trait `Drop`\\nmanualmente, modificando a função `main` da Listagem 15-14, conforme mostra a\\nListagem 15-15:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,7,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,11,0": {
+    "value": "\"fn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"algum dado\\\") };\\n    println!(\\\"CustomSmartPointer criado.\\\");\\n    c.drop();\\n    println!(\\\"CustomSmartPointer destruído antes do fim da main.\\\");\\n}\"",
+    "dependencies": {
+      "0,0,0,1,7,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,12": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-15: Tentando chamar o método `drop` da trait `Drop` manualmente para limpar cedo\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,7,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,13": {
+    "value": "\"Quando tentamos compilar esse código, recebemos este erro:\"",
+    "dependencies": {
+      "0,0,0,1,7,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,14,0": {
+    "value": "\"erro explícito de método destrutor\\n  --\u003E src/main.rs:14:7\\n   |\\n14 |     c.drop();\\n   |       ^^^^ chamadas explícitas a destrutores não são permitidas\"",
+    "dependencies": {
+      "0,0,0,1,7,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,15": {
+    "value": "\"Essa mensagem de erro afirma que não nos é permitido chamar explicitamente\\n`drop`. A mensagem de erro usa o termo _destrutor_, que é um termo geral de\\nprogramação para uma função que limpa uma instância. Um _destrutor_ é análogo a\\num _construtor_, que cria uma instância. A função `drop` em Rust é um destrutor\\nespecífico.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,16": {
+    "value": "\"O Rust não nos deixa chamar `drop` explicitamente porque o `drop` ainda seria\\nchamado no valor ao final da `main`. Isso seria um erro de _liberação dupla_\\n(_double free_) porque o Rust estaria tentando limpar o mesmo valor duas vezes.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,17": {
+    "value": "\"Nós não podemos desabilitar a inserção automática do `drop` quando um valor sai\\nde escopo, e também não podemos chamar o método `drop` explicitamente. Então, se\\nprecisamos forçar um valor a ser limpo antes, podemos usar a função\\n`std::mem::drop`.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,18": {
+    "value": "\"A função `std::mem::drop` é diferente do método `drop` na trait `Drop`. Nós a\\nchamamos passando como argumento o valor que queremos forçar a ser destruído\\ncedo. Essa função está no prelúdio, então podemos modificar a `main` na Listagem\\n15-14 para chamar a função `drop`, como mostra a Listagem 15-16:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,7,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,19,0": {
+    "value": "\"# struct CustomSmartPointer {\\n#     data: String,\\n# }\\n#\\n# impl Drop for CustomSmartPointer {\\n#     fn drop(\u0026mut self) {\\n#         println!(\\\"Destruindo CustomSmartPointer!\\\");\\n#     }\\n# }\\n#\\nfn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"algum dado\\\") };\\n    println!(\\\"CustomSmartPointer criado.\\\");\\n    drop(c);\\n    println!(\\\"CustomSmartPointer destruído antes do final da main.\\\");\\n}\"",
+    "dependencies": {
+      "0,0,0,1,7,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,2": {
+    "value": "\"A segunda trait de importância para a pattern de ponteiros inteligentes é a\\n`Drop`, que nos permite personalizar o que acontece quando um valor está prestes\\na sair de escopo. Nós podemos prover uma implementação da trait `Drop` para\\nqualquer tipo, e o código que especificarmos pode ser usado para liberar\\nrecursos como arquivos ou conexões de rede. Estamos introduzindo `Drop` no\\ncontexto de ponteiros inteligentes porque a funcionalidade da trait `Drop` é\\nusada quase sempre quando estamos implementando ponteiros inteligentes. Por\\nexemplo, o `Box\u003CT\u003E` customiza `Drop` para desalocar o espaço no heap para o qual\\no box aponta.\\n\\nEm algumas linguagens, a pessoa que está programando deve chamar código para\\nliberar memória ou recursos toda vez que ela termina de usar uma instância de um\\nponteiro inteligente. Se ela esquece, o sistema pode ficar sobrecarregado e\\nfalhar. No Rust, podemos especificar que um pedaço específico de código deva ser\\nrodado sempre que um valor sair de escopo, e o compilador irá inserir esse\\ncódigo automaticamente. Assim, não precisamos cuidadosamente colocar código de\\nlimpeza em todos os lugares de um programa em que uma instância de um tipo\\nespecífico deixa de ser usada, e ainda assim não vazaremos recursos!\\n\\nPara especificar o código que vai rodar quando um valor sair de escopo, nós\\nimplementamos a trait `Drop`. A trait `Drop` requer que implementemos um método\\nchamado `drop` que recebe uma referência mutável de `self`. Para ver quando o\\nRust chama `drop`, vamos implementar `drop` com declarações de `println!` por\\nora.\\n\\nA Listagem 15-14 mostra uma struct `CustomSmartPointer`\\n(\\\"PonteiroInteligentePersonalizado\\\") cuja única funcionalidade é que ela irá\\nimprimir `Destruindo CustomSmartPointer!` quando a instância sair de escopo.\\nEste exemplo demonstra quando o Rust roda a função `drop`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,2,1,0": {
+    "value": "\"A segunda trait de importância para a pattern de ponteiros inteligentes é a\\n`Drop`, que nos permite personalizar o que acontece quando um valor está prestes\\na sair de escopo. Nós podemos prover uma implementação da trait `Drop` para\\nqualquer tipo, e o código que especificarmos pode ser usado para liberar\\nrecursos como arquivos ou conexões de rede. Estamos introduzindo `Drop` no\\ncontexto de ponteiros inteligentes porque a funcionalidade da trait `Drop` é\\nusada quase sempre quando estamos implementando ponteiros inteligentes. Por\\nexemplo, o `Box\u003CT\u003E` customiza `Drop` para desalocar o espaço no heap para o qual\\no box aponta.\\n\\nEm algumas linguagens, a pessoa que está programando deve chamar código para\\nliberar memória ou recursos toda vez que ela termina de usar uma instância de um\\nponteiro inteligente. Se ela esquece, o sistema pode ficar sobrecarregado e\\nfalhar. No Rust, podemos especificar que um pedaço específico de código deva ser\\nrodado sempre que um valor sair de escopo, e o compilador irá inserir esse\\ncódigo automaticamente. Assim, não precisamos cuidadosamente colocar código de\\nlimpeza em todos os lugares de um programa em que uma instância de um tipo\\nespecífico deixa de ser usada, e ainda assim não vazaremos recursos!\\n\\nPara especificar o código que vai rodar quando um valor sair de escopo, nós\\nimplementamos a trait `Drop`. A trait `Drop` requer que implementemos um método\\nchamado `drop` que recebe uma referência mutável de `self`. Para ver quando o\\nRust chama `drop`, vamos implementar `drop` com declarações de `println!` por\\nora.\\n\\nA Listagem 15-14 mostra uma struct `CustomSmartPointer`\\n(\\\"PonteiroInteligentePersonalizado\\\") cuja única funcionalidade é que ela irá\\nimprimir `Destruindo CustomSmartPointer!` quando a instância sair de escopo.\\nEste exemplo demonstra quando o Rust roda a função `drop`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,20": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-16: Chamando `std::mem::drop` para destruir um\\nvalor explicitamente antes que ele saia de escopo\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,7,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,21": {
+    "value": "\"Rodar esse código irá imprimir o seguinte:\"",
+    "dependencies": {
+      "0,0,0,1,7,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,22,0": {
+    "value": "\"CustomSmartPointer criado.\\nDestruindo CustomSmartPointer com dados `algum dado`!\\nCustomSmartPointer destruído antes do final da main.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,23": {
+    "value": "\"O texto `` Destruindo CustomSmartPointer com dados `algum dado`! `` é impresso\\nentre o texto `CustomSmartPointer criado.` e `CustomSmartPointer destruído antes do final da main.`, mostrando que o método `drop` é chamado para destruir o `c`\\nnaquele ponto.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,24": {
+    "value": "\"Podemos usar o código especificado em uma implementação da trait `Drop` de\\nvárias maneiras para tornar a limpeza conveniente e segura: por exemplo,\\npoderíamos usá-lo para criar nosso próprio alocador de memória! Com a trait\\n`Drop` e o sistema de posse do Rust, não temos que lembrar de fazer a limpeza\\nporque o Rust faz isso automaticamente.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,25": {
+    "value": "\"Também não temos que nos preocupar em acidentalmente limpar valores ainda em uso\\nporque isso causaria um erro de compilação: o sistema de posse que garante que\\nas referências são sempre válidas também garante que o `drop` é chamado apenas\\numa vez quando o valor não está mais sendo usado.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,26": {
+    "value": "\"Agora que examinamos o `Box\u003CT\u003E` e alguma características de ponteiros\\ninteligentes, vamos dar uma olhada em alguns outros ponteiros inteligentes\\ndefinidos na biblioteca padrão.\"",
+    "dependencies": {
+      "0,0,0,1,7,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,3,0": {
+    "value": "\"struct CustomSmartPointer {\\n    data: String,\\n}\\n\\nimpl Drop for CustomSmartPointer {\\n    fn drop(\u0026mut self) {\\n        println!(\\\"Destruindo CustomSmartPointer com dados `{}`!\\\", self.data);\\n    }\\n}\\n\\nfn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"alocado primeiro\\\") };\\n    let d = CustomSmartPointer { data: String::from(\\\"alocado por último\\\") };\\n    println!(\\\"CustomSmartPointers criados.\\\");\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,4": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-14: Uma struct `CustomSmartPointer` que\\nimplementa a trait `Drop` onde colocaríamos nosso código de limpeza\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,5": {
+    "value": "\"A trait `Drop` é incluída no prelúdio, então não precisamos importá-la. Nós\\nimplementamos a trait `Drop` no `CustomSmartPointer` e providenciamos uma\\nimplementação para o método `drop` que chama `println!`. O corpo da função\\n`drop` é onde você colocaria qualquer que fosse a lógica que você gostaria que\\nrodasse quando uma instância do seu tipo for sair de escopo. Aqui estamos\\nimprimindo um texto para demonstrar o momento em que o Rust chama `drop`.\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,6": {
+    "value": "\"Na `main`, nós criamos duas instâncias do `CustomSmartPointer` e então\\nimprimimos `CustomSmartPointers criados.`. No final da `main`, nossas instâncias\\nde `CustomSmartPointer` sairão de escopo, e o Rust irá chamar o código que\\ncolocamos no método `drop`, imprimindo nossa mensagem final. Note que não\\ntivemos que chamar o método `drop` explicitamente.\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,7": {
+    "value": "\"Quando rodarmos esse programa, veremos a seguinte saída:\"",
+    "dependencies": {
+      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,8,0": {
+    "value": "\"CustomSmartPointers criados.\\nDestruindo CustomSmartPointer com dados `alocado por último`!\\nDestruindo CustomSmartPointer com dados `alocado primeiro`!\"",
+    "dependencies": {
+      "0,0,0,1,5,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#body@0,9": {
+    "value": "\"O Rust chamou automaticamente `drop` para nós quando nossa instância saiu de\\nescopo, chamando o código que especificamos. Variáveis são destruídas na ordem\\ncontrária à de criação, então `d` foi destruída antes de `c`. Esse exemplo serve\\napenas para lhe dar um guia visual de como o método `drop` funciona, mas\\nnormalmente você especificaria o código de limpeza que o seu tipo precisa rodar\\nem vez de imprimir uma mensagem.\"",
+    "dependencies": {
+      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,14,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#open@0,10": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,7,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#title@0,10": {
+    "value": "\"Destruindo um Valor Cedo com `std::mem::drop`\"",
+    "dependencies": {
+      "0,0,0,1,7,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-03-drop#title@0,2": {
+    "value": "\"A Trait `Drop` Roda Código durante a Limpeza\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -277,270 +541,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-03-drop#body@0,10": {
-    "value": "\"Infelizmente, não é simples desabilitar a funcionalidade automática de `drop`.\\nDesabilitar o `drop` normalmente não é necessário; o ponto todo da trait `Drop`\\né que isso seja feito automaticamente. Mas ocasionalmente, você pode querer\\nlimpar um valor cedo. Um exemplo é quando usamos ponteiros inteligentes que\\ngerenciam locks: você pode querer forçar o método `drop` que libera o lock a\\nrodar para que outro código no mesmo escopo possa adquiri-lo. O Rust não nos\\ndeixa chamar o método `drop` da trait `Drop` manualmente; em vez disso, temos\\nque chamar a função `std::mem::drop` disponibilizada pela biblioteca padrão se\\nqueremos forçar um valor a ser destruído antes do fim de seu escopo.\\n\\nVamos ver o que acontece quando tentamos chamar o método `drop` da trait `Drop`\\nmanualmente, modificando a função `main` da Listagem 15-14, conforme mostra a\\nListagem 15-15:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,7,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,10,1,0": {
-    "value": "\"Infelizmente, não é simples desabilitar a funcionalidade automática de `drop`.\\nDesabilitar o `drop` normalmente não é necessário; o ponto todo da trait `Drop`\\né que isso seja feito automaticamente. Mas ocasionalmente, você pode querer\\nlimpar um valor cedo. Um exemplo é quando usamos ponteiros inteligentes que\\ngerenciam locks: você pode querer forçar o método `drop` que libera o lock a\\nrodar para que outro código no mesmo escopo possa adquiri-lo. O Rust não nos\\ndeixa chamar o método `drop` da trait `Drop` manualmente; em vez disso, temos\\nque chamar a função `std::mem::drop` disponibilizada pela biblioteca padrão se\\nqueremos forçar um valor a ser destruído antes do fim de seu escopo.\\n\\nVamos ver o que acontece quando tentamos chamar o método `drop` da trait `Drop`\\nmanualmente, modificando a função `main` da Listagem 15-14, conforme mostra a\\nListagem 15-15:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,7,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,11,0": {
-    "value": "\"fn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"algum dado\\\") };\\n    println!(\\\"CustomSmartPointer criado.\\\");\\n    c.drop();\\n    println!(\\\"CustomSmartPointer destruído antes do fim da main.\\\");\\n}\"",
-    "dependencies": {
-      "0,0,0,1,7,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,12": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-15: Tentando chamar o método `drop` da trait `Drop` manualmente para limpar cedo\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,7,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,13": {
-    "value": "\"Quando tentamos compilar esse código, recebemos este erro:\"",
-    "dependencies": {
-      "0,0,0,1,7,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,14,0": {
-    "value": "\"erro explícito de método destrutor\\n  --\u003E src/main.rs:14:7\\n   |\\n14 |     c.drop();\\n   |       ^^^^ chamadas explícitas a destrutores não são permitidas\"",
-    "dependencies": {
-      "0,0,0,1,7,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,15": {
-    "value": "\"Essa mensagem de erro afirma que não nos é permitido chamar explicitamente\\n`drop`. A mensagem de erro usa o termo _destrutor_, que é um termo geral de\\nprogramação para uma função que limpa uma instância. Um _destrutor_ é análogo a\\num _construtor_, que cria uma instância. A função `drop` em Rust é um destrutor\\nespecífico.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,16": {
-    "value": "\"O Rust não nos deixa chamar `drop` explicitamente porque o `drop` ainda seria\\nchamado no valor ao final da `main`. Isso seria um erro de _liberação dupla_\\n(_double free_) porque o Rust estaria tentando limpar o mesmo valor duas vezes.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,17": {
-    "value": "\"Nós não podemos desabilitar a inserção automática do `drop` quando um valor sai\\nde escopo, e também não podemos chamar o método `drop` explicitamente. Então, se\\nprecisamos forçar um valor a ser limpo antes, podemos usar a função\\n`std::mem::drop`.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,18": {
-    "value": "\"A função `std::mem::drop` é diferente do método `drop` na trait `Drop`. Nós a\\nchamamos passando como argumento o valor que queremos forçar a ser destruído\\ncedo. Essa função está no prelúdio, então podemos modificar a `main` na Listagem\\n15-14 para chamar a função `drop`, como mostra a Listagem 15-16:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,7,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,19,0": {
-    "value": "\"# struct CustomSmartPointer {\\n#     data: String,\\n# }\\n#\\n# impl Drop for CustomSmartPointer {\\n#     fn drop(\u0026mut self) {\\n#         println!(\\\"Destruindo CustomSmartPointer!\\\");\\n#     }\\n# }\\n#\\nfn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"algum dado\\\") };\\n    println!(\\\"CustomSmartPointer criado.\\\");\\n    drop(c);\\n    println!(\\\"CustomSmartPointer destruído antes do final da main.\\\");\\n}\"",
-    "dependencies": {
-      "0,0,0,1,7,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,2": {
-    "value": "\"A segunda trait de importância para a pattern de ponteiros inteligentes é a\\n`Drop`, que nos permite personalizar o que acontece quando um valor está prestes\\na sair de escopo. Nós podemos prover uma implementação da trait `Drop` para\\nqualquer tipo, e o código que especificarmos pode ser usado para liberar\\nrecursos como arquivos ou conexões de rede. Estamos introduzindo `Drop` no\\ncontexto de ponteiros inteligentes porque a funcionalidade da trait `Drop` é\\nusada quase sempre quando estamos implementando ponteiros inteligentes. Por\\nexemplo, o `Box\u003CT\u003E` customiza `Drop` para desalocar o espaço no heap para o qual\\no box aponta.\\n\\nEm algumas linguagens, a pessoa que está programando deve chamar código para\\nliberar memória ou recursos toda vez que ela termina de usar uma instância de um\\nponteiro inteligente. Se ela esquece, o sistema pode ficar sobrecarregado e\\nfalhar. No Rust, podemos especificar que um pedaço específico de código deva ser\\nrodado sempre que um valor sair de escopo, e o compilador irá inserir esse\\ncódigo automaticamente. Assim, não precisamos cuidadosamente colocar código de\\nlimpeza em todos os lugares de um programa em que uma instância de um tipo\\nespecífico deixa de ser usada, e ainda assim não vazaremos recursos!\\n\\nPara especificar o código que vai rodar quando um valor sair de escopo, nós\\nimplementamos a trait `Drop`. A trait `Drop` requer que implementemos um método\\nchamado `drop` que recebe uma referência mutável de `self`. Para ver quando o\\nRust chama `drop`, vamos implementar `drop` com declarações de `println!` por\\nora.\\n\\nA Listagem 15-14 mostra uma struct `CustomSmartPointer`\\n(\\\"PonteiroInteligentePersonalizado\\\") cuja única funcionalidade é que ela irá\\nimprimir `Destruindo CustomSmartPointer!` quando a instância sair de escopo.\\nEste exemplo demonstra quando o Rust roda a função `drop`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,2,1,0": {
-    "value": "\"A segunda trait de importância para a pattern de ponteiros inteligentes é a\\n`Drop`, que nos permite personalizar o que acontece quando um valor está prestes\\na sair de escopo. Nós podemos prover uma implementação da trait `Drop` para\\nqualquer tipo, e o código que especificarmos pode ser usado para liberar\\nrecursos como arquivos ou conexões de rede. Estamos introduzindo `Drop` no\\ncontexto de ponteiros inteligentes porque a funcionalidade da trait `Drop` é\\nusada quase sempre quando estamos implementando ponteiros inteligentes. Por\\nexemplo, o `Box\u003CT\u003E` customiza `Drop` para desalocar o espaço no heap para o qual\\no box aponta.\\n\\nEm algumas linguagens, a pessoa que está programando deve chamar código para\\nliberar memória ou recursos toda vez que ela termina de usar uma instância de um\\nponteiro inteligente. Se ela esquece, o sistema pode ficar sobrecarregado e\\nfalhar. No Rust, podemos especificar que um pedaço específico de código deva ser\\nrodado sempre que um valor sair de escopo, e o compilador irá inserir esse\\ncódigo automaticamente. Assim, não precisamos cuidadosamente colocar código de\\nlimpeza em todos os lugares de um programa em que uma instância de um tipo\\nespecífico deixa de ser usada, e ainda assim não vazaremos recursos!\\n\\nPara especificar o código que vai rodar quando um valor sair de escopo, nós\\nimplementamos a trait `Drop`. A trait `Drop` requer que implementemos um método\\nchamado `drop` que recebe uma referência mutável de `self`. Para ver quando o\\nRust chama `drop`, vamos implementar `drop` com declarações de `println!` por\\nora.\\n\\nA Listagem 15-14 mostra uma struct `CustomSmartPointer`\\n(\\\"PonteiroInteligentePersonalizado\\\") cuja única funcionalidade é que ela irá\\nimprimir `Destruindo CustomSmartPointer!` quando a instância sair de escopo.\\nEste exemplo demonstra quando o Rust roda a função `drop`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,20": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-16: Chamando `std::mem::drop` para destruir um\\nvalor explicitamente antes que ele saia de escopo\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,7,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,21": {
-    "value": "\"Rodar esse código irá imprimir o seguinte:\"",
-    "dependencies": {
-      "0,0,0,1,7,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,22,0": {
-    "value": "\"CustomSmartPointer criado.\\nDestruindo CustomSmartPointer com dados `algum dado`!\\nCustomSmartPointer destruído antes do final da main.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,23": {
-    "value": "\"O texto `` Destruindo CustomSmartPointer com dados `algum dado`! `` é impresso\\nentre o texto `CustomSmartPointer criado.` e `CustomSmartPointer destruído antes do final da main.`, mostrando que o método `drop` é chamado para destruir o `c`\\nnaquele ponto.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,24": {
-    "value": "\"Podemos usar o código especificado em uma implementação da trait `Drop` de\\nvárias maneiras para tornar a limpeza conveniente e segura: por exemplo,\\npoderíamos usá-lo para criar nosso próprio alocador de memória! Com a trait\\n`Drop` e o sistema de posse do Rust, não temos que lembrar de fazer a limpeza\\nporque o Rust faz isso automaticamente.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,25": {
-    "value": "\"Também não temos que nos preocupar em acidentalmente limpar valores ainda em uso\\nporque isso causaria um erro de compilação: o sistema de posse que garante que\\nas referências são sempre válidas também garante que o `drop` é chamado apenas\\numa vez quando o valor não está mais sendo usado.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,26": {
-    "value": "\"Agora que examinamos o `Box\u003CT\u003E` e alguma características de ponteiros\\ninteligentes, vamos dar uma olhada em alguns outros ponteiros inteligentes\\ndefinidos na biblioteca padrão.\"",
-    "dependencies": {
-      "0,0,0,1,7,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,3,0": {
-    "value": "\"struct CustomSmartPointer {\\n    data: String,\\n}\\n\\nimpl Drop for CustomSmartPointer {\\n    fn drop(\u0026mut self) {\\n        println!(\\\"Destruindo CustomSmartPointer com dados `{}`!\\\", self.data);\\n    }\\n}\\n\\nfn main() {\\n    let c = CustomSmartPointer { data: String::from(\\\"alocado primeiro\\\") };\\n    let d = CustomSmartPointer { data: String::from(\\\"alocado por último\\\") };\\n    println!(\\\"CustomSmartPointers criados.\\\");\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,4": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-14: Uma struct `CustomSmartPointer` que\\nimplementa a trait `Drop` onde colocaríamos nosso código de limpeza\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,5": {
-    "value": "\"A trait `Drop` é incluída no prelúdio, então não precisamos importá-la. Nós\\nimplementamos a trait `Drop` no `CustomSmartPointer` e providenciamos uma\\nimplementação para o método `drop` que chama `println!`. O corpo da função\\n`drop` é onde você colocaria qualquer que fosse a lógica que você gostaria que\\nrodasse quando uma instância do seu tipo for sair de escopo. Aqui estamos\\nimprimindo um texto para demonstrar o momento em que o Rust chama `drop`.\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,6": {
-    "value": "\"Na `main`, nós criamos duas instâncias do `CustomSmartPointer` e então\\nimprimimos `CustomSmartPointers criados.`. No final da `main`, nossas instâncias\\nde `CustomSmartPointer` sairão de escopo, e o Rust irá chamar o código que\\ncolocamos no método `drop`, imprimindo nossa mensagem final. Note que não\\ntivemos que chamar o método `drop` explicitamente.\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,7": {
-    "value": "\"Quando rodarmos esse programa, veremos a seguinte saída:\"",
-    "dependencies": {
-      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,8,0": {
-    "value": "\"CustomSmartPointers criados.\\nDestruindo CustomSmartPointer com dados `alocado por último`!\\nDestruindo CustomSmartPointer com dados `alocado primeiro`!\"",
-    "dependencies": {
-      "0,0,0,1,5,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#body@0,9": {
-    "value": "\"O Rust chamou automaticamente `drop` para nós quando nossa instância saiu de\\nescopo, chamando o código que especificamos. Variáveis são destruídas na ordem\\ncontrária à de criação, então `d` foi destruída antes de `c`. Esse exemplo serve\\napenas para lhe dar um guia visual de como o método `drop` funciona, mas\\nnormalmente você especificaria o código de limpeza que o seu tipo precisa rodar\\nem vez de imprimir uma mensagem.\"",
-    "dependencies": {
-      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,14,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,7": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-03-drop#open@0,10": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,7,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#title@0,10": {
-    "value": "\"Destruindo um Valor Cedo com `std::mem::drop`\"",
-    "dependencies": {
-      "0,0,0,1,7,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-03-drop#title@0,2": {
-    "value": "\"A Trait `Drop` Roda Código durante a Limpeza\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -743,7 +743,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -940,7 +940,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="a-trait-drop-roda-codigo-durante-a-limpeza" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-03-drop#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A Trait <code>Drop</code> Roda Código durante a Limpeza</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="a-trait-drop-roda-codigo-durante-a-limpeza" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-03-drop#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A Trait <code>Drop</code> Roda Código durante a Limpeza</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A segunda trait de importância para a pattern de ponteiros inteligentes é a
 <code>Drop</code>, que nos permite personalizar o que acontece quando um valor está prestes
 a sair de escopo. Nós podemos prover uma implementação da trait <code>Drop</code> para
@@ -1024,7 +1024,7 @@ Este exemplo demonstra quando o Rust roda a função <code>drop</code>:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,6:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O Rust chamou automaticamente <code>drop</code> para nós quando nossa instância saiu de escopo, chamando o código que especificamos. Variáveis são destruídas na ordem contrária à de criação, então <code>d</code> foi destruída antes de <code>c</code>. Esse exemplo serve apenas para lhe dar um guia visual de como o método <code>drop</code> funciona, mas normalmente você especificaria o código de limpeza que o seu tipo precisa rodar em vez de imprimir uma mensagem.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,7:main-container-external:0.inner-external:0,0,0:main" id="destruindo-um-valor-cedo-com-std-mem-drop" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,7,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-03-drop#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Destruindo um Valor Cedo com <code>std::mem::drop</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,7:main-container-external:0.inner-external:0,0,0:main" id="destruindo-um-valor-cedo-com-std-mem-drop" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,7,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-03-drop#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Destruindo um Valor Cedo com <code>std::mem::drop</code></div>
 <div data-id="inner:0,0,0,1,7,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,7,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,7,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Infelizmente, não é simples desabilitar a funcionalidade automática de <code>drop</code>.
 Desabilitar o <code>drop</code> normalmente não é necessário; o ponto todo da trait <code>Drop</code>
 é que isso seja feito automaticamente. Mas ocasionalmente, você pode querer

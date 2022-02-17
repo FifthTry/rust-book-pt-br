@@ -12,6 +12,393 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,10": {
+    "value": "\"Em linguagens como C++, dois operadores diferentes são usados para chamar \\nmétodos: você usa `.` se você está chamando um método do objeto diretamente\\ne `-\u003E` se você está chamando o método em um apontador para o objeto e \\nnecessita de `desreferenciar` o apontadr primeiro. Em outras palavras, \\nse `objeto` é um apontador, `objeto-\u003Ealgo()` é semelhante a `(*objeto).algo()`.\\n\\nRust não tem um equivalente para o operador `-\u003E`; em vez disso, Rust tem \\num recurso chamado *referenciamento e desreferenciamento automático*. \\nChamada de métodos é um dos poucos lugares em Rust que têm este comportamento.\\n\\nEis como funciona: quando você chamar um método com `objecto.algo()`, Rust \\nadiciona automaticamente `\u0026`, `\u0026mut` ou `*` para que `objecto` corresponda\\nà assinatura do método. Em outras palavras, as seguintes são as mesmas:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,10,1,0": {
+    "value": "\"Em linguagens como C++, dois operadores diferentes são usados para chamar \\nmétodos: você usa `.` se você está chamando um método do objeto diretamente\\ne `-\u003E` se você está chamando o método em um apontador para o objeto e \\nnecessita de `desreferenciar` o apontadr primeiro. Em outras palavras, \\nse `objeto` é um apontador, `objeto-\u003Ealgo()` é semelhante a `(*objeto).algo()`.\\n\\nRust não tem um equivalente para o operador `-\u003E`; em vez disso, Rust tem \\num recurso chamado *referenciamento e desreferenciamento automático*. \\nChamada de métodos é um dos poucos lugares em Rust que têm este comportamento.\\n\\nEis como funciona: quando você chamar um método com `objecto.algo()`, Rust \\nadiciona automaticamente `\u0026`, `\u0026mut` ou `*` para que `objecto` corresponda\\nà assinatura do método. Em outras palavras, as seguintes são as mesmas:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,11,0": {
+    "value": "\" # #[derive(Debug,Copy,Clone)]\\n # struct Point {\\n #     x: f64,\\n #     y: f64,\\n # }\\n #\\n # impl Point {\\n #    fn distance(\u0026self, other: \u0026Point) -\u003E f64 {\\n #        let x_squared = f64::powi(other.x - self.x, 2);\\n #        let y_squared = f64::powi(other.y - self.y, 2);\\n #\\n #        f64::sqrt(x_squared + y_squared)\\n #    }\\n # }\\n # let p1 = Point { x: 0.0, y: 0.0 };\\n # let p2 = Point { x: 5.0, y: 6.5 };\\n p1.distance(\u0026p2);\\n (\u0026p1).distance(\u0026p2);\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,12": {
+    "value": "\"O primeiro parece muito mais limpo. Este comportamento de referenciamento \\nautomático funciona porque métodos têm um receptor claro- o tipo `self`.\\nDado o receptor e o nome de um método, Rust pode descobrir definitivamente \\nse o método é leitura (`\u0026self`), mutação (`\u0026mut self`), ou consumo (`self`).\\nO fato de que Rust faz o empréstimo para receptores de método implícito é em\\ngrande parte porque o ownership é ergonomico na prática.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,13": {
+    "value": "\"Vamos praticar usando métodos através da aplicação de um segundo método sobre \\no struct `Rectangle` . Desta vez, queremos uma instância de `Rectangle` para \\nter outra instância de `Rectangle` e retornar `verdadeiro` se o segundo \\n`Rectangle` pode caber completamente dentro de `self`, caso contrário deve \\nretornar `falso`. Isto é, queremos ser capazes de escrever o programa mostrado\\nna Lista 5-14, uma vez que você definiu o método `can_hold`(pode conter):\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,13,1,0": {
+    "value": "\"Vamos praticar usando métodos através da aplicação de um segundo método sobre \\no struct `Rectangle` . Desta vez, queremos uma instância de `Rectangle` para \\nter outra instância de `Rectangle` e retornar `verdadeiro` se o segundo \\n`Rectangle` pode caber completamente dentro de `self`, caso contrário deve \\nretornar `falso`. Isto é, queremos ser capazes de escrever o programa mostrado\\nna Lista 5-14, uma vez que você definiu o método `can_hold`(pode conter):\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,14,0": {
+    "value": "\"fn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n    let rect2 = Rectangle { length: 40, width: 10 };\\n    let rect3 = Rectangle { length: 45, width: 60 };\\n\\n    println!(\\\"Can rect1 hold rect2? {}\\\", rect1.can_hold(\u0026rect2));\\n    println!(\\\"Can rect1 hold rect3? {}\\\", rect1.can_hold(\u0026rect3));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,15": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-14: Demonstrando o uso do método ainda não escrito\\n`can_hold`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,16": {
+    "value": "\"E o resultado esperado seria o seguinte, porque ambas as dimensões de `rect2` são \\nmenores do que as dimensões de `rect1`, mas `rect3` é mais amplo do que `rect1`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,17,0": {
+    "value": "\"Can rect1 hold rect2? true\\nCan rect1 hold rect3? false\"",
+    "dependencies": {
+      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,18": {
+    "value": "\"Sabemos que queremos definir um método, por isso vai ser dentro do bloco \\n`impl Rectangle`. O nome do método será `can_hold`, e vai tomar um empréstimo\\nimutável de um outro `Rectangle` como parâmetro. Podemos dizer qual o tipo\\ndo parâmetro, olhando o código que chama o método: `rect1.can_hold(\u0026rect2)` \\npassa `\u0026rect2`, que é um empréstimo imutável de `rect2`, uma instância do \\n`Rectangle`. Isso faz sentido porque nós só precisamos de  ler `rect2` \\n(em vez de escrever, que precisaria de um empréstimo mutável),e nós queremos\\nque `main` conserve a propriedade de `rect2` para que possamos utilizá-lo \\nnovamente depois de chamar o método `can_hold`. O valor de retorno de `can_hold`\\nserá um booleano, e a aplicação irá verificar se o comprimento e a largura \\nde `self` são ambos maiores que o comprimento e a largura do outro `Rectangle`,\\nrespectivamente. Vamos adicionar o novo método `can_hold` ao bloco `impl` \\nda Lista 5-13, mostrado na Lista 5-15:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,19": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,2": {
+    "value": "\"*Methods* (métodos) são semelhantes às funções: eles são declarados com a chave\\n`fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm \\nalgum código que é executado quando eles são chamados de algum outro lugar. \\nNo entanto, métodos são diferentes das funções, porque são definidos no contexto\\nde uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 6\\ne 17, respectivamente), o seu primeiro parâmetro é sempre `self`, que representa\\na instância da struct do método que está a ser chamado.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,2,1,0": {
+    "value": "\"*Methods* (métodos) são semelhantes às funções: eles são declarados com a chave\\n`fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm \\nalgum código que é executado quando eles são chamados de algum outro lugar. \\nNo entanto, métodos são diferentes das funções, porque são definidos no contexto\\nde uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 6\\ne 17, respectivamente), o seu primeiro parâmetro é sempre `self`, que representa\\na instância da struct do método que está a ser chamado.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,20,0": {
+    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n\\n    fn can_hold(\u0026self, other: \u0026Rectangle) -\u003E bool {\\n        self.length \u003E other.length \u0026\u0026 self.width \u003E other.width\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,21": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-15: Implementando o `can_hold` em `Rectangle`\\nque toma outra instância de `Rectangle` como um parâmetro\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,22": {
+    "value": "\"Quando executamos este código com a função `main` na Lista 5-14, vamos obter a\\ninformação desejada. Métodos podem ter vários parâmetros que nós adicionamos à \\nassinatura depois do parametro de `self`, e esses parâmetros funcionam como \\nparâmetros em funções.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,23": {
+    "value": "\"Outro recurso útil dos blocos `impl` é que podemos definir funções dentro \\ndos blocos `impl` que *não* recebem `self` como um parâmetro.\\nEstas são chamadas de *funções associadas* porque elas estão associados com \\na struct. Elas ainda são funções, não métodos, porque elas não têm uma \\ninstância da struct para trabalhar. Você já usou a função associada \\n`String::from`.\\n\\nFunções associadas são usados frequentemente para construtores que retornam uma\\nnova instância da struct. Poderíamos, por exemplo, fornecer uma função associada\\nque teria um parametro dimensão e usar esse parâmetro como comprimento e \\nlargura, tornando assim mais fácil criar um retângulo `Rectangle` em vez de ter\\nque especificar o mesmo valor duas vezes:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,23,1,0": {
+    "value": "\"Outro recurso útil dos blocos `impl` é que podemos definir funções dentro \\ndos blocos `impl` que *não* recebem `self` como um parâmetro.\\nEstas são chamadas de *funções associadas* porque elas estão associados com \\na struct. Elas ainda são funções, não métodos, porque elas não têm uma \\ninstância da struct para trabalhar. Você já usou a função associada \\n`String::from`.\\n\\nFunções associadas são usados frequentemente para construtores que retornam uma\\nnova instância da struct. Poderíamos, por exemplo, fornecer uma função associada\\nque teria um parametro dimensão e usar esse parâmetro como comprimento e \\nlargura, tornando assim mais fácil criar um retângulo `Rectangle` em vez de ter\\nque especificar o mesmo valor duas vezes:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,24,0": {
+    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn square(size: u32) -\u003E Rectangle {\\n        Rectangle { length: size, width: size }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,25": {
+    "value": "\"Para chamar esta função associada, usamos a sintaxe `::` com o nome da struct,\\ncomo `let sq = Rectangle::square(3);`, por exemplo. Esta função é nomeada pela \\nstruct: a sintaxe `::` é utilizada tanto para funções associadas e `namespaces` \\ncriados por módulos, que discutiremos no Capítulo 7.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,26": {
+    "value": "\"Cada struct pode ter vários blocos `impl`. Por exemplo, a Lista 5-15 \\né equivalente ao código mostrado na Lista 5-16, que tem cada método em seu \\npróprio bloco `impl`:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,26,1,0": {
+    "value": "\"Cada struct pode ter vários blocos `impl`. Por exemplo, a Lista 5-15 \\né equivalente ao código mostrado na Lista 5-16, que tem cada método em seu \\npróprio bloco `impl`:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,27,0": {
+    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n}\\n\\nimpl Rectangle {\\n    fn can_hold(\u0026self, other: \u0026Rectangle) -\u003E bool {\\n        self.length \u003E other.length \u0026\u0026 self.width \u003E other.width\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,28": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-16: Reescrevendo Lista 5-15 usando vários \\nblocos `impl`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,29": {
+    "value": "\"Não há nenhuma razão para separar estes métodos em vários blocos `impl` aqui,\\nmas é uma sintaxe válida. Vamos ver um caso quando vários blocos `impl` são \\núteis no Capítulo 10 quando falamos de tipos genéricos e traços.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,3": {
+    "value": "\"Vamos alterar a função `area` que tem uma instância de `Rectangle` como um \\nparâmetro e, em vez disso, fazer um método `area` definido na struct `Rectangle`\\ncomo mostrado na Lista 5-13:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,3,1,0": {
+    "value": "\"Vamos alterar a função `area` que tem uma instância de `Rectangle` como um \\nparâmetro e, em vez disso, fazer um método `area` definido na struct `Rectangle`\\ncomo mostrado na Lista 5-13:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,30": {
+    "value": "\"As Structs permitem-nos criar tipos personalizados que são significativos para \\no nosso domínio. Usando structs, podemos manter pedaços de dados associados \\nligados uns aos outros e nomear cada pedaço para fazer nosso código claro.\\nMétodos ajudam-nos a especificar o comportamento que as instâncias das nossas\\nstructs têm, funções associadas dão-nos a funcionalidade de `namespace` que é \\nparticular à nossa struct sem ter uma instância disponível.\\n\\nMas structs não são a única maneira que nós podemos criar tipos personalizados:\\nvamos ao recurso do Rust, enum, para adicionar uma outra ferramenta à nossa \\ncaixa de ferramentas.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,30,1,0": {
+    "value": "\"As Structs permitem-nos criar tipos personalizados que são significativos para \\no nosso domínio. Usando structs, podemos manter pedaços de dados associados \\nligados uns aos outros e nomear cada pedaço para fazer nosso código claro.\\nMétodos ajudam-nos a especificar o comportamento que as instâncias das nossas\\nstructs têm, funções associadas dão-nos a funcionalidade de `namespace` que é \\nparticular à nossa struct sem ter uma instância disponível.\\n\\nMas structs não são a única maneira que nós podemos criar tipos personalizados:\\nvamos ao recurso do Rust, enum, para adicionar uma outra ferramenta à nossa \\ncaixa de ferramentas.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,4,0": {
+    "value": "\"#[derive(Debug)]\\nstruct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        rect1.area()\\n    );\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-13: Definindo um método `area` na struct\\n`Rectangle`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,6": {
+    "value": "\"Para definir a função dentro do contexto de `Rectangle`, vamos iniciar um bloco\\n`impl` (*Implementação*). Depois movemos a função `area` dentro do corpo ({}) \\ndo `impl` e alteramos o primeiro (e neste caso, unico) parâmetro a ser `self` na\\n assinatura e em todos os lugares dentro do corpo. \\nEm `main`, onde chamamos a função `area` e passamos `ct1` como um argumento,\\npodemos usar a *sintaxe de método* (method sintax) para chamar o método `área` \\nna nossa instância `Rectangle`. A sintaxe de método vem em seguida a uma \\ninstância: adicionamos um ponto seguido pelo nome do método, parênteses e os\\nargumentos.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,7": {
+    "value": "\"Na assinatura de `area`, usamos `\u0026self` em vez de `rectangle: \u0026Rectangle` porque\\nRust sabe que o tipo de `self` é `Rectangle` devido a este método estar dentro do \\ncontexto do `impl Rectangle`. Note que ainda precisamos usar o `\u0026` antes de \\n`self`, tal como fizemos em `\u0026Rectangle`. Métodos podem tomar posse de `self`,\\npedir emprestado `self` imutavel como temos feito aqui, ou pedir emprestado `self` \\nmutavel, assim como qualquer outro parâmetro.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,8": {
+    "value": "\"Escolhemos `\u0026selft` aqui pela mesma razão usamos `\u0026Rectangle` na versão função:\\nnós não queremos tomar posse, nós apenas queremos ler os dados da struct, \\ne não escrever nela. Se quisermos mudar a instância da qual chamamos\\no método como parte do que o método faz, usariamos `\u0026mut self` como o \\nprimeiro parâmetro. Ter um método que toma posse da instância, usando apenas \\n`self` como primeiro parâmetro é raro; esta técnica é geralmente utilizada \\nquando o método transforma o `self` em algo mais e queremos evitar que o \\nchamador use a instância original após a transformação.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#body@0,9": {
+    "value": "\"A principal vantagem do uso de métodos em vez de funções, além de usar a \\nsintaxe do método e não ter de repetir o tipo de `self` em cada assinatura \\ndo método, é a organização. Nós colocamos todas as coisas que nós podemos fazer\\ncom uma instância de um tipo em um bloco `impl` em vez de fazer os futuros \\nutilizadores do nosso código procurar as capacidades de `Rectangle` em vários \\nlugares na biblioteca que fornecemos.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,14,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,17,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,20,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,24,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,27,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,10": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,13": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,23": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,26": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,30": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,10": {
+    "value": "\"Onde está o Operador `-\u003E`?\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,13": {
+    "value": "\"Métodos com Mais Parametros\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,2": {
+    "value": "\"Sintaxe do Método\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,23": {
+    "value": "\"Funções Associadas\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,26": {
+    "value": "\"Multiplos Blocos `impl`\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,3": {
+    "value": "\"Definindo Métodos\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#title@0,30": {
+    "value": "\"Sumário\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -287,393 +674,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch05-03-method-syntax#body@0,10": {
-    "value": "\"Em linguagens como C++, dois operadores diferentes são usados para chamar \\nmétodos: você usa `.` se você está chamando um método do objeto diretamente\\ne `-\u003E` se você está chamando o método em um apontador para o objeto e \\nnecessita de `desreferenciar` o apontadr primeiro. Em outras palavras, \\nse `objeto` é um apontador, `objeto-\u003Ealgo()` é semelhante a `(*objeto).algo()`.\\n\\nRust não tem um equivalente para o operador `-\u003E`; em vez disso, Rust tem \\num recurso chamado *referenciamento e desreferenciamento automático*. \\nChamada de métodos é um dos poucos lugares em Rust que têm este comportamento.\\n\\nEis como funciona: quando você chamar um método com `objecto.algo()`, Rust \\nadiciona automaticamente `\u0026`, `\u0026mut` ou `*` para que `objecto` corresponda\\nà assinatura do método. Em outras palavras, as seguintes são as mesmas:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,10,1,0": {
-    "value": "\"Em linguagens como C++, dois operadores diferentes são usados para chamar \\nmétodos: você usa `.` se você está chamando um método do objeto diretamente\\ne `-\u003E` se você está chamando o método em um apontador para o objeto e \\nnecessita de `desreferenciar` o apontadr primeiro. Em outras palavras, \\nse `objeto` é um apontador, `objeto-\u003Ealgo()` é semelhante a `(*objeto).algo()`.\\n\\nRust não tem um equivalente para o operador `-\u003E`; em vez disso, Rust tem \\num recurso chamado *referenciamento e desreferenciamento automático*. \\nChamada de métodos é um dos poucos lugares em Rust que têm este comportamento.\\n\\nEis como funciona: quando você chamar um método com `objecto.algo()`, Rust \\nadiciona automaticamente `\u0026`, `\u0026mut` ou `*` para que `objecto` corresponda\\nà assinatura do método. Em outras palavras, as seguintes são as mesmas:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,11,0": {
-    "value": "\" # #[derive(Debug,Copy,Clone)]\\n # struct Point {\\n #     x: f64,\\n #     y: f64,\\n # }\\n #\\n # impl Point {\\n #    fn distance(\u0026self, other: \u0026Point) -\u003E f64 {\\n #        let x_squared = f64::powi(other.x - self.x, 2);\\n #        let y_squared = f64::powi(other.y - self.y, 2);\\n #\\n #        f64::sqrt(x_squared + y_squared)\\n #    }\\n # }\\n # let p1 = Point { x: 0.0, y: 0.0 };\\n # let p2 = Point { x: 5.0, y: 6.5 };\\n p1.distance(\u0026p2);\\n (\u0026p1).distance(\u0026p2);\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,12": {
-    "value": "\"O primeiro parece muito mais limpo. Este comportamento de referenciamento \\nautomático funciona porque métodos têm um receptor claro- o tipo `self`.\\nDado o receptor e o nome de um método, Rust pode descobrir definitivamente \\nse o método é leitura (`\u0026self`), mutação (`\u0026mut self`), ou consumo (`self`).\\nO fato de que Rust faz o empréstimo para receptores de método implícito é em\\ngrande parte porque o ownership é ergonomico na prática.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,13": {
-    "value": "\"Vamos praticar usando métodos através da aplicação de um segundo método sobre \\no struct `Rectangle` . Desta vez, queremos uma instância de `Rectangle` para \\nter outra instância de `Rectangle` e retornar `verdadeiro` se o segundo \\n`Rectangle` pode caber completamente dentro de `self`, caso contrário deve \\nretornar `falso`. Isto é, queremos ser capazes de escrever o programa mostrado\\nna Lista 5-14, uma vez que você definiu o método `can_hold`(pode conter):\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,13,1,0": {
-    "value": "\"Vamos praticar usando métodos através da aplicação de um segundo método sobre \\no struct `Rectangle` . Desta vez, queremos uma instância de `Rectangle` para \\nter outra instância de `Rectangle` e retornar `verdadeiro` se o segundo \\n`Rectangle` pode caber completamente dentro de `self`, caso contrário deve \\nretornar `falso`. Isto é, queremos ser capazes de escrever o programa mostrado\\nna Lista 5-14, uma vez que você definiu o método `can_hold`(pode conter):\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,14,0": {
-    "value": "\"fn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n    let rect2 = Rectangle { length: 40, width: 10 };\\n    let rect3 = Rectangle { length: 45, width: 60 };\\n\\n    println!(\\\"Can rect1 hold rect2? {}\\\", rect1.can_hold(\u0026rect2));\\n    println!(\\\"Can rect1 hold rect3? {}\\\", rect1.can_hold(\u0026rect3));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,15": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-14: Demonstrando o uso do método ainda não escrito\\n`can_hold`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,16": {
-    "value": "\"E o resultado esperado seria o seguinte, porque ambas as dimensões de `rect2` são \\nmenores do que as dimensões de `rect1`, mas `rect3` é mais amplo do que `rect1`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,17,0": {
-    "value": "\"Can rect1 hold rect2? true\\nCan rect1 hold rect3? false\"",
-    "dependencies": {
-      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,18": {
-    "value": "\"Sabemos que queremos definir um método, por isso vai ser dentro do bloco \\n`impl Rectangle`. O nome do método será `can_hold`, e vai tomar um empréstimo\\nimutável de um outro `Rectangle` como parâmetro. Podemos dizer qual o tipo\\ndo parâmetro, olhando o código que chama o método: `rect1.can_hold(\u0026rect2)` \\npassa `\u0026rect2`, que é um empréstimo imutável de `rect2`, uma instância do \\n`Rectangle`. Isso faz sentido porque nós só precisamos de  ler `rect2` \\n(em vez de escrever, que precisaria de um empréstimo mutável),e nós queremos\\nque `main` conserve a propriedade de `rect2` para que possamos utilizá-lo \\nnovamente depois de chamar o método `can_hold`. O valor de retorno de `can_hold`\\nserá um booleano, e a aplicação irá verificar se o comprimento e a largura \\nde `self` são ambos maiores que o comprimento e a largura do outro `Rectangle`,\\nrespectivamente. Vamos adicionar o novo método `can_hold` ao bloco `impl` \\nda Lista 5-13, mostrado na Lista 5-15:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,19": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,2": {
-    "value": "\"*Methods* (métodos) são semelhantes às funções: eles são declarados com a chave\\n`fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm \\nalgum código que é executado quando eles são chamados de algum outro lugar. \\nNo entanto, métodos são diferentes das funções, porque são definidos no contexto\\nde uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 6\\ne 17, respectivamente), o seu primeiro parâmetro é sempre `self`, que representa\\na instância da struct do método que está a ser chamado.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,2,1,0": {
-    "value": "\"*Methods* (métodos) são semelhantes às funções: eles são declarados com a chave\\n`fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm \\nalgum código que é executado quando eles são chamados de algum outro lugar. \\nNo entanto, métodos são diferentes das funções, porque são definidos no contexto\\nde uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 6\\ne 17, respectivamente), o seu primeiro parâmetro é sempre `self`, que representa\\na instância da struct do método que está a ser chamado.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,20,0": {
-    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n\\n    fn can_hold(\u0026self, other: \u0026Rectangle) -\u003E bool {\\n        self.length \u003E other.length \u0026\u0026 self.width \u003E other.width\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,21": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-15: Implementando o `can_hold` em `Rectangle`\\nque toma outra instância de `Rectangle` como um parâmetro\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,22": {
-    "value": "\"Quando executamos este código com a função `main` na Lista 5-14, vamos obter a\\ninformação desejada. Métodos podem ter vários parâmetros que nós adicionamos à \\nassinatura depois do parametro de `self`, e esses parâmetros funcionam como \\nparâmetros em funções.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,23": {
-    "value": "\"Outro recurso útil dos blocos `impl` é que podemos definir funções dentro \\ndos blocos `impl` que *não* recebem `self` como um parâmetro.\\nEstas são chamadas de *funções associadas* porque elas estão associados com \\na struct. Elas ainda são funções, não métodos, porque elas não têm uma \\ninstância da struct para trabalhar. Você já usou a função associada \\n`String::from`.\\n\\nFunções associadas são usados frequentemente para construtores que retornam uma\\nnova instância da struct. Poderíamos, por exemplo, fornecer uma função associada\\nque teria um parametro dimensão e usar esse parâmetro como comprimento e \\nlargura, tornando assim mais fácil criar um retângulo `Rectangle` em vez de ter\\nque especificar o mesmo valor duas vezes:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,23,1,0": {
-    "value": "\"Outro recurso útil dos blocos `impl` é que podemos definir funções dentro \\ndos blocos `impl` que *não* recebem `self` como um parâmetro.\\nEstas são chamadas de *funções associadas* porque elas estão associados com \\na struct. Elas ainda são funções, não métodos, porque elas não têm uma \\ninstância da struct para trabalhar. Você já usou a função associada \\n`String::from`.\\n\\nFunções associadas são usados frequentemente para construtores que retornam uma\\nnova instância da struct. Poderíamos, por exemplo, fornecer uma função associada\\nque teria um parametro dimensão e usar esse parâmetro como comprimento e \\nlargura, tornando assim mais fácil criar um retângulo `Rectangle` em vez de ter\\nque especificar o mesmo valor duas vezes:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,24,0": {
-    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn square(size: u32) -\u003E Rectangle {\\n        Rectangle { length: size, width: size }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,25": {
-    "value": "\"Para chamar esta função associada, usamos a sintaxe `::` com o nome da struct,\\ncomo `let sq = Rectangle::square(3);`, por exemplo. Esta função é nomeada pela \\nstruct: a sintaxe `::` é utilizada tanto para funções associadas e `namespaces` \\ncriados por módulos, que discutiremos no Capítulo 7.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,26": {
-    "value": "\"Cada struct pode ter vários blocos `impl`. Por exemplo, a Lista 5-15 \\né equivalente ao código mostrado na Lista 5-16, que tem cada método em seu \\npróprio bloco `impl`:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,26,1,0": {
-    "value": "\"Cada struct pode ter vários blocos `impl`. Por exemplo, a Lista 5-15 \\né equivalente ao código mostrado na Lista 5-16, que tem cada método em seu \\npróprio bloco `impl`:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,27,0": {
-    "value": "\"# #[derive(Debug)]\\n# struct Rectangle {\\n#     length: u32,\\n#     width: u32,\\n# }\\n#\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n}\\n\\nimpl Rectangle {\\n    fn can_hold(\u0026self, other: \u0026Rectangle) -\u003E bool {\\n        self.length \u003E other.length \u0026\u0026 self.width \u003E other.width\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,28": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-16: Reescrevendo Lista 5-15 usando vários \\nblocos `impl`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,29": {
-    "value": "\"Não há nenhuma razão para separar estes métodos em vários blocos `impl` aqui,\\nmas é uma sintaxe válida. Vamos ver um caso quando vários blocos `impl` são \\núteis no Capítulo 10 quando falamos de tipos genéricos e traços.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,3": {
-    "value": "\"Vamos alterar a função `area` que tem uma instância de `Rectangle` como um \\nparâmetro e, em vez disso, fazer um método `area` definido na struct `Rectangle`\\ncomo mostrado na Lista 5-13:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,3,1,0": {
-    "value": "\"Vamos alterar a função `area` que tem uma instância de `Rectangle` como um \\nparâmetro e, em vez disso, fazer um método `area` definido na struct `Rectangle`\\ncomo mostrado na Lista 5-13:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,30": {
-    "value": "\"As Structs permitem-nos criar tipos personalizados que são significativos para \\no nosso domínio. Usando structs, podemos manter pedaços de dados associados \\nligados uns aos outros e nomear cada pedaço para fazer nosso código claro.\\nMétodos ajudam-nos a especificar o comportamento que as instâncias das nossas\\nstructs têm, funções associadas dão-nos a funcionalidade de `namespace` que é \\nparticular à nossa struct sem ter uma instância disponível.\\n\\nMas structs não são a única maneira que nós podemos criar tipos personalizados:\\nvamos ao recurso do Rust, enum, para adicionar uma outra ferramenta à nossa \\ncaixa de ferramentas.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,30,1,0": {
-    "value": "\"As Structs permitem-nos criar tipos personalizados que são significativos para \\no nosso domínio. Usando structs, podemos manter pedaços de dados associados \\nligados uns aos outros e nomear cada pedaço para fazer nosso código claro.\\nMétodos ajudam-nos a especificar o comportamento que as instâncias das nossas\\nstructs têm, funções associadas dão-nos a funcionalidade de `namespace` que é \\nparticular à nossa struct sem ter uma instância disponível.\\n\\nMas structs não são a única maneira que nós podemos criar tipos personalizados:\\nvamos ao recurso do Rust, enum, para adicionar uma outra ferramenta à nossa \\ncaixa de ferramentas.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,4,0": {
-    "value": "\"#[derive(Debug)]\\nstruct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nimpl Rectangle {\\n    fn area(\u0026self) -\u003E u32 {\\n        self.length * self.width\\n    }\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        rect1.area()\\n    );\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-13: Definindo um método `area` na struct\\n`Rectangle`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,6": {
-    "value": "\"Para definir a função dentro do contexto de `Rectangle`, vamos iniciar um bloco\\n`impl` (*Implementação*). Depois movemos a função `area` dentro do corpo ({}) \\ndo `impl` e alteramos o primeiro (e neste caso, unico) parâmetro a ser `self` na\\n assinatura e em todos os lugares dentro do corpo. \\nEm `main`, onde chamamos a função `area` e passamos `ct1` como um argumento,\\npodemos usar a *sintaxe de método* (method sintax) para chamar o método `área` \\nna nossa instância `Rectangle`. A sintaxe de método vem em seguida a uma \\ninstância: adicionamos um ponto seguido pelo nome do método, parênteses e os\\nargumentos.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,7": {
-    "value": "\"Na assinatura de `area`, usamos `\u0026self` em vez de `rectangle: \u0026Rectangle` porque\\nRust sabe que o tipo de `self` é `Rectangle` devido a este método estar dentro do \\ncontexto do `impl Rectangle`. Note que ainda precisamos usar o `\u0026` antes de \\n`self`, tal como fizemos em `\u0026Rectangle`. Métodos podem tomar posse de `self`,\\npedir emprestado `self` imutavel como temos feito aqui, ou pedir emprestado `self` \\nmutavel, assim como qualquer outro parâmetro.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,8": {
-    "value": "\"Escolhemos `\u0026selft` aqui pela mesma razão usamos `\u0026Rectangle` na versão função:\\nnós não queremos tomar posse, nós apenas queremos ler os dados da struct, \\ne não escrever nela. Se quisermos mudar a instância da qual chamamos\\no método como parte do que o método faz, usariamos `\u0026mut self` como o \\nprimeiro parâmetro. Ter um método que toma posse da instância, usando apenas \\n`self` como primeiro parâmetro é raro; esta técnica é geralmente utilizada \\nquando o método transforma o `self` em algo mais e queremos evitar que o \\nchamador use a instância original após a transformação.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#body@0,9": {
-    "value": "\"A principal vantagem do uso de métodos em vez de funções, além de usar a \\nsintaxe do método e não ter de repetir o tipo de `self` em cada assinatura \\ndo método, é a organização. Nós colocamos todas as coisas que nós podemos fazer\\ncom uma instância de um tipo em um bloco `impl` em vez de fazer os futuros \\nutilizadores do nosso código procurar as capacidades de `Rectangle` em vários \\nlugares na biblioteca que fornecemos.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,14,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,17,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,20,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,24,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,27,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,10": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,13": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,23": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,26": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#open@0,30": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,10": {
-    "value": "\"Onde está o Operador `-\u003E`?\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,13": {
-    "value": "\"Métodos com Mais Parametros\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,2": {
-    "value": "\"Sintaxe do Método\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,23": {
-    "value": "\"Funções Associadas\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,26": {
-    "value": "\"Multiplos Blocos `impl`\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,3": {
-    "value": "\"Definindo Métodos\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-03-method-syntax#title@0,30": {
-    "value": "\"Sumário\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -908,7 +908,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1105,9 +1105,9 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="sintaxe-do-metodo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sintaxe do Método</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="sintaxe-do-metodo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sintaxe do Método</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><em>Methods</em> (métodos) são semelhantes às funções: eles são declarados com a chave <code>fn</code> e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm algum código que é executado quando eles são chamados de algum outro lugar. No entanto, métodos são diferentes das funções, porque são definidos no contexto de uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 6 e 17, respectivamente), o seu primeiro parâmetro é sempre <code>self</code>, que representa a instância da struct do método que está a ser chamado.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="definindo-metodos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo Métodos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="definindo-metodos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo Métodos</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos alterar a função <code>area</code> que tem uma instância de <code>Rectangle</code> como um
 parâmetro e, em vez disso, fazer um método <code>area</code> definido na struct <code>Rectangle</code>
 como mostrado na Lista 5-13:</p>
@@ -1164,7 +1164,7 @@ como mostrado na Lista 5-13:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Na assinatura de <code>area</code>, usamos <code>&amp;self</code> em vez de <code>rectangle: &amp;Rectangle</code> porque Rust sabe que o tipo de <code>self</code> é <code>Rectangle</code> devido a este método estar dentro do contexto do <code>impl Rectangle</code>. Note que ainda precisamos usar o <code>&amp;</code> antes de <code>self</code>, tal como fizemos em <code>&amp;Rectangle</code>. Métodos podem tomar posse de <code>self</code>, pedir emprestado <code>self</code> imutavel como temos feito aqui, ou pedir emprestado <code>self</code> mutavel, assim como qualquer outro parâmetro.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Escolhemos <code>&amp;selft</code> aqui pela mesma razão usamos <code>&amp;Rectangle</code> na versão função: nós não queremos tomar posse, nós apenas queremos ler os dados da struct, e não escrever nela. Se quisermos mudar a instância da qual chamamos o método como parte do que o método faz, usariamos <code>&amp;mut self</code> como o primeiro parâmetro. Ter um método que toma posse da instância, usando apenas <code>self</code> como primeiro parâmetro é raro; esta técnica é geralmente utilizada quando o método transforma o <code>self</code> em algo mais e queremos evitar que o chamador use a instância original após a transformação.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A principal vantagem do uso de métodos em vez de funções, além de usar a sintaxe do método e não ter de repetir o tipo de <code>self</code> em cada assinatura do método, é a organização. Nós colocamos todas as coisas que nós podemos fazer com uma instância de um tipo em um bloco <code>impl</code> em vez de fazer os futuros utilizadores do nosso código procurar as capacidades de <code>Rectangle</code> em vários lugares na biblioteca que fornecemos.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="onde-esta-o-operador" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Onde está o Operador <code>-&gt;</code>?</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="onde-esta-o-operador" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Onde está o Operador <code>-&gt;</code>?</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Em linguagens como C++, dois operadores diferentes são usados para chamar
 métodos: você usa <code>.</code> se você está chamando um método do objeto diretamente
 e <code>-&gt;</code> se você está chamando o método em um apontador para o objeto e
@@ -1221,7 +1221,7 @@ adiciona automaticamente <code>&amp;</code>, <code>&amp;mut</code> ou <code>*</c
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O primeiro parece muito mais limpo. Este comportamento de referenciamento automático funciona porque métodos têm um receptor claro- o tipo <code>self</code>. Dado o receptor e o nome de um método, Rust pode descobrir definitivamente se o método é leitura (<code>&amp;self</code>), mutação (<code>&amp;mut self</code>), ou consumo (<code>self</code>). O fato de que Rust faz o empréstimo para receptores de método implícito é em grande parte porque o ownership é ergonomico na prática.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="metodos-com-mais-parametros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,13&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Métodos com Mais Parametros</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="metodos-com-mais-parametros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,13&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Métodos com Mais Parametros</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos praticar usando métodos através da aplicação de um segundo método sobre
 o struct <code>Rectangle</code> . Desta vez, queremos uma instância de <code>Rectangle</code> para
 ter outra instância de <code>Rectangle</code> e retornar <code>verdadeiro</code> se o segundo
@@ -1302,7 +1302,7 @@ na Lista 5-14, uma vez que você definiu o método <code>can_hold</code>(pode co
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Lista 5-15: Implementando o <code>can_hold</code> em <code>Rectangle</code> que toma outra instância de <code>Rectangle</code> como um parâmetro<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Quando executamos este código com a função <code>main</code> na Lista 5-14, vamos obter a informação desejada. Métodos podem ter vários parâmetros que nós adicionamos à assinatura depois do parametro de <code>self</code>, e esses parâmetros funcionam como parâmetros em funções.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="funcoes-associadas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,23&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Funções Associadas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="funcoes-associadas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,23&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Funções Associadas</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Outro recurso útil dos blocos <code>impl</code> é que podemos definir funções dentro
 dos blocos <code>impl</code> que <em>não</em> recebem <code>self</code> como um parâmetro.
 Estas são chamadas de <em>funções associadas</em> porque elas estão associados com
@@ -1346,7 +1346,7 @@ que especificar o mesmo valor duas vezes:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para chamar esta função associada, usamos a sintaxe <code>::</code> com o nome da struct, como <code>let sq = Rectangle::square(3);</code>, por exemplo. Esta função é nomeada pela struct: a sintaxe <code>::</code> é utilizada tanto para funções associadas e <code>namespaces</code> criados por módulos, que discutiremos no Capítulo 7.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="multiplos-blocos-impl" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,26&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Multiplos Blocos <code>impl</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="multiplos-blocos-impl" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,26&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Multiplos Blocos <code>impl</code></div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Cada struct pode ter vários blocos <code>impl</code>. Por exemplo, a Lista 5-15 é equivalente ao código mostrado na Lista 5-16, que tem cada método em seu próprio bloco <code>impl</code>:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;"># #[derive(Debug)]
@@ -1389,7 +1389,7 @@ que especificar o mesmo valor duas vezes:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Lista 5-16: Reescrevendo Lista 5-15 usando vários blocos <code>impl</code><!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Não há nenhuma razão para separar estes métodos em vários blocos <code>impl</code> aqui, mas é uma sintaxe válida. Vamos ver um caso quando vários blocos <code>impl</code> são úteis no Capítulo 10 quando falamos de tipos genéricos e traços.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="sumario" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-03-method-syntax#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sumário</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="sumario" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-03-method-syntax#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sumário</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>As Structs permitem-nos criar tipos personalizados que são significativos para
 o nosso domínio. Usando structs, podemos manter pedaços de dados associados
 ligados uns aos outros e nomear cada pedaço para fazer nosso código claro.

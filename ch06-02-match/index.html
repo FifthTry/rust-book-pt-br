@@ -12,6 +12,501 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,10,0": {
+    "value": "\"# enum Moeda {\\n#    Penny,\\n#    Nickel,\\n#    Dime,\\n#    Quarter,\\n# }\\n#\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E {\\n            println!(\\\"Moeda da sorte!\\\");\\n            1\\n        },\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter =\u003E 25,\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,11": {
+    "value": "\"Outra característica útil dos braços do `match` é que eles podem ser atrelados\\na partes dos valores que se encaixam no padrão. É assim que podemos extrair\\nvalores dentro de uma variante de uma enum.\\n\\nPor exemplo, vamos alterar uma das nossas variantes, inserindo dados dentro\\ndela. De 1999 até 2008, os Estados Unidos cunhou _quarters_ com um _design_\\ndiferente para cada um dos 50 estados em um dos lados da moeda. Nenhuma outra\\nmoeda tinha essa diferença no _design_, apenas os _quarters_. Podemos adicionar\\nessa informação à nossa `enum` alterando a variante `Quarter` para incluir o\\nvalor `Estado`, como é feito na Listagem 6-4:\"",
+    "dependencies": {
+      "0,0,0,1,8,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,11,1,0": {
+    "value": "\"Outra característica útil dos braços do `match` é que eles podem ser atrelados\\na partes dos valores que se encaixam no padrão. É assim que podemos extrair\\nvalores dentro de uma variante de uma enum.\\n\\nPor exemplo, vamos alterar uma das nossas variantes, inserindo dados dentro\\ndela. De 1999 até 2008, os Estados Unidos cunhou _quarters_ com um _design_\\ndiferente para cada um dos 50 estados em um dos lados da moeda. Nenhuma outra\\nmoeda tinha essa diferença no _design_, apenas os _quarters_. Podemos adicionar\\nessa informação à nossa `enum` alterando a variante `Quarter` para incluir o\\nvalor `Estado`, como é feito na Listagem 6-4:\"",
+    "dependencies": {
+      "0,0,0,1,8,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,12,0": {
+    "value": "\"#[derive(Debug)] // Para podermos ver qual é o estado com mais facilidade\\nenum Estado {\\n    Alabama,\\n    Alaska,\\n    // ... etc\\n}\\n\\nenum Moeda {\\n    Penny,\\n    Nickel,\\n    Dime,\\n    Quarter(Estado),\\n}\"",
+    "dependencies": {
+      "0,0,0,1,8,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,13": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-4: Enum `Moeda`, cuja variante `Quarter`\\ntambém guarda o valor `Estado`.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,8,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,14": {
+    "value": "\"Vamos imaginar que um amigo nosso está tentando colecionar todas os _quarters_\\ndos 50 estados. Enquanto separamos nosso troco por tipo de moeda, vamos também\\ndizer o nome do estado associado a cada _quarter_. Se for um dos que o nosso\\namigo ainda não tem, ele pode colocá-lo na sua coleção.\"",
+    "dependencies": {
+      "0,0,0,1,8,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,15": {
+    "value": "\"Na expressão `match` desse código, vamos adicionar uma variável chamada\\n`estado` ao padrão que casa com os valores da variante `Moeda::Quarter`. Quando\\numa `Moeda::Quarter` é testada, a variável `estado` vai ser atrelada ao valor\\ndo estado daquele _quarter_. Assim vamos poder usar o `estado` no código do\\nbraço, desse jeito:\"",
+    "dependencies": {
+      "0,0,0,1,8,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,16,0": {
+    "value": "\"# #[derive(Debug)]\\n# enum Estado {\\n#    Alabama,\\n#    Alaska,\\n# }\\n#\\n# enum Moeda {\\n#    Penny,\\n#    Nickel,\\n#    Dime,\\n#    Quarter(Estado),\\n# }\\n#\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E 1,\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter(estado) =\u003E {\\n            println!(\\\"Quarter do estado {:?}!\\\", estado);\\n            25\\n        },\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,8,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,17": {
+    "value": "\"Se executarmos `valor_em_cents(Moeda::Quarter(Estado::Alaska))`, `moeda` seria\\n`Moeda::Quarter(Estado::Alaska)`. Quando comparamos esse valor em cada um dos\\nbraços do `match`, nenhum deles vai casar enquanto não chegar em\\n`Moeda::Quarter(estado)`. Nesse ponto, `estado` vai estar atrelado ao valor\\n`Estado::Alaska`. Podemos, então, usar esse valor na expressão `println!`,\\nobtendo o estado contido na variante `Quarter` da enum `Moeda`.\"",
+    "dependencies": {
+      "0,0,0,1,8,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,18": {
+    "value": "\"Na seção anterior, queríamos obter o valor `T` contido em um `Some` quando era\\no caso em uma `Option\u003CT\u003E`. Também podemos manipular uma `Option\u003CT\u003E usando\\n`match`, assim como fizemos com a enum `Moeda`! Em vez de comparar moedas,\\nvamos comparar as variantes de `Option\u003CT\u003E`, mas a forma de trabalhar com a\\nexpressão `match` continua a mesma.\\n\\nDigamos que queremos escrever uma função que recebe um `Option\u003Ci32\u003E`, e se\\nhouver um valor embutido nele, soma um a esse valor. Se não houver um valor,\\na função deve retornar `None`, e nem tentar executar nenhuma operação.\\n\\nEssa função é bem fácil de implementar, graças ao `match`, e vai ficar conforme\\nvisto na Listagem 6-5:\"",
+    "dependencies": {
+      "0,0,0,1,9,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,18,1,0": {
+    "value": "\"Na seção anterior, queríamos obter o valor `T` contido em um `Some` quando era\\no caso em uma `Option\u003CT\u003E`. Também podemos manipular uma `Option\u003CT\u003E usando\\n`match`, assim como fizemos com a enum `Moeda`! Em vez de comparar moedas,\\nvamos comparar as variantes de `Option\u003CT\u003E`, mas a forma de trabalhar com a\\nexpressão `match` continua a mesma.\\n\\nDigamos que queremos escrever uma função que recebe um `Option\u003Ci32\u003E`, e se\\nhouver um valor embutido nele, soma um a esse valor. Se não houver um valor,\\na função deve retornar `None`, e nem tentar executar nenhuma operação.\\n\\nEssa função é bem fácil de implementar, graças ao `match`, e vai ficar conforme\\nvisto na Listagem 6-5:\"",
+    "dependencies": {
+      "0,0,0,1,9,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,19,0": {
+    "value": "\"fn mais_um(x: Option\u003Ci32\u003E) -\u003E Option\u003Ci32\u003E {\\n    match x {\\n        None =\u003E None,\\n        Some(i) =\u003E Some(i + 1),\\n    }\\n}\\n\\nlet cinco = Some(5);\\nlet seis = mais_um(cinco);\\nlet nenhum = mais_um(None);\"",
+    "dependencies": {
+      "0,0,0,1,9,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,2": {
+    "value": "\"O Rust tem um excelente operador de controle de fluxo chamado `match`, que nos\\npermite comparar um valor com uma série de padrões e executar um código com\\nbase no padrão que casar. Padrões podem ser compostos de valores literais,\\nvariáveis, caracteres-curinga e várias outras coisas. O Capítulo 18 aborda\\ntodos os tipos de padrões e o que eles fazem. A grande utilidade do `match` vem\\nda expressividade dos padrões e das análises feitas pelo compilador, tendo\\ncerteza de que todos os casos possíveis estão sendo tratados.\\n\\nImagine que expressão `match` funciona como uma máquina de contar moedas: as\\nmoedas passam por um canal que possui furos de vários tamanhos, e cada moeda\\ncai no primeiro furo em que ela couber. Da mesma forma, os valores passam por\\ncada padrão de um `match`, e logo no primeiro padrão que o valor \\\"se encaixar\\\",\\no bloco de código que estiver associado a ele será executado.\\n\\nAproveitando que acabamos de falar sobre moedas, vamos usá-las como exemplo de\\nutilização do `match`! Podemos escrever uma função que recebe uma moeda\\nqualquer dos Estados Unidos e, assim como uma máquina, determina qual moeda ela\\né e retorna seu valor em _cents_, como mostra a Listagem 6-3:\\n\\n\u003E **Nota do tradutor:** diferentemente do que acontece na maioria dos países,\\n\u003E as moedas dos Estados Unidos possuem nomes: as de 1 _cent_ são chamadas de\\n\u003E _Penny_; as de 5 _cents_, de _Nickel_; as de 10 _cents_, de _Dime_; e as de 25\\n\u003E _cents_, de _Quarter_.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,2,1,0": {
+    "value": "\"O Rust tem um excelente operador de controle de fluxo chamado `match`, que nos\\npermite comparar um valor com uma série de padrões e executar um código com\\nbase no padrão que casar. Padrões podem ser compostos de valores literais,\\nvariáveis, caracteres-curinga e várias outras coisas. O Capítulo 18 aborda\\ntodos os tipos de padrões e o que eles fazem. A grande utilidade do `match` vem\\nda expressividade dos padrões e das análises feitas pelo compilador, tendo\\ncerteza de que todos os casos possíveis estão sendo tratados.\\n\\nImagine que expressão `match` funciona como uma máquina de contar moedas: as\\nmoedas passam por um canal que possui furos de vários tamanhos, e cada moeda\\ncai no primeiro furo em que ela couber. Da mesma forma, os valores passam por\\ncada padrão de um `match`, e logo no primeiro padrão que o valor \\\"se encaixar\\\",\\no bloco de código que estiver associado a ele será executado.\\n\\nAproveitando que acabamos de falar sobre moedas, vamos usá-las como exemplo de\\nutilização do `match`! Podemos escrever uma função que recebe uma moeda\\nqualquer dos Estados Unidos e, assim como uma máquina, determina qual moeda ela\\né e retorna seu valor em _cents_, como mostra a Listagem 6-3:\\n\\n\u003E **Nota do tradutor:** diferentemente do que acontece na maioria dos países,\\n\u003E as moedas dos Estados Unidos possuem nomes: as de 1 _cent_ são chamadas de\\n\u003E _Penny_; as de 5 _cents_, de _Nickel_; as de 10 _cents_, de _Dime_; e as de 25\\n\u003E _cents_, de _Quarter_.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,20": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-5: Uma função que usa um `match` para tratar\\numa `Option\u003Ci32\u003E`.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,9,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,21": {
+    "value": "\"Vamos examinar a primeira execução de `mais_um` em mais detalhes. Quando\\nchamamos `mais_um(cinco)`, a variável `x` no corpo da função `mais_um` vai ter\\no valor `Some(5)`. Então comparamos ele a cada braço do `match`.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,21,1,0": {
+    "value": "\"Vamos examinar a primeira execução de `mais_um` em mais detalhes. Quando\\nchamamos `mais_um(cinco)`, a variável `x` no corpo da função `mais_um` vai ter\\no valor `Some(5)`. Então comparamos ele a cada braço do `match`.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,22,0": {
+    "value": "\"None =\u003E None,\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,23": {
+    "value": "\"O valor `Some(5)` não casa com o padrão `None`, então seguimos para o\\npróximo braço.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,24,0": {
+    "value": "\"Some(i) =\u003E Some(i + 1),\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,25": {
+    "value": "\"`Some(5) casa com `Some(i)`? Sim, casa! Temos a mesma variante. O `i`\\nestá atrelado ao valor contido em `Some`, então `i` passa a ter o valor `5`. O\\ncódigo desse braço é executado, então somamos um ao valor de `i` e criamos um\\nnovo `Some` contendo nosso total de `6`.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,26": {
+    "value": "\"Agora vamos considerar a segunda chamada da função `mais_um` na Listagem 6-5,\\nem que `x` é `None`. Nós entramos no `match` e comparamos com o primeiro braço.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,26,1,0": {
+    "value": "\"Agora vamos considerar a segunda chamada da função `mais_um` na Listagem 6-5,\\nem que `x` é `None`. Nós entramos no `match` e comparamos com o primeiro braço.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,27,0": {
+    "value": "\"None =\u003E None,\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,28": {
+    "value": "\"Confere! Não há nenhum valor para somar, então o programa pára e retorna o\\nvalor `None` do lado direito do `=\u003E`. Como o primeiro braço já casou, nenhum\\ndos demais será testado.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,29": {
+    "value": "\"A combinação de enums e a expressão `match` é útil em diversas situações. Você\\nverá muito esse padrão em Rust: fazer o `match` de uma enum, associar uma\\nvariável ao valor embutido, e então executar um código baseado nele. Pode\\nparecer complicado no começo, mas uma vez que você se acostume, você vai querer\\nque tivesse isso em todas as linguagens. É, sistematicamente, um favorito dos\\nusuários.\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,3,0": {
+    "value": "\"enum Moeda {\\n    Penny,\\n    Nickel,\\n    Dime,\\n    Quarter,\\n}\\n\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E 1,\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter =\u003E 25,\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,30": {
+    "value": "\"Há outro aspecto do `match` que precisamos discutir. Considere essa versão da\\nnossa função `mais_um`:\"",
+    "dependencies": {
+      "0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,30,1,0": {
+    "value": "\"Há outro aspecto do `match` que precisamos discutir. Considere essa versão da\\nnossa função `mais_um`:\"",
+    "dependencies": {
+      "0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,31,0": {
+    "value": "\"fn mais_um(x: Option\u003Ci32\u003E) -\u003E Option\u003Ci32\u003E {\\n    match x {\\n        Some(i) =\u003E Some(i + 1),\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,10,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,32": {
+    "value": "\"Nós não tratamos o caso `None`, logo vai ocorrer um _bug_ no nosso código. Por\\nsorte, é um _bug_ que o Rust sabe detectar. Se tentarmos compilar esse código,\\nvamos ter esse erro:\"",
+    "dependencies": {
+      "0,0,0,1,10,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,33,0": {
+    "value": "\"error patterns: `None` not covered\\n --\u003E\\n  |\\n6 |         match x {\\n  |               ^ pattern `None` not covered\"",
+    "dependencies": {
+      "0,0,0,1,10,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,34": {
+    "value": "\"O Rust sabe que nós não cobrimos todos os casos possíveis, e sabe até de qual\\npadrão nos esquecemos! _Matches_ em Rust são *exaustivos*: precisamos extinguir\\naté a última possibilidade pra que o nosso código seja válido. Especialmente no\\ncaso de uma `Option\u003CT\u003E`, em que o Rust não nos deixa esquecer de tratar\\nexplicitamente o caso `None`. Ele nos impede de assumir que temos um valor\\nválido quando possivelmente temos um valor nulo, e portanto, cometer o erro de\\num bilhão de dólares que vimos mais cedo.\"",
+    "dependencies": {
+      "0,0,0,1,10,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,35": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,11,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,35,1,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,11,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,36": {
+    "value": "\"O Rust também tem um padrão que podemos usar em situações em que não queremos\\nlistar todos os valores possíveis. Por exemplo, um `u8` pode ter valores\\nválidos de 0 a 255. Se nos importamos apenas com os valores 1, 3, 5 e 7, não\\nqueremos ser obrigados a listar o 0, 2, 4, 6, 8, 9, e assim por diante até 255.\\nFelizmente, nem precisamos: em vez disso, podemos usar o padrão especial `_`.\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,36,1,0": {
+    "value": "\"O Rust também tem um padrão que podemos usar em situações em que não queremos\\nlistar todos os valores possíveis. Por exemplo, um `u8` pode ter valores\\nválidos de 0 a 255. Se nos importamos apenas com os valores 1, 3, 5 e 7, não\\nqueremos ser obrigados a listar o 0, 2, 4, 6, 8, 9, e assim por diante até 255.\\nFelizmente, nem precisamos: em vez disso, podemos usar o padrão especial `_`.\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,37,0": {
+    "value": "\"let algum_valor_u8 = 0u8;\\nmatch algum_valor_u8 {\\n    1 =\u003E println!(\\\"um\\\"),\\n    3 =\u003E println!(\\\"três\\\"),\\n    5 =\u003E println!(\\\"cinco\\\"),\\n    7 =\u003E println!(\\\"sete\\\"),\\n    _ =\u003E (),\\n}\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,38": {
+    "value": "\"O padrão `_` casa com qualquer valor. Colocando ele depois dos demais\\nbraços, o `_` vai casar com todos os casos possíveis que não foram\\nespecificados antes dele. O `()` é só o valor-unidade, pra que nada aconteça no\\ncaso `_`. Como resultado, podemos dizer que não queremos fazer nada com os\\npossíveis valores que não listamos antes do _placeholder_ `_`.\"",
+    "dependencies": {
+      "0,0,0,1,12,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,39": {
+    "value": "\"Contudo, a expressão `match` pode ser um tanto verbosa em uma situação em que\\nqueremos apenas lidar com *um* dos casos. Pra essa situação, o Rust oferece o\\n`if let`.\"",
+    "dependencies": {
+      "0,0,0,1,12,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,4": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-3: Uma enum e uma expressão `match` em que os\\npadrões comparados são as variantes da enum.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,5": {
+    "value": "\"Vamos analisar o `match` da função `valor_em_cents`. Primeiro, usamos a\\npalavra-chave `match` seguida de uma expressão, que neste caso é o valor\\n`moeda`. É parecido a uma expressão utilizada com `if`, mas tem uma grande\\ndiferença: com `if`, a expressão precisa retornar um valor _booleano_. Aqui,\\npode ser de qualquer tipo. O tipo da variável `moeda`, neste exemplo, é a enum\\n`Moeda`, que definimos na Listagem 6-3.\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,6": {
+    "value": "\"Em seguida vêm os braços do `match`. Um braço é composto por duas partes: um\\npadrão e algum código. O primeiro braço deste exemplo tem um padrão, que é o\\nvalor `Moeda::Penny`, e o operador `=\u003E` que separa o padrão do código associado\\na ele. O código, nesse caso, é apenas o valor `1`. Os braços são separados uns\\ndos outros com uma vírgula.\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,7": {
+    "value": "\"Quando o `match` é executado, ele compara o valor resultante com o padrão de\\ncada braço, na ordem. Se o valor casar com um determinado padrão, o código\\nassociado a esse padrão será executado. Se o valor não se encaixa nesse padrão,\\na execução passa para o próximo braço, bem parecido com a máquina de contar\\nmoedas. Podemos ter tantos braços quanto precisamos. No caso da Listagem 6-3,\\nnosso `match` tem quatro braços.\"",
+    "dependencies": {
+      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,8": {
+    "value": "\"O código associado a cada braço é uma expressão, e o seu valor resultante, no\\nbraço que combinar, é o que será retornado pela expressão `match`.\"",
+    "dependencies": {
+      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#body@0,9": {
+    "value": "\"Tipicamente não se usa chaves se o braço do `match` for curto, como é o caso na\\nListagem 6-3, em que cada braço retorna apenas um valor. Se você quiser\\nexecutar mais de uma linha de código em um braço, você pode usar chaves para\\ndelimitá-las. Por exemplo, o código seguinte vai escrever na tela \\\"Moeda da\\nsorte!\\\" sempre que o método for chamado com uma `Moeda::Penny`, mas ainda vai\\nretornar o último valor do bloco, `1`:\"",
+    "dependencies": {
+      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,10,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,7,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,8,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,8,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,8,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,8,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,9,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,9,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,9,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,24,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,9,1,2,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,9,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,27,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,9,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,9,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,31,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,10,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,10,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,10,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,10,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,11": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,8,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,18": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,9,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,21": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,9,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,26": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,9,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,30": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,10,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,35": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,11,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,36": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,11": {
+    "value": "\"Padrões Atrelados a Valores\"",
+    "dependencies": {
+      "0,0,0,1,8,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,18": {
+    "value": "\"Usando `match` com `Option\u003CT\u003E`\"",
+    "dependencies": {
+      "0,0,0,1,9,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,2": {
+    "value": "\"Operador `match` de Controle de Fluxo\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,21": {
+    "value": "\"Casando `Some(T)`\"",
+    "dependencies": {
+      "0,0,0,1,9,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,26": {
+    "value": "\"Casando `None`\"",
+    "dependencies": {
+      "0,0,0,1,9,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,30": {
+    "value": "\"_Matches_ São Exaustivos\"",
+    "dependencies": {
+      "0,0,0,1,10,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,35": {
+    "value": "\"The `_` Placeholder\"",
+    "dependencies": {
+      "0,0,0,1,11,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-02-match#title@0,36": {
+    "value": "\"O _Placeholder_ `_`\"",
+    "dependencies": {
+      "0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -301,501 +796,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch06-02-match#body@0,10,0": {
-    "value": "\"# enum Moeda {\\n#    Penny,\\n#    Nickel,\\n#    Dime,\\n#    Quarter,\\n# }\\n#\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E {\\n            println!(\\\"Moeda da sorte!\\\");\\n            1\\n        },\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter =\u003E 25,\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,11": {
-    "value": "\"Outra característica útil dos braços do `match` é que eles podem ser atrelados\\na partes dos valores que se encaixam no padrão. É assim que podemos extrair\\nvalores dentro de uma variante de uma enum.\\n\\nPor exemplo, vamos alterar uma das nossas variantes, inserindo dados dentro\\ndela. De 1999 até 2008, os Estados Unidos cunhou _quarters_ com um _design_\\ndiferente para cada um dos 50 estados em um dos lados da moeda. Nenhuma outra\\nmoeda tinha essa diferença no _design_, apenas os _quarters_. Podemos adicionar\\nessa informação à nossa `enum` alterando a variante `Quarter` para incluir o\\nvalor `Estado`, como é feito na Listagem 6-4:\"",
-    "dependencies": {
-      "0,0,0,1,8,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,11,1,0": {
-    "value": "\"Outra característica útil dos braços do `match` é que eles podem ser atrelados\\na partes dos valores que se encaixam no padrão. É assim que podemos extrair\\nvalores dentro de uma variante de uma enum.\\n\\nPor exemplo, vamos alterar uma das nossas variantes, inserindo dados dentro\\ndela. De 1999 até 2008, os Estados Unidos cunhou _quarters_ com um _design_\\ndiferente para cada um dos 50 estados em um dos lados da moeda. Nenhuma outra\\nmoeda tinha essa diferença no _design_, apenas os _quarters_. Podemos adicionar\\nessa informação à nossa `enum` alterando a variante `Quarter` para incluir o\\nvalor `Estado`, como é feito na Listagem 6-4:\"",
-    "dependencies": {
-      "0,0,0,1,8,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,12,0": {
-    "value": "\"#[derive(Debug)] // Para podermos ver qual é o estado com mais facilidade\\nenum Estado {\\n    Alabama,\\n    Alaska,\\n    // ... etc\\n}\\n\\nenum Moeda {\\n    Penny,\\n    Nickel,\\n    Dime,\\n    Quarter(Estado),\\n}\"",
-    "dependencies": {
-      "0,0,0,1,8,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,13": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-4: Enum `Moeda`, cuja variante `Quarter`\\ntambém guarda o valor `Estado`.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,8,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,14": {
-    "value": "\"Vamos imaginar que um amigo nosso está tentando colecionar todas os _quarters_\\ndos 50 estados. Enquanto separamos nosso troco por tipo de moeda, vamos também\\ndizer o nome do estado associado a cada _quarter_. Se for um dos que o nosso\\namigo ainda não tem, ele pode colocá-lo na sua coleção.\"",
-    "dependencies": {
-      "0,0,0,1,8,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,15": {
-    "value": "\"Na expressão `match` desse código, vamos adicionar uma variável chamada\\n`estado` ao padrão que casa com os valores da variante `Moeda::Quarter`. Quando\\numa `Moeda::Quarter` é testada, a variável `estado` vai ser atrelada ao valor\\ndo estado daquele _quarter_. Assim vamos poder usar o `estado` no código do\\nbraço, desse jeito:\"",
-    "dependencies": {
-      "0,0,0,1,8,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,16,0": {
-    "value": "\"# #[derive(Debug)]\\n# enum Estado {\\n#    Alabama,\\n#    Alaska,\\n# }\\n#\\n# enum Moeda {\\n#    Penny,\\n#    Nickel,\\n#    Dime,\\n#    Quarter(Estado),\\n# }\\n#\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E 1,\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter(estado) =\u003E {\\n            println!(\\\"Quarter do estado {:?}!\\\", estado);\\n            25\\n        },\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,8,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,17": {
-    "value": "\"Se executarmos `valor_em_cents(Moeda::Quarter(Estado::Alaska))`, `moeda` seria\\n`Moeda::Quarter(Estado::Alaska)`. Quando comparamos esse valor em cada um dos\\nbraços do `match`, nenhum deles vai casar enquanto não chegar em\\n`Moeda::Quarter(estado)`. Nesse ponto, `estado` vai estar atrelado ao valor\\n`Estado::Alaska`. Podemos, então, usar esse valor na expressão `println!`,\\nobtendo o estado contido na variante `Quarter` da enum `Moeda`.\"",
-    "dependencies": {
-      "0,0,0,1,8,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,18": {
-    "value": "\"Na seção anterior, queríamos obter o valor `T` contido em um `Some` quando era\\no caso em uma `Option\u003CT\u003E`. Também podemos manipular uma `Option\u003CT\u003E usando\\n`match`, assim como fizemos com a enum `Moeda`! Em vez de comparar moedas,\\nvamos comparar as variantes de `Option\u003CT\u003E`, mas a forma de trabalhar com a\\nexpressão `match` continua a mesma.\\n\\nDigamos que queremos escrever uma função que recebe um `Option\u003Ci32\u003E`, e se\\nhouver um valor embutido nele, soma um a esse valor. Se não houver um valor,\\na função deve retornar `None`, e nem tentar executar nenhuma operação.\\n\\nEssa função é bem fácil de implementar, graças ao `match`, e vai ficar conforme\\nvisto na Listagem 6-5:\"",
-    "dependencies": {
-      "0,0,0,1,9,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,18,1,0": {
-    "value": "\"Na seção anterior, queríamos obter o valor `T` contido em um `Some` quando era\\no caso em uma `Option\u003CT\u003E`. Também podemos manipular uma `Option\u003CT\u003E usando\\n`match`, assim como fizemos com a enum `Moeda`! Em vez de comparar moedas,\\nvamos comparar as variantes de `Option\u003CT\u003E`, mas a forma de trabalhar com a\\nexpressão `match` continua a mesma.\\n\\nDigamos que queremos escrever uma função que recebe um `Option\u003Ci32\u003E`, e se\\nhouver um valor embutido nele, soma um a esse valor. Se não houver um valor,\\na função deve retornar `None`, e nem tentar executar nenhuma operação.\\n\\nEssa função é bem fácil de implementar, graças ao `match`, e vai ficar conforme\\nvisto na Listagem 6-5:\"",
-    "dependencies": {
-      "0,0,0,1,9,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,19,0": {
-    "value": "\"fn mais_um(x: Option\u003Ci32\u003E) -\u003E Option\u003Ci32\u003E {\\n    match x {\\n        None =\u003E None,\\n        Some(i) =\u003E Some(i + 1),\\n    }\\n}\\n\\nlet cinco = Some(5);\\nlet seis = mais_um(cinco);\\nlet nenhum = mais_um(None);\"",
-    "dependencies": {
-      "0,0,0,1,9,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,2": {
-    "value": "\"O Rust tem um excelente operador de controle de fluxo chamado `match`, que nos\\npermite comparar um valor com uma série de padrões e executar um código com\\nbase no padrão que casar. Padrões podem ser compostos de valores literais,\\nvariáveis, caracteres-curinga e várias outras coisas. O Capítulo 18 aborda\\ntodos os tipos de padrões e o que eles fazem. A grande utilidade do `match` vem\\nda expressividade dos padrões e das análises feitas pelo compilador, tendo\\ncerteza de que todos os casos possíveis estão sendo tratados.\\n\\nImagine que expressão `match` funciona como uma máquina de contar moedas: as\\nmoedas passam por um canal que possui furos de vários tamanhos, e cada moeda\\ncai no primeiro furo em que ela couber. Da mesma forma, os valores passam por\\ncada padrão de um `match`, e logo no primeiro padrão que o valor \\\"se encaixar\\\",\\no bloco de código que estiver associado a ele será executado.\\n\\nAproveitando que acabamos de falar sobre moedas, vamos usá-las como exemplo de\\nutilização do `match`! Podemos escrever uma função que recebe uma moeda\\nqualquer dos Estados Unidos e, assim como uma máquina, determina qual moeda ela\\né e retorna seu valor em _cents_, como mostra a Listagem 6-3:\\n\\n\u003E **Nota do tradutor:** diferentemente do que acontece na maioria dos países,\\n\u003E as moedas dos Estados Unidos possuem nomes: as de 1 _cent_ são chamadas de\\n\u003E _Penny_; as de 5 _cents_, de _Nickel_; as de 10 _cents_, de _Dime_; e as de 25\\n\u003E _cents_, de _Quarter_.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,2,1,0": {
-    "value": "\"O Rust tem um excelente operador de controle de fluxo chamado `match`, que nos\\npermite comparar um valor com uma série de padrões e executar um código com\\nbase no padrão que casar. Padrões podem ser compostos de valores literais,\\nvariáveis, caracteres-curinga e várias outras coisas. O Capítulo 18 aborda\\ntodos os tipos de padrões e o que eles fazem. A grande utilidade do `match` vem\\nda expressividade dos padrões e das análises feitas pelo compilador, tendo\\ncerteza de que todos os casos possíveis estão sendo tratados.\\n\\nImagine que expressão `match` funciona como uma máquina de contar moedas: as\\nmoedas passam por um canal que possui furos de vários tamanhos, e cada moeda\\ncai no primeiro furo em que ela couber. Da mesma forma, os valores passam por\\ncada padrão de um `match`, e logo no primeiro padrão que o valor \\\"se encaixar\\\",\\no bloco de código que estiver associado a ele será executado.\\n\\nAproveitando que acabamos de falar sobre moedas, vamos usá-las como exemplo de\\nutilização do `match`! Podemos escrever uma função que recebe uma moeda\\nqualquer dos Estados Unidos e, assim como uma máquina, determina qual moeda ela\\né e retorna seu valor em _cents_, como mostra a Listagem 6-3:\\n\\n\u003E **Nota do tradutor:** diferentemente do que acontece na maioria dos países,\\n\u003E as moedas dos Estados Unidos possuem nomes: as de 1 _cent_ são chamadas de\\n\u003E _Penny_; as de 5 _cents_, de _Nickel_; as de 10 _cents_, de _Dime_; e as de 25\\n\u003E _cents_, de _Quarter_.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,20": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-5: Uma função que usa um `match` para tratar\\numa `Option\u003Ci32\u003E`.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,9,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,21": {
-    "value": "\"Vamos examinar a primeira execução de `mais_um` em mais detalhes. Quando\\nchamamos `mais_um(cinco)`, a variável `x` no corpo da função `mais_um` vai ter\\no valor `Some(5)`. Então comparamos ele a cada braço do `match`.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,21,1,0": {
-    "value": "\"Vamos examinar a primeira execução de `mais_um` em mais detalhes. Quando\\nchamamos `mais_um(cinco)`, a variável `x` no corpo da função `mais_um` vai ter\\no valor `Some(5)`. Então comparamos ele a cada braço do `match`.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,22,0": {
-    "value": "\"None =\u003E None,\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,23": {
-    "value": "\"O valor `Some(5)` não casa com o padrão `None`, então seguimos para o\\npróximo braço.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,24,0": {
-    "value": "\"Some(i) =\u003E Some(i + 1),\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,25": {
-    "value": "\"`Some(5) casa com `Some(i)`? Sim, casa! Temos a mesma variante. O `i`\\nestá atrelado ao valor contido em `Some`, então `i` passa a ter o valor `5`. O\\ncódigo desse braço é executado, então somamos um ao valor de `i` e criamos um\\nnovo `Some` contendo nosso total de `6`.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,26": {
-    "value": "\"Agora vamos considerar a segunda chamada da função `mais_um` na Listagem 6-5,\\nem que `x` é `None`. Nós entramos no `match` e comparamos com o primeiro braço.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,26,1,0": {
-    "value": "\"Agora vamos considerar a segunda chamada da função `mais_um` na Listagem 6-5,\\nem que `x` é `None`. Nós entramos no `match` e comparamos com o primeiro braço.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,27,0": {
-    "value": "\"None =\u003E None,\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,28": {
-    "value": "\"Confere! Não há nenhum valor para somar, então o programa pára e retorna o\\nvalor `None` do lado direito do `=\u003E`. Como o primeiro braço já casou, nenhum\\ndos demais será testado.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,29": {
-    "value": "\"A combinação de enums e a expressão `match` é útil em diversas situações. Você\\nverá muito esse padrão em Rust: fazer o `match` de uma enum, associar uma\\nvariável ao valor embutido, e então executar um código baseado nele. Pode\\nparecer complicado no começo, mas uma vez que você se acostume, você vai querer\\nque tivesse isso em todas as linguagens. É, sistematicamente, um favorito dos\\nusuários.\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,3,0": {
-    "value": "\"enum Moeda {\\n    Penny,\\n    Nickel,\\n    Dime,\\n    Quarter,\\n}\\n\\nfn valor_em_cents(moeda: Moeda) -\u003E u32 {\\n    match moeda {\\n        Moeda::Penny =\u003E 1,\\n        Moeda::Nickel =\u003E 5,\\n        Moeda::Dime =\u003E 10,\\n        Moeda::Quarter =\u003E 25,\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,30": {
-    "value": "\"Há outro aspecto do `match` que precisamos discutir. Considere essa versão da\\nnossa função `mais_um`:\"",
-    "dependencies": {
-      "0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,30,1,0": {
-    "value": "\"Há outro aspecto do `match` que precisamos discutir. Considere essa versão da\\nnossa função `mais_um`:\"",
-    "dependencies": {
-      "0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,31,0": {
-    "value": "\"fn mais_um(x: Option\u003Ci32\u003E) -\u003E Option\u003Ci32\u003E {\\n    match x {\\n        Some(i) =\u003E Some(i + 1),\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,10,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,32": {
-    "value": "\"Nós não tratamos o caso `None`, logo vai ocorrer um _bug_ no nosso código. Por\\nsorte, é um _bug_ que o Rust sabe detectar. Se tentarmos compilar esse código,\\nvamos ter esse erro:\"",
-    "dependencies": {
-      "0,0,0,1,10,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,33,0": {
-    "value": "\"error patterns: `None` not covered\\n --\u003E\\n  |\\n6 |         match x {\\n  |               ^ pattern `None` not covered\"",
-    "dependencies": {
-      "0,0,0,1,10,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,34": {
-    "value": "\"O Rust sabe que nós não cobrimos todos os casos possíveis, e sabe até de qual\\npadrão nos esquecemos! _Matches_ em Rust são *exaustivos*: precisamos extinguir\\naté a última possibilidade pra que o nosso código seja válido. Especialmente no\\ncaso de uma `Option\u003CT\u003E`, em que o Rust não nos deixa esquecer de tratar\\nexplicitamente o caso `None`. Ele nos impede de assumir que temos um valor\\nválido quando possivelmente temos um valor nulo, e portanto, cometer o erro de\\num bilhão de dólares que vimos mais cedo.\"",
-    "dependencies": {
-      "0,0,0,1,10,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,35": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,11,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,35,1,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,11,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,36": {
-    "value": "\"O Rust também tem um padrão que podemos usar em situações em que não queremos\\nlistar todos os valores possíveis. Por exemplo, um `u8` pode ter valores\\nválidos de 0 a 255. Se nos importamos apenas com os valores 1, 3, 5 e 7, não\\nqueremos ser obrigados a listar o 0, 2, 4, 6, 8, 9, e assim por diante até 255.\\nFelizmente, nem precisamos: em vez disso, podemos usar o padrão especial `_`.\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,36,1,0": {
-    "value": "\"O Rust também tem um padrão que podemos usar em situações em que não queremos\\nlistar todos os valores possíveis. Por exemplo, um `u8` pode ter valores\\nválidos de 0 a 255. Se nos importamos apenas com os valores 1, 3, 5 e 7, não\\nqueremos ser obrigados a listar o 0, 2, 4, 6, 8, 9, e assim por diante até 255.\\nFelizmente, nem precisamos: em vez disso, podemos usar o padrão especial `_`.\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,37,0": {
-    "value": "\"let algum_valor_u8 = 0u8;\\nmatch algum_valor_u8 {\\n    1 =\u003E println!(\\\"um\\\"),\\n    3 =\u003E println!(\\\"três\\\"),\\n    5 =\u003E println!(\\\"cinco\\\"),\\n    7 =\u003E println!(\\\"sete\\\"),\\n    _ =\u003E (),\\n}\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,38": {
-    "value": "\"O padrão `_` casa com qualquer valor. Colocando ele depois dos demais\\nbraços, o `_` vai casar com todos os casos possíveis que não foram\\nespecificados antes dele. O `()` é só o valor-unidade, pra que nada aconteça no\\ncaso `_`. Como resultado, podemos dizer que não queremos fazer nada com os\\npossíveis valores que não listamos antes do _placeholder_ `_`.\"",
-    "dependencies": {
-      "0,0,0,1,12,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,39": {
-    "value": "\"Contudo, a expressão `match` pode ser um tanto verbosa em uma situação em que\\nqueremos apenas lidar com *um* dos casos. Pra essa situação, o Rust oferece o\\n`if let`.\"",
-    "dependencies": {
-      "0,0,0,1,12,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,4": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-3: Uma enum e uma expressão `match` em que os\\npadrões comparados são as variantes da enum.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,5": {
-    "value": "\"Vamos analisar o `match` da função `valor_em_cents`. Primeiro, usamos a\\npalavra-chave `match` seguida de uma expressão, que neste caso é o valor\\n`moeda`. É parecido a uma expressão utilizada com `if`, mas tem uma grande\\ndiferença: com `if`, a expressão precisa retornar um valor _booleano_. Aqui,\\npode ser de qualquer tipo. O tipo da variável `moeda`, neste exemplo, é a enum\\n`Moeda`, que definimos na Listagem 6-3.\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,6": {
-    "value": "\"Em seguida vêm os braços do `match`. Um braço é composto por duas partes: um\\npadrão e algum código. O primeiro braço deste exemplo tem um padrão, que é o\\nvalor `Moeda::Penny`, e o operador `=\u003E` que separa o padrão do código associado\\na ele. O código, nesse caso, é apenas o valor `1`. Os braços são separados uns\\ndos outros com uma vírgula.\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,7": {
-    "value": "\"Quando o `match` é executado, ele compara o valor resultante com o padrão de\\ncada braço, na ordem. Se o valor casar com um determinado padrão, o código\\nassociado a esse padrão será executado. Se o valor não se encaixa nesse padrão,\\na execução passa para o próximo braço, bem parecido com a máquina de contar\\nmoedas. Podemos ter tantos braços quanto precisamos. No caso da Listagem 6-3,\\nnosso `match` tem quatro braços.\"",
-    "dependencies": {
-      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,8": {
-    "value": "\"O código associado a cada braço é uma expressão, e o seu valor resultante, no\\nbraço que combinar, é o que será retornado pela expressão `match`.\"",
-    "dependencies": {
-      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#body@0,9": {
-    "value": "\"Tipicamente não se usa chaves se o braço do `match` for curto, como é o caso na\\nListagem 6-3, em que cada braço retorna apenas um valor. Se você quiser\\nexecutar mais de uma linha de código em um braço, você pode usar chaves para\\ndelimitá-las. Por exemplo, o código seguinte vai escrever na tela \\\"Moeda da\\nsorte!\\\" sempre que o método for chamado com uma `Moeda::Penny`, mas ainda vai\\nretornar o último valor do bloco, `1`:\"",
-    "dependencies": {
-      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,10,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,7,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,7,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,7,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,8,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,8,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,8,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,8,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,9,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,9,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,9,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,24,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,9,1,2,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,9,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,27,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,9,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,9,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,31,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,10,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,10,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,10,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,10,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,11": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,8,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,18": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,9,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,21": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,9,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,26": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,9,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,30": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,10,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,35": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,11,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#open@0,36": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,11": {
-    "value": "\"Padrões Atrelados a Valores\"",
-    "dependencies": {
-      "0,0,0,1,8,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,18": {
-    "value": "\"Usando `match` com `Option\u003CT\u003E`\"",
-    "dependencies": {
-      "0,0,0,1,9,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,2": {
-    "value": "\"Operador `match` de Controle de Fluxo\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,21": {
-    "value": "\"Casando `Some(T)`\"",
-    "dependencies": {
-      "0,0,0,1,9,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,26": {
-    "value": "\"Casando `None`\"",
-    "dependencies": {
-      "0,0,0,1,9,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,30": {
-    "value": "\"_Matches_ São Exaustivos\"",
-    "dependencies": {
-      "0,0,0,1,10,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,35": {
-    "value": "\"The `_` Placeholder\"",
-    "dependencies": {
-      "0,0,0,1,11,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-02-match#title@0,36": {
-    "value": "\"O _Placeholder_ `_`\"",
-    "dependencies": {
-      "0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1038,7 +1038,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1235,7 +1235,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="operador-match-de-controle-de-fluxo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Operador <code>match</code> de Controle de Fluxo</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="operador-match-de-controle-de-fluxo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Operador <code>match</code> de Controle de Fluxo</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>O Rust tem um excelente operador de controle de fluxo chamado <code>match</code>, que nos
 permite comparar um valor com uma série de padrões e executar um código com
 base no padrão que casar. Padrões podem ser compostos de valores literais,
@@ -1344,7 +1344,7 @@ as moedas dos Estados Unidos possuem nomes: as de 1 <em>cent</em> são chamadas 
 </span><span style="color:#323232;">}
 </span></pre>
 </div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,8:main-container-external:0.inner-external:0,0,0:main" id="padroes-atrelados-a-valores" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,8,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,11&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Padrões Atrelados a Valores</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,8:main-container-external:0.inner-external:0,0,0:main" id="padroes-atrelados-a-valores" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,8,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,11&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Padrões Atrelados a Valores</div>
 <div data-id="inner:0,0,0,1,8,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,8,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,8,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Outra característica útil dos braços do <code>match</code> é que eles podem ser atrelados
 a partes dos valores que se encaixam no padrão. É assim que podemos extrair
 valores dentro de uma variante de uma enum.</p>
@@ -1444,7 +1444,7 @@ valor <code>Estado</code>, como é feito na Listagem 6-4:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8:main" data-id="0,0,0,1,8,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,8:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Se executarmos <code>valor_em_cents(Moeda::Quarter(Estado::Alaska))</code>, <code>moeda</code> seria <code>Moeda::Quarter(Estado::Alaska)</code>. Quando comparamos esse valor em cada um dos braços do <code>match</code>, nenhum deles vai casar enquanto não chegar em <code>Moeda::Quarter(estado)</code>. Nesse ponto, <code>estado</code> vai estar atrelado ao valor <code>Estado::Alaska</code>. Podemos, então, usar esse valor na expressão <code>println!</code>, obtendo o estado contido na variante <code>Quarter</code> da enum <code>Moeda</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,9:main-container-external:0.inner-external:0,0,0:main" id="usando-match-com-option-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,18&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>match</code> com <code>Option&lt;T&gt;</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,9:main-container-external:0.inner-external:0,0,0:main" id="usando-match-com-option-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,18&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>match</code> com <code>Option&lt;T&gt;</code></div>
 <div data-id="inner:0,0,0,1,9,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,9,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Na seção anterior, queríamos obter o valor <code>T</code> contido em um <code>Some</code> quando era
 o caso em uma <code>Option&lt;T&gt;</code>. Também podemos manipular uma <code>Option&lt;T&gt; usando </code>match<code>, assim como fizemos com a enum </code>Moeda<code>! Em vez de comparar moedas, vamos comparar as variantes de </code>Option<!-- raw HTML omitted --><code>, mas a forma de trabalhar com a expressão </code>match` continua a mesma.</p>
 </p>
@@ -1481,7 +1481,7 @@ visto na Listagem 6-5:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" data-id="0,0,0,1,9,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 6-5: Uma função que usa um <code>match</code> para tratar uma <code>Option&lt;i32&gt;</code>.<!-- raw HTML omitted --></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" data-id="0,0,0,1,9,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" id="casando-some-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Casando <code>Some(T)</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" data-id="0,0,0,1,9,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" id="casando-some-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Casando <code>Some(T)</code></div>
 <div data-id="inner:0,0,0,1,9,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Vamos examinar a primeira execução de <code>mais_um</code> em mais detalhes. Quando chamamos <code>mais_um(cinco)</code>, a variável <code>x</code> no corpo da função <code>mais_um</code> vai ter o valor <code>Some(5)</code>. Então comparamos ele a cada braço do <code>match</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" data-id="0,0,0,1,9,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,9,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">None =&gt; None,
@@ -1499,7 +1499,7 @@ visto na Listagem 6-5:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" data-id="0,0,0,1,9,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><code>Some(5) casa com </code>Some(i)<code>? Sim, casa! Temos a mesma variante. O </code>i<code>está atrelado ao valor contido em</code>Some<code>, então </code>i<code>passa a ter o valor</code>5<code>. O código desse braço é executado, então somamos um ao valor de </code>i<code>e criamos um novo</code>Some<code>contendo nosso total de</code>6`.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" data-id="0,0,0,1,9,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" id="casando-none" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,26&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Casando <code>None</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" data-id="0,0,0,1,9,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" id="casando-none" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,26&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Casando <code>None</code></div>
 <div data-id="inner:0,0,0,1,9,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Agora vamos considerar a segunda chamada da função <code>mais_um</code> na Listagem 6-5, em que <code>x</code> é <code>None</code>. Nós entramos no <code>match</code> e comparamos com o primeiro braço.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" data-id="0,0,0,1,9,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,9,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,9,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">None =&gt; None,
@@ -1510,7 +1510,7 @@ visto na Listagem 6-5:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" data-id="0,0,0,1,9,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Confere! Não há nenhum valor para somar, então o programa pára e retorna o valor <code>None</code> do lado direito do <code>=&gt;</code>. Como o primeiro braço já casou, nenhum dos demais será testado.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" data-id="0,0,0,1,9,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,9.inner-external:0,0,0,1,9,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A combinação de enums e a expressão <code>match</code> é útil em diversas situações. Você verá muito esse padrão em Rust: fazer o <code>match</code> de uma enum, associar uma variável ao valor embutido, e então executar um código baseado nele. Pode parecer complicado no começo, mas uma vez que você se acostume, você vai querer que tivesse isso em todas as linguagens. É, sistematicamente, um favorito dos usuários.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,10:main-container-external:0.inner-external:0,0,0:main" id="matches-sao-exaustivos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,10,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><em>Matches</em> São Exaustivos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,10:main-container-external:0.inner-external:0,0,0:main" id="matches-sao-exaustivos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,10,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><em>Matches</em> São Exaustivos</div>
 <div data-id="inner:0,0,0,1,10,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Há outro aspecto do <code>match</code> que precisamos discutir. Considere essa versão da nossa função <code>mais_um</code>:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" data-id="0,0,0,1,10,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,10,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,10,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,10,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">fn mais_um(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; {
@@ -1544,9 +1544,9 @@ visto na Listagem 6-5:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" data-id="0,0,0,1,10,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,10:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O Rust sabe que nós não cobrimos todos os casos possíveis, e sabe até de qual padrão nos esquecemos! <em>Matches</em> em Rust são <em>exaustivos</em>: precisamos extinguir até a última possibilidade pra que o nosso código seja válido. Especialmente no caso de uma <code>Option&lt;T&gt;</code>, em que o Rust não nos deixa esquecer de tratar explicitamente o caso <code>None</code>. Ele nos impede de assumir que temos um valor válido quando possivelmente temos um valor nulo, e portanto, cometer o erro de um bilhão de dólares que vimos mais cedo.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,11:main-container-external:0.inner-external:0,0,0:main" id="the-placeholder" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,11,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,35&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">The <code>_</code> Placeholder</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,11:main-container-external:0.inner-external:0,0,0:main" id="the-placeholder" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,11,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,35&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">The <code>_</code> Placeholder</div>
 <div data-id="inner:0,0,0,1,11,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,11,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); display: none; font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,12:main-container-external:0.inner-external:0,0,0:main" id="o-placeholder" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-02-match#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">O <em>Placeholder</em> <code>_</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,12:main-container-external:0.inner-external:0,0,0:main" id="o-placeholder" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-02-match#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">O <em>Placeholder</em> <code>_</code></div>
 <div data-id="inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O Rust também tem um padrão que podemos usar em situações em que não queremos listar todos os valores possíveis. Por exemplo, um <code>u8</code> pode ter valores válidos de 0 a 255. Se nos importamos apenas com os valores 1, 3, 5 e 7, não queremos ser obrigados a listar o 0, 2, 4, 6, 8, 9, e assim por diante até 255. Felizmente, nem precisamos: em vez disso, podemos usar o padrão especial <code>_</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" data-id="0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let algum_valor_u8 = 0u8;

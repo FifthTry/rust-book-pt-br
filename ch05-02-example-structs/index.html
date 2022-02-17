@@ -12,6 +12,477 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,10": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,11,0": {
+    "value": "\"fn main() {\\n    let rect1 = (50, 30);\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(rect1)\\n    );\\n}\\n\\nfn area(dimensions: (u32, u32)) -\u003E u32 {\\n    dimensions.0 * dimensions.1\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,12": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-8: Especificando o comprimento e a largura de um \\nretangulo através de uma Tupla.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,13": {
+    "value": "\"Em uma maneira, este programa é melhor. As tuplas deixam-nos adicionar um pouco\\nde estrutura, e agora estamos passando apenas um argumento. Mas esta versão é \\nmenos clara: as tuplas não nomeiam os seus elementos, de modo que nosso cálculo\\ntornou-se mais confuso porque temos de indexar as peças da tupla.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,14": {
+    "value": "\"Não importa, para o cálculo da área, trocar-se comprimento e largura, mas \\nse queremos desenhar o retângulo na tela, já importa! Temos de ter em \\nmente que `comprimento` é a tupla índice `0` e `largura` é o tupla índice `1`.\\nSe alguém trabalhar com este código, terá de descobrir isso e mantê-lo em \\nmente. Seria fácil esquecer ou misturar estes valores e causar erros, porque\\nnão se transmitiu o significado dos nossos dados no nosso código.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,15": {
+    "value": "\"Usamos structs para dar significado aos dados usando rótulos. Podemos \\ntransformar a tupla que estamos usando em um tipo de dados, com um nome\\npara o conjunto bem como nomes para as partes, como mostra a Lista 5-10:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,15,1,0": {
+    "value": "\"Usamos structs para dar significado aos dados usando rótulos. Podemos \\ntransformar a tupla que estamos usando em um tipo de dados, com um nome\\npara o conjunto bem como nomes para as partes, como mostra a Lista 5-10:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,16,0": {
+    "value": "\"struct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(\u0026rect1)\\n    );\\n}\\n\\nfn area(rectangle: \u0026Rectangle) -\u003E u32 {\\n    rectangle.length * rectangle.width\\n}\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-10: Definindo um struct `Rectangle`(Rectangulo)\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,18": {
+    "value": "\"Aqui temos definido um struct denominado `Rectangle`. Dentro das `{}` \\ndefinimos os campos como `comprimento` e `largura`, ambas do tipo `u32`. \\nEm `main`, criamos uma instância específica de um `Rectangle` que tem um \\ncomprimento de 50 e largura de 30.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,19": {
+    "value": "\"A nossa função `área` agora é definida com um parâmetro, que chamamos \\n`rectangle`, cujo tipo é um empréstimo de uma instância da struct imutável\\n`Rectangle`. Como mencionado no capítulo 4, queremos usar a struct, em vez de\\ntomar posse dela. Desta forma, `main` mantém-se a sua proprietaria e pode \\ncontinuar a usar o `rect1`, que é a razão para usar o `\u0026` na assinatura \\nda função e onde chamamos a função.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,2": {
+    "value": "\"Para entender quando podemos querer usar structs, vamos escrever um programa \\nque calcula a área de um retângulo. Vamos começar com as variáveis individuais\\ne em seguida, refazer o programa até usar structs em vez das variáveis.\\n\\nVamos fazer um novo projeto binário com Cargo, chamado *retângulos* que terá\\no comprimento e a largura do retângulo especificados em pixels e irá calcular a \\nárea do retângulo. A Lista 5-8 mostra um programa curto com uma maneira de \\nfazer isso no nosso projeto *src/main.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,2,1,0": {
+    "value": "\"Para entender quando podemos querer usar structs, vamos escrever um programa \\nque calcula a área de um retângulo. Vamos começar com as variáveis individuais\\ne em seguida, refazer o programa até usar structs em vez das variáveis.\\n\\nVamos fazer um novo projeto binário com Cargo, chamado *retângulos* que terá\\no comprimento e a largura do retângulo especificados em pixels e irá calcular a \\nárea do retângulo. A Lista 5-8 mostra um programa curto com uma maneira de \\nfazer isso no nosso projeto *src/main.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,20": {
+    "value": "\"A função `área` acessa os campos `comprimento` e `largura` da instância \\n`Rectangle`. Nossa função assinatura para `área` agora indica exatamente o que \\nqueremos dizer: calcular a área de um `Rectangle` usando os campos `lenght` \\n(comprimento) e `width` (largura). Transmite que o comprimento e a largura são \\nrelacionados uns aos outros, e dá nomes descritivos para os valores em vez de \\nusar a tupla de valores de índice `0` e `1`-uma vitória para uma maior clareza.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,21": {
+    "value": "\"Seria útil para ser capaz de imprimir uma instância do `Rectangle` enquanto\\nestamos depurando o nosso programa, a fim de consultar os valores para todos\\nos seus campos. Lista 5-11 usa a macro 'println!' como temos usado nos \\ncapítulos anteriores:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,6,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,21,1,0": {
+    "value": "\"Seria útil para ser capaz de imprimir uma instância do `Rectangle` enquanto\\nestamos depurando o nosso programa, a fim de consultar os valores para todos\\nos seus campos. Lista 5-11 usa a macro 'println!' como temos usado nos \\ncapítulos anteriores:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,6,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,22,0": {
+    "value": "\"struct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\\"rect1 is {}\\\", rect1);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,23": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-11: Tentativa de impressão de uma instância\\nde `Rectangle`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,24": {
+    "value": "\"Quando executamos este código, obtemos um erro com esta mensagem interna:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,25,0": {
+    "value": "\"error trait bound `Rectangle: std::fmt::Display` is not satisfied\"",
+    "dependencies": {
+      "0,0,0,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,26": {
+    "value": "\"A macro 'println!' pode fazer muitos tipos de formatação, e por padrão, \\n`{}` diz a `println!`, para utilizar a formatação conhecida como `Display`:\\nsaída destinada para consumo do utilizador final. Os tipos primitivos que vimos\\naté agora implementam `Display` por padrão, porque só há uma maneira que você \\ndeseja mostrar um `1` ou qualquer outro tipo primitivo para um usuário. Mas com\\nStructs, a forma como `println!` deve formatar a saída é menos clara, pois \\nexistem mais possibilidades de exibição: você quer vírgulas ou não? Deseja \\nimprimir as chavetas `{}`? Todos os campos devem ser mostrados? Devido a esta \\nambiguidade, Rust não tenta adivinhar o que queremos e as structs não têm uma \\nimplementação de `Display`.\"",
+    "dependencies": {
+      "0,0,0,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,27": {
+    "value": "\"Se continuarmos a ler os erros, encontramos esta nota explicativa:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,28,0": {
+    "value": "\"Avisa que `Rectangle` não pode ser formatado com o formato padrão;\\nDevemos tentar usar `:?` ao invés, se estivermos a usar um formato de string\"",
+    "dependencies": {
+      "0,0,0,1,6,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,29": {
+    "value": "\"Vamos tentar! A chamada da macro `println!` agora vai ficar como \\n`println!(\\\"rect1 is {:?}\\\", rect1);`. Colocando o especificador `:?` dentro \\nde `{}` diz à `println!` que nós queremos usar um formato de saída chamado \\n`Debug`. `Debug` é uma trait (característica) que nos permite imprimir as nossas\\nstructs de uma maneira útil para os desenvolvedores para que possamos ver o seu\\nvalor enquanto estamos a depurar do nosso código.\"",
+    "dependencies": {
+      "0,0,0,1,6,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,3,0": {
+    "value": "\"fn main() {\\n    let length1 = 50;\\n    let width1 = 30;\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(length1, width1)\\n    );\\n}\\n\\nfn area(length: u32, width: u32) -\u003E u32 {\\n    length * width\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,30": {
+    "value": "\"Executamos o código com esta mudança. Pô! Nós ainda obtemos um erro:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,31,0": {
+    "value": "\"error: the trait bound `Rectangle: std::fmt::Debug` is not satisfied\"",
+    "dependencies": {
+      "0,0,0,1,6,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,32": {
+    "value": "\"Mas, novamente, o compilador dá-nos uma nota útil:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,33,0": {
+    "value": "\"note: `Rectangle` cannot be formatted using `:?`; if it is defined in your\\ncrate, add `#[derive(Debug)]` or manually implement it\"",
+    "dependencies": {
+      "0,0,0,1,6,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,34": {
+    "value": "\"nota: `Rectangle` não pode ser formatado usando `:?`; se estiver definido no \\nnosso crate, adicionamos `#[derive(Debug)]` ou adicionamos manualmente.\"",
+    "dependencies": {
+      "0,0,0,1,6,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,35": {
+    "value": "\"Rust *inclui* funcionalidades para imprimir informações de depuração, mas\\ntemos de inseri-la explicitamente para tornar essa funcionalidade disponível\\npara nossa struct. Para isso, adicionamos a anotação `#[derive(Debug)]` pouco\\nantes da definição da struct, como mostrado na Lista 5-12:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,36": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,6,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,37,0": {
+    "value": "\"#[derive(Debug)]\\nstruct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\\"rect1 is {:?}\\\", rect1);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,6,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,38": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-12: Adicionando a anotação para derivar \\ncaracteristica`Debug` e imprimir a instância `Rectangle` usando a formatação \\ndebug\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,6,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,39": {
+    "value": "\"Agora, quando executamos o programa, não teremos quaisquer erros e vamos ver\\na seguinte informação:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,4": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-8: Calcular a área de um retângulo \\nespecificado pelo seu comprimento e largura em variáveis separadas\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,40,0": {
+    "value": "\"rect1 is Rectangle { length: 50, width: 30 }\"",
+    "dependencies": {
+      "0,0,0,1,6,1,18,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,18,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,41": {
+    "value": "\"Boa! Não é o mais bonito, mas mostra os valores de todos os campos para essa \\ninstância, que irá ajudar durante a depuração. Quando temos structs maiores, \\né útil ter a informação um pouco mais fácil de ler; nesses casos, podemos usar\\n`{:#?}` ao invés de `{:?}` na frase `println!`. Quando utilizamos o `{:#?}` no\\nexemplo, vamos ver a informação como esta:\"",
+    "dependencies": {
+      "0,0,0,1,6,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,42,0": {
+    "value": "\"rect1 is Rectangle {\\n    length: 50,\\n    width: 30\\n}\"",
+    "dependencies": {
+      "0,0,0,1,6,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,43": {
+    "value": "\"Rust forneceu um número de caracteristicas (traits) para usarmos com a notação \\n`derive` que pode adicionar um comportamento útil aos nossos tipos \\npersonalizados. Esses traits e seus comportamentos estão listadas no Apêndice C.\\nAbordaremos como implementar estes traits com comportamento personalizado, bem \\ncomo a forma de criar as suas próprias traits (características) no Capítulo 10.\"",
+    "dependencies": {
+      "0,0,0,1,6,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,44": {
+    "value": "\"A nossa função `area` é muito específica: ela apenas calcula a área de \\nretângulos. Seria útil fixar este comportamento à nossa struc `Rectangle`,\\nporque não vai funcionar com qualquer outro tipo. Vejamos como podemos \\ncontinuar a refazer este código tornando a função `area` em um *método* `area`\\ndefinido no nosso `Rectangle`.\"",
+    "dependencies": {
+      "0,0,0,1,6,1,22:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,5": {
+    "value": "\"Agora, executamos este programa usando `cargo run`:\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,6,0": {
+    "value": "\"The area of the rectangle is 1500 square pixels.\"",
+    "dependencies": {
+      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,7": {
+    "value": "\"Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função\\n`area` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura \\nestão relacionados uns aos outros porque juntos eles descrevem um retângulo.\\n\\nO problema com este método é evidente na assinatura de `area`:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,7,1,0": {
+    "value": "\"Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função\\n`area` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura \\nestão relacionados uns aos outros porque juntos eles descrevem um retângulo.\\n\\nO problema com este método é evidente na assinatura de `area`:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,8,0": {
+    "value": "\"fn area(length: u32, width: u32) -\u003E u32 {\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#body@0,9": {
+    "value": "\"A função `area` supostamente calcula a área de um retângulo, mas a função\\nque escrevemos tem dois parâmetros. Os parâmetros estão relacionados, mas isso\\nnão é indicado em qualquer lugar no nosso programa. Seria mais legível e \\nmais gerenciável agrupar comprimento e largura. Já discutimos uma maneira de\\npodermos fazer isso no Agrupamento de Valores em Tuplas, na seção do capítulo 3\\nna página XX: através do uso de tuplas. Lista 5-9 mostra outra versão do \\nnosso programa que usa tuplas:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,28,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,31,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,40,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,18,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,18,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,18,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,42,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,1,20,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,6,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,15": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,21": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,6,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,7": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,15": {
+    "value": "\"Reprogramação com Structs: Adicionando Mais Significado\"",
+    "dependencies": {
+      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,2": {
+    "value": "\"Um Exemplo de um Programa que usa Structs\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,21": {
+    "value": "\"Adicionando Funcionalidade Util com Traits Derivadas\"",
+    "dependencies": {
+      "0,0,0,1,6,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#title@0,7": {
+    "value": "\"Refazendo com Tuplas\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -304,477 +775,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch05-02-example-structs#body@0,10": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,11,0": {
-    "value": "\"fn main() {\\n    let rect1 = (50, 30);\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(rect1)\\n    );\\n}\\n\\nfn area(dimensions: (u32, u32)) -\u003E u32 {\\n    dimensions.0 * dimensions.1\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,12": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-8: Especificando o comprimento e a largura de um \\nretangulo através de uma Tupla.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,13": {
-    "value": "\"Em uma maneira, este programa é melhor. As tuplas deixam-nos adicionar um pouco\\nde estrutura, e agora estamos passando apenas um argumento. Mas esta versão é \\nmenos clara: as tuplas não nomeiam os seus elementos, de modo que nosso cálculo\\ntornou-se mais confuso porque temos de indexar as peças da tupla.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,14": {
-    "value": "\"Não importa, para o cálculo da área, trocar-se comprimento e largura, mas \\nse queremos desenhar o retângulo na tela, já importa! Temos de ter em \\nmente que `comprimento` é a tupla índice `0` e `largura` é o tupla índice `1`.\\nSe alguém trabalhar com este código, terá de descobrir isso e mantê-lo em \\nmente. Seria fácil esquecer ou misturar estes valores e causar erros, porque\\nnão se transmitiu o significado dos nossos dados no nosso código.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,15": {
-    "value": "\"Usamos structs para dar significado aos dados usando rótulos. Podemos \\ntransformar a tupla que estamos usando em um tipo de dados, com um nome\\npara o conjunto bem como nomes para as partes, como mostra a Lista 5-10:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,15,1,0": {
-    "value": "\"Usamos structs para dar significado aos dados usando rótulos. Podemos \\ntransformar a tupla que estamos usando em um tipo de dados, com um nome\\npara o conjunto bem como nomes para as partes, como mostra a Lista 5-10:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,16,0": {
-    "value": "\"struct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(\u0026rect1)\\n    );\\n}\\n\\nfn area(rectangle: \u0026Rectangle) -\u003E u32 {\\n    rectangle.length * rectangle.width\\n}\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-10: Definindo um struct `Rectangle`(Rectangulo)\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,18": {
-    "value": "\"Aqui temos definido um struct denominado `Rectangle`. Dentro das `{}` \\ndefinimos os campos como `comprimento` e `largura`, ambas do tipo `u32`. \\nEm `main`, criamos uma instância específica de um `Rectangle` que tem um \\ncomprimento de 50 e largura de 30.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,19": {
-    "value": "\"A nossa função `área` agora é definida com um parâmetro, que chamamos \\n`rectangle`, cujo tipo é um empréstimo de uma instância da struct imutável\\n`Rectangle`. Como mencionado no capítulo 4, queremos usar a struct, em vez de\\ntomar posse dela. Desta forma, `main` mantém-se a sua proprietaria e pode \\ncontinuar a usar o `rect1`, que é a razão para usar o `\u0026` na assinatura \\nda função e onde chamamos a função.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,2": {
-    "value": "\"Para entender quando podemos querer usar structs, vamos escrever um programa \\nque calcula a área de um retângulo. Vamos começar com as variáveis individuais\\ne em seguida, refazer o programa até usar structs em vez das variáveis.\\n\\nVamos fazer um novo projeto binário com Cargo, chamado *retângulos* que terá\\no comprimento e a largura do retângulo especificados em pixels e irá calcular a \\nárea do retângulo. A Lista 5-8 mostra um programa curto com uma maneira de \\nfazer isso no nosso projeto *src/main.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,2,1,0": {
-    "value": "\"Para entender quando podemos querer usar structs, vamos escrever um programa \\nque calcula a área de um retângulo. Vamos começar com as variáveis individuais\\ne em seguida, refazer o programa até usar structs em vez das variáveis.\\n\\nVamos fazer um novo projeto binário com Cargo, chamado *retângulos* que terá\\no comprimento e a largura do retângulo especificados em pixels e irá calcular a \\nárea do retângulo. A Lista 5-8 mostra um programa curto com uma maneira de \\nfazer isso no nosso projeto *src/main.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,20": {
-    "value": "\"A função `área` acessa os campos `comprimento` e `largura` da instância \\n`Rectangle`. Nossa função assinatura para `área` agora indica exatamente o que \\nqueremos dizer: calcular a área de um `Rectangle` usando os campos `lenght` \\n(comprimento) e `width` (largura). Transmite que o comprimento e a largura são \\nrelacionados uns aos outros, e dá nomes descritivos para os valores em vez de \\nusar a tupla de valores de índice `0` e `1`-uma vitória para uma maior clareza.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,21": {
-    "value": "\"Seria útil para ser capaz de imprimir uma instância do `Rectangle` enquanto\\nestamos depurando o nosso programa, a fim de consultar os valores para todos\\nos seus campos. Lista 5-11 usa a macro 'println!' como temos usado nos \\ncapítulos anteriores:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,6,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,21,1,0": {
-    "value": "\"Seria útil para ser capaz de imprimir uma instância do `Rectangle` enquanto\\nestamos depurando o nosso programa, a fim de consultar os valores para todos\\nos seus campos. Lista 5-11 usa a macro 'println!' como temos usado nos \\ncapítulos anteriores:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,6,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,22,0": {
-    "value": "\"struct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\\"rect1 is {}\\\", rect1);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,23": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-11: Tentativa de impressão de uma instância\\nde `Rectangle`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,24": {
-    "value": "\"Quando executamos este código, obtemos um erro com esta mensagem interna:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,25,0": {
-    "value": "\"error trait bound `Rectangle: std::fmt::Display` is not satisfied\"",
-    "dependencies": {
-      "0,0,0,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,26": {
-    "value": "\"A macro 'println!' pode fazer muitos tipos de formatação, e por padrão, \\n`{}` diz a `println!`, para utilizar a formatação conhecida como `Display`:\\nsaída destinada para consumo do utilizador final. Os tipos primitivos que vimos\\naté agora implementam `Display` por padrão, porque só há uma maneira que você \\ndeseja mostrar um `1` ou qualquer outro tipo primitivo para um usuário. Mas com\\nStructs, a forma como `println!` deve formatar a saída é menos clara, pois \\nexistem mais possibilidades de exibição: você quer vírgulas ou não? Deseja \\nimprimir as chavetas `{}`? Todos os campos devem ser mostrados? Devido a esta \\nambiguidade, Rust não tenta adivinhar o que queremos e as structs não têm uma \\nimplementação de `Display`.\"",
-    "dependencies": {
-      "0,0,0,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,27": {
-    "value": "\"Se continuarmos a ler os erros, encontramos esta nota explicativa:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,28,0": {
-    "value": "\"Avisa que `Rectangle` não pode ser formatado com o formato padrão;\\nDevemos tentar usar `:?` ao invés, se estivermos a usar um formato de string\"",
-    "dependencies": {
-      "0,0,0,1,6,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,29": {
-    "value": "\"Vamos tentar! A chamada da macro `println!` agora vai ficar como \\n`println!(\\\"rect1 is {:?}\\\", rect1);`. Colocando o especificador `:?` dentro \\nde `{}` diz à `println!` que nós queremos usar um formato de saída chamado \\n`Debug`. `Debug` é uma trait (característica) que nos permite imprimir as nossas\\nstructs de uma maneira útil para os desenvolvedores para que possamos ver o seu\\nvalor enquanto estamos a depurar do nosso código.\"",
-    "dependencies": {
-      "0,0,0,1,6,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,3,0": {
-    "value": "\"fn main() {\\n    let length1 = 50;\\n    let width1 = 30;\\n\\n    println!(\\n        \\\"The area of the rectangle is {} square pixels.\\\",\\n        area(length1, width1)\\n    );\\n}\\n\\nfn area(length: u32, width: u32) -\u003E u32 {\\n    length * width\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,30": {
-    "value": "\"Executamos o código com esta mudança. Pô! Nós ainda obtemos um erro:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,31,0": {
-    "value": "\"error: the trait bound `Rectangle: std::fmt::Debug` is not satisfied\"",
-    "dependencies": {
-      "0,0,0,1,6,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,32": {
-    "value": "\"Mas, novamente, o compilador dá-nos uma nota útil:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,33,0": {
-    "value": "\"note: `Rectangle` cannot be formatted using `:?`; if it is defined in your\\ncrate, add `#[derive(Debug)]` or manually implement it\"",
-    "dependencies": {
-      "0,0,0,1,6,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,34": {
-    "value": "\"nota: `Rectangle` não pode ser formatado usando `:?`; se estiver definido no \\nnosso crate, adicionamos `#[derive(Debug)]` ou adicionamos manualmente.\"",
-    "dependencies": {
-      "0,0,0,1,6,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,35": {
-    "value": "\"Rust *inclui* funcionalidades para imprimir informações de depuração, mas\\ntemos de inseri-la explicitamente para tornar essa funcionalidade disponível\\npara nossa struct. Para isso, adicionamos a anotação `#[derive(Debug)]` pouco\\nantes da definição da struct, como mostrado na Lista 5-12:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,36": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EFilename: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,6,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,37,0": {
-    "value": "\"#[derive(Debug)]\\nstruct Rectangle {\\n    length: u32,\\n    width: u32,\\n}\\n\\nfn main() {\\n    let rect1 = Rectangle { length: 50, width: 30 };\\n\\n    println!(\\\"rect1 is {:?}\\\", rect1);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,6,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,38": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-12: Adicionando a anotação para derivar \\ncaracteristica`Debug` e imprimir a instância `Rectangle` usando a formatação \\ndebug\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,6,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,39": {
-    "value": "\"Agora, quando executamos o programa, não teremos quaisquer erros e vamos ver\\na seguinte informação:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,4": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 5-8: Calcular a área de um retângulo \\nespecificado pelo seu comprimento e largura em variáveis separadas\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,40,0": {
-    "value": "\"rect1 is Rectangle { length: 50, width: 30 }\"",
-    "dependencies": {
-      "0,0,0,1,6,1,18,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,18,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,41": {
-    "value": "\"Boa! Não é o mais bonito, mas mostra os valores de todos os campos para essa \\ninstância, que irá ajudar durante a depuração. Quando temos structs maiores, \\né útil ter a informação um pouco mais fácil de ler; nesses casos, podemos usar\\n`{:#?}` ao invés de `{:?}` na frase `println!`. Quando utilizamos o `{:#?}` no\\nexemplo, vamos ver a informação como esta:\"",
-    "dependencies": {
-      "0,0,0,1,6,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,42,0": {
-    "value": "\"rect1 is Rectangle {\\n    length: 50,\\n    width: 30\\n}\"",
-    "dependencies": {
-      "0,0,0,1,6,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,43": {
-    "value": "\"Rust forneceu um número de caracteristicas (traits) para usarmos com a notação \\n`derive` que pode adicionar um comportamento útil aos nossos tipos \\npersonalizados. Esses traits e seus comportamentos estão listadas no Apêndice C.\\nAbordaremos como implementar estes traits com comportamento personalizado, bem \\ncomo a forma de criar as suas próprias traits (características) no Capítulo 10.\"",
-    "dependencies": {
-      "0,0,0,1,6,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,44": {
-    "value": "\"A nossa função `area` é muito específica: ela apenas calcula a área de \\nretângulos. Seria útil fixar este comportamento à nossa struc `Rectangle`,\\nporque não vai funcionar com qualquer outro tipo. Vejamos como podemos \\ncontinuar a refazer este código tornando a função `area` em um *método* `area`\\ndefinido no nosso `Rectangle`.\"",
-    "dependencies": {
-      "0,0,0,1,6,1,22:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,5": {
-    "value": "\"Agora, executamos este programa usando `cargo run`:\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,6,0": {
-    "value": "\"The area of the rectangle is 1500 square pixels.\"",
-    "dependencies": {
-      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,7": {
-    "value": "\"Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função\\n`area` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura \\nestão relacionados uns aos outros porque juntos eles descrevem um retângulo.\\n\\nO problema com este método é evidente na assinatura de `area`:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,7,1,0": {
-    "value": "\"Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função\\n`area` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura \\nestão relacionados uns aos outros porque juntos eles descrevem um retângulo.\\n\\nO problema com este método é evidente na assinatura de `area`:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,8,0": {
-    "value": "\"fn area(length: u32, width: u32) -\u003E u32 {\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#body@0,9": {
-    "value": "\"A função `area` supostamente calcula a área de um retângulo, mas a função\\nque escrevemos tem dois parâmetros. Os parâmetros estão relacionados, mas isso\\nnão é indicado em qualquer lugar no nosso programa. Seria mais legível e \\nmais gerenciável agrupar comprimento e largura. Já discutimos uma maneira de\\npodermos fazer isso no Agrupamento de Valores em Tuplas, na seção do capítulo 3\\nna página XX: através do uso de tuplas. Lista 5-9 mostra outra versão do \\nnosso programa que usa tuplas:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,28,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,31,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,40,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,18,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,18,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,18,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,42,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,1,20,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,6,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#open@0,15": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#open@0,21": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,6,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#open@0,7": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,15": {
-    "value": "\"Reprogramação com Structs: Adicionando Mais Significado\"",
-    "dependencies": {
-      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,2": {
-    "value": "\"Um Exemplo de um Programa que usa Structs\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,21": {
-    "value": "\"Adicionando Funcionalidade Util com Traits Derivadas\"",
-    "dependencies": {
-      "0,0,0,1,6,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch05-02-example-structs#title@0,7": {
-    "value": "\"Refazendo com Tuplas\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -993,7 +993,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1190,7 +1190,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="um-exemplo-de-um-programa-que-usa-structs" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-02-example-structs#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Um Exemplo de um Programa que usa Structs</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="um-exemplo-de-um-programa-que-usa-structs" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Um Exemplo de um Programa que usa Structs</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para entender quando podemos querer usar structs, vamos escrever um programa
 que calcula a área de um retângulo. Vamos começar com as variáveis individuais
 e em seguida, refazer o programa até usar structs em vez das variáveis.</p>
@@ -1242,7 +1242,7 @@ fazer isso no nosso projeto <em>src/main.rs</em>:</p>
 <div data-id="0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0:main" style="background-color: rgba(255,255,255,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-color: rgba(128,128,128,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#ffffff;"><span style="color:#323232;">The area of the rectangle is 1500 square pixels.
 </span></pre>
 </div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="refazendo-com-tuplas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-02-example-structs#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Refazendo com Tuplas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="refazendo-com-tuplas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Refazendo com Tuplas</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função
 <code>area</code> com cada dimensão, nós podemos fazer melhor. O comprimento e a largura
 estão relacionados uns aos outros porque juntos eles descrevem um retângulo.</p>
@@ -1290,7 +1290,7 @@ estão relacionados uns aos outros porque juntos eles descrevem um retângulo.</
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Lista 5-8: Especificando o comprimento e a largura de um retangulo através de uma Tupla.<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Em uma maneira, este programa é melhor. As tuplas deixam-nos adicionar um pouco de estrutura, e agora estamos passando apenas um argumento. Mas esta versão é menos clara: as tuplas não nomeiam os seus elementos, de modo que nosso cálculo tornou-se mais confuso porque temos de indexar as peças da tupla.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Não importa, para o cálculo da área, trocar-se comprimento e largura, mas se queremos desenhar o retângulo na tela, já importa! Temos de ter em mente que <code>comprimento</code> é a tupla índice <code>0</code> e <code>largura</code> é o tupla índice <code>1</code>. Se alguém trabalhar com este código, terá de descobrir isso e mantê-lo em mente. Seria fácil esquecer ou misturar estes valores e causar erros, porque não se transmitiu o significado dos nossos dados no nosso código.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="reprogramacao-com-structs-adicionando-mais-significado" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-02-example-structs#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Reprogramação com Structs: Adicionando Mais Significado</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="reprogramacao-com-structs-adicionando-mais-significado" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Reprogramação com Structs: Adicionando Mais Significado</div>
 <div data-id="inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,5,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Usamos structs para dar significado aos dados usando rótulos. Podemos
 transformar a tupla que estamos usando em um tipo de dados, com um nome
 para o conjunto bem como nomes para as partes, como mostra a Lista 5-10:</p>
@@ -1340,7 +1340,7 @@ para o conjunto bem como nomes para as partes, como mostra a Lista 5-10:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" data-id="0,0,0,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Aqui temos definido um struct denominado <code>Rectangle</code>. Dentro das <code>{}</code> definimos os campos como <code>comprimento</code> e <code>largura</code>, ambas do tipo <code>u32</code>. Em <code>main</code>, criamos uma instância específica de um <code>Rectangle</code> que tem um comprimento de 50 e largura de 30.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" data-id="0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A nossa função <code>área</code> agora é definida com um parâmetro, que chamamos <code>rectangle</code>, cujo tipo é um empréstimo de uma instância da struct imutável <code>Rectangle</code>. Como mencionado no capítulo 4, queremos usar a struct, em vez de tomar posse dela. Desta forma, <code>main</code> mantém-se a sua proprietaria e pode continuar a usar o <code>rect1</code>, que é a razão para usar o <code>&amp;</code> na assinatura da função e onde chamamos a função.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" data-id="0,0,0,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A função <code>área</code> acessa os campos <code>comprimento</code> e <code>largura</code> da instância <code>Rectangle</code>. Nossa função assinatura para <code>área</code> agora indica exatamente o que queremos dizer: calcular a área de um <code>Rectangle</code> usando os campos <code>lenght</code> (comprimento) e <code>width</code> (largura). Transmite que o comprimento e a largura são relacionados uns aos outros, e dá nomes descritivos para os valores em vez de usar a tupla de valores de índice <code>0</code> e <code>1</code>-uma vitória para uma maior clareza.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,6:main-container-external:0.inner-external:0,0,0:main" id="adicionando-funcionalidade-util-com-traits-derivadas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,6,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch05-02-example-structs#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Adicionando Funcionalidade Util com Traits Derivadas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,6:main-container-external:0.inner-external:0,0,0:main" id="adicionando-funcionalidade-util-com-traits-derivadas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,6,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch05-02-example-structs#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Adicionando Funcionalidade Util com Traits Derivadas</div>
 <div data-id="inner:0,0,0,1,6,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,6,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,6,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Seria útil para ser capaz de imprimir uma instância do <code>Rectangle</code> enquanto
 estamos depurando o nosso programa, a fim de consultar os valores para todos
 os seus campos. Lista 5-11 usa a macro ‘println!’ como temos usado nos

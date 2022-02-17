@@ -12,6 +12,711 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,10": {
+    "value": "\"Depois, criamos um iterador sobre o array de bytes usando o método `iter`:\"",
+    "dependencies": {
+      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,11,0": {
+    "value": "\"for (i, \u0026item) in bytes.iter().enumerate() {\"",
+    "dependencies": {
+      "0,0,0,1,8,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,12": {
+    "value": "\"Vamos discutir sobre iteradores em mais detalhes no Capítulo 13. Por enquanto,\\nsaiba que `iter` é um método que retorna cada elemento em uma coleção, e\\n`enumerate` encapsula o resultado do `iter` e retorna cada elemento como parte\\nde uma tupla. O primeiro elemento da tupla é o índice, e o segundo elemento é\\numa referência ao valor. Isto é um pouco mais conveniente do que calcular o\\níndice nós mesmos.\"",
+    "dependencies": {
+      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,13": {
+    "value": "\"Como o método `enumerate` retorna uma tupla, podemos usar padrões para\\ndesestruturar esta tupla, assim como qualquer outra coisa em Rust. Então, no\\n`for`, especificamos um padrão que tem `i` para o índice na tupla e `\u0026item` para\\no byte. Como pegamos uma referência ao elemento através do\\n`.iter().enumerate()`, usamos um `\u0026` neste padrão.\"",
+    "dependencies": {
+      "0,0,0,1,10:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,14": {
+    "value": "\"Nós procuramos o byte que representa um espaço usando a sintaxe de byte literal.\\nSe encontrarmos um espaço, retornamos a posição dele. Caso contrário, retornamos\\no tamanho da string usando `s.len()`:\"",
+    "dependencies": {
+      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,15,0": {
+    "value": "\"    if item == b' ' {\\n        return i;\\n    }\\n}\\ns.len()\"",
+    "dependencies": {
+      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,16": {
+    "value": "\"Agora temos uma forma de descobrir o índice do fim da primeira palavra na\\nstring, mas tem um problema. Estamos retornando um `usize` por si só, mas ele só\\npossui um significado no contexto da `\u0026String`. Em outras palavras, como é um\\nvalor separado da `String`, não há garantia de que ele ainda será válido no\\nfuturo. Considere o programa na Listagem 4-6, que usa a função da Listagem 4-5:\"",
+    "dependencies": {
+      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,18,0": {
+    "value": "\"# fn primeira_palavra(s: \u0026String) -\u003E usize {\\n#     let bytes = s.as_bytes();\\n#\\n#     for (i, \u0026item) in bytes.iter().enumerate() {\\n#         if item == b' ' {\\n#             return i;\\n#         }\\n#     }\\n#\\n#     s.len()\\n# }\\n#\\nfn main() {\\n    let mut s = String::from(\\\"texto longo\\\");\\n\\n    let palavra = primeira_palavra(\u0026s); // palavra vai ter o valor 5.\\n\\n    s.clear(); // Isso esvazia a String, deixando ela igual a \\\"\\\".\\n\\n    // palavra ainda tem o valor 5 aqui, mas já não há mais uma string para a\\n    // qual o valor 5 faça algum sentido. palavra agora é totalmente inválida!\\n}\"",
+    "dependencies": {
+      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,19": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-6: Armazenando o resultado de uma chamada à\\nfunção `primeira_palavra`, e depois, mudando o conteúdo da `String`.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,16:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,2": {
+    "value": "\"Outro tipo de dados em que não há ownership é a *slice* (do inglês, fatia).\\nSlices lhe permitem referenciar uma sequência contígua de elementos em uma\\ncoleção em vez de referenciar a coleção inteira.\\n\\nAqui está um pequeno problema de programação: escrever uma função que pega uma\\nstring e retorna a primeira palavra que encontrar dentro dela. Se a função não\\nencontrar um espaço na string, significa que a string inteira é uma palavra só,\\nentão a string toda deve ser retornada.\\n\\nVamos pensar sobre a assinatura desta função:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,2,1,0": {
+    "value": "\"Outro tipo de dados em que não há ownership é a *slice* (do inglês, fatia).\\nSlices lhe permitem referenciar uma sequência contígua de elementos em uma\\ncoleção em vez de referenciar a coleção inteira.\\n\\nAqui está um pequeno problema de programação: escrever uma função que pega uma\\nstring e retorna a primeira palavra que encontrar dentro dela. Se a função não\\nencontrar um espaço na string, significa que a string inteira é uma palavra só,\\nentão a string toda deve ser retornada.\\n\\nVamos pensar sobre a assinatura desta função:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,20": {
+    "value": "\"Este programa compila sem erros, e também o faria se usássemos a variável\\n`palavra` depois de chamar `s.clear()`. `palavra` não está conectada ao estado\\nde `s` de nenhuma forma, então, `palavra` ainda contém o valor `5`. Poderíamos\\nusar esse valor `5` com a variável `s` para tentar extrair a primeira palavra da\\nstring, mas isso seria um bug, pois o conteúdo de `s` já mudou após termos salvo\\no valor `5` na variável `word`.\"",
+    "dependencies": {
+      "0,0,0,1,17:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,21": {
+    "value": "\"Ter que se preocupar sobre o índice da `palavra` ficar fora de sincronia com os\\ndados em `s` é tedioso e propenso a erros! Gerenciar esses índices é ainda mais\\ndelicado se escrevermos uma função `segunda_palavra`. Sua assinatura teria que\\nser algo do tipo:\"",
+    "dependencies": {
+      "0,0,0,1,18:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,22,0": {
+    "value": "\"fn segunda_palavra(s: \u0026String) -\u003E (usize, usize) {\"",
+    "dependencies": {
+      "0,0,0,1,19,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,19,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,23": {
+    "value": "\"Agora estamos rastreando os índices do início *e* do final, e temos ainda mais\\nvalores que são calculados a partir dos dados em um estado particular, mas que\\nnão estão vinculados a este estado de nenhuma forma. Agora temos três variáveis\\nnão relacionadas flutuando que precisam ser mantidas em sincronia.\"",
+    "dependencies": {
+      "0,0,0,1,20:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,24": {
+    "value": "\"Felizmente, Rust possui uma solução para este problema: slices de string.\"",
+    "dependencies": {
+      "0,0,0,1,21:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,25": {
+    "value": "\"Uma *slice de string* é uma referência para uma parte de uma `String`, e tem a\\nseguinte forma:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,25,1,0": {
+    "value": "\"Uma *slice de string* é uma referência para uma parte de uma `String`, e tem a\\nseguinte forma:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,26,0": {
+    "value": "\"let s = String::from(\\\"texto longo\\\");\\n\\nlet texto = \u0026s[0..5];\\nlet longo = \u0026s[6..11];\"",
+    "dependencies": {
+      "0,0,0,1,22,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,27": {
+    "value": "\"Isto é similar a pegar uma referência à `String` inteira, mas com um `[0..5]` a\\nmais. Em vez de uma referência à `String` inteira, trata-se de uma referência a\\numa porção da `String`. A sintaxe `início..fim` representa um _range_\\n(uma faixa) que começa em `início` e continua até, mas não incluindo, `fim`.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,28": {
+    "value": "\"Podemos criar slices usando um range entre colchetes especificando\\n`[índice_inicial..índice_final]`, em que `índice_inicial` é a primeira posição\\ninclusa na slice, e `índice_final` é um a mais que a última posição inclusa na\\nslice. Internamente, a estrutura de dados de uma slice armazena a posição\\ninicial e o tamanho da slice, que corresponde a `índice_final` menos\\n`índice_inicial`. Então, no caso do `let longo = \u0026s[6..11];`, `longo` seria uma\\nslice que contém um ponteiro para o sétimo byte de `s` (índice 6) e um tamanho\\nigual a 5.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,29": {
+    "value": "\"A Figura 4-6 mostra isto em um diagrama.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,3,0": {
+    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E ?\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,30": {
+    "value": "\"\u003Cimg alt=\\\"mundo contendo um ponteiro para o 7o byte da String s e um tamanho 5\\\" src=\\\"img/trpl04-06.svg\\\" class=\\\"center\\\" style=\\\"width: 50%;\\\" /\u003E\"",
+    "dependencies": {
+      "0,0,0,1,22,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,31": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 4-6: Slice referente a uma parte de uma\\n`String`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,22,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,32": {
+    "value": "\"Com a sintaxe de range do Rust (`..`), se você quiser começar com o primeiro\\nelemento (índice zero), você pode omitir o valor antes dos dois pontos. Em\\noutras palavras, estas formas são equivalentes:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,33,0": {
+    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet slice = \u0026s[0..2];\\nlet slice = \u0026s[..2];\"",
+    "dependencies": {
+      "0,0,0,1,22,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,34": {
+    "value": "\"Da mesma forma, se a sua slice inclui o último byte da `String`, você pode\\nomitir o último número. Isso significa que as seguintes formas são equivalentes:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,35,0": {
+    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet tamanho = s.len();\\n\\nlet slice = \u0026s[3..tamanho];\\nlet slice = \u0026s[3..];\"",
+    "dependencies": {
+      "0,0,0,1,22,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,36": {
+    "value": "\"Você também pode omitir ambos os valores para pegar uma slice da string inteira.\\nLogo, essas duas formas são equivalentes:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,37,0": {
+    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet tamanho = s.len();\\n\\nlet slice = \u0026s[0..tamanho];\\nlet slice = \u0026s[..];\"",
+    "dependencies": {
+      "0,0,0,1,22,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,38": {
+    "value": "\"\u003E Nota: Os índices do range de uma slice de string devem coincidir com os\\n\u003E limites entre caracteres UTF-8 válidos. Se você tentar criar uma slice de\\n\u003E string no meio de um caractere que tenha mais de um byte, seu programa vai\\n\u003E terminar com erro. Para introduzir slices de string, estamos utilizando\\n\u003E apenas caracteres ASCII nesta seção; uma discussão mais detalhada sobre\\n\u003E manipulação de caracteres UTF-8 será feita na seção \\\"Strings\\\" do Capítulo 8.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,39": {
+    "value": "\"Com toda essa informação em mente, vamos reescrever a função `primeira_palavra`\\npara retornar uma slice. O tipo que representa \\\"slice de string\\\" é escrito como\\n`\u0026str`:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,4": {
+    "value": "\"Esta função, `primeira_palavra`, tem uma `\u0026String` como parâmetro. Nós não\\nqueremos tomar posse dela, então tudo bem. Mas o que nós deveríamos retornar?\\nNão temos uma forma de falar sobre *parte* de uma string. No entanto, poderíamos\\nretornar o índice do final de uma palavra. Vamos tentar fazer isso, conforme\\nmostrado na Listagem 4-5:\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,40": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,22,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,41,0": {
+    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E \u0026str {\\n    let bytes = s.as_bytes();\\n\\n    for (i, \u0026item) in bytes.iter().enumerate() {\\n        if item == b' ' {\\n            return \u0026s[0..i];\\n        }\\n    }\\n\\n    \u0026s[..]\\n}\"",
+    "dependencies": {
+      "0,0,0,1,22,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,42": {
+    "value": "\"Pegamos o índice para o fim da palavra da mesma forma como fizemos na Listagem\\n4-5, buscando a primeira ocorrência de um espaço. Quando o encontramos,\\nretornamos uma slice de string usando o início da string e o índice do espaço\\ncomo índices inicial e final, respectivamente.\\n\\nAgora, quando chamamos `primeira_palavra`, pegamos de volta um único valor que\\nestá vinculado à string. O valor é composto de uma referência para o ponto\\ninicial da slice e o número de elementos que ela contém.\\n\\nRetornar uma slice também funcionaria para uma função `segunda_palavra`:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,43,0": {
+    "value": "\"fn segunda_palavra(s: \u0026String) -\u003E \u0026str {\"",
+    "dependencies": {
+      "0,0,0,1,22,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,44": {
+    "value": "\"Agora, temos uma API bem direta que é bem mais difícil de bagunçar, uma vez que\\no compilador vai se certificar que as referências dentro da `String`\\npermanecerão válidas. Lembra do bug do programa na Listagem 4-6, quando\\nobtivemos o índice para o fim da primeira palavra mas depois limpamos a string,\\ninvalidando o índice obtido? Aquele código era logicamente incorreto, mas não\\nmostrava nenhum erro imediato. Os problemas apareceriam mais tarde quando\\ntentássemos usar o índice da primeira palavra com uma string que foi esvaziada.\\nSlices tornam esse bug impossível de acontecer e nos permitem saber que temos um\\nproblema no código muito mais cedo. Na versão usando slice, a função\\n`primeira_palavra` vai lançar um erro em tempo de compilação:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,45": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,22,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,46,0": {
+    "value": "\"fn main() {\\n    let mut s = String::from(\\\"texto longo\\\");\\n\\n    let palavra = first_word(\u0026s);\\n\\n    s.clear(); // Erro!\\n}\"",
+    "dependencies": {
+      "0,0,0,1,22,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,47": {
+    "value": "\"Aqui está o erro:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,48,0": {
+    "value": "\"error borrow `s` as mutable because it is also borrowed as immutable\\n --\u003E src/main.rs:6:5\\n  |\\n4 |     let word = primeira_palavra(\u0026s);\\n  |                                  - immutable borrow occurs here\\n5 |\\n6 |     s.clear(); // Erro!\\n  |     ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
+    "dependencies": {
+      "0,0,0,1,22,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,49": {
+    "value": "\"Voltando às regras de borrowing, lembre-se que, se temos uma referência imutável\\npara algum valor, não podemos também obter uma referência mutável do mesmo. Como\\n`clear` precisa truncar a `String`, esse método tenta obter uma referência\\nmutável, e acaba falhando. O Rust não só tornou nossa API mais fácil de usar,\\ncomo também eliminou uma classe inteira de erros em tempo de compilação!\"",
+    "dependencies": {
+      "0,0,0,1,22,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,50": {
+    "value": "\"Lembre-se de que falamos sobre strings literais serem armazenadas dentro do\\nbinário. Agora que conhecemos slices, podemos entender strings literais\\nadequadamente:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,50,1,0": {
+    "value": "\"Lembre-se de que falamos sobre strings literais serem armazenadas dentro do\\nbinário. Agora que conhecemos slices, podemos entender strings literais\\nadequadamente:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,51,0": {
+    "value": "\"let s = \\\"Olá, mundo!\\\";\"",
+    "dependencies": {
+      "0,0,0,1,22,1,24,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,24,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,52": {
+    "value": "\"O tipo de `s` aqui é `\u0026str`: é uma slice apontando para aquele ponto específico\\ndo binário. Também é por isso que strings literais são imutáveis; `\u0026str` é uma\\nreferência imutável.\"",
+    "dependencies": {
+      "0,0,0,1,22,1,24,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,53": {
+    "value": "\"Saber que você pode obter slices de literais e `String`s nos levam a mais um\\naprimoramento da função `primeira_palavra`, e aqui está sua assinatura:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,53,1,0": {
+    "value": "\"Saber que você pode obter slices de literais e `String`s nos levam a mais um\\naprimoramento da função `primeira_palavra`, e aqui está sua assinatura:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,54,0": {
+    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E \u0026str {\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,55": {
+    "value": "\"Um Rustáceo mais experiente escreveria esta função conforme a seguir, permitindo\\nutilizar a mesma função com `String`s e `\u0026str`s:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,56,0": {
+    "value": "\"fn primeira_palavra(s: \u0026str) -\u003E \u0026str {\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,57": {
+    "value": "\"Se temos uma slice de string, podemos passá-la diretamente. Se temos uma\\n`String`, podemos passar uma slice da `String` inteira. Definir uma função que\\nrecebe uma slice em vez de uma referência para uma String deixa nossa API mais\\ngenérica e útil sem perder nenhuma funcionalidade:\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,58": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,59,0": {
+    "value": "\"# fn primeira_palavra(s: \u0026str) -\u003E \u0026str {\\n#     let bytes = s.as_bytes();\\n#\\n#     for (i, \u0026item) in bytes.iter().enumerate() {\\n#         if item == b' ' {\\n#             return \u0026s[0..i];\\n#         }\\n#     }\\n#\\n#     \u0026s[..]\\n# }\\nfn main() {\\n    let minha_string = String::from(\\\"texto longo\\\");\\n\\n    // primeira_palavra funciona com slices de `String`s\\n    let palavra = primeira_palavra(\u0026minha_string[..]);\\n\\n    let minha_string_literal = \\\"texto longo\\\";\\n\\n    // primeira_palavra funciona com strings literais\\n    let palavra = primeira_palavra(\u0026minha_string_literal[..]);\\n\\t\\n\\t// uma vez que strings literais *são* slices de strings,\\n\\t// isso também funciona, sem nem usar sintaxe de slice!\\n    let palavra = primeira_palavra(minha_string_literal);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,6,0": {
+    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E usize {\\n    let bytes = s.as_bytes();\\n\\n    for (i, \u0026item) in bytes.iter().enumerate() {\\n        if item == b' ' {\\n            return i;\\n        }\\n    }\\n\\n    s.len()\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,60": {
+    "value": "\"Slices de string, como você pode imaginar, são específicas de strings. Mas há\\ntambém um tipo de slice mais genérico. Considere esta array:\"",
+    "dependencies": {
+      "0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,60,1,0": {
+    "value": "\"Slices de string, como você pode imaginar, são específicas de strings. Mas há\\ntambém um tipo de slice mais genérico. Considere esta array:\"",
+    "dependencies": {
+      "0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,61,0": {
+    "value": "\"let a = [1, 2, 3, 4, 5];\"",
+    "dependencies": {
+      "0,0,0,1,23,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,23,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,62": {
+    "value": "\"Assim como às vezes queremos nos referir a uma parte de uma string, podemos\\ntambém querer nos referir a uma parte de uma array, e faríamos isso da seguinte\\nforma:\"",
+    "dependencies": {
+      "0,0,0,1,23,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,63,0": {
+    "value": "\"let a = [1, 2, 3, 4, 5];\\n\\nlet slice = \u0026a[1..3];\"",
+    "dependencies": {
+      "0,0,0,1,23,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,23,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,64": {
+    "value": "\"Essa slice tem o tipo `\u0026[i32]`. Ela funciona da mesma forma que as slices de\\nstring, armazenando uma referência para o primeiro elemento e um tamanho. Você\\nvai usar esse tipo de slice para todos os tipos de coleções. Vamos discutir\\nessas coleções em mais detalhe quando falarmos sobre vetores no Capítulo 8.\"",
+    "dependencies": {
+      "0,0,0,1,23,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,65": {
+    "value": "\"Os conceitos de ownership, borrowing, e slices são o que garante a segurança de\\nmemória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá\\ncontrole sobre o uso da memória, assim como outras linguagens de programação de\\nsistemas, mas como o dono dos dados limpa automaticamente a memória quando ele\\nsai de escopo, você não tem que escrever e debugar código extra para ter esse\\ncontrole.\\n\\nO ownership afeta o funcionamento de várias outras partes do Rust, por isso\\nvamos falar um pouco mais sobre esses conceitos neste livro daqui para a frente.\\nVamos seguir para o próximo capítulo e ver como agrupar dados em uma `struct`.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,65,1,0": {
+    "value": "\"Os conceitos de ownership, borrowing, e slices são o que garante a segurança de\\nmemória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá\\ncontrole sobre o uso da memória, assim como outras linguagens de programação de\\nsistemas, mas como o dono dos dados limpa automaticamente a memória quando ele\\nsai de escopo, você não tem que escrever e debugar código extra para ter esse\\ncontrole.\\n\\nO ownership afeta o funcionamento de várias outras partes do Rust, por isso\\nvamos falar um pouco mais sobre esses conceitos neste livro daqui para a frente.\\nVamos seguir para o próximo capítulo e ver como agrupar dados em uma `struct`.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,7": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-5: A função `primeira_palavra`, que retorna um\\níndice para um byte da `String` passada como parâmetro.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,8": {
+    "value": "\"Vamos dividir este código em algumas partes. Como precisamos varrer a `String`\\nelemento por elemento, e verificar se algum valor é um espaço, vamos converter\\nnossa `String` em um array de bytes usando o método `as_bytes`:\"",
+    "dependencies": {
+      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#body@0,9,0": {
+    "value": "\"let bytes = s.as_bytes();\"",
+    "dependencies": {
+      "0,0,0,1,6,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,8,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,8,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,8,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,15,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,19,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,19,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,19,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,26,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,35,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,41,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,43,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,46,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,20,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,48,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,22,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,51,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,24,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,24,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,24,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,54,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,25,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,56,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,25,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,59,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,22,1,25,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,22,1,25,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,22,1,25,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,6,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,61,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,23,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,23,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,23,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,63,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,23,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,23,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,23,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#caption@0,9,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,6,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,6,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,6,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,25": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,50": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,22,1,24,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,53": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,22,1,25,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,60": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,23,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,65": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,2": {
+    "value": "\"_Slices_\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,25": {
+    "value": "\"Slices de String\"",
+    "dependencies": {
+      "0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,50": {
+    "value": "\"Strings Literais São Slices\"",
+    "dependencies": {
+      "0,0,0,1,22,1,24,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,53": {
+    "value": "\"Slices de Strings como Parâmetros\"",
+    "dependencies": {
+      "0,0,0,1,22,1,25,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,60": {
+    "value": "\"Outras Slices\"",
+    "dependencies": {
+      "0,0,0,1,23,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch04-03-slices#title@0,65": {
+    "value": "\"Resumo\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -335,711 +1040,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch04-03-slices#body@0,10": {
-    "value": "\"Depois, criamos um iterador sobre o array de bytes usando o método `iter`:\"",
-    "dependencies": {
-      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,11,0": {
-    "value": "\"for (i, \u0026item) in bytes.iter().enumerate() {\"",
-    "dependencies": {
-      "0,0,0,1,8,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,12": {
-    "value": "\"Vamos discutir sobre iteradores em mais detalhes no Capítulo 13. Por enquanto,\\nsaiba que `iter` é um método que retorna cada elemento em uma coleção, e\\n`enumerate` encapsula o resultado do `iter` e retorna cada elemento como parte\\nde uma tupla. O primeiro elemento da tupla é o índice, e o segundo elemento é\\numa referência ao valor. Isto é um pouco mais conveniente do que calcular o\\níndice nós mesmos.\"",
-    "dependencies": {
-      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,13": {
-    "value": "\"Como o método `enumerate` retorna uma tupla, podemos usar padrões para\\ndesestruturar esta tupla, assim como qualquer outra coisa em Rust. Então, no\\n`for`, especificamos um padrão que tem `i` para o índice na tupla e `\u0026item` para\\no byte. Como pegamos uma referência ao elemento através do\\n`.iter().enumerate()`, usamos um `\u0026` neste padrão.\"",
-    "dependencies": {
-      "0,0,0,1,10:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,14": {
-    "value": "\"Nós procuramos o byte que representa um espaço usando a sintaxe de byte literal.\\nSe encontrarmos um espaço, retornamos a posição dele. Caso contrário, retornamos\\no tamanho da string usando `s.len()`:\"",
-    "dependencies": {
-      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,15,0": {
-    "value": "\"    if item == b' ' {\\n        return i;\\n    }\\n}\\ns.len()\"",
-    "dependencies": {
-      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,16": {
-    "value": "\"Agora temos uma forma de descobrir o índice do fim da primeira palavra na\\nstring, mas tem um problema. Estamos retornando um `usize` por si só, mas ele só\\npossui um significado no contexto da `\u0026String`. Em outras palavras, como é um\\nvalor separado da `String`, não há garantia de que ele ainda será válido no\\nfuturo. Considere o programa na Listagem 4-6, que usa a função da Listagem 4-5:\"",
-    "dependencies": {
-      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,18,0": {
-    "value": "\"# fn primeira_palavra(s: \u0026String) -\u003E usize {\\n#     let bytes = s.as_bytes();\\n#\\n#     for (i, \u0026item) in bytes.iter().enumerate() {\\n#         if item == b' ' {\\n#             return i;\\n#         }\\n#     }\\n#\\n#     s.len()\\n# }\\n#\\nfn main() {\\n    let mut s = String::from(\\\"texto longo\\\");\\n\\n    let palavra = primeira_palavra(\u0026s); // palavra vai ter o valor 5.\\n\\n    s.clear(); // Isso esvazia a String, deixando ela igual a \\\"\\\".\\n\\n    // palavra ainda tem o valor 5 aqui, mas já não há mais uma string para a\\n    // qual o valor 5 faça algum sentido. palavra agora é totalmente inválida!\\n}\"",
-    "dependencies": {
-      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,19": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-6: Armazenando o resultado de uma chamada à\\nfunção `primeira_palavra`, e depois, mudando o conteúdo da `String`.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,16:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,2": {
-    "value": "\"Outro tipo de dados em que não há ownership é a *slice* (do inglês, fatia).\\nSlices lhe permitem referenciar uma sequência contígua de elementos em uma\\ncoleção em vez de referenciar a coleção inteira.\\n\\nAqui está um pequeno problema de programação: escrever uma função que pega uma\\nstring e retorna a primeira palavra que encontrar dentro dela. Se a função não\\nencontrar um espaço na string, significa que a string inteira é uma palavra só,\\nentão a string toda deve ser retornada.\\n\\nVamos pensar sobre a assinatura desta função:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,2,1,0": {
-    "value": "\"Outro tipo de dados em que não há ownership é a *slice* (do inglês, fatia).\\nSlices lhe permitem referenciar uma sequência contígua de elementos em uma\\ncoleção em vez de referenciar a coleção inteira.\\n\\nAqui está um pequeno problema de programação: escrever uma função que pega uma\\nstring e retorna a primeira palavra que encontrar dentro dela. Se a função não\\nencontrar um espaço na string, significa que a string inteira é uma palavra só,\\nentão a string toda deve ser retornada.\\n\\nVamos pensar sobre a assinatura desta função:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,20": {
-    "value": "\"Este programa compila sem erros, e também o faria se usássemos a variável\\n`palavra` depois de chamar `s.clear()`. `palavra` não está conectada ao estado\\nde `s` de nenhuma forma, então, `palavra` ainda contém o valor `5`. Poderíamos\\nusar esse valor `5` com a variável `s` para tentar extrair a primeira palavra da\\nstring, mas isso seria um bug, pois o conteúdo de `s` já mudou após termos salvo\\no valor `5` na variável `word`.\"",
-    "dependencies": {
-      "0,0,0,1,17:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,21": {
-    "value": "\"Ter que se preocupar sobre o índice da `palavra` ficar fora de sincronia com os\\ndados em `s` é tedioso e propenso a erros! Gerenciar esses índices é ainda mais\\ndelicado se escrevermos uma função `segunda_palavra`. Sua assinatura teria que\\nser algo do tipo:\"",
-    "dependencies": {
-      "0,0,0,1,18:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,22,0": {
-    "value": "\"fn segunda_palavra(s: \u0026String) -\u003E (usize, usize) {\"",
-    "dependencies": {
-      "0,0,0,1,19,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,19,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,23": {
-    "value": "\"Agora estamos rastreando os índices do início *e* do final, e temos ainda mais\\nvalores que são calculados a partir dos dados em um estado particular, mas que\\nnão estão vinculados a este estado de nenhuma forma. Agora temos três variáveis\\nnão relacionadas flutuando que precisam ser mantidas em sincronia.\"",
-    "dependencies": {
-      "0,0,0,1,20:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,24": {
-    "value": "\"Felizmente, Rust possui uma solução para este problema: slices de string.\"",
-    "dependencies": {
-      "0,0,0,1,21:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,25": {
-    "value": "\"Uma *slice de string* é uma referência para uma parte de uma `String`, e tem a\\nseguinte forma:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,25,1,0": {
-    "value": "\"Uma *slice de string* é uma referência para uma parte de uma `String`, e tem a\\nseguinte forma:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,26,0": {
-    "value": "\"let s = String::from(\\\"texto longo\\\");\\n\\nlet texto = \u0026s[0..5];\\nlet longo = \u0026s[6..11];\"",
-    "dependencies": {
-      "0,0,0,1,22,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,27": {
-    "value": "\"Isto é similar a pegar uma referência à `String` inteira, mas com um `[0..5]` a\\nmais. Em vez de uma referência à `String` inteira, trata-se de uma referência a\\numa porção da `String`. A sintaxe `início..fim` representa um _range_\\n(uma faixa) que começa em `início` e continua até, mas não incluindo, `fim`.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,28": {
-    "value": "\"Podemos criar slices usando um range entre colchetes especificando\\n`[índice_inicial..índice_final]`, em que `índice_inicial` é a primeira posição\\ninclusa na slice, e `índice_final` é um a mais que a última posição inclusa na\\nslice. Internamente, a estrutura de dados de uma slice armazena a posição\\ninicial e o tamanho da slice, que corresponde a `índice_final` menos\\n`índice_inicial`. Então, no caso do `let longo = \u0026s[6..11];`, `longo` seria uma\\nslice que contém um ponteiro para o sétimo byte de `s` (índice 6) e um tamanho\\nigual a 5.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,29": {
-    "value": "\"A Figura 4-6 mostra isto em um diagrama.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,3,0": {
-    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E ?\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,30": {
-    "value": "\"\u003Cimg alt=\\\"mundo contendo um ponteiro para o 7o byte da String s e um tamanho 5\\\" src=\\\"img/trpl04-06.svg\\\" class=\\\"center\\\" style=\\\"width: 50%;\\\" /\u003E\"",
-    "dependencies": {
-      "0,0,0,1,22,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,31": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 4-6: Slice referente a uma parte de uma\\n`String`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,22,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,32": {
-    "value": "\"Com a sintaxe de range do Rust (`..`), se você quiser começar com o primeiro\\nelemento (índice zero), você pode omitir o valor antes dos dois pontos. Em\\noutras palavras, estas formas são equivalentes:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,33,0": {
-    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet slice = \u0026s[0..2];\\nlet slice = \u0026s[..2];\"",
-    "dependencies": {
-      "0,0,0,1,22,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,34": {
-    "value": "\"Da mesma forma, se a sua slice inclui o último byte da `String`, você pode\\nomitir o último número. Isso significa que as seguintes formas são equivalentes:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,35,0": {
-    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet tamanho = s.len();\\n\\nlet slice = \u0026s[3..tamanho];\\nlet slice = \u0026s[3..];\"",
-    "dependencies": {
-      "0,0,0,1,22,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,36": {
-    "value": "\"Você também pode omitir ambos os valores para pegar uma slice da string inteira.\\nLogo, essas duas formas são equivalentes:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,37,0": {
-    "value": "\"let s = String::from(\\\"texto\\\");\\n\\nlet tamanho = s.len();\\n\\nlet slice = \u0026s[0..tamanho];\\nlet slice = \u0026s[..];\"",
-    "dependencies": {
-      "0,0,0,1,22,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,38": {
-    "value": "\"\u003E Nota: Os índices do range de uma slice de string devem coincidir com os\\n\u003E limites entre caracteres UTF-8 válidos. Se você tentar criar uma slice de\\n\u003E string no meio de um caractere que tenha mais de um byte, seu programa vai\\n\u003E terminar com erro. Para introduzir slices de string, estamos utilizando\\n\u003E apenas caracteres ASCII nesta seção; uma discussão mais detalhada sobre\\n\u003E manipulação de caracteres UTF-8 será feita na seção \\\"Strings\\\" do Capítulo 8.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,39": {
-    "value": "\"Com toda essa informação em mente, vamos reescrever a função `primeira_palavra`\\npara retornar uma slice. O tipo que representa \\\"slice de string\\\" é escrito como\\n`\u0026str`:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,4": {
-    "value": "\"Esta função, `primeira_palavra`, tem uma `\u0026String` como parâmetro. Nós não\\nqueremos tomar posse dela, então tudo bem. Mas o que nós deveríamos retornar?\\nNão temos uma forma de falar sobre *parte* de uma string. No entanto, poderíamos\\nretornar o índice do final de uma palavra. Vamos tentar fazer isso, conforme\\nmostrado na Listagem 4-5:\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,40": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,22,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,41,0": {
-    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E \u0026str {\\n    let bytes = s.as_bytes();\\n\\n    for (i, \u0026item) in bytes.iter().enumerate() {\\n        if item == b' ' {\\n            return \u0026s[0..i];\\n        }\\n    }\\n\\n    \u0026s[..]\\n}\"",
-    "dependencies": {
-      "0,0,0,1,22,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,42": {
-    "value": "\"Pegamos o índice para o fim da palavra da mesma forma como fizemos na Listagem\\n4-5, buscando a primeira ocorrência de um espaço. Quando o encontramos,\\nretornamos uma slice de string usando o início da string e o índice do espaço\\ncomo índices inicial e final, respectivamente.\\n\\nAgora, quando chamamos `primeira_palavra`, pegamos de volta um único valor que\\nestá vinculado à string. O valor é composto de uma referência para o ponto\\ninicial da slice e o número de elementos que ela contém.\\n\\nRetornar uma slice também funcionaria para uma função `segunda_palavra`:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,43,0": {
-    "value": "\"fn segunda_palavra(s: \u0026String) -\u003E \u0026str {\"",
-    "dependencies": {
-      "0,0,0,1,22,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,44": {
-    "value": "\"Agora, temos uma API bem direta que é bem mais difícil de bagunçar, uma vez que\\no compilador vai se certificar que as referências dentro da `String`\\npermanecerão válidas. Lembra do bug do programa na Listagem 4-6, quando\\nobtivemos o índice para o fim da primeira palavra mas depois limpamos a string,\\ninvalidando o índice obtido? Aquele código era logicamente incorreto, mas não\\nmostrava nenhum erro imediato. Os problemas apareceriam mais tarde quando\\ntentássemos usar o índice da primeira palavra com uma string que foi esvaziada.\\nSlices tornam esse bug impossível de acontecer e nos permitem saber que temos um\\nproblema no código muito mais cedo. Na versão usando slice, a função\\n`primeira_palavra` vai lançar um erro em tempo de compilação:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,45": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,22,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,46,0": {
-    "value": "\"fn main() {\\n    let mut s = String::from(\\\"texto longo\\\");\\n\\n    let palavra = first_word(\u0026s);\\n\\n    s.clear(); // Erro!\\n}\"",
-    "dependencies": {
-      "0,0,0,1,22,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,47": {
-    "value": "\"Aqui está o erro:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,48,0": {
-    "value": "\"error borrow `s` as mutable because it is also borrowed as immutable\\n --\u003E src/main.rs:6:5\\n  |\\n4 |     let word = primeira_palavra(\u0026s);\\n  |                                  - immutable borrow occurs here\\n5 |\\n6 |     s.clear(); // Erro!\\n  |     ^ mutable borrow occurs here\\n7 | }\\n  | - immutable borrow ends here\"",
-    "dependencies": {
-      "0,0,0,1,22,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,49": {
-    "value": "\"Voltando às regras de borrowing, lembre-se que, se temos uma referência imutável\\npara algum valor, não podemos também obter uma referência mutável do mesmo. Como\\n`clear` precisa truncar a `String`, esse método tenta obter uma referência\\nmutável, e acaba falhando. O Rust não só tornou nossa API mais fácil de usar,\\ncomo também eliminou uma classe inteira de erros em tempo de compilação!\"",
-    "dependencies": {
-      "0,0,0,1,22,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,50": {
-    "value": "\"Lembre-se de que falamos sobre strings literais serem armazenadas dentro do\\nbinário. Agora que conhecemos slices, podemos entender strings literais\\nadequadamente:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,50,1,0": {
-    "value": "\"Lembre-se de que falamos sobre strings literais serem armazenadas dentro do\\nbinário. Agora que conhecemos slices, podemos entender strings literais\\nadequadamente:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,51,0": {
-    "value": "\"let s = \\\"Olá, mundo!\\\";\"",
-    "dependencies": {
-      "0,0,0,1,22,1,24,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,24,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,52": {
-    "value": "\"O tipo de `s` aqui é `\u0026str`: é uma slice apontando para aquele ponto específico\\ndo binário. Também é por isso que strings literais são imutáveis; `\u0026str` é uma\\nreferência imutável.\"",
-    "dependencies": {
-      "0,0,0,1,22,1,24,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,53": {
-    "value": "\"Saber que você pode obter slices de literais e `String`s nos levam a mais um\\naprimoramento da função `primeira_palavra`, e aqui está sua assinatura:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,53,1,0": {
-    "value": "\"Saber que você pode obter slices de literais e `String`s nos levam a mais um\\naprimoramento da função `primeira_palavra`, e aqui está sua assinatura:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,54,0": {
-    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E \u0026str {\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,55": {
-    "value": "\"Um Rustáceo mais experiente escreveria esta função conforme a seguir, permitindo\\nutilizar a mesma função com `String`s e `\u0026str`s:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,56,0": {
-    "value": "\"fn primeira_palavra(s: \u0026str) -\u003E \u0026str {\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,57": {
-    "value": "\"Se temos uma slice de string, podemos passá-la diretamente. Se temos uma\\n`String`, podemos passar uma slice da `String` inteira. Definir uma função que\\nrecebe uma slice em vez de uma referência para uma String deixa nossa API mais\\ngenérica e útil sem perder nenhuma funcionalidade:\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,58": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,59,0": {
-    "value": "\"# fn primeira_palavra(s: \u0026str) -\u003E \u0026str {\\n#     let bytes = s.as_bytes();\\n#\\n#     for (i, \u0026item) in bytes.iter().enumerate() {\\n#         if item == b' ' {\\n#             return \u0026s[0..i];\\n#         }\\n#     }\\n#\\n#     \u0026s[..]\\n# }\\nfn main() {\\n    let minha_string = String::from(\\\"texto longo\\\");\\n\\n    // primeira_palavra funciona com slices de `String`s\\n    let palavra = primeira_palavra(\u0026minha_string[..]);\\n\\n    let minha_string_literal = \\\"texto longo\\\";\\n\\n    // primeira_palavra funciona com strings literais\\n    let palavra = primeira_palavra(\u0026minha_string_literal[..]);\\n\\t\\n\\t// uma vez que strings literais *são* slices de strings,\\n\\t// isso também funciona, sem nem usar sintaxe de slice!\\n    let palavra = primeira_palavra(minha_string_literal);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,6,0": {
-    "value": "\"fn primeira_palavra(s: \u0026String) -\u003E usize {\\n    let bytes = s.as_bytes();\\n\\n    for (i, \u0026item) in bytes.iter().enumerate() {\\n        if item == b' ' {\\n            return i;\\n        }\\n    }\\n\\n    s.len()\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,60": {
-    "value": "\"Slices de string, como você pode imaginar, são específicas de strings. Mas há\\ntambém um tipo de slice mais genérico. Considere esta array:\"",
-    "dependencies": {
-      "0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,60,1,0": {
-    "value": "\"Slices de string, como você pode imaginar, são específicas de strings. Mas há\\ntambém um tipo de slice mais genérico. Considere esta array:\"",
-    "dependencies": {
-      "0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,61,0": {
-    "value": "\"let a = [1, 2, 3, 4, 5];\"",
-    "dependencies": {
-      "0,0,0,1,23,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,23,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,62": {
-    "value": "\"Assim como às vezes queremos nos referir a uma parte de uma string, podemos\\ntambém querer nos referir a uma parte de uma array, e faríamos isso da seguinte\\nforma:\"",
-    "dependencies": {
-      "0,0,0,1,23,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,63,0": {
-    "value": "\"let a = [1, 2, 3, 4, 5];\\n\\nlet slice = \u0026a[1..3];\"",
-    "dependencies": {
-      "0,0,0,1,23,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,23,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,64": {
-    "value": "\"Essa slice tem o tipo `\u0026[i32]`. Ela funciona da mesma forma que as slices de\\nstring, armazenando uma referência para o primeiro elemento e um tamanho. Você\\nvai usar esse tipo de slice para todos os tipos de coleções. Vamos discutir\\nessas coleções em mais detalhe quando falarmos sobre vetores no Capítulo 8.\"",
-    "dependencies": {
-      "0,0,0,1,23,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,65": {
-    "value": "\"Os conceitos de ownership, borrowing, e slices são o que garante a segurança de\\nmemória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá\\ncontrole sobre o uso da memória, assim como outras linguagens de programação de\\nsistemas, mas como o dono dos dados limpa automaticamente a memória quando ele\\nsai de escopo, você não tem que escrever e debugar código extra para ter esse\\ncontrole.\\n\\nO ownership afeta o funcionamento de várias outras partes do Rust, por isso\\nvamos falar um pouco mais sobre esses conceitos neste livro daqui para a frente.\\nVamos seguir para o próximo capítulo e ver como agrupar dados em uma `struct`.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,65,1,0": {
-    "value": "\"Os conceitos de ownership, borrowing, e slices são o que garante a segurança de\\nmemória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá\\ncontrole sobre o uso da memória, assim como outras linguagens de programação de\\nsistemas, mas como o dono dos dados limpa automaticamente a memória quando ele\\nsai de escopo, você não tem que escrever e debugar código extra para ter esse\\ncontrole.\\n\\nO ownership afeta o funcionamento de várias outras partes do Rust, por isso\\nvamos falar um pouco mais sobre esses conceitos neste livro daqui para a frente.\\nVamos seguir para o próximo capítulo e ver como agrupar dados em uma `struct`.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,7": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 4-5: A função `primeira_palavra`, que retorna um\\níndice para um byte da `String` passada como parâmetro.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,8": {
-    "value": "\"Vamos dividir este código em algumas partes. Como precisamos varrer a `String`\\nelemento por elemento, e verificar se algum valor é um espaço, vamos converter\\nnossa `String` em um array de bytes usando o método `as_bytes`:\"",
-    "dependencies": {
-      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#body@0,9,0": {
-    "value": "\"let bytes = s.as_bytes();\"",
-    "dependencies": {
-      "0,0,0,1,6,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,8,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,8,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,8,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,15,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,15,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,19,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,19,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,19,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,26,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,35,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,11,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,11,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,11,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,41,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,43,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,46,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,20,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,20,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,20,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,48,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,22,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,51,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,24,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,24,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,24,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,54,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,25,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,56,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,25,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,59,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,22,1,25,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,22,1,25,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,22,1,25,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,6,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,61,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,23,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,23,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,23,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,63,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,23,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,23,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,23,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#caption@0,9,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,6,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,6,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,6,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,25": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,50": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,22,1,24,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,53": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,22,1,25,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,60": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,23,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#open@0,65": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,2": {
-    "value": "\"_Slices_\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,25": {
-    "value": "\"Slices de String\"",
-    "dependencies": {
-      "0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,50": {
-    "value": "\"Strings Literais São Slices\"",
-    "dependencies": {
-      "0,0,0,1,22,1,24,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,53": {
-    "value": "\"Slices de Strings como Parâmetros\"",
-    "dependencies": {
-      "0,0,0,1,22,1,25,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,60": {
-    "value": "\"Outras Slices\"",
-    "dependencies": {
-      "0,0,0,1,23,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch04-03-slices#title@0,65": {
-    "value": "\"Resumo\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1266,7 +1266,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1463,7 +1463,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><em>Slices</em></div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><em>Slices</em></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Outro tipo de dados em que não há ownership é a <em>slice</em> (do inglês, fatia).
 Slices lhe permitem referenciar uma sequência contígua de elementos em uma
 coleção em vez de referenciar a coleção inteira.</p>
@@ -1609,7 +1609,7 @@ então a string toda deve ser retornada.</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,20:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Agora estamos rastreando os índices do início <em>e</em> do final, e temos ainda mais valores que são calculados a partir dos dados em um estado particular, mas que não estão vinculados a este estado de nenhuma forma. Agora temos três variáveis não relacionadas flutuando que precisam ser mantidas em sincronia.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,21:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Felizmente, Rust possui uma solução para este problema: slices de string.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,22:main-container-external:0.inner-external:0,0,0:main" id="slices-de-string" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Slices de String</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,22:main-container-external:0.inner-external:0,0,0:main" id="slices-de-string" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Slices de String</div>
 <div data-id="inner:0,0,0,1,22,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Uma <em>slice de string</em> é uma referência para uma parte de uma <code>String</code>, e tem a seguinte forma:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,22,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let s = String::from(&quot;texto longo&quot;);
@@ -1775,7 +1775,7 @@ inicial da slice e o número de elementos que ela contém.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Voltando às regras de borrowing, lembre-se que, se temos uma referência imutável para algum valor, não podemos também obter uma referência mutável do mesmo. Como <code>clear</code> precisa truncar a <code>String</code>, esse método tenta obter uma referência mutável, e acaba falhando. O Rust não só tornou nossa API mais fácil de usar, como também eliminou uma classe inteira de erros em tempo de compilação!</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,24:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" id="strings-literais-sao-slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,24,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,50&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Strings Literais São Slices</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,24:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" id="strings-literais-sao-slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,24,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,50&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Strings Literais São Slices</div>
 <div data-id="inner:0,0,0,1,22,1,24,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Lembre-se de que falamos sobre strings literais serem armazenadas dentro do binário. Agora que conhecemos slices, podemos entender strings literais adequadamente:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" data-id="0,0,0,1,22,1,24,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,24,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,24,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,22,1,24,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let s = &quot;Olá, mundo!&quot;;
@@ -1785,7 +1785,7 @@ inicial da slice e o número de elementos que ela contém.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" data-id="0,0,0,1,22,1,24,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,24:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O tipo de <code>s</code> aqui é <code>&amp;str</code>: é uma slice apontando para aquele ponto específico do binário. Também é por isso que strings literais são imutáveis; <code>&amp;str</code> é uma referência imutável.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" id="slices-de-strings-como-parametros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,25,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,53&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Slices de Strings como Parâmetros</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" data-id="0,0,0,1,22,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" id="slices-de-strings-como-parametros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,25,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,53&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Slices de Strings como Parâmetros</div>
 <div data-id="inner:0,0,0,1,22,1,25,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Saber que você pode obter slices de literais e <code>String</code>s nos levam a mais um aprimoramento da função <code>primeira_palavra</code>, e aqui está sua assinatura:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25:main" data-id="0,0,0,1,22,1,25,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,25,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,22,1,25,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,22,1,25,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,22.inner-external:0,0,0,1,22,1,25:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">fn primeira_palavra(s: &amp;String) -&gt; &amp;str {
@@ -1861,7 +1861,7 @@ inicial da slice e o número de elementos que ela contém.</p>
 </span><span style="color:#323232;">}
 </span></pre>
 </div></div></div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,23:main-container-external:0.inner-external:0,0,0:main" id="outras-slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,23,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,60&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Outras Slices</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,23:main-container-external:0.inner-external:0,0,0:main" id="outras-slices" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,23,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,60&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Outras Slices</div>
 <div data-id="inner:0,0,0,1,23,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Slices de string, como você pode imaginar, são específicas de strings. Mas há também um tipo de slice mais genérico. Considere esta array:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" data-id="0,0,0,1,23,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,23,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,23,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,23,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">let a = [1, 2, 3, 4, 5];
@@ -1883,7 +1883,7 @@ inicial da slice e o número de elementos que ela contém.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" data-id="0,0,0,1,23,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,23:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Essa slice tem o tipo <code>&amp;[i32]</code>. Ela funciona da mesma forma que as slices de string, armazenando uma referência para o primeiro elemento e um tamanho. Você vai usar esse tipo de slice para todos os tipos de coleções. Vamos discutir essas coleções em mais detalhe quando falarmos sobre vetores no Capítulo 8.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch04-03-slices#open@0,65&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch04-03-slices#open@0,65&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Os conceitos de ownership, borrowing, e slices são o que garante a segurança de
 memória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá
 controle sobre o uso da memória, assim como outras linguagens de programação de

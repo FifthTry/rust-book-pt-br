@@ -12,6 +12,471 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,10": {
+    "value": "\"Poderíamos ter escolhido trazer a função para o escopo, em vez de especificar a função\\nno `use` da seguinte forma:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,11,0": {
+    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nuse a::series::of::nested_modules;\\n\\nfn main() {\\n    nested_modules();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,12": {
+    "value": "\"Isso nos permite excluir todos os módulos e fazer referência à função\\ndiretamente.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,13": {
+    "value": "\"Como as enums também formam uma espécie de *namespace*, assim como os módulos, podemos trazer\\nas variantes de uma enum para o escopo com `use` também. Para qualquer tipo de declaração de `use`\\nse você estiver trazendo vários itens de um *namespace* para o escopo, você pode listá-los\\nusando chaves e vírgulas na última posição, assim:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,14,0": {
+    "value": "\"enum TrafficLight {\\n    Red,\\n    Yellow,\\n    Green,\\n}\\n\\nuse TrafficLight::{Red, Yellow};\\n\\nfn main() {\\n    let red = Red;\\n    let yellow = Yellow;\\n    let green = TrafficLight::Green;\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,15": {
+    "value": "\"Nós ainda estamos especificando o *namespace* `TrafficLight` para a variante `Green`\\nporque não incluímos `Green` na declaração `use`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,16": {
+    "value": "\"Para trazer todos os itens de um *namespace* para o escopo ao mesmo tempo, podemos usar a sintaxe `*`, que é chamada de *operador glob*. Este exemplo traz todas as variantes de uma enum ao escopo sem ter que listar cada uma especificamente:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,16,1,0": {
+    "value": "\"Para trazer todos os itens de um *namespace* para o escopo ao mesmo tempo, podemos usar a sintaxe `*`, que é chamada de *operador glob*. Este exemplo traz todas as variantes de uma enum ao escopo sem ter que listar cada uma especificamente:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,17,0": {
+    "value": "\"enum TrafficLight {\\n    Red,\\n    Yellow,\\n    Green,\\n}\\n\\nuse TrafficLight::*;\\n\\nfn main() {\\n    let red = Red;\\n    let yellow = Yellow;\\n    let green = Green;\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,18": {
+    "value": "\"O `*` trará para o escopo todos os itens visíveis no *namespace* `TrafficLight`. \\nVocê deve usar globs com moderação: eles são convenientes, mas isso pode\\ntambém trazer mais itens do que se esperava e causar conflitos de nomeação.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,19": {
+    "value": "\"Como vimos no início deste capítulo, quando você cria um crate de biblioteca,\\no Cargo faz um módulo `tests` para você. Vamos ver isso em mais detalhes agora.\\nNo seu projeto `communicator`, abra *src/lib.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,19,1,0": {
+    "value": "\"Como vimos no início deste capítulo, quando você cria um crate de biblioteca,\\no Cargo faz um módulo `tests` para você. Vamos ver isso em mais detalhes agora.\\nNo seu projeto `communicator`, abra *src/lib.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,2": {
+    "value": "\"Vimos como chamar funções definidas dentro de um módulo usando o nome do módulo\\ncomo parte da chamada, como na chamada para a função `nested_modules` mostrada\\naqui na Listagem 7-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,2,1,0": {
+    "value": "\"Vimos como chamar funções definidas dentro de um módulo usando o nome do módulo\\ncomo parte da chamada, como na chamada para a função `nested_modules` mostrada\\naqui na Listagem 7-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,20,0": {
+    "value": "\"pub mod client;\\n\\npub mod network;\\n\\n#[cfg(test)]\\nmod tests {\\n    #[test]\\n    fn it_works() {\\n        assert_eq!(2 + 2, 4);\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,21": {
+    "value": "\"O Capítulo 11 explica mais sobre testes, mas algumas partes deste exemplo devem fazer\\nsentido agora: temos um módulo chamado `tests` que se situa ao lado de nossos outros módulos\\ne contém uma função chamada `it_works`. Embora existam anotações especiais, \\no módulo `tests` é apenas outro módulo! Então nossa hierarquia de módulos\\nse parece com isso:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,22,0": {
+    "value": "\"communicator\\n ├── client\\n ├── network\\n |   └── client\\n └── tests\"",
+    "dependencies": {
+      "0,0,0,1,5,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,23": {
+    "value": "\"Os testes servem para exercitar o código dentro da nossa biblioteca, então vamos tentar chamar nossa\\nfunção `client :: connect` a partir da função` it_works`, mesmo que não verefiquemos nenhuma \\nfuncionalidade agora. Isso ainda não funcionará:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,24": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,25,0": {
+    "value": "\"#[cfg(test)]\\nmod tests {\\n    #[test]\\n    fn it_works() {\\n        client::connect();\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,26": {
+    "value": "\"Execute os testes invocando o comando `cargo test`:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,27,0": {
+    "value": "\"$ cargo test\\n   Compiling communicator v0.1.0 (file:///projects/communicator)\\nerror to resolve. Use of undeclared type or module `client`\\n --\u003E src/lib.rs:9:9\\n  |\\n9 |         client::connect();\\n  |         ^^^^^^ Use of undeclared type or module `client`\"",
+    "dependencies": {
+      "0,0,0,1,5,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,28": {
+    "value": "\"A compilação falhou, mas por quê? Não precisamos colocar `communicator ::` em\\nfrente da função como fizemos em *src/main.rs* porque estamos definitivamente\\ndentro do crate da biblioteca `communicator` aqui. A razão é que os caminhos são\\nsempre relativos ao módulo atual, que aqui é `tests`. A única\\nexceção está em uma instrução `use`, onde os caminhos são relativos à crate raiz\\npor padrão. Nosso módulo `tests` precisa do módulo `client` no seu escopo!\"",
+    "dependencies": {
+      "0,0,0,1,5,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,29": {
+    "value": "\"Então, como podemos retroceder um módulo na hierarquia para chamar a\\nfunção `client::connect` no módulo `tests`? No módulo `tests`, temos a opção de\\nusar `::` na frente para indicar ao Rust que queremos começar a partir da raiz\\ne listar todo o caminho, assim:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,3,0": {
+    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nfn main() {\\n    a::series::of::nested_modules();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,30,0": {
+    "value": "\"::client::connect();\"",
+    "dependencies": {
+      "0,0,0,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,31": {
+    "value": "\"Ou, podemos usar `super` para voltar um módulo na hierarquia a partir de nosso \\nmódulo atual, assim:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,32,0": {
+    "value": "\"super::client::connect();\"",
+    "dependencies": {
+      "0,0,0,1,5,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,33": {
+    "value": "\"Essas duas opções não parecem tão diferentes neste exemplo, mas se você estiver\\nmais fundo em uma hierarquia de módulos, começar sempre a partir da raiz tornaria\\nseu código muito longo. Nesses casos, usar `super` para ir do módulo atual aos\\nmódulos irmãos é um bom atalho. Além disso, se você especificou o caminho a partir da\\nraiz em muitos lugares do seu código e depois vai reorganizar seus módulos movendo\\numa sub-árvore para outro lugar, você acabaria precisando atualizar o caminho em vários\\nlugares, o que seria tedioso.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,34": {
+    "value": "\"Também seria chato ter que digitar `super ::` em cada teste, mas você\\njá viu a ferramenta para essa solução: `use`! A funcionalidade `super ::`\\naltera o caminho que você dá para `use`, tornando-o relativo ao módulo pai\\nem vez do módulo raiz.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,35": {
+    "value": "\"Por estas razões, especialmente no módulo `tests`, `use super::alguma_coisa` é\\ngeralmente a melhor solução. Então, agora nosso teste ficou assim:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,36": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,37,0": {
+    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::client;\\n\\n    #[test]\\n    fn it_works() {\\n        client::connect();\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,5,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,38": {
+    "value": "\"Quando executarmos novamente `cargo test`, o teste passará e a primeira parte do\\nresultado do teste será o seguinte:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,39,0": {
+    "value": "\"$ cargo test\\n   Compiling communicator v0.1.0 (file:///projects/communicator)\\n     Running target/debug/communicator-92007ddb5330fa5a\\n\\nrunning 1 test\\ntest tests::it_works ... ok\\n\\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
+    "dependencies": {
+      "0,0,0,1,5,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,4": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 7-7: Chamando uma função especificando completamente \\no caminho do módulo que a cerca\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,40": {
+    "value": "\"Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas\\npara agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e\\napresentar uma API pública arrumada para os usuários da sua biblioteca.\\n\\nEm seguida, analisaremos algumas estruturas de dados de coleções na biblioteca padrão\\nque você pode usar em seu código limpo e elegante!\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,40,1,0": {
+    "value": "\"Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas\\npara agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e\\napresentar uma API pública arrumada para os usuários da sua biblioteca.\\n\\nEm seguida, analisaremos algumas estruturas de dados de coleções na biblioteca padrão\\nque você pode usar em seu código limpo e elegante!\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,5": {
+    "value": "\"Como você pode ver, referir-se ao nome totalmente qualificado pode ficar bastante longo.\\nFelizmente, Rust tem uma palavra-chave para tornar estas chamadas mais concisas.\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,6": {
+    "value": "\"A palavra-chave `use` de Rust encurta as chamadas de função longas, trazendo os módulos e\\na função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o\\nmódulo `a::series::of` para dentro do escopo raiz de um crate binário:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,6,1,0": {
+    "value": "\"A palavra-chave `use` de Rust encurta as chamadas de função longas, trazendo os módulos e\\na função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o\\nmódulo `a::series::of` para dentro do escopo raiz de um crate binário:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,7,0": {
+    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nuse a::series::of;\\n\\nfn main() {\\n    of::nested_modules();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,8": {
+    "value": "\"A linha `use a::series::of;` significa que, em vez de usar todo o caminho\\n`a::series::of` sempre que quisermos nos referir ao módulo `of`, podemos usar\\n`of`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#body@0,9": {
+    "value": "\"A palavra-chave `use` traz apenas o que especificamos no escopo: ela não\\nleva os filhos dos módulos ao escopo. É por isso que ainda temos que usar\\n`of::nested_modules` quando queremos chamar a função `nested_modules`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,14,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,17,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,20,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,27,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,32,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,39,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,16": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,19": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,40": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,6": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,16": {
+    "value": "\"Trazendo Todos os Nomes para o Escopo com um Glob\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,19": {
+    "value": "\"Usando `super` para Acessar um Módulo Pai\"",
+    "dependencies": {
+      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,2": {
+    "value": "\"Referindo-se a Nomes em Módulos Diferentes\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,40": {
+    "value": "\"Resumo\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#title@0,6": {
+    "value": "\"Trazendo Nomes no Escopo com a Palavra-Chave `use`\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -301,471 +766,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,10": {
-    "value": "\"Poderíamos ter escolhido trazer a função para o escopo, em vez de especificar a função\\nno `use` da seguinte forma:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,11,0": {
-    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nuse a::series::of::nested_modules;\\n\\nfn main() {\\n    nested_modules();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,12": {
-    "value": "\"Isso nos permite excluir todos os módulos e fazer referência à função\\ndiretamente.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,13": {
-    "value": "\"Como as enums também formam uma espécie de *namespace*, assim como os módulos, podemos trazer\\nas variantes de uma enum para o escopo com `use` também. Para qualquer tipo de declaração de `use`\\nse você estiver trazendo vários itens de um *namespace* para o escopo, você pode listá-los\\nusando chaves e vírgulas na última posição, assim:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,14,0": {
-    "value": "\"enum TrafficLight {\\n    Red,\\n    Yellow,\\n    Green,\\n}\\n\\nuse TrafficLight::{Red, Yellow};\\n\\nfn main() {\\n    let red = Red;\\n    let yellow = Yellow;\\n    let green = TrafficLight::Green;\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,15": {
-    "value": "\"Nós ainda estamos especificando o *namespace* `TrafficLight` para a variante `Green`\\nporque não incluímos `Green` na declaração `use`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,16": {
-    "value": "\"Para trazer todos os itens de um *namespace* para o escopo ao mesmo tempo, podemos usar a sintaxe `*`, que é chamada de *operador glob*. Este exemplo traz todas as variantes de uma enum ao escopo sem ter que listar cada uma especificamente:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,16,1,0": {
-    "value": "\"Para trazer todos os itens de um *namespace* para o escopo ao mesmo tempo, podemos usar a sintaxe `*`, que é chamada de *operador glob*. Este exemplo traz todas as variantes de uma enum ao escopo sem ter que listar cada uma especificamente:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,17,0": {
-    "value": "\"enum TrafficLight {\\n    Red,\\n    Yellow,\\n    Green,\\n}\\n\\nuse TrafficLight::*;\\n\\nfn main() {\\n    let red = Red;\\n    let yellow = Yellow;\\n    let green = Green;\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,18": {
-    "value": "\"O `*` trará para o escopo todos os itens visíveis no *namespace* `TrafficLight`. \\nVocê deve usar globs com moderação: eles são convenientes, mas isso pode\\ntambém trazer mais itens do que se esperava e causar conflitos de nomeação.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,19": {
-    "value": "\"Como vimos no início deste capítulo, quando você cria um crate de biblioteca,\\no Cargo faz um módulo `tests` para você. Vamos ver isso em mais detalhes agora.\\nNo seu projeto `communicator`, abra *src/lib.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,19,1,0": {
-    "value": "\"Como vimos no início deste capítulo, quando você cria um crate de biblioteca,\\no Cargo faz um módulo `tests` para você. Vamos ver isso em mais detalhes agora.\\nNo seu projeto `communicator`, abra *src/lib.rs*:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,2": {
-    "value": "\"Vimos como chamar funções definidas dentro de um módulo usando o nome do módulo\\ncomo parte da chamada, como na chamada para a função `nested_modules` mostrada\\naqui na Listagem 7-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,2,1,0": {
-    "value": "\"Vimos como chamar funções definidas dentro de um módulo usando o nome do módulo\\ncomo parte da chamada, como na chamada para a função `nested_modules` mostrada\\naqui na Listagem 7-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,20,0": {
-    "value": "\"pub mod client;\\n\\npub mod network;\\n\\n#[cfg(test)]\\nmod tests {\\n    #[test]\\n    fn it_works() {\\n        assert_eq!(2 + 2, 4);\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,21": {
-    "value": "\"O Capítulo 11 explica mais sobre testes, mas algumas partes deste exemplo devem fazer\\nsentido agora: temos um módulo chamado `tests` que se situa ao lado de nossos outros módulos\\ne contém uma função chamada `it_works`. Embora existam anotações especiais, \\no módulo `tests` é apenas outro módulo! Então nossa hierarquia de módulos\\nse parece com isso:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,22,0": {
-    "value": "\"communicator\\n ├── client\\n ├── network\\n |   └── client\\n └── tests\"",
-    "dependencies": {
-      "0,0,0,1,5,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,23": {
-    "value": "\"Os testes servem para exercitar o código dentro da nossa biblioteca, então vamos tentar chamar nossa\\nfunção `client :: connect` a partir da função` it_works`, mesmo que não verefiquemos nenhuma \\nfuncionalidade agora. Isso ainda não funcionará:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,24": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,25,0": {
-    "value": "\"#[cfg(test)]\\nmod tests {\\n    #[test]\\n    fn it_works() {\\n        client::connect();\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,26": {
-    "value": "\"Execute os testes invocando o comando `cargo test`:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,27,0": {
-    "value": "\"$ cargo test\\n   Compiling communicator v0.1.0 (file:///projects/communicator)\\nerror to resolve. Use of undeclared type or module `client`\\n --\u003E src/lib.rs:9:9\\n  |\\n9 |         client::connect();\\n  |         ^^^^^^ Use of undeclared type or module `client`\"",
-    "dependencies": {
-      "0,0,0,1,5,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,28": {
-    "value": "\"A compilação falhou, mas por quê? Não precisamos colocar `communicator ::` em\\nfrente da função como fizemos em *src/main.rs* porque estamos definitivamente\\ndentro do crate da biblioteca `communicator` aqui. A razão é que os caminhos são\\nsempre relativos ao módulo atual, que aqui é `tests`. A única\\nexceção está em uma instrução `use`, onde os caminhos são relativos à crate raiz\\npor padrão. Nosso módulo `tests` precisa do módulo `client` no seu escopo!\"",
-    "dependencies": {
-      "0,0,0,1,5,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,29": {
-    "value": "\"Então, como podemos retroceder um módulo na hierarquia para chamar a\\nfunção `client::connect` no módulo `tests`? No módulo `tests`, temos a opção de\\nusar `::` na frente para indicar ao Rust que queremos começar a partir da raiz\\ne listar todo o caminho, assim:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,3,0": {
-    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nfn main() {\\n    a::series::of::nested_modules();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,30,0": {
-    "value": "\"::client::connect();\"",
-    "dependencies": {
-      "0,0,0,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,31": {
-    "value": "\"Ou, podemos usar `super` para voltar um módulo na hierarquia a partir de nosso \\nmódulo atual, assim:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,32,0": {
-    "value": "\"super::client::connect();\"",
-    "dependencies": {
-      "0,0,0,1,5,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,33": {
-    "value": "\"Essas duas opções não parecem tão diferentes neste exemplo, mas se você estiver\\nmais fundo em uma hierarquia de módulos, começar sempre a partir da raiz tornaria\\nseu código muito longo. Nesses casos, usar `super` para ir do módulo atual aos\\nmódulos irmãos é um bom atalho. Além disso, se você especificou o caminho a partir da\\nraiz em muitos lugares do seu código e depois vai reorganizar seus módulos movendo\\numa sub-árvore para outro lugar, você acabaria precisando atualizar o caminho em vários\\nlugares, o que seria tedioso.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,34": {
-    "value": "\"Também seria chato ter que digitar `super ::` em cada teste, mas você\\njá viu a ferramenta para essa solução: `use`! A funcionalidade `super ::`\\naltera o caminho que você dá para `use`, tornando-o relativo ao módulo pai\\nem vez do módulo raiz.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,35": {
-    "value": "\"Por estas razões, especialmente no módulo `tests`, `use super::alguma_coisa` é\\ngeralmente a melhor solução. Então, agora nosso teste ficou assim:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,36": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,37,0": {
-    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::client;\\n\\n    #[test]\\n    fn it_works() {\\n        client::connect();\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,5,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,38": {
-    "value": "\"Quando executarmos novamente `cargo test`, o teste passará e a primeira parte do\\nresultado do teste será o seguinte:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,39,0": {
-    "value": "\"$ cargo test\\n   Compiling communicator v0.1.0 (file:///projects/communicator)\\n     Running target/debug/communicator-92007ddb5330fa5a\\n\\nrunning 1 test\\ntest tests::it_works ... ok\\n\\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
-    "dependencies": {
-      "0,0,0,1,5,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,4": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 7-7: Chamando uma função especificando completamente \\no caminho do módulo que a cerca\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,40": {
-    "value": "\"Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas\\npara agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e\\napresentar uma API pública arrumada para os usuários da sua biblioteca.\\n\\nEm seguida, analisaremos algumas estruturas de dados de coleções na biblioteca padrão\\nque você pode usar em seu código limpo e elegante!\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,40,1,0": {
-    "value": "\"Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas\\npara agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e\\napresentar uma API pública arrumada para os usuários da sua biblioteca.\\n\\nEm seguida, analisaremos algumas estruturas de dados de coleções na biblioteca padrão\\nque você pode usar em seu código limpo e elegante!\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,5": {
-    "value": "\"Como você pode ver, referir-se ao nome totalmente qualificado pode ficar bastante longo.\\nFelizmente, Rust tem uma palavra-chave para tornar estas chamadas mais concisas.\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,6": {
-    "value": "\"A palavra-chave `use` de Rust encurta as chamadas de função longas, trazendo os módulos e\\na função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o\\nmódulo `a::series::of` para dentro do escopo raiz de um crate binário:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,6,1,0": {
-    "value": "\"A palavra-chave `use` de Rust encurta as chamadas de função longas, trazendo os módulos e\\na função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o\\nmódulo `a::series::of` para dentro do escopo raiz de um crate binário:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,7,0": {
-    "value": "\"pub mod a {\\n    pub mod series {\\n        pub mod of {\\n            pub fn nested_modules() {}\\n        }\\n    }\\n}\\n\\nuse a::series::of;\\n\\nfn main() {\\n    of::nested_modules();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,8": {
-    "value": "\"A linha `use a::series::of;` significa que, em vez de usar todo o caminho\\n`a::series::of` sempre que quisermos nos referir ao módulo `of`, podemos usar\\n`of`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#body@0,9": {
-    "value": "\"A palavra-chave `use` traz apenas o que especificamos no escopo: ela não\\nleva os filhos dos módulos ao escopo. É por isso que ainda temos que usar\\n`of::nested_modules` quando queremos chamar a função `nested_modules`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,14,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,17,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,20,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,27,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,32,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,39,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#open@0,16": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#open@0,19": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#open@0,40": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#open@0,6": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,16": {
-    "value": "\"Trazendo Todos os Nomes para o Escopo com um Glob\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,19": {
-    "value": "\"Usando `super` para Acessar um Módulo Pai\"",
-    "dependencies": {
-      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,2": {
-    "value": "\"Referindo-se a Nomes em Módulos Diferentes\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,40": {
-    "value": "\"Resumo\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-03-importing-names-with-use#title@0,6": {
-    "value": "\"Trazendo Nomes no Escopo com a Palavra-Chave `use`\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -984,7 +984,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1181,7 +1181,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="referindo-se-a-nomes-em-modulos-diferentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-03-importing-names-with-use#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referindo-se a Nomes em Módulos Diferentes</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="referindo-se-a-nomes-em-modulos-diferentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Referindo-se a Nomes em Módulos Diferentes</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vimos como chamar funções definidas dentro de um módulo usando o nome do módulo
 como parte da chamada, como na chamada para a função <code>nested_modules</code> mostrada
 aqui na Listagem 7-7:</p>
@@ -1217,7 +1217,7 @@ aqui na Listagem 7-7:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 7-7: Chamando uma função especificando completamente o caminho do módulo que a cerca<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Como você pode ver, referir-se ao nome totalmente qualificado pode ficar bastante longo. Felizmente, Rust tem uma palavra-chave para tornar estas chamadas mais concisas.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="trazendo-nomes-no-escopo-com-a-palavra-chave-use" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-03-importing-names-with-use#open@0,6&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trazendo Nomes no Escopo com a Palavra-Chave <code>use</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="trazendo-nomes-no-escopo-com-a-palavra-chave-use" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,6&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trazendo Nomes no Escopo com a Palavra-Chave <code>use</code></div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A palavra-chave <code>use</code> de Rust encurta as chamadas de função longas, trazendo os módulos e
 a função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o
 módulo <code>a::series::of</code> para dentro do escopo raiz de um crate binário:</p>
@@ -1323,7 +1323,7 @@ módulo <code>a::series::of</code> para dentro do escopo raiz de um crate binár
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nós ainda estamos especificando o <em>namespace</em> <code>TrafficLight</code> para a variante <code>Green</code> porque não incluímos <code>Green</code> na declaração <code>use</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="trazendo-todos-os-nomes-para-o-escopo-com-um-glob" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-03-importing-names-with-use#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trazendo Todos os Nomes para o Escopo com um Glob</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="trazendo-todos-os-nomes-para-o-escopo-com-um-glob" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trazendo Todos os Nomes para o Escopo com um Glob</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para trazer todos os itens de um <em>namespace</em> para o escopo ao mesmo tempo, podemos usar a sintaxe <code>*</code>, que é chamada de <em>operador glob</em>. Este exemplo traz todas as variantes de uma enum ao escopo sem ter que listar cada uma especificamente:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">enum TrafficLight {
@@ -1357,7 +1357,7 @@ módulo <code>a::series::of</code> para dentro do escopo raiz de um crate binár
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O <code>*</code> trará para o escopo todos os itens visíveis no <em>namespace</em> <code>TrafficLight</code>. Você deve usar globs com moderação: eles são convenientes, mas isso pode também trazer mais itens do que se esperava e causar conflitos de nomeação.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="usando-super-para-acessar-um-modulo-pai" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-03-importing-names-with-use#open@0,19&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>super</code> para Acessar um Módulo Pai</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="usando-super-para-acessar-um-modulo-pai" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,19&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>super</code> para Acessar um Módulo Pai</div>
 <div data-id="inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,5,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Como vimos no início deste capítulo, quando você cria um crate de biblioteca,
 o Cargo faz um módulo <code>tests</code> para você. Vamos ver isso em mais detalhes agora.
 No seu projeto <code>communicator</code>, abra <em>src/lib.rs</em>:</p>
@@ -1514,7 +1514,7 @@ No seu projeto <code>communicator</code>, abra <em>src/lib.rs</em>:</p>
 </span><span style="color:#323232;">test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 </span></pre>
 </div></div></div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-03-importing-names-with-use#open@0,40&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-03-importing-names-with-use#open@0,40&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas
 para agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e
 apresentar uma API pública arrumada para os usuários da sua biblioteca.</p>

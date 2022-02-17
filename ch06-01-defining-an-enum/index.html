@@ -12,6 +12,519 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,10,0": {
+    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\n# fn rotear(versao_ip: VersaoIp) { }\\n#\\nrotear(VersaoIp::V4);\\nrotear(VersaoIp::V6);\"",
+    "dependencies": {
+      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,11": {
+    "value": "\"O uso de enums tem ainda mais vantagens. Pensando mais a fundo sobre o nosso\\ntipo de endereço IP, ainda não temos uma forma de representar o *endereço* em\\nsi, apenas sabemos qual a *versão* dele. Tendo em vista o que você acabou de\\naprender sobre structs no Capítulo 5, você poderia abordar esse problema assim\\ncomo visto na Listagem 6-1:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,12,0": {
+    "value": "\"enum VersaoIp {\\n    V4,\\n    V6,\\n}\\n\\nstruct EnderecoIp {\\n    versao: VersaoIp,\\n    endereco: String,\\n}\\n\\nlet local = EnderecoIp {\\n    versao: VersaoIp::V4,\\n    endereco: String::from(\\\"127.0.0.1\\\"),\\n};\\n\\nlet loopback = EnderecoIp {\\n    versao: VersaoIp::V6,\\n    endereco: String::from(\\\"::1\\\"),\\n};\"",
+    "dependencies": {
+      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,13": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-1: Representação do endereço e da variante\\n`VersaoIp` de um endereço IP usando uma `struct`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,14": {
+    "value": "\"Aqui nós definimos uma struct `EnderecoIp` que tem dois membros: `versao`, do\\ntipo `VersaoIp` (que definimos anteriormente) e `endereco`, do tipo `String`.\\nTemos duas instâncias dessa struct. A primeira, `local`, tem o valor\\n`VersaoIp::V4` como sua `versao`, e um endereço associado igual a `127.0.0.1`.\\nA segunda instância, `loopback`, tem como sua `versao` a outra variante de\\n`VersaoIp`, `V6`, e o endereço `::1` associado a ela. Nós usamos uma struct\\npara encapsular os valores de `versao` e `endereco`, agora a variante está\\nassociada ao valor.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,15": {
+    "value": "\"Podemos representar o mesmo conceito de uma forma mais concisa usando apenas\\numa enum, em vez de uma enum dentro de uma struct, colocando dados dentro de\\ncada variante da enum, diretamente. Esta nova definição da enum `EnderecoIp`\\ndiz que ambas as variantes, `V4` e `V6`, terão uma `String` associada:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,16,0": {
+    "value": "\"enum EnderecoIp {\\n    V4(String),\\n    V6(String),\\n}\\n\\nlet local = EnderecoIp::V4(String::from(\\\"127.0.0.1\\\"));\\n\\nlet loopback = EnderecoIp::V6(String::from(\\\"::1\\\"));\"",
+    "dependencies": {
+      "0,0,0,1,2,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,17": {
+    "value": "\"Podemos anexar dados a cada variante da enum diretamente, assim não existe mais\\na necessidade de uma struct adicional.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,18": {
+    "value": "\"Há uma outra vantagem de se usar uma enum em vez de uma struct: cada variante\\npode conter dados de diferentes tipos e quantidades. Os endereços IP da versão\\nquatro têm sempre quatro componentes numéricas, cada uma com valor de 0 a 255.\\nSe quiséssemos representar endereços `V4` como quatro valores `u8`, e ao mesmo\\ntempo manter os endereços `V6` como uma `String`, não poderíamos usar uma\\nstruct. Já as enums podem facilmente atender a este caso:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,19,0": {
+    "value": "\"enum EnderecoIp {\\n    V4(u8, u8, u8, u8),\\n    V6(String),\\n}\\n\\nlet local = EnderecoIp::V4(127, 0, 0, 1);\\n\\nlet loopback = EnderecoIp::V6(String::from(\\\"::1\\\"));\"",
+    "dependencies": {
+      "0,0,0,1,2,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,2": {
+    "value": "\"Vamos ver um caso em que enums podem ser mais apropriadas do que structs e\\ndescobrir como elas podem ser úteis. Digamos que estamos trabalhando com\\nendereços IP. Atualmente, existem duas versões do protocolo IP que são mais\\nutilizadas: a quatro e a seis. Estas são as únicas possibilidades para um\\nendereço IP com que o nosso programa vai trabalhar: nós podemos *enumerar*\\ntodos os possíveis valores, é daí que vem o nome enumeração.\\n\\nUm endereço IP qualquer pode ser ou da versão quatro ou da versão seis, mas\\nnunca das duas ao mesmo tempo. Esta propriedade dos endereços IP faz com que a\\nenum seja bem apropriada para este caso, pois enums só podem assumir o valor de\\numa de suas variantes. Os endereços de ambas as versões, seja quatro ou seis,\\nainda são, fundamentalmente, endereços IP, e deveriam ser tratados pelo mesmo\\ntipo no código em situações que se aplicam a qualquer versão de endereço IP.\\n\\nPodemos expressar esse conceito em código definindo uma enum `VersaoIp` e\\nlistando os possíveis tipos de que um endereço IP pode ser: `V4` e `V6`. Estas\\nsão as chamadas *variantes* da enum:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,2,1,0": {
+    "value": "\"Vamos ver um caso em que enums podem ser mais apropriadas do que structs e\\ndescobrir como elas podem ser úteis. Digamos que estamos trabalhando com\\nendereços IP. Atualmente, existem duas versões do protocolo IP que são mais\\nutilizadas: a quatro e a seis. Estas são as únicas possibilidades para um\\nendereço IP com que o nosso programa vai trabalhar: nós podemos *enumerar*\\ntodos os possíveis valores, é daí que vem o nome enumeração.\\n\\nUm endereço IP qualquer pode ser ou da versão quatro ou da versão seis, mas\\nnunca das duas ao mesmo tempo. Esta propriedade dos endereços IP faz com que a\\nenum seja bem apropriada para este caso, pois enums só podem assumir o valor de\\numa de suas variantes. Os endereços de ambas as versões, seja quatro ou seis,\\nainda são, fundamentalmente, endereços IP, e deveriam ser tratados pelo mesmo\\ntipo no código em situações que se aplicam a qualquer versão de endereço IP.\\n\\nPodemos expressar esse conceito em código definindo uma enum `VersaoIp` e\\nlistando os possíveis tipos de que um endereço IP pode ser: `V4` e `V6`. Estas\\nsão as chamadas *variantes* da enum:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,20": {
+    "value": "\"Acabamos de ver algumas possibilidades que poderíamos usar para representar\\nendereços IP das duas versões por meio de uma enum. Acontece que essa\\nnecessidade de representar endereços IP, incluindo sua versão, é tão comum que\\na biblioteca padrão já possui uma definição que podemos usar! ([Veja a\\ndocumentação em inglês](https://doc.rust-lang.org/std/net/enum.IpAddr.html)\u003C!-- ignore --\u003E). Vamos ver como a biblioteca\\npadrão define `IpAddr`: ele tem basicamente a mesma enum e as mesmas variantes\\nque nós definimos e usamos anteriormente, mas os dados do endereço são\\nembutidos dentro das variantes na forma de duas structs separadas, que são\\ndefinidas de um jeito diferente pra cada variante.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,21,0": {
+    "value": "\"struct Ipv4Addr {\\n    // detalhes omitidos\\n}\\n\\nstruct Ipv6Addr {\\n    // detalhes omitidos\\n}\\n\\nenum IpAddr {\\n    V4(Ipv4Addr),\\n    V6(Ipv6Addr),\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,22": {
+    "value": "\"Esse código mostra que você pode colocar qualquer tipo de dados dentro de uma\\nvariante de enum: strings, tipos numéricos ou structs, por exemplo. Você pode\\naté mesmo incluir outra enum! Além disso, os tipos definidos pela biblioteca\\npadrão não são tão mais complicados do que o que talvez você pensaria em fazer.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,23": {
+    "value": "\"Repare que, mesmo havendo um `IpAddr`definido pela biblioteca padrão, nós ainda\\npodemos criar e utilizar nossa própria definição (com o mesmo nome, inclusive)\\nsem nenhum conflito, porque não trouxemos a definição da biblioteca padrão para\\ndentro do nosso escopo. Falaremos mais sobre a inclusão de tipos em um escopo\\nno Capítulo 7.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,24": {
+    "value": "\"Vamos ver outro exemplo de uma enum na Listagem 6-2: esta tem uma grande\\nvariedade de tipos embutidos nas suas variantes:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,25,0": {
+    "value": "\"enum Mensagem {\\n    Sair,\\n    Mover { x: i32, y: i32 },\\n    Escrever(String),\\n    MudarCor(i32, i32, i32),\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,26": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-2: Enum `Mensagem`, cujas variantes contêm,\\ncada uma, diferentes tipos e quantidades de dados\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,27": {
+    "value": "\"Esta enum tem quatro variantes de diferentes tipos:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,28": {
+    "value": "\"* `Sair` não tem nenhum dado associado.\\n* `Mover` contém uma struct anônima.\\n* `Escrever` contém uma única `String`.\\n* `MudarCor` contém três valores do tipo `i32`.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,22:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,29": {
+    "value": "\"Definir uma enum com variantes iguais às da Listagem 6-2 é similar a definir\\ndiferentes tipos de struct, exceto que a enum não usa a palavra-chave `struct`,\\ne todas as variantes são agrupadas dentro do tipo `Mensagem`. As structs\\nseguintes podem guardar os mesmos dados que as variantes da enum anterior:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,3,0": {
+    "value": "\"enum VersaoIp {\\n    V4,\\n    V6,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,30,0": {
+    "value": "\"struct MensagemSair; // unit struct\\nstruct MensagemMover {\\n    x: i32,\\n    y: i32,\\n}\\nstruct MensagemEscrever(String); // tuple struct\\nstruct MensagemMudarCor(i32, i32, i32); // tuple struct\"",
+    "dependencies": {
+      "0,0,0,1,2,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,31": {
+    "value": "\"Mas se usarmos structs diferentes, cada uma tendo seu próprio tipo, não vamos\\nconseguir tão facilmente definir uma função que possa receber qualquer um\\ndesses tipos de mensagens, assim como fizemos com a enum `Mensagem`, definida\\nna Listagem 6-2, que consiste em um tipo único.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,32": {
+    "value": "\"Há mais uma similaridade entre enums e structs: da mesma forma como podemos\\ndefinir métodos em structs usando `impl`, também podemos definir métodos em\\nenums. Aqui está um método chamado `invocar`, que poderia ser definido na nossa\\nenum `Mensagem`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,26:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,33,0": {
+    "value": "\"# enum Mensagem {\\n#     Sair,\\n#     Mover { x: i32, y: i32 },\\n#     Escrever(String),\\n#     MudarCor(i32, i32, i32),\\n# }\\n#\\nimpl Mensagem {\\n    fn invocar(\u0026self) {\\n        // o corpo do método é definido aqui\\n    }\\n}\\n\\nlet m = Mensagem::Escrever(String::from(\\\"olá\\\"));\\nm.invocar();\"",
+    "dependencies": {
+      "0,0,0,1,2,1,27,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,27,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,34": {
+    "value": "\"O corpo do método usaria o valor `self` para obter a mensagem sobre a qual o\\nmétodo foi chamado. Neste exemplo, criamos a variável `m`, que contém o valor\\n`Mensagem::Escrever(String::from(\\\"olá\\\"))`, e é isso que `self` vai ser no corpo\\ndo método `invocar` quando `m.invocar()` for executado.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,28:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,35": {
+    "value": "\"Vamos ver agora outra enum da biblioteca padrão que também é muito útil e\\ncomum: `Option`.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,29:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,36": {
+    "value": "\"Na seção anterior, vimos como a enum `EnderecoIp` nos permite usar o sistema de\\ntipos do Rust para codificar em nosso programa mais informação do que apenas os\\ndados que queremos representar. Essa seção explora um caso de estudo da\\n`Option`, que é outra enum definida pela biblioteca padrão. O tipo `Option` é\\nmuito utilizado, pois engloba um cenário muito comum, em que um valor pode ser\\nalgo ou pode não ser nada. Expressar esse conceito por meio do sistema de tipos\\nsignifica que o compilador pode verificar se você tratou, ou não, todos os\\ncasos que deveriam ser tratados, podendo evitar _bugs_ que são extremamente\\ncomuns em outras linguagens de programação.\\n\\nO _design_ de uma linguagem de programação é geralmente tratado em termos de\\nquais características são incluídas, mas as que são excluídas também têm \\nimportância. Rust não tem o valor nulo (_null_) que outras linguagens têm. O\\nvalor nulo quer dizer que não há nenhum valor. Em linguagens que têm essa\\ncaracterística, as variáveis sempre estão em um dos dois estados: nulo ou não\\nnulo.\\n\\nEm uma conferência, Tony Hoare, inventor do valor nulo, disse o seguinte:\\n\\n\u003E Eu o chamo meu erro de um bilhão de dólares. Naquela época, eu estava\\n\u003E projetando o primeiro sistema abrangente de tipos para referências em uma\\n\u003E linguagem orientada a objetos. Meu objetivo era garantir que todo uso de\\n\u003E referências deveria ser absolutamente seguro, com verificação automática\\n\u003E feita pelo compilador. Mas não pude resistir à tentação de colocar uma\\n\u003E referência nula, simplesmente porque era tão fácil de implementar. Isso tem\\n\u003E provocado inúmeros erros, vulnerabilidades, e falhas de sistemas que\\n\u003E provavelmente causaram um bilhão de dólares de dor e danos nos últimos\\n\u003E quarenta anos.\\n\\nO problema com valores nulos é que, se você tentar usar um valor nulo como se\\nfosse não nulo, vai acontecer algum tipo de erro. Pelo fato dessa propriedade\\nde nulo e não nulo ser tão sutil, é extremamente fácil cometer esse tipo de\\nerro.\\n\\nPorém, o conceito que o valor nulo tenta expressar ainda é útil: um valor nulo\\nrepresenta algo que, por algum motivo, está inválido ou ausente no momento.\\n\\nO problema, na verdade, não está no conceito, mas na implementação em\\nparticular. Por isso, Rust não possui valores nulos, mas sim uma enum que\\nengloba o conceito de um valor estar presente ou ausente. Esta enum é a\\n`Option\u003CT\u003E`, que está definida na biblioteca padrão da seguinte forma:\\n([Veja a documentação em inglês](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E).\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,36,1,0": {
+    "value": "\"Na seção anterior, vimos como a enum `EnderecoIp` nos permite usar o sistema de\\ntipos do Rust para codificar em nosso programa mais informação do que apenas os\\ndados que queremos representar. Essa seção explora um caso de estudo da\\n`Option`, que é outra enum definida pela biblioteca padrão. O tipo `Option` é\\nmuito utilizado, pois engloba um cenário muito comum, em que um valor pode ser\\nalgo ou pode não ser nada. Expressar esse conceito por meio do sistema de tipos\\nsignifica que o compilador pode verificar se você tratou, ou não, todos os\\ncasos que deveriam ser tratados, podendo evitar _bugs_ que são extremamente\\ncomuns em outras linguagens de programação.\\n\\nO _design_ de uma linguagem de programação é geralmente tratado em termos de\\nquais características são incluídas, mas as que são excluídas também têm \\nimportância. Rust não tem o valor nulo (_null_) que outras linguagens têm. O\\nvalor nulo quer dizer que não há nenhum valor. Em linguagens que têm essa\\ncaracterística, as variáveis sempre estão em um dos dois estados: nulo ou não\\nnulo.\\n\\nEm uma conferência, Tony Hoare, inventor do valor nulo, disse o seguinte:\\n\\n\u003E Eu o chamo meu erro de um bilhão de dólares. Naquela época, eu estava\\n\u003E projetando o primeiro sistema abrangente de tipos para referências em uma\\n\u003E linguagem orientada a objetos. Meu objetivo era garantir que todo uso de\\n\u003E referências deveria ser absolutamente seguro, com verificação automática\\n\u003E feita pelo compilador. Mas não pude resistir à tentação de colocar uma\\n\u003E referência nula, simplesmente porque era tão fácil de implementar. Isso tem\\n\u003E provocado inúmeros erros, vulnerabilidades, e falhas de sistemas que\\n\u003E provavelmente causaram um bilhão de dólares de dor e danos nos últimos\\n\u003E quarenta anos.\\n\\nO problema com valores nulos é que, se você tentar usar um valor nulo como se\\nfosse não nulo, vai acontecer algum tipo de erro. Pelo fato dessa propriedade\\nde nulo e não nulo ser tão sutil, é extremamente fácil cometer esse tipo de\\nerro.\\n\\nPorém, o conceito que o valor nulo tenta expressar ainda é útil: um valor nulo\\nrepresenta algo que, por algum motivo, está inválido ou ausente no momento.\\n\\nO problema, na verdade, não está no conceito, mas na implementação em\\nparticular. Por isso, Rust não possui valores nulos, mas sim uma enum que\\nengloba o conceito de um valor estar presente ou ausente. Esta enum é a\\n`Option\u003CT\u003E`, que está definida na biblioteca padrão da seguinte forma:\\n([Veja a documentação em inglês](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E).\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,37,0": {
+    "value": "\"enum Option\u003CT\u003E {\\n    Some(T), // algum valor\\n    None, // nenhum valor\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,38": {
+    "value": "\"A enum `Option\u003CT\u003E` é tão útil que ela já vem inclusa no prelúdio: você não\\nprecisa trazê-la explicitamente para o seu escopo. Além disso, o mesmo ocorre\\ncom suas variantes: você pode usar `Some` e `None` diretamente sem prefixá-las\\ncom `Option::`. `Option\u003CT\u003E` continua sendo uma enum como qualquer outra, e\\n`Some(T)` e `None` ainda são variantes do tipo `Option\u003CT\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,39": {
+    "value": "\"A sintaxe do `\u003CT\u003E` é uma característica do Rust de que não falamos ainda.\\nTrata-se de um parâmetro de tipo genérico, vamos abordá-lo com mais detalhe no\\nCapítulo 10. Por ora, tudo que você precisa saber é que `\u003CT\u003E` significa que a\\nvariante `Some` da enum `Option` pode conter um dado de qualquer tipo. Aqui vão\\nalguns exemplos de `Option` contendo tipos de número e texto:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,4": {
+    "value": "\"`VersaoIp` é um tipo de dados que agora nós podemos usar em qualquer lugar no\\nnosso código.\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,40,0": {
+    "value": "\"let algum_numero = Some(5);\\nlet algum_texto = Some(\\\"um texto\\\");\\n\\nlet numero_ausente: Option\u003Ci32\u003E = None;\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,41": {
+    "value": "\"Se usamos `None` em vez de `Some`, precisamos dizer ao Rust qual é o tipo de\\n`Option\u003CT\u003E` que nós temos, porque o compilador não consegue inferir qual tipo\\nestará contido na variante `Some` apenas olhando para um valor `None`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,42": {
+    "value": "\"Quando temos um `Some`, sabemos que um valor está presente, contido dentro do\\n`Some`. Já quando temos um `None`, de certa forma, significa o mesmo que um\\nvalor nulo: não temos um valor que seja válido. Então por que a `Option\u003CT\u003E` é\\ntão melhor que usar um valor nulo?\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,43": {
+    "value": "\"Em resumo, é porque `Option\u003CT\u003E` e `T` (podendo `T` ser de qualquer tipo) são\\ntipos diferentes, por isso, o compilador não vai permitir usar um valor do tipo\\n`Option\u003CT\u003E` como se ele definitivamente tivesse um valor válido. Por exemplo,\\no código seguinte não vai compilar, porque ele está tentando somar um `i8` a um\\n`Option\u003Ci8\u003E`:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,44,0": {
+    "value": "\"let x: i8 = 5;\\nlet y: Option\u003Ci8\u003E = Some(5);\\n\\nlet soma = x + y;\"",
+    "dependencies": {
+      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,45": {
+    "value": "\"Quando executamos esse código, temos uma mensagem de erro como essa:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,46,0": {
+    "value": "\"error trait bound `i8: std::ops::Add\u003Cstd::option::Option\u003Ci8\u003E\u003E` is\\nnot satisfied\\n --\u003E\\n  |\\n5 |     let sum = x + y;\\n  |                 ^ no implementation for `i8 + std::option::Option\u003Ci8\u003E`\\n  |\"",
+    "dependencies": {
+      "0,0,0,1,3,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,47": {
+    "value": "\"Intenso! O que essa mensagem quer dizer é que o Rust não consegue entender como\\nsomar um `i8` e um `Option\u003Ci8\u003E`, porque eles são de tipos diferentes. Quando\\ntemos um valor de um tipo como `i8` em Rust, o compilador tem certeza de que\\ntemos sempre um valor válido. Podemos prosseguir com confiança, sem ter de\\nverificar se o valor é nulo antes de usá-lo. Somente quando temos um\\n`Option\u003Ci8\u003E` (ou qualquer que seja o tipo com que estamos trabalhando), vamos\\nter de nos preocupar com a possibilidade de não haver um valor, e o compilador\\nvai se certificar de que nós estamos tratando este caso antes de usar o valor.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,48": {
+    "value": "\"Em outras palavras, você tem que converter um `Option\u003CT\u003E` em um `T` antes de\\npoder executar operações com ele. Geralmente, isso ajuda a detectar um dos\\nproblemas mais comuns com valores nulos: assumir que algo não é nulo quando,\\nna verdade, ele é.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,49": {
+    "value": "\"Só de não ter que se preocupar com a possibilidade de ter deixado um valor nulo\\nescapar já lhe dá mais confiança em seu código. Pra ter um valor que pode ser\\nnulo em algum momento, você precisa, explicitamente, marcá-lo como sendo do\\ntipo `Option\u003CT\u003E`. A partir daí, sempre que for usar o valor, você será obrigado\\na tratar, de forma explícita, o caso do valor sendo nulo. Sempre que houver um\\nvalor que não seja um `Option\u003CT\u003E`, você *pode* assumir, com segurança, que o\\nvalor não é nulo. Esta foi uma decisão deliberada de projeto do Rust para\\nlimitar as sutilezas dos valores nulos e aumentar a segurança do código.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,5": {
+    "value": "\"Podemos criar instâncias de cada uma das duas variantes de `VersaoIp`, da\\nseguinte forma:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,5,1,0": {
+    "value": "\"Podemos criar instâncias de cada uma das duas variantes de `VersaoIp`, da\\nseguinte forma:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,50": {
+    "value": "\"Então, como obter o valor `T` da variante `Some` quando se tem um `Option\u003CT\u003E`,\\npara que se possa usar seu valor? A enum `Option\u003CT\u003E` possui diversos métodos\\nque são úteis em uma variedade de situações, você pode pesquisá-los na\\n[documentação](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E (em inglês). Será extremamente útil na sua\\njornada com Rust se familizarizar com os métodos da enum `Option\u003CT\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,51": {
+    "value": "\"Em geral, pra usar um valor `Option\u003CT\u003E`, queremos ter um código que trate cada\\numa das variantes. Queremos um código que só será executado quando tivermos um\\nvalor `Some(T)`, e esse código terá permissão para usar o valor `T` que está\\nembutido. Queremos também um outro código que seja executado se tivermos um\\nvalor `None`, e esse código não terá um valor `T` disponível. A expressão\\n`match` é uma instrução de controle de fluxo que faz exatamente isso quando\\nusada com enums: ela executa códigos diferentes dependendo de qual variante\\ntiver a enum, e esse código poderá usar os dados contidos na variante\\nencontrada.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,6,0": {
+    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\nlet quatro = VersaoIp::V4;\\nlet seis = VersaoIp::V6;\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,7": {
+    "value": "\"Repare que as variantes pertencem ao _namespace_ da enum, e se usa `::` para\\nseparar os dois. Isso é útil porque agora ambos os valores `VersaoIp::V4` e\\n`VersaoIp::V6` são do mesmo tipo: `VersaoIp`. Agora nós podemos, por exemplo,\\ndefinir uma função que usa qualquer `VersaoIp`.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,8,0": {
+    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\nfn rotear(versao_ip: VersaoIp) { }\"",
+    "dependencies": {
+      "0,0,0,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#body@0,9": {
+    "value": "\"E podemos ainda chamar esta função passando qualquer uma das variantes:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,10,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,13,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,24,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,27,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,27,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,27,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,40,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,44,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,46,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,6,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,36": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,5": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#title@0,2": {
+    "value": "\"Definindo uma Enum\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#title@0,36": {
+    "value": "\"A Enum `Option` e Suas Vantagens Sobre Valores Nulos\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#title@0,5": {
+    "value": "\"Valores de uma Enum\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -312,519 +825,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,10,0": {
-    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\n# fn rotear(versao_ip: VersaoIp) { }\\n#\\nrotear(VersaoIp::V4);\\nrotear(VersaoIp::V6);\"",
-    "dependencies": {
-      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,11": {
-    "value": "\"O uso de enums tem ainda mais vantagens. Pensando mais a fundo sobre o nosso\\ntipo de endereço IP, ainda não temos uma forma de representar o *endereço* em\\nsi, apenas sabemos qual a *versão* dele. Tendo em vista o que você acabou de\\naprender sobre structs no Capítulo 5, você poderia abordar esse problema assim\\ncomo visto na Listagem 6-1:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,12,0": {
-    "value": "\"enum VersaoIp {\\n    V4,\\n    V6,\\n}\\n\\nstruct EnderecoIp {\\n    versao: VersaoIp,\\n    endereco: String,\\n}\\n\\nlet local = EnderecoIp {\\n    versao: VersaoIp::V4,\\n    endereco: String::from(\\\"127.0.0.1\\\"),\\n};\\n\\nlet loopback = EnderecoIp {\\n    versao: VersaoIp::V6,\\n    endereco: String::from(\\\"::1\\\"),\\n};\"",
-    "dependencies": {
-      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,13": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-1: Representação do endereço e da variante\\n`VersaoIp` de um endereço IP usando uma `struct`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,14": {
-    "value": "\"Aqui nós definimos uma struct `EnderecoIp` que tem dois membros: `versao`, do\\ntipo `VersaoIp` (que definimos anteriormente) e `endereco`, do tipo `String`.\\nTemos duas instâncias dessa struct. A primeira, `local`, tem o valor\\n`VersaoIp::V4` como sua `versao`, e um endereço associado igual a `127.0.0.1`.\\nA segunda instância, `loopback`, tem como sua `versao` a outra variante de\\n`VersaoIp`, `V6`, e o endereço `::1` associado a ela. Nós usamos uma struct\\npara encapsular os valores de `versao` e `endereco`, agora a variante está\\nassociada ao valor.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,15": {
-    "value": "\"Podemos representar o mesmo conceito de uma forma mais concisa usando apenas\\numa enum, em vez de uma enum dentro de uma struct, colocando dados dentro de\\ncada variante da enum, diretamente. Esta nova definição da enum `EnderecoIp`\\ndiz que ambas as variantes, `V4` e `V6`, terão uma `String` associada:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,16,0": {
-    "value": "\"enum EnderecoIp {\\n    V4(String),\\n    V6(String),\\n}\\n\\nlet local = EnderecoIp::V4(String::from(\\\"127.0.0.1\\\"));\\n\\nlet loopback = EnderecoIp::V6(String::from(\\\"::1\\\"));\"",
-    "dependencies": {
-      "0,0,0,1,2,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,17": {
-    "value": "\"Podemos anexar dados a cada variante da enum diretamente, assim não existe mais\\na necessidade de uma struct adicional.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,18": {
-    "value": "\"Há uma outra vantagem de se usar uma enum em vez de uma struct: cada variante\\npode conter dados de diferentes tipos e quantidades. Os endereços IP da versão\\nquatro têm sempre quatro componentes numéricas, cada uma com valor de 0 a 255.\\nSe quiséssemos representar endereços `V4` como quatro valores `u8`, e ao mesmo\\ntempo manter os endereços `V6` como uma `String`, não poderíamos usar uma\\nstruct. Já as enums podem facilmente atender a este caso:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,19,0": {
-    "value": "\"enum EnderecoIp {\\n    V4(u8, u8, u8, u8),\\n    V6(String),\\n}\\n\\nlet local = EnderecoIp::V4(127, 0, 0, 1);\\n\\nlet loopback = EnderecoIp::V6(String::from(\\\"::1\\\"));\"",
-    "dependencies": {
-      "0,0,0,1,2,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,2": {
-    "value": "\"Vamos ver um caso em que enums podem ser mais apropriadas do que structs e\\ndescobrir como elas podem ser úteis. Digamos que estamos trabalhando com\\nendereços IP. Atualmente, existem duas versões do protocolo IP que são mais\\nutilizadas: a quatro e a seis. Estas são as únicas possibilidades para um\\nendereço IP com que o nosso programa vai trabalhar: nós podemos *enumerar*\\ntodos os possíveis valores, é daí que vem o nome enumeração.\\n\\nUm endereço IP qualquer pode ser ou da versão quatro ou da versão seis, mas\\nnunca das duas ao mesmo tempo. Esta propriedade dos endereços IP faz com que a\\nenum seja bem apropriada para este caso, pois enums só podem assumir o valor de\\numa de suas variantes. Os endereços de ambas as versões, seja quatro ou seis,\\nainda são, fundamentalmente, endereços IP, e deveriam ser tratados pelo mesmo\\ntipo no código em situações que se aplicam a qualquer versão de endereço IP.\\n\\nPodemos expressar esse conceito em código definindo uma enum `VersaoIp` e\\nlistando os possíveis tipos de que um endereço IP pode ser: `V4` e `V6`. Estas\\nsão as chamadas *variantes* da enum:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,2,1,0": {
-    "value": "\"Vamos ver um caso em que enums podem ser mais apropriadas do que structs e\\ndescobrir como elas podem ser úteis. Digamos que estamos trabalhando com\\nendereços IP. Atualmente, existem duas versões do protocolo IP que são mais\\nutilizadas: a quatro e a seis. Estas são as únicas possibilidades para um\\nendereço IP com que o nosso programa vai trabalhar: nós podemos *enumerar*\\ntodos os possíveis valores, é daí que vem o nome enumeração.\\n\\nUm endereço IP qualquer pode ser ou da versão quatro ou da versão seis, mas\\nnunca das duas ao mesmo tempo. Esta propriedade dos endereços IP faz com que a\\nenum seja bem apropriada para este caso, pois enums só podem assumir o valor de\\numa de suas variantes. Os endereços de ambas as versões, seja quatro ou seis,\\nainda são, fundamentalmente, endereços IP, e deveriam ser tratados pelo mesmo\\ntipo no código em situações que se aplicam a qualquer versão de endereço IP.\\n\\nPodemos expressar esse conceito em código definindo uma enum `VersaoIp` e\\nlistando os possíveis tipos de que um endereço IP pode ser: `V4` e `V6`. Estas\\nsão as chamadas *variantes* da enum:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,20": {
-    "value": "\"Acabamos de ver algumas possibilidades que poderíamos usar para representar\\nendereços IP das duas versões por meio de uma enum. Acontece que essa\\nnecessidade de representar endereços IP, incluindo sua versão, é tão comum que\\na biblioteca padrão já possui uma definição que podemos usar! ([Veja a\\ndocumentação em inglês](https://doc.rust-lang.org/std/net/enum.IpAddr.html)\u003C!-- ignore --\u003E). Vamos ver como a biblioteca\\npadrão define `IpAddr`: ele tem basicamente a mesma enum e as mesmas variantes\\nque nós definimos e usamos anteriormente, mas os dados do endereço são\\nembutidos dentro das variantes na forma de duas structs separadas, que são\\ndefinidas de um jeito diferente pra cada variante.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,21,0": {
-    "value": "\"struct Ipv4Addr {\\n    // detalhes omitidos\\n}\\n\\nstruct Ipv6Addr {\\n    // detalhes omitidos\\n}\\n\\nenum IpAddr {\\n    V4(Ipv4Addr),\\n    V6(Ipv6Addr),\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,22": {
-    "value": "\"Esse código mostra que você pode colocar qualquer tipo de dados dentro de uma\\nvariante de enum: strings, tipos numéricos ou structs, por exemplo. Você pode\\naté mesmo incluir outra enum! Além disso, os tipos definidos pela biblioteca\\npadrão não são tão mais complicados do que o que talvez você pensaria em fazer.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,23": {
-    "value": "\"Repare que, mesmo havendo um `IpAddr`definido pela biblioteca padrão, nós ainda\\npodemos criar e utilizar nossa própria definição (com o mesmo nome, inclusive)\\nsem nenhum conflito, porque não trouxemos a definição da biblioteca padrão para\\ndentro do nosso escopo. Falaremos mais sobre a inclusão de tipos em um escopo\\nno Capítulo 7.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,24": {
-    "value": "\"Vamos ver outro exemplo de uma enum na Listagem 6-2: esta tem uma grande\\nvariedade de tipos embutidos nas suas variantes:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,25,0": {
-    "value": "\"enum Mensagem {\\n    Sair,\\n    Mover { x: i32, y: i32 },\\n    Escrever(String),\\n    MudarCor(i32, i32, i32),\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,26": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 6-2: Enum `Mensagem`, cujas variantes contêm,\\ncada uma, diferentes tipos e quantidades de dados\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,27": {
-    "value": "\"Esta enum tem quatro variantes de diferentes tipos:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,28": {
-    "value": "\"* `Sair` não tem nenhum dado associado.\\n* `Mover` contém uma struct anônima.\\n* `Escrever` contém uma única `String`.\\n* `MudarCor` contém três valores do tipo `i32`.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,22:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,29": {
-    "value": "\"Definir uma enum com variantes iguais às da Listagem 6-2 é similar a definir\\ndiferentes tipos de struct, exceto que a enum não usa a palavra-chave `struct`,\\ne todas as variantes são agrupadas dentro do tipo `Mensagem`. As structs\\nseguintes podem guardar os mesmos dados que as variantes da enum anterior:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,3,0": {
-    "value": "\"enum VersaoIp {\\n    V4,\\n    V6,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,30,0": {
-    "value": "\"struct MensagemSair; // unit struct\\nstruct MensagemMover {\\n    x: i32,\\n    y: i32,\\n}\\nstruct MensagemEscrever(String); // tuple struct\\nstruct MensagemMudarCor(i32, i32, i32); // tuple struct\"",
-    "dependencies": {
-      "0,0,0,1,2,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,31": {
-    "value": "\"Mas se usarmos structs diferentes, cada uma tendo seu próprio tipo, não vamos\\nconseguir tão facilmente definir uma função que possa receber qualquer um\\ndesses tipos de mensagens, assim como fizemos com a enum `Mensagem`, definida\\nna Listagem 6-2, que consiste em um tipo único.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,32": {
-    "value": "\"Há mais uma similaridade entre enums e structs: da mesma forma como podemos\\ndefinir métodos em structs usando `impl`, também podemos definir métodos em\\nenums. Aqui está um método chamado `invocar`, que poderia ser definido na nossa\\nenum `Mensagem`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,26:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,33,0": {
-    "value": "\"# enum Mensagem {\\n#     Sair,\\n#     Mover { x: i32, y: i32 },\\n#     Escrever(String),\\n#     MudarCor(i32, i32, i32),\\n# }\\n#\\nimpl Mensagem {\\n    fn invocar(\u0026self) {\\n        // o corpo do método é definido aqui\\n    }\\n}\\n\\nlet m = Mensagem::Escrever(String::from(\\\"olá\\\"));\\nm.invocar();\"",
-    "dependencies": {
-      "0,0,0,1,2,1,27,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,27,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,34": {
-    "value": "\"O corpo do método usaria o valor `self` para obter a mensagem sobre a qual o\\nmétodo foi chamado. Neste exemplo, criamos a variável `m`, que contém o valor\\n`Mensagem::Escrever(String::from(\\\"olá\\\"))`, e é isso que `self` vai ser no corpo\\ndo método `invocar` quando `m.invocar()` for executado.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,28:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,35": {
-    "value": "\"Vamos ver agora outra enum da biblioteca padrão que também é muito útil e\\ncomum: `Option`.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,29:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,36": {
-    "value": "\"Na seção anterior, vimos como a enum `EnderecoIp` nos permite usar o sistema de\\ntipos do Rust para codificar em nosso programa mais informação do que apenas os\\ndados que queremos representar. Essa seção explora um caso de estudo da\\n`Option`, que é outra enum definida pela biblioteca padrão. O tipo `Option` é\\nmuito utilizado, pois engloba um cenário muito comum, em que um valor pode ser\\nalgo ou pode não ser nada. Expressar esse conceito por meio do sistema de tipos\\nsignifica que o compilador pode verificar se você tratou, ou não, todos os\\ncasos que deveriam ser tratados, podendo evitar _bugs_ que são extremamente\\ncomuns em outras linguagens de programação.\\n\\nO _design_ de uma linguagem de programação é geralmente tratado em termos de\\nquais características são incluídas, mas as que são excluídas também têm \\nimportância. Rust não tem o valor nulo (_null_) que outras linguagens têm. O\\nvalor nulo quer dizer que não há nenhum valor. Em linguagens que têm essa\\ncaracterística, as variáveis sempre estão em um dos dois estados: nulo ou não\\nnulo.\\n\\nEm uma conferência, Tony Hoare, inventor do valor nulo, disse o seguinte:\\n\\n\u003E Eu o chamo meu erro de um bilhão de dólares. Naquela época, eu estava\\n\u003E projetando o primeiro sistema abrangente de tipos para referências em uma\\n\u003E linguagem orientada a objetos. Meu objetivo era garantir que todo uso de\\n\u003E referências deveria ser absolutamente seguro, com verificação automática\\n\u003E feita pelo compilador. Mas não pude resistir à tentação de colocar uma\\n\u003E referência nula, simplesmente porque era tão fácil de implementar. Isso tem\\n\u003E provocado inúmeros erros, vulnerabilidades, e falhas de sistemas que\\n\u003E provavelmente causaram um bilhão de dólares de dor e danos nos últimos\\n\u003E quarenta anos.\\n\\nO problema com valores nulos é que, se você tentar usar um valor nulo como se\\nfosse não nulo, vai acontecer algum tipo de erro. Pelo fato dessa propriedade\\nde nulo e não nulo ser tão sutil, é extremamente fácil cometer esse tipo de\\nerro.\\n\\nPorém, o conceito que o valor nulo tenta expressar ainda é útil: um valor nulo\\nrepresenta algo que, por algum motivo, está inválido ou ausente no momento.\\n\\nO problema, na verdade, não está no conceito, mas na implementação em\\nparticular. Por isso, Rust não possui valores nulos, mas sim uma enum que\\nengloba o conceito de um valor estar presente ou ausente. Esta enum é a\\n`Option\u003CT\u003E`, que está definida na biblioteca padrão da seguinte forma:\\n([Veja a documentação em inglês](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E).\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,36,1,0": {
-    "value": "\"Na seção anterior, vimos como a enum `EnderecoIp` nos permite usar o sistema de\\ntipos do Rust para codificar em nosso programa mais informação do que apenas os\\ndados que queremos representar. Essa seção explora um caso de estudo da\\n`Option`, que é outra enum definida pela biblioteca padrão. O tipo `Option` é\\nmuito utilizado, pois engloba um cenário muito comum, em que um valor pode ser\\nalgo ou pode não ser nada. Expressar esse conceito por meio do sistema de tipos\\nsignifica que o compilador pode verificar se você tratou, ou não, todos os\\ncasos que deveriam ser tratados, podendo evitar _bugs_ que são extremamente\\ncomuns em outras linguagens de programação.\\n\\nO _design_ de uma linguagem de programação é geralmente tratado em termos de\\nquais características são incluídas, mas as que são excluídas também têm \\nimportância. Rust não tem o valor nulo (_null_) que outras linguagens têm. O\\nvalor nulo quer dizer que não há nenhum valor. Em linguagens que têm essa\\ncaracterística, as variáveis sempre estão em um dos dois estados: nulo ou não\\nnulo.\\n\\nEm uma conferência, Tony Hoare, inventor do valor nulo, disse o seguinte:\\n\\n\u003E Eu o chamo meu erro de um bilhão de dólares. Naquela época, eu estava\\n\u003E projetando o primeiro sistema abrangente de tipos para referências em uma\\n\u003E linguagem orientada a objetos. Meu objetivo era garantir que todo uso de\\n\u003E referências deveria ser absolutamente seguro, com verificação automática\\n\u003E feita pelo compilador. Mas não pude resistir à tentação de colocar uma\\n\u003E referência nula, simplesmente porque era tão fácil de implementar. Isso tem\\n\u003E provocado inúmeros erros, vulnerabilidades, e falhas de sistemas que\\n\u003E provavelmente causaram um bilhão de dólares de dor e danos nos últimos\\n\u003E quarenta anos.\\n\\nO problema com valores nulos é que, se você tentar usar um valor nulo como se\\nfosse não nulo, vai acontecer algum tipo de erro. Pelo fato dessa propriedade\\nde nulo e não nulo ser tão sutil, é extremamente fácil cometer esse tipo de\\nerro.\\n\\nPorém, o conceito que o valor nulo tenta expressar ainda é útil: um valor nulo\\nrepresenta algo que, por algum motivo, está inválido ou ausente no momento.\\n\\nO problema, na verdade, não está no conceito, mas na implementação em\\nparticular. Por isso, Rust não possui valores nulos, mas sim uma enum que\\nengloba o conceito de um valor estar presente ou ausente. Esta enum é a\\n`Option\u003CT\u003E`, que está definida na biblioteca padrão da seguinte forma:\\n([Veja a documentação em inglês](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E).\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,37,0": {
-    "value": "\"enum Option\u003CT\u003E {\\n    Some(T), // algum valor\\n    None, // nenhum valor\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,38": {
-    "value": "\"A enum `Option\u003CT\u003E` é tão útil que ela já vem inclusa no prelúdio: você não\\nprecisa trazê-la explicitamente para o seu escopo. Além disso, o mesmo ocorre\\ncom suas variantes: você pode usar `Some` e `None` diretamente sem prefixá-las\\ncom `Option::`. `Option\u003CT\u003E` continua sendo uma enum como qualquer outra, e\\n`Some(T)` e `None` ainda são variantes do tipo `Option\u003CT\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,39": {
-    "value": "\"A sintaxe do `\u003CT\u003E` é uma característica do Rust de que não falamos ainda.\\nTrata-se de um parâmetro de tipo genérico, vamos abordá-lo com mais detalhe no\\nCapítulo 10. Por ora, tudo que você precisa saber é que `\u003CT\u003E` significa que a\\nvariante `Some` da enum `Option` pode conter um dado de qualquer tipo. Aqui vão\\nalguns exemplos de `Option` contendo tipos de número e texto:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,4": {
-    "value": "\"`VersaoIp` é um tipo de dados que agora nós podemos usar em qualquer lugar no\\nnosso código.\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,40,0": {
-    "value": "\"let algum_numero = Some(5);\\nlet algum_texto = Some(\\\"um texto\\\");\\n\\nlet numero_ausente: Option\u003Ci32\u003E = None;\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,41": {
-    "value": "\"Se usamos `None` em vez de `Some`, precisamos dizer ao Rust qual é o tipo de\\n`Option\u003CT\u003E` que nós temos, porque o compilador não consegue inferir qual tipo\\nestará contido na variante `Some` apenas olhando para um valor `None`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,42": {
-    "value": "\"Quando temos um `Some`, sabemos que um valor está presente, contido dentro do\\n`Some`. Já quando temos um `None`, de certa forma, significa o mesmo que um\\nvalor nulo: não temos um valor que seja válido. Então por que a `Option\u003CT\u003E` é\\ntão melhor que usar um valor nulo?\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,43": {
-    "value": "\"Em resumo, é porque `Option\u003CT\u003E` e `T` (podendo `T` ser de qualquer tipo) são\\ntipos diferentes, por isso, o compilador não vai permitir usar um valor do tipo\\n`Option\u003CT\u003E` como se ele definitivamente tivesse um valor válido. Por exemplo,\\no código seguinte não vai compilar, porque ele está tentando somar um `i8` a um\\n`Option\u003Ci8\u003E`:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,44,0": {
-    "value": "\"let x: i8 = 5;\\nlet y: Option\u003Ci8\u003E = Some(5);\\n\\nlet soma = x + y;\"",
-    "dependencies": {
-      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,45": {
-    "value": "\"Quando executamos esse código, temos uma mensagem de erro como essa:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,46,0": {
-    "value": "\"error trait bound `i8: std::ops::Add\u003Cstd::option::Option\u003Ci8\u003E\u003E` is\\nnot satisfied\\n --\u003E\\n  |\\n5 |     let sum = x + y;\\n  |                 ^ no implementation for `i8 + std::option::Option\u003Ci8\u003E`\\n  |\"",
-    "dependencies": {
-      "0,0,0,1,3,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,47": {
-    "value": "\"Intenso! O que essa mensagem quer dizer é que o Rust não consegue entender como\\nsomar um `i8` e um `Option\u003Ci8\u003E`, porque eles são de tipos diferentes. Quando\\ntemos um valor de um tipo como `i8` em Rust, o compilador tem certeza de que\\ntemos sempre um valor válido. Podemos prosseguir com confiança, sem ter de\\nverificar se o valor é nulo antes de usá-lo. Somente quando temos um\\n`Option\u003Ci8\u003E` (ou qualquer que seja o tipo com que estamos trabalhando), vamos\\nter de nos preocupar com a possibilidade de não haver um valor, e o compilador\\nvai se certificar de que nós estamos tratando este caso antes de usar o valor.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,48": {
-    "value": "\"Em outras palavras, você tem que converter um `Option\u003CT\u003E` em um `T` antes de\\npoder executar operações com ele. Geralmente, isso ajuda a detectar um dos\\nproblemas mais comuns com valores nulos: assumir que algo não é nulo quando,\\nna verdade, ele é.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,49": {
-    "value": "\"Só de não ter que se preocupar com a possibilidade de ter deixado um valor nulo\\nescapar já lhe dá mais confiança em seu código. Pra ter um valor que pode ser\\nnulo em algum momento, você precisa, explicitamente, marcá-lo como sendo do\\ntipo `Option\u003CT\u003E`. A partir daí, sempre que for usar o valor, você será obrigado\\na tratar, de forma explícita, o caso do valor sendo nulo. Sempre que houver um\\nvalor que não seja um `Option\u003CT\u003E`, você *pode* assumir, com segurança, que o\\nvalor não é nulo. Esta foi uma decisão deliberada de projeto do Rust para\\nlimitar as sutilezas dos valores nulos e aumentar a segurança do código.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,5": {
-    "value": "\"Podemos criar instâncias de cada uma das duas variantes de `VersaoIp`, da\\nseguinte forma:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,5,1,0": {
-    "value": "\"Podemos criar instâncias de cada uma das duas variantes de `VersaoIp`, da\\nseguinte forma:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,50": {
-    "value": "\"Então, como obter o valor `T` da variante `Some` quando se tem um `Option\u003CT\u003E`,\\npara que se possa usar seu valor? A enum `Option\u003CT\u003E` possui diversos métodos\\nque são úteis em uma variedade de situações, você pode pesquisá-los na\\n[documentação](https://doc.rust-lang.org/std/option/enum.Option.html)\u003C!-- ignore --\u003E (em inglês). Será extremamente útil na sua\\njornada com Rust se familizarizar com os métodos da enum `Option\u003CT\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,51": {
-    "value": "\"Em geral, pra usar um valor `Option\u003CT\u003E`, queremos ter um código que trate cada\\numa das variantes. Queremos um código que só será executado quando tivermos um\\nvalor `Some(T)`, e esse código terá permissão para usar o valor `T` que está\\nembutido. Queremos também um outro código que seja executado se tivermos um\\nvalor `None`, e esse código não terá um valor `T` disponível. A expressão\\n`match` é uma instrução de controle de fluxo que faz exatamente isso quando\\nusada com enums: ela executa códigos diferentes dependendo de qual variante\\ntiver a enum, e esse código poderá usar os dados contidos na variante\\nencontrada.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,6,0": {
-    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\nlet quatro = VersaoIp::V4;\\nlet seis = VersaoIp::V6;\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,7": {
-    "value": "\"Repare que as variantes pertencem ao _namespace_ da enum, e se usa `::` para\\nseparar os dois. Isso é útil porque agora ambos os valores `VersaoIp::V4` e\\n`VersaoIp::V6` são do mesmo tipo: `VersaoIp`. Agora nós podemos, por exemplo,\\ndefinir uma função que usa qualquer `VersaoIp`.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,8,0": {
-    "value": "\"# enum VersaoIp {\\n#     V4,\\n#     V6,\\n# }\\n#\\nfn rotear(versao_ip: VersaoIp) { }\"",
-    "dependencies": {
-      "0,0,0,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#body@0,9": {
-    "value": "\"E podemos ainda chamar esta função passando qualquer uma das variantes:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,10,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,13,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,15,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,15,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,15,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,24,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,27,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,27,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,27,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,40,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,44,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,46,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,6,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#open@0,36": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#open@0,5": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#title@0,2": {
-    "value": "\"Definindo uma Enum\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#title@0,36": {
-    "value": "\"A Enum `Option` e Suas Vantagens Sobre Valores Nulos\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch06-01-defining-an-enum#title@0,5": {
-    "value": "\"Valores de uma Enum\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1035,7 +1035,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1232,7 +1232,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="definindo-uma-enum" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-01-defining-an-enum#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo uma Enum</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="definindo-uma-enum" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo uma Enum</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos ver um caso em que enums podem ser mais apropriadas do que structs e
 descobrir como elas podem ser úteis. Digamos que estamos trabalhando com
 endereços IP. Atualmente, existem duas versões do protocolo IP que são mais
@@ -1265,7 +1265,7 @@ são as chamadas <em>variantes</em> da enum:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><code>VersaoIp</code> é um tipo de dados que agora nós podemos usar em qualquer lugar no nosso código.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="valores-de-uma-enum" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-01-defining-an-enum#open@0,5&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Valores de uma Enum</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="valores-de-uma-enum" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,5&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Valores de uma Enum</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Podemos criar instâncias de cada uma das duas variantes de <code>VersaoIp</code>, da seguinte forma:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;"># enum VersaoIp {
@@ -1531,7 +1531,7 @@ são as chamadas <em>variantes</em> da enum:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,28:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O corpo do método usaria o valor <code>self</code> para obter a mensagem sobre a qual o método foi chamado. Neste exemplo, criamos a variável <code>m</code>, que contém o valor <code>Mensagem::Escrever(String::from(&quot;olá&quot;))</code>, e é isso que <code>self</code> vai ser no corpo do método <code>invocar</code> quando <code>m.invocar()</code> for executado.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,29:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Vamos ver agora outra enum da biblioteca padrão que também é muito útil e comum: <code>Option</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="a-enum-option-e-suas-vantagens-sobre-valores-nulos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch06-01-defining-an-enum#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A Enum <code>Option</code> e Suas Vantagens Sobre Valores Nulos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="a-enum-option-e-suas-vantagens-sobre-valores-nulos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch06-01-defining-an-enum#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A Enum <code>Option</code> e Suas Vantagens Sobre Valores Nulos</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Na seção anterior, vimos como a enum <code>EnderecoIp</code> nos permite usar o sistema de
 tipos do Rust para codificar em nosso programa mais informação do que apenas os
 dados que queremos representar. Essa seção explora um caso de estudo da

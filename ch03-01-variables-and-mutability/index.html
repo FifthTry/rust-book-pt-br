@@ -12,6 +12,367 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,10": {
+    "value": "\"Mas mutabilidade pode ser muito útil. Variáveis são imutáveis por padrão; como\\nvocê fez no Capítulo 2, você pode torná-las mutáveis adicionando `mut` na frente do\\nnome da variável. Além de permitir que este valor mude, `mut` transmite\\na intenção aos futuros leitores do código, indicando que naquela\\nparte do código estarão mudando o valor da variável.\"",
+    "dependencies": {
+      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,11": {
+    "value": "\"Por exemplo, vamos mudar *src/main.rs* para o seguinte:\"",
+    "dependencies": {
+      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,12": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,13,0": {
+    "value": "\"fn main() {\\n    let mut x = 5;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n    x = 6;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,14": {
+    "value": "\"Quando executamos o programa, recebemos isso:\"",
+    "dependencies": {
+      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,15,0": {
+    "value": "\"$ cargo run\\n   Compiling variaveis v0.1.0 (file:///projects/variaveis)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs\\n     Running `target/debug/variaveis`\\nO valor de x é: 5\\nO valor de x é: 6\"",
+    "dependencies": {
+      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,16": {
+    "value": "\"Estamos autorizados a mudar o valor `5` contido  em `x` para `6`\\nquando `mut` é usado. Em alguns casos, você precisará criar uma variável mutável porque ela\\nserá mais conveniente para escrever do que se fosse imutável.\"",
+    "dependencies": {
+      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,17": {
+    "value": "\"Tem vários compromissos a serem considerados além de prevenção de\\nfalhas. Por exemplo, nos casos em que você usa estruturas de dados grandes,\\na alteração em uma instância pode ser mais rápida do que copiar e retornar a nova instância\\nalocada. Com estruturas de dados menores, criar novas instâncias e escrever\\nem um estilo de programação funcional pode ser mais fácil de entender, portanto,\\num desempenho menor pode ser uma penalidade que vale a pena para obter mais clareza.\"",
+    "dependencies": {
+      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,18": {
+    "value": "\"Ser incapaz de mudar o valor de uma variável, pode ter feito você lembrar de\\noutro conceito de programação, que a maioria das outras linguagens possui, chamado: *constantes*. Como\\nvariáveis imutáveis, constantes são valores que estão vinculados ao nome e não\\npodem serem alterados, mas há algumas diferenças entre constantes e\\nvariáveis.\\n\\nPrimeiro, você não pode usar `mut` com constantes. Constante não são apenas\\nimutáveis por padrão, constante são sempre imutáveis.\\n\\nVocê declara constante usando a palavra-chave `const` em vez de `let`,\\ne o tipo do valor *necessita* ser específicado. Falaremos sobre tipos de dados\\nna próxima seção, \\\"Data Type\\\", então\\nnão se preocupe com os detalhes por agora. Apenas saiba que você precisa especificar o tipo.\\n\\nConstantes podem ser declaradas em qualquer escopo, incluindo o escopo global, o que os tornam\\núteis para valores que várias partes do código precisa conhecer.\\n\\nA última diferença é que as constantes podem ser definidas apenas para uma expressão constante,\\nou seja, não pode ser o resultado de uma chamada de função ou qualquer outro valor que só poderia ser\\ncalculado em tempo de execução.\\n\\nAqui está um exemplo de uma declaração constante, em que o nome da constante é\\n`PONTOS_MAXIMOS` e o valor definido é 100,000 (por\\nconvenção, contantes em Rust são nomeadas usando maiúsculas e sublinhado entre as palavras):\"",
+    "dependencies": {
+      "0,0,0,1,15,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,18,1,0": {
+    "value": "\"Ser incapaz de mudar o valor de uma variável, pode ter feito você lembrar de\\noutro conceito de programação, que a maioria das outras linguagens possui, chamado: *constantes*. Como\\nvariáveis imutáveis, constantes são valores que estão vinculados ao nome e não\\npodem serem alterados, mas há algumas diferenças entre constantes e\\nvariáveis.\\n\\nPrimeiro, você não pode usar `mut` com constantes. Constante não são apenas\\nimutáveis por padrão, constante são sempre imutáveis.\\n\\nVocê declara constante usando a palavra-chave `const` em vez de `let`,\\ne o tipo do valor *necessita* ser específicado. Falaremos sobre tipos de dados\\nna próxima seção, \\\"Data Type\\\", então\\nnão se preocupe com os detalhes por agora. Apenas saiba que você precisa especificar o tipo.\\n\\nConstantes podem ser declaradas em qualquer escopo, incluindo o escopo global, o que os tornam\\núteis para valores que várias partes do código precisa conhecer.\\n\\nA última diferença é que as constantes podem ser definidas apenas para uma expressão constante,\\nou seja, não pode ser o resultado de uma chamada de função ou qualquer outro valor que só poderia ser\\ncalculado em tempo de execução.\\n\\nAqui está um exemplo de uma declaração constante, em que o nome da constante é\\n`PONTOS_MAXIMOS` e o valor definido é 100,000 (por\\nconvenção, contantes em Rust são nomeadas usando maiúsculas e sublinhado entre as palavras):\"",
+    "dependencies": {
+      "0,0,0,1,15,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,19,0": {
+    "value": "\"const PONTOS_MAXIMOS: u32 = 100_000;\"",
+    "dependencies": {
+      "0,0,0,1,15,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,2": {
+    "value": "\"Como mencionado no Capítulo 2, por padrão, as variáveis são imutáveis. Essa é uma das\\nmaneiras que o Rust lhe dá para escrever o seu código de\\nmodo seguro e a fácil concorrência que Rust oferece. No entanto, você ainda tem\\na opção de tornar a sua variável mutável. Vamos explorar como e por que Rust\\nincentiva você a usar variáveis imutáveis e por que às vezes pode\\nnão optar por utilizá-las.\\n\\nQuando uma variável é imutável, logo que um valor é associado a uma variável, você não pode mudar este valor.\\nPara ilustrar isso, vamos criar um projeto chamado *variaveis*\\nno seu diretório *projetos* usando `cargo new --bin variables`.\\n\\nEntão dentro do novo diretório chamado *variaveis*, abra *src/main.rs* e substitua o\\ncódigo com o código abaixo, que não irá compilar:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,2,1,0": {
+    "value": "\"Como mencionado no Capítulo 2, por padrão, as variáveis são imutáveis. Essa é uma das\\nmaneiras que o Rust lhe dá para escrever o seu código de\\nmodo seguro e a fácil concorrência que Rust oferece. No entanto, você ainda tem\\na opção de tornar a sua variável mutável. Vamos explorar como e por que Rust\\nincentiva você a usar variáveis imutáveis e por que às vezes pode\\nnão optar por utilizá-las.\\n\\nQuando uma variável é imutável, logo que um valor é associado a uma variável, você não pode mudar este valor.\\nPara ilustrar isso, vamos criar um projeto chamado *variaveis*\\nno seu diretório *projetos* usando `cargo new --bin variables`.\\n\\nEntão dentro do novo diretório chamado *variaveis*, abra *src/main.rs* e substitua o\\ncódigo com o código abaixo, que não irá compilar:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,20": {
+    "value": "\"Constante são válidas durante todo o tempo de execução de um programa, dentro do escopo em que\\nforam declaradas, tornando-as uma ótima escolha para valores no domínio da aplicação,\\nque várias partes do programa necessitam conhecer, como por exemplo,\\no número máximo de pontos um jogador pode ter ou a\\nvelocidade da luz.\"",
+    "dependencies": {
+      "0,0,0,1,15,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,21": {
+    "value": "\"A nomeação de valores codificados permanentemente usados em todo o programa como constantes é útil\\npara transmitir o significado desse valor para futuros mantenedores do código. Também\\najuda ter apenas um lugar em seu código que você precisaria mudar se o\\nvalor codificado precisasse ser atualizado no futuro.\"",
+    "dependencies": {
+      "0,0,0,1,15,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,22": {
+    "value": "\"Como você viu na seção “Comparando o Adivinha ao Número Secreto” no Capítulo\\n2, você pode declarar uma nova variável com o mesmo nome de uma variável anterior,\\ne a nova variável sombreia a variável anterior. Rustaceans dizem que a\\nprimeira variável é *sombreada* pela segunda, o que significa que o segundo\\nvalor da variável é o que aparece quando a variável é usada. Podemos sombrear uma\\nvariável usando o mesmo nome da variável e repetindo o uso da palavra-chave `let`\\nda seguinte forma:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,16,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,22,1,0": {
+    "value": "\"Como você viu na seção “Comparando o Adivinha ao Número Secreto” no Capítulo\\n2, você pode declarar uma nova variável com o mesmo nome de uma variável anterior,\\ne a nova variável sombreia a variável anterior. Rustaceans dizem que a\\nprimeira variável é *sombreada* pela segunda, o que significa que o segundo\\nvalor da variável é o que aparece quando a variável é usada. Podemos sombrear uma\\nvariável usando o mesmo nome da variável e repetindo o uso da palavra-chave `let`\\nda seguinte forma:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,16,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,23,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n\\n    let x = x + 1;\\n\\n    let x = x * 2;\\n\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,16,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,24": {
+    "value": "\"Esse programa primeiro vincula `x` ao valor `5`. Em seguida `x` é sombreado por\\n`let x = `, pegando o valor original e adicionando `1`, então o valor de\\n`x` é `6`. O terceiro `let` também sombrea `x`, multiplicando o \\nvalor anterior por `2` para então `x` ficar com o valor final de `12`. Quando nós executamos esse programa, é\\nproduzida a seguinte saída:\"",
+    "dependencies": {
+      "0,0,0,1,16,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,25,0": {
+    "value": "\"$ cargo run\\n   Compiling variaveis v0.1.0 (file:///projects/variaveis)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs\\n     Running `target/debug/variaveis`\\nO valor de x é: 12\"",
+    "dependencies": {
+      "0,0,0,1,16,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,26": {
+    "value": "\"Shadowing é diferente do que dizer que uma variável é `mut`, porque teremos um\\nerro em tempo de compilação se, acidentalmente, tentarmos reatribuir essa variável sem\\nutilizar `let`. Usando `let`, nós podemos realizar algumas transformações,\\nmas sem ter uma variável imutável após estas transformações terem\\nsido concluídas.\"",
+    "dependencies": {
+      "0,0,0,1,16,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,27": {
+    "value": "\"Uma outra diferença entre `mut` e shadowing é que,\\ncomo estamos efetivamente criando uma nova várivel, quando usamos novamente a palavra-chave `let`, nós\\npodemos mudar o tipo do valor, mas reutilizando o mesmo nome. Por exemplo, digamos que nosso programa\\nsolicite ao usuário que mostre quantos espaços deseja entre um texto, inserindo\\ncaracteres de espaço, mas queremos armazenar essa entrada como um número:\"",
+    "dependencies": {
+      "0,0,0,1,16,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,28,0": {
+    "value": "\"let espacos = \\\"   \\\";\\nlet espacos = espacos.len();\"",
+    "dependencies": {
+      "0,0,0,1,16,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,29": {
+    "value": "\"Essa construção é permitida, porque a primeira variável `espacos` é do tipo string\\ne a segunda variável, que é uma nova variável que tem o\\nmesmo nome que a primeira, é do tipo numérico. Shadowing nos poupa de\\nter de criar nomes diferentes, como `str_espacos` e\\n`num_espacos`; em vez disso, podemos simplesmente reutilizar o nome `espacos`. No entanto, se\\ntentassemos usar `mut` para isso, como mostramos aqui, teremos um erro em tempo de compilação:\"",
+    "dependencies": {
+      "0,0,0,1,16,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,3,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n    x = 6;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,30,0": {
+    "value": "\"let mut espacos = \\\"   \\\";\\nespacos = espacos.len();\"",
+    "dependencies": {
+      "0,0,0,1,16,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,31": {
+    "value": "\"O erro diz que não podemos alterar o tipo de variável:\"",
+    "dependencies": {
+      "0,0,0,1,16,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,32,0": {
+    "value": "\"error types\\n --\u003E src/main.rs:3:14\\n  |\\n3 |     espacos = espacos.len();\\n  |              ^^^^^^^^^^^^ expected \u0026str, found usize\\n  |\\n  = note: expected type `\u0026str`\\n             found type `usize`\"",
+    "dependencies": {
+      "0,0,0,1,16,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,33": {
+    "value": "\"Agora que exploramos como as variáveis funcionam, vamos ver mais tipos de dados.\"",
+    "dependencies": {
+      "0,0,0,1,16,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,4": {
+    "value": "\"Salve e execute o programa usando `cargo run`. Você deve receber uma mensagem de erro,\\nconforme mostrado nesta saída:\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,5,0": {
+    "value": "\"error assign twice to immutable variable `x`\\n --\u003E src/main.rs:4:5\\n  |\\n2 |     let x = 5;\\n  |         - first assignment to `x`\\n3 |     println!(\\\"O valor de x é: {}\\\", x);\\n4 |     x = 6;\\n  |     ^^^^^ cannot assign twice to immutable variable\"",
+    "dependencies": {
+      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,6": {
+    "value": "\"Esse exemplo mostra como o compilador ajuda você a encontrar erros no seus programas.\\nMesmo que erros de compilação sejam frustrantes, eles apenas significam que seu programa\\nnão está fazendo de modo seguro o que você espera fazer; eles *não* siginificam que você\\nnão é um bom programador! Programadores experientes também recebem erros de compilação.\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,7": {
+    "value": "\"A mensagem indica que a causa do erro é que você\\n`não pode atribuir mais de uma vez à variável\\nimutável x`, porque você tentou atribuir um segundo valor à variável `x`.\"",
+    "dependencies": {
+      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,8": {
+    "value": "\"É importante que nos recebamos erros em tempo de compilação quando tentamos\\nalterar um valor que anteriormente foi indicado como imutável, porque\\nesta situação pode ocasionar erros. Se uma parte do seu código funciona assumindo\\nque o valor nunca será alterado e outra parte do seu código muda este valor, é\\npossível que a primeira parte do código não faça o que foi projetada para fazer.\\nA causa desse tipo de falha pode ser difícil de rastrear,\\nespecialmente quando o segundo trecho de código muda o valor apenas *algumas vezes*.\"",
+    "dependencies": {
+      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#body@0,9": {
+    "value": "\"Em Rust, o compilador garante que quando você afirma que um valor não pode mudar,\\nele não mude. Isso significa que quando você está lendo e escrevendo código,\\nvocê não tenha de acompanhar como e onde um valor pode mudar. E assim seu código\\nfica mais fácil de entender.\"",
+    "dependencies": {
+      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,13,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,10,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,19,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,15,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,15,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,15,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,16,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,16,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,16,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,16,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,28,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,16,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,16,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,16,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,16,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,32,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,16,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,16,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,16,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#caption@0,5,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,18": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,15,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "0,0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"false\",\"parameters\":{}}]",
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,22": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,16,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#title@0,18": {
+    "value": "\"Diferenças entre variáveis e constantes\"",
+    "dependencies": {
+      "0,0,0,1,15,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#title@0,2": {
+    "value": "\"Variáveis e Mutabilidade\"",
+    "dependencies": {
+      "0,0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#title@0,22": {
+    "value": "\"Shadowing\"",
+    "dependencies": {
+      "0,0,0,1,16,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -291,367 +652,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,10": {
-    "value": "\"Mas mutabilidade pode ser muito útil. Variáveis são imutáveis por padrão; como\\nvocê fez no Capítulo 2, você pode torná-las mutáveis adicionando `mut` na frente do\\nnome da variável. Além de permitir que este valor mude, `mut` transmite\\na intenção aos futuros leitores do código, indicando que naquela\\nparte do código estarão mudando o valor da variável.\"",
-    "dependencies": {
-      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,11": {
-    "value": "\"Por exemplo, vamos mudar *src/main.rs* para o seguinte:\"",
-    "dependencies": {
-      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,12": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,9:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,13,0": {
-    "value": "\"fn main() {\\n    let mut x = 5;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n    x = 6;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,14": {
-    "value": "\"Quando executamos o programa, recebemos isso:\"",
-    "dependencies": {
-      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,15,0": {
-    "value": "\"$ cargo run\\n   Compiling variaveis v0.1.0 (file:///projects/variaveis)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs\\n     Running `target/debug/variaveis`\\nO valor de x é: 5\\nO valor de x é: 6\"",
-    "dependencies": {
-      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,16": {
-    "value": "\"Estamos autorizados a mudar o valor `5` contido  em `x` para `6`\\nquando `mut` é usado. Em alguns casos, você precisará criar uma variável mutável porque ela\\nserá mais conveniente para escrever do que se fosse imutável.\"",
-    "dependencies": {
-      "0,0,0,1,13:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,17": {
-    "value": "\"Tem vários compromissos a serem considerados além de prevenção de\\nfalhas. Por exemplo, nos casos em que você usa estruturas de dados grandes,\\na alteração em uma instância pode ser mais rápida do que copiar e retornar a nova instância\\nalocada. Com estruturas de dados menores, criar novas instâncias e escrever\\nem um estilo de programação funcional pode ser mais fácil de entender, portanto,\\num desempenho menor pode ser uma penalidade que vale a pena para obter mais clareza.\"",
-    "dependencies": {
-      "0,0,0,1,14:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,18": {
-    "value": "\"Ser incapaz de mudar o valor de uma variável, pode ter feito você lembrar de\\noutro conceito de programação, que a maioria das outras linguagens possui, chamado: *constantes*. Como\\nvariáveis imutáveis, constantes são valores que estão vinculados ao nome e não\\npodem serem alterados, mas há algumas diferenças entre constantes e\\nvariáveis.\\n\\nPrimeiro, você não pode usar `mut` com constantes. Constante não são apenas\\nimutáveis por padrão, constante são sempre imutáveis.\\n\\nVocê declara constante usando a palavra-chave `const` em vez de `let`,\\ne o tipo do valor *necessita* ser específicado. Falaremos sobre tipos de dados\\nna próxima seção, \\\"Data Type\\\", então\\nnão se preocupe com os detalhes por agora. Apenas saiba que você precisa especificar o tipo.\\n\\nConstantes podem ser declaradas em qualquer escopo, incluindo o escopo global, o que os tornam\\núteis para valores que várias partes do código precisa conhecer.\\n\\nA última diferença é que as constantes podem ser definidas apenas para uma expressão constante,\\nou seja, não pode ser o resultado de uma chamada de função ou qualquer outro valor que só poderia ser\\ncalculado em tempo de execução.\\n\\nAqui está um exemplo de uma declaração constante, em que o nome da constante é\\n`PONTOS_MAXIMOS` e o valor definido é 100,000 (por\\nconvenção, contantes em Rust são nomeadas usando maiúsculas e sublinhado entre as palavras):\"",
-    "dependencies": {
-      "0,0,0,1,15,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,18,1,0": {
-    "value": "\"Ser incapaz de mudar o valor de uma variável, pode ter feito você lembrar de\\noutro conceito de programação, que a maioria das outras linguagens possui, chamado: *constantes*. Como\\nvariáveis imutáveis, constantes são valores que estão vinculados ao nome e não\\npodem serem alterados, mas há algumas diferenças entre constantes e\\nvariáveis.\\n\\nPrimeiro, você não pode usar `mut` com constantes. Constante não são apenas\\nimutáveis por padrão, constante são sempre imutáveis.\\n\\nVocê declara constante usando a palavra-chave `const` em vez de `let`,\\ne o tipo do valor *necessita* ser específicado. Falaremos sobre tipos de dados\\nna próxima seção, \\\"Data Type\\\", então\\nnão se preocupe com os detalhes por agora. Apenas saiba que você precisa especificar o tipo.\\n\\nConstantes podem ser declaradas em qualquer escopo, incluindo o escopo global, o que os tornam\\núteis para valores que várias partes do código precisa conhecer.\\n\\nA última diferença é que as constantes podem ser definidas apenas para uma expressão constante,\\nou seja, não pode ser o resultado de uma chamada de função ou qualquer outro valor que só poderia ser\\ncalculado em tempo de execução.\\n\\nAqui está um exemplo de uma declaração constante, em que o nome da constante é\\n`PONTOS_MAXIMOS` e o valor definido é 100,000 (por\\nconvenção, contantes em Rust são nomeadas usando maiúsculas e sublinhado entre as palavras):\"",
-    "dependencies": {
-      "0,0,0,1,15,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,19,0": {
-    "value": "\"const PONTOS_MAXIMOS: u32 = 100_000;\"",
-    "dependencies": {
-      "0,0,0,1,15,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,2": {
-    "value": "\"Como mencionado no Capítulo 2, por padrão, as variáveis são imutáveis. Essa é uma das\\nmaneiras que o Rust lhe dá para escrever o seu código de\\nmodo seguro e a fácil concorrência que Rust oferece. No entanto, você ainda tem\\na opção de tornar a sua variável mutável. Vamos explorar como e por que Rust\\nincentiva você a usar variáveis imutáveis e por que às vezes pode\\nnão optar por utilizá-las.\\n\\nQuando uma variável é imutável, logo que um valor é associado a uma variável, você não pode mudar este valor.\\nPara ilustrar isso, vamos criar um projeto chamado *variaveis*\\nno seu diretório *projetos* usando `cargo new --bin variables`.\\n\\nEntão dentro do novo diretório chamado *variaveis*, abra *src/main.rs* e substitua o\\ncódigo com o código abaixo, que não irá compilar:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,2,1,0": {
-    "value": "\"Como mencionado no Capítulo 2, por padrão, as variáveis são imutáveis. Essa é uma das\\nmaneiras que o Rust lhe dá para escrever o seu código de\\nmodo seguro e a fácil concorrência que Rust oferece. No entanto, você ainda tem\\na opção de tornar a sua variável mutável. Vamos explorar como e por que Rust\\nincentiva você a usar variáveis imutáveis e por que às vezes pode\\nnão optar por utilizá-las.\\n\\nQuando uma variável é imutável, logo que um valor é associado a uma variável, você não pode mudar este valor.\\nPara ilustrar isso, vamos criar um projeto chamado *variaveis*\\nno seu diretório *projetos* usando `cargo new --bin variables`.\\n\\nEntão dentro do novo diretório chamado *variaveis*, abra *src/main.rs* e substitua o\\ncódigo com o código abaixo, que não irá compilar:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,20": {
-    "value": "\"Constante são válidas durante todo o tempo de execução de um programa, dentro do escopo em que\\nforam declaradas, tornando-as uma ótima escolha para valores no domínio da aplicação,\\nque várias partes do programa necessitam conhecer, como por exemplo,\\no número máximo de pontos um jogador pode ter ou a\\nvelocidade da luz.\"",
-    "dependencies": {
-      "0,0,0,1,15,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,21": {
-    "value": "\"A nomeação de valores codificados permanentemente usados em todo o programa como constantes é útil\\npara transmitir o significado desse valor para futuros mantenedores do código. Também\\najuda ter apenas um lugar em seu código que você precisaria mudar se o\\nvalor codificado precisasse ser atualizado no futuro.\"",
-    "dependencies": {
-      "0,0,0,1,15,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,22": {
-    "value": "\"Como você viu na seção “Comparando o Adivinha ao Número Secreto” no Capítulo\\n2, você pode declarar uma nova variável com o mesmo nome de uma variável anterior,\\ne a nova variável sombreia a variável anterior. Rustaceans dizem que a\\nprimeira variável é *sombreada* pela segunda, o que significa que o segundo\\nvalor da variável é o que aparece quando a variável é usada. Podemos sombrear uma\\nvariável usando o mesmo nome da variável e repetindo o uso da palavra-chave `let`\\nda seguinte forma:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,16,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,22,1,0": {
-    "value": "\"Como você viu na seção “Comparando o Adivinha ao Número Secreto” no Capítulo\\n2, você pode declarar uma nova variável com o mesmo nome de uma variável anterior,\\ne a nova variável sombreia a variável anterior. Rustaceans dizem que a\\nprimeira variável é *sombreada* pela segunda, o que significa que o segundo\\nvalor da variável é o que aparece quando a variável é usada. Podemos sombrear uma\\nvariável usando o mesmo nome da variável e repetindo o uso da palavra-chave `let`\\nda seguinte forma:\\n\\n\u003Cspan class=\\\"filename\\\"\u003ENome do arquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,16,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,23,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n\\n    let x = x + 1;\\n\\n    let x = x * 2;\\n\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,16,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,24": {
-    "value": "\"Esse programa primeiro vincula `x` ao valor `5`. Em seguida `x` é sombreado por\\n`let x = `, pegando o valor original e adicionando `1`, então o valor de\\n`x` é `6`. O terceiro `let` também sombrea `x`, multiplicando o \\nvalor anterior por `2` para então `x` ficar com o valor final de `12`. Quando nós executamos esse programa, é\\nproduzida a seguinte saída:\"",
-    "dependencies": {
-      "0,0,0,1,16,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,25,0": {
-    "value": "\"$ cargo run\\n   Compiling variaveis v0.1.0 (file:///projects/variaveis)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs\\n     Running `target/debug/variaveis`\\nO valor de x é: 12\"",
-    "dependencies": {
-      "0,0,0,1,16,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,26": {
-    "value": "\"Shadowing é diferente do que dizer que uma variável é `mut`, porque teremos um\\nerro em tempo de compilação se, acidentalmente, tentarmos reatribuir essa variável sem\\nutilizar `let`. Usando `let`, nós podemos realizar algumas transformações,\\nmas sem ter uma variável imutável após estas transformações terem\\nsido concluídas.\"",
-    "dependencies": {
-      "0,0,0,1,16,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,27": {
-    "value": "\"Uma outra diferença entre `mut` e shadowing é que,\\ncomo estamos efetivamente criando uma nova várivel, quando usamos novamente a palavra-chave `let`, nós\\npodemos mudar o tipo do valor, mas reutilizando o mesmo nome. Por exemplo, digamos que nosso programa\\nsolicite ao usuário que mostre quantos espaços deseja entre um texto, inserindo\\ncaracteres de espaço, mas queremos armazenar essa entrada como um número:\"",
-    "dependencies": {
-      "0,0,0,1,16,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,28,0": {
-    "value": "\"let espacos = \\\"   \\\";\\nlet espacos = espacos.len();\"",
-    "dependencies": {
-      "0,0,0,1,16,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,29": {
-    "value": "\"Essa construção é permitida, porque a primeira variável `espacos` é do tipo string\\ne a segunda variável, que é uma nova variável que tem o\\nmesmo nome que a primeira, é do tipo numérico. Shadowing nos poupa de\\nter de criar nomes diferentes, como `str_espacos` e\\n`num_espacos`; em vez disso, podemos simplesmente reutilizar o nome `espacos`. No entanto, se\\ntentassemos usar `mut` para isso, como mostramos aqui, teremos um erro em tempo de compilação:\"",
-    "dependencies": {
-      "0,0,0,1,16,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,3,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n    x = 6;\\n    println!(\\\"O valor de x é: {}\\\", x);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,30,0": {
-    "value": "\"let mut espacos = \\\"   \\\";\\nespacos = espacos.len();\"",
-    "dependencies": {
-      "0,0,0,1,16,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,31": {
-    "value": "\"O erro diz que não podemos alterar o tipo de variável:\"",
-    "dependencies": {
-      "0,0,0,1,16,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,32,0": {
-    "value": "\"error types\\n --\u003E src/main.rs:3:14\\n  |\\n3 |     espacos = espacos.len();\\n  |              ^^^^^^^^^^^^ expected \u0026str, found usize\\n  |\\n  = note: expected type `\u0026str`\\n             found type `usize`\"",
-    "dependencies": {
-      "0,0,0,1,16,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,33": {
-    "value": "\"Agora que exploramos como as variáveis funcionam, vamos ver mais tipos de dados.\"",
-    "dependencies": {
-      "0,0,0,1,16,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,4": {
-    "value": "\"Salve e execute o programa usando `cargo run`. Você deve receber uma mensagem de erro,\\nconforme mostrado nesta saída:\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,5,0": {
-    "value": "\"error assign twice to immutable variable `x`\\n --\u003E src/main.rs:4:5\\n  |\\n2 |     let x = 5;\\n  |         - first assignment to `x`\\n3 |     println!(\\\"O valor de x é: {}\\\", x);\\n4 |     x = 6;\\n  |     ^^^^^ cannot assign twice to immutable variable\"",
-    "dependencies": {
-      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,6": {
-    "value": "\"Esse exemplo mostra como o compilador ajuda você a encontrar erros no seus programas.\\nMesmo que erros de compilação sejam frustrantes, eles apenas significam que seu programa\\nnão está fazendo de modo seguro o que você espera fazer; eles *não* siginificam que você\\nnão é um bom programador! Programadores experientes também recebem erros de compilação.\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,7": {
-    "value": "\"A mensagem indica que a causa do erro é que você\\n`não pode atribuir mais de uma vez à variável\\nimutável x`, porque você tentou atribuir um segundo valor à variável `x`.\"",
-    "dependencies": {
-      "0,0,0,1,4:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,8": {
-    "value": "\"É importante que nos recebamos erros em tempo de compilação quando tentamos\\nalterar um valor que anteriormente foi indicado como imutável, porque\\nesta situação pode ocasionar erros. Se uma parte do seu código funciona assumindo\\nque o valor nunca será alterado e outra parte do seu código muda este valor, é\\npossível que a primeira parte do código não faça o que foi projetada para fazer.\\nA causa desse tipo de falha pode ser difícil de rastrear,\\nespecialmente quando o segundo trecho de código muda o valor apenas *algumas vezes*.\"",
-    "dependencies": {
-      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#body@0,9": {
-    "value": "\"Em Rust, o compilador garante que quando você afirma que um valor não pode mudar,\\nele não mude. Isso significa que quando você está lendo e escrevendo código,\\nvocê não tenha de acompanhar como e onde um valor pode mudar. E assim seu código\\nfica mais fácil de entender.\"",
-    "dependencies": {
-      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,13,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,10,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,10,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,10,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,19,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,15,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,15,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,15,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,16,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,16,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,16,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,16,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,28,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,16,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,16,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,16,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,16,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,32,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,16,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,16,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,16,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,16": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#caption@0,5,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#open@0,18": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,15,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "0,0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"false\",\"parameters\":{}}]",
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#open@0,22": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,16,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#title@0,18": {
-    "value": "\"Diferenças entre variáveis e constantes\"",
-    "dependencies": {
-      "0,0,0,1,15,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#title@0,2": {
-    "value": "\"Variáveis e Mutabilidade\"",
-    "dependencies": {
-      "0,0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch03-01-variables-and-mutability#title@0,22": {
-    "value": "\"Shadowing\"",
-    "dependencies": {
-      "0,0,0,1,16,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -862,7 +862,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1059,7 +1059,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="variaveis-e-mutabilidade" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch03-01-variables-and-mutability#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; border-color: rgba(250,242,220,1); border-left-width: 5px !important; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: 30px; padding-left: 20px; transform: translateX(-25px) ; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" data-spacing="margin-left:20px" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 30px; font-weight: 700; line-height: 40px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Variáveis e Mutabilidade</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="variaveis-e-mutabilidade" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; border-color: rgba(250,242,220,1); border-left-width: 5px !important; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: 30px; padding-left: 20px; transform: translateX(-25px) ; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" data-spacing="margin-left:20px" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 30px; font-weight: 700; line-height: 40px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Variáveis e Mutabilidade</div>
 <div data-id="0,0,0,0,1:main-container-external:0:main" style="align-self: center; background-color: rgba(10,26,31,1); border-radius: 3px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-size: 10px; font-weight: 400; margin-bottom: auto; margin-top: auto; padding: 3px; text-align: center; transform: translateY(-2px) ; white-space: initial" class="ft_md">Click To Expand</div></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" data-spacing="margin-top:20px" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;stop-propagation&quot;,&quot;target&quot;:&quot;&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: default; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Como mencionado no Capítulo 2, por padrão, as variáveis são imutáveis. Essa é uma das
 maneiras que o Rust lhe dá para escrever o seu código de
@@ -1160,7 +1160,7 @@ código com o código abaixo, que não irá compilar:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,13:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 20px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Estamos autorizados a mudar o valor <code>5</code> contido  em <code>x</code> para <code>6</code> quando <code>mut</code> é usado. Em alguns casos, você precisará criar uma variável mutável porque ela será mais conveniente para escrever do que se fosse imutável.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,14:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; margin-top: 20px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Tem vários compromissos a serem considerados além de prevenção de falhas. Por exemplo, nos casos em que você usa estruturas de dados grandes, a alteração em uma instância pode ser mais rápida do que copiar e retornar a nova instância alocada. Com estruturas de dados menores, criar novas instâncias e escrever em um estilo de programação funcional pode ser mais fácil de entender, portanto, um desempenho menor pode ser uma penalidade que vale a pena para obter mais clareza.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,15:main-container-external:0.inner-external:0,0,0:main" id="diferencas-entre-variaveis-e-constantes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-top: 20px; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,15,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch03-01-variables-and-mutability#open@0,18&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Diferenças entre variáveis e constantes</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,15:main-container-external:0.inner-external:0,0,0:main" id="diferencas-entre-variaveis-e-constantes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-top: 20px; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,15,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,18&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Diferenças entre variáveis e constantes</div>
 <div data-id="inner:0,0,0,1,15,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,15,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,15,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Ser incapaz de mudar o valor de uma variável, pode ter feito você lembrar de
 outro conceito de programação, que a maioria das outras linguagens possui, chamado: <em>constantes</em>. Como
 variáveis imutáveis, constantes são valores que estão vinculados ao nome e não
@@ -1195,7 +1195,7 @@ convenção, contantes em Rust são nomeadas usando maiúsculas e sublinhado ent
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15:main" data-id="0,0,0,1,15,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Constante são válidas durante todo o tempo de execução de um programa, dentro do escopo em que foram declaradas, tornando-as uma ótima escolha para valores no domínio da aplicação, que várias partes do programa necessitam conhecer, como por exemplo, o número máximo de pontos um jogador pode ter ou a velocidade da luz.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15:main" data-id="0,0,0,1,15,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,15:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A nomeação de valores codificados permanentemente usados em todo o programa como constantes é útil para transmitir o significado desse valor para futuros mantenedores do código. Também ajuda ter apenas um lugar em seu código que você precisaria mudar se o valor codificado precisasse ser atualizado no futuro.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,16:main-container-external:0.inner-external:0,0,0:main" id="shadowing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-top: 20px; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,16,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch03-01-variables-and-mutability#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Shadowing</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,16:main-container-external:0.inner-external:0,0,0:main" id="shadowing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-top: 20px; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,16,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch03-01-variables-and-mutability#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Shadowing</div>
 <div data-id="inner:0,0,0,1,16,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,16,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,16,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Como você viu na seção “Comparando o Adivinha ao Número Secreto” no Capítulo
 2, você pode declarar uma nova variável com o mesmo nome de uma variável anterior,
 e a nova variável sombreia a variável anterior. Rustaceans dizem que a

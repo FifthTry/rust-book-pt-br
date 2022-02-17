@@ -12,6 +12,504 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,10": {
+    "value": "\"Na estrutura `Janela`, definiremos um método chamado `executar` que irá chamar o\\nmétodo `desenhar` em cada item do `componentes`, como mostrado na Listagem 17-5:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,11": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,12,0": {
+    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\n# pub struct Janela {\\n#     pub componentes: Vec\u003CBox\u003CDraw\u003E\u003E,\\n# }\\n#\\nimpl Janela {\\n    pub fn executar(\u0026self) {\\n        for component in self.componentes.iter() {\\n            component.desenhar();\\n        }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,13": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-5: Implementando um método`executar` na `Janela`\\nque chama o método `desenhar` para cada componente\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,14": {
+    "value": "\"Isso funciona de forma diferente do que definir uma estrutura que usa um parâmetro de tipo\\ngenérico com trait bounds. Um parâmetro de tipo genérico pode\\napenas ser substituido por um tipo concreto de cada vez, enquanto objetos trait permitem vários tipos\\nconcretos para preencher o objeto trait em tempo de execução. Por exemplo, poderíamos\\nter definido a estrutura `Janela` usando um tipo genérico e um trait bounds\\ncomo na Listagem 17-6:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,15": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,16,0": {
+    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Janela\u003CT: Draw\u003E {\\n    pub componentes: Vec\u003CT\u003E,\\n}\\n\\nimpl\u003CT\u003E Janela\u003CT\u003E\\n    where T: Draw {\\n    pub fn executar(\u0026self) {\\n        for component in self.componentes.iter() {\\n            component.desenhar();\\n        }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-6: Uma implementação alternativa da estrutura `Janela`\\ne seu método `executar` usando genéricos e trait bounds\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,18": {
+    "value": "\"Isso nos restringe a uma instância de `Janela` que tem uma lista de componentes, todos\\ndo tipo `Button` ou do tipo `TextField`. Se você tiver somente coleções do mesmo tipo,\\nusar genéricos e  trait bounds é preferível, porque as\\ndefinições serão monomorfizadas em tempo de compilação para os tipos concretos.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,19": {
+    "value": "\"Por outro lado, com o método usando objetos trait, uma instância de `Janela`\\npode conter um `Vec` que contém um `Box\u003CButton\u003E` assim como um `Box\u003CTextField\u003E`.\\nVamos ver como isso funciona e falaremos sobre as impliciações do desempenho\\nem tempo de compilação.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,2": {
+    "value": "\"No Capítulo 8, mencionamos que uma limitação dos vetores é que eles apenas podem\\narmazenar elementos do mesmo tipo. Criamos uma solução alternativa na Listagem 8-10, onde\\ndefinimos um enum chamado `SpreadsheetCell` que tinha variantes para conter inteiros, flutuantes\\ne texto. Isso significa que poderiamos armazenar diferentes tipos de dados em cada célula e\\nainda ter um vetor que representasse uma linha de células. Isso é uma solução ótima\\nquando nossos itens intercambiáveis são um conjunto fixo de tipos que sabemos\\nquando nosso código é compilado.\\n\\nNo entanto, algumas vezes queremos que nosso usuário de biblioteca seja capaz de estender o conjunto de\\ntipos que são válidos em uma situação específica. Para mostrar como podemos alcançar\\nisso, criaremos um exemplo de ferramenta de interface gráfica (GUI) que interage\\natravés de uma lista de itens, chamando um método `desenhar` em cada um para desenhá-lo\\nna tela - uma técnica comum para ferramentas GUI. Criaremos uma crate chamada \\n`gui` que contém a estrutura da biblioteca GUI. Essa crate pode incluir\\nalguns tipos para as pessoas usarem, como um `Button` ou `TextField`. Além disso,\\nusuários de `gui`vão querer criar seus próprios tipos que podem ser desenhados: por\\nexemplo, um programados pode adicionar uma `Image` e outro pode adicionar um\\n`SelectBox`.\\n\\nNão implementamos uma biblioteca gráfica completa para esse exemplo, mas mostraremos\\ncomo as peças se encaixariam. No momento de escrever a biblioteca, não podemos\\nsaber e definir todos os tipos que outros programadores podem querer criar. Mas sabemos\\nque `gui` precisa manter o controle de diferentes valores de diferentes tipos e ele\\nprecisa chamar o método `desenhar` em cada um desses diferentes tipos de valores. Não\\né necessário saber exatamente o que acontecerá quando chamarmos o método `desenhar`,\\napenas que o valor tera este método disponível para executarmos.\\n\\nPara fazer isso em uma linguagem com herança, podemos definir uma classe chamada\\n`Component` que possui um método chamado `desenhar`. As outras classes, como as\\n`Button`, `Image` e `SelectBox`, herdam de `Component` e, assim,\\nherdam o método `desenhar`. Cada uma pode sobrescrever o método `desenhar` para definir\\nseu comportamento próprio, mas o framework poderia tratar todos esses tipos se\\neles fossem instâncias de `Component` e chamar `desenhar` neles. Mas como Rust\\nnão tem herança, precisamos de outra maneira para estruturar a biblioteca `gui` para\\nperminir que os usuários o estendam com novos tipos.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,2,1,0": {
+    "value": "\"No Capítulo 8, mencionamos que uma limitação dos vetores é que eles apenas podem\\narmazenar elementos do mesmo tipo. Criamos uma solução alternativa na Listagem 8-10, onde\\ndefinimos um enum chamado `SpreadsheetCell` que tinha variantes para conter inteiros, flutuantes\\ne texto. Isso significa que poderiamos armazenar diferentes tipos de dados em cada célula e\\nainda ter um vetor que representasse uma linha de células. Isso é uma solução ótima\\nquando nossos itens intercambiáveis são um conjunto fixo de tipos que sabemos\\nquando nosso código é compilado.\\n\\nNo entanto, algumas vezes queremos que nosso usuário de biblioteca seja capaz de estender o conjunto de\\ntipos que são válidos em uma situação específica. Para mostrar como podemos alcançar\\nisso, criaremos um exemplo de ferramenta de interface gráfica (GUI) que interage\\natravés de uma lista de itens, chamando um método `desenhar` em cada um para desenhá-lo\\nna tela - uma técnica comum para ferramentas GUI. Criaremos uma crate chamada \\n`gui` que contém a estrutura da biblioteca GUI. Essa crate pode incluir\\nalguns tipos para as pessoas usarem, como um `Button` ou `TextField`. Além disso,\\nusuários de `gui`vão querer criar seus próprios tipos que podem ser desenhados: por\\nexemplo, um programados pode adicionar uma `Image` e outro pode adicionar um\\n`SelectBox`.\\n\\nNão implementamos uma biblioteca gráfica completa para esse exemplo, mas mostraremos\\ncomo as peças se encaixariam. No momento de escrever a biblioteca, não podemos\\nsaber e definir todos os tipos que outros programadores podem querer criar. Mas sabemos\\nque `gui` precisa manter o controle de diferentes valores de diferentes tipos e ele\\nprecisa chamar o método `desenhar` em cada um desses diferentes tipos de valores. Não\\né necessário saber exatamente o que acontecerá quando chamarmos o método `desenhar`,\\napenas que o valor tera este método disponível para executarmos.\\n\\nPara fazer isso em uma linguagem com herança, podemos definir uma classe chamada\\n`Component` que possui um método chamado `desenhar`. As outras classes, como as\\n`Button`, `Image` e `SelectBox`, herdam de `Component` e, assim,\\nherdam o método `desenhar`. Cada uma pode sobrescrever o método `desenhar` para definir\\nseu comportamento próprio, mas o framework poderia tratar todos esses tipos se\\neles fossem instâncias de `Component` e chamar `desenhar` neles. Mas como Rust\\nnão tem herança, precisamos de outra maneira para estruturar a biblioteca `gui` para\\nperminir que os usuários o estendam com novos tipos.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,20": {
+    "value": "\"Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o\\ntipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo\\ndeste livro, então o método `desenhar` não terá nenhum implementação útil.\\nPara imaginar como a implementação pode parecerm uma estrutura `Button`\\npode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,20,1,0": {
+    "value": "\"Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o\\ntipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo\\ndeste livro, então o método `desenhar` não terá nenhum implementação útil.\\nPara imaginar como a implementação pode parecerm uma estrutura `Button`\\npode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,21,0": {
+    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Button {\\n    pub largura: u32,\\n    pub altura: u32,\\n    pub label: String,\\n}\\n\\nimpl Draw for Button {\\n    fn desenhar(\u0026self) {\\n        // Código para realmente desenhar um botão\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,22": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-7: Uma estrutura `Button` que implementa o\\ntrait `Draw`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,23": {
+    "value": "\"Os campos `largura`, `altura` e `label` do `Button` serão diferentes\\nde campos de outros componentes, como o tipo `TextField`, que pode ter esses campos,\\nmais um campo `placeholder`. Para cada um dos tipo, queremos que desenhar na\\ntela o que implementamos no trait `Draw`, mas usará códigos diferentes no\\nmétodo `desenhar` para definir como desenhar aquele tipo em específico, como o `Button` tem\\naqui (sem o atual código da interface gráfica que está além do escopo desse capítulo).\\n`Button`, por exemplo, pode ter um bloco `impl` adicional,\\ncontêndo métodos reladionados com o que acontece quando um usuário clica no botão. Esses tipos de\\nmétodos não se aplicam a tipos como `TextField`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,24": {
+    "value": "\"Se alguém estiver usando nossa biblioteca para implementar a estrutura `SelectBox` que tem\\nos campos `largura`, `altura` e `opcoes`, eles implementam o \\ntrait `Draw` no tipo `SelectBox`, como mostra a Listagem 17-8:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,25": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,26,0": {
+    "value": "\"extern crate gui;\\nuse gui::Draw;\\n\\nstruct SelectBox {\\n    largura: u32,\\n    altura: u32,\\n    opcoes: Vec\u003CString\u003E,\\n}\\n\\nimpl Draw for SelectBox {\\n    fn desenhar(\u0026self) {\\n        // Código para realmente desenhar um select box\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-8: Outro crate usando `gui` e implementando\\no trait `Draw` na estrutura `SelectBox`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,28": {
+    "value": "\"Os usuários da nosso biblioteca agoora podem escrever suas funções `main` para criar uma\\ninstância de `Janela`. Para a instância de `Janela`, eles podem adicionar um `SelectBox` e um `Button`\\ncolocando cada um em um `Box\u003CT\u003E` para se tornar um objeto trait. Eles podem chamar o\\nmétodo `executar` na instância de `Janela`, que irá chamar o `desenhar` para cada um dos\\ncomponentes. A Listagem 17-9 mostra essa implementação:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,29": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,3": {
+    "value": "\"Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado\\n`Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor\\nque tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que\\nimplmenta o trait que especificamos. Criamos um objeto trait especificando alguns\\ntipos de ponteiros, como uma referência `\u0026` ou um ponteiro `Box\u003CT\u003E` e\\nespecificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait\\ndevem ser usados no Capítulo 19, na seção \\\"Tipos e tamanhos dimensionados dinamicamente\\\").\\nPodemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos\\num objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer\\nvalor usado nesse contexto implementará o trait de um objeto trait.\\nConsequentemente, não precisamos saber todos os possíveis tipos em tempo de compilação.\\n\\nMencionamos que em Rust evitamos de chamar estruturas e enums de\\n\\\"objetos\\\" para distingui-los dos objetos de outras linguagens. Em uma estrutura ou\\nenum, o dado nos campos e o comportamento no bloco `impl` são\\nseparados, enquanto em outras linguagens o dado e o comportamento são combinados em um\\nconceito muitas vezes chamado de objeto. No entanto, objetos trait *são* mais como\\nobjetos em outras linguagens no sentido de combinar dados e comportamento.\\nMas objetos trait diferem de objetos tradicionais, pois não podemos adicionar dados\\na um objeto trait. Objetos trait geralmente não são proveitosas como um objeto de outras\\nlinguagens: sua finalidade é simplemente possibilitar a abstração entre\\ncomportamento comum.\\n\\nListagem 17-3 mostra como definir um trait chamado `Draw` com um método chamado\\n`desenhar`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,3,1,0": {
+    "value": "\"Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado\\n`Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor\\nque tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que\\nimplmenta o trait que especificamos. Criamos um objeto trait especificando alguns\\ntipos de ponteiros, como uma referência `\u0026` ou um ponteiro `Box\u003CT\u003E` e\\nespecificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait\\ndevem ser usados no Capítulo 19, na seção \\\"Tipos e tamanhos dimensionados dinamicamente\\\").\\nPodemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos\\num objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer\\nvalor usado nesse contexto implementará o trait de um objeto trait.\\nConsequentemente, não precisamos saber todos os possíveis tipos em tempo de compilação.\\n\\nMencionamos que em Rust evitamos de chamar estruturas e enums de\\n\\\"objetos\\\" para distingui-los dos objetos de outras linguagens. Em uma estrutura ou\\nenum, o dado nos campos e o comportamento no bloco `impl` são\\nseparados, enquanto em outras linguagens o dado e o comportamento são combinados em um\\nconceito muitas vezes chamado de objeto. No entanto, objetos trait *são* mais como\\nobjetos em outras linguagens no sentido de combinar dados e comportamento.\\nMas objetos trait diferem de objetos tradicionais, pois não podemos adicionar dados\\na um objeto trait. Objetos trait geralmente não são proveitosas como um objeto de outras\\nlinguagens: sua finalidade é simplemente possibilitar a abstração entre\\ncomportamento comum.\\n\\nListagem 17-3 mostra como definir um trait chamado `Draw` com um método chamado\\n`desenhar`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,30,0": {
+    "value": "\"use gui::{Janela, Button};\\n\\nfn main() {\\n    let screen = Janela {\\n        componentes: vec![\\n            Box::new(SelectBox {\\n                largura: 75,\\n                altura: 10,\\n                opcoes: vec![\\n                    String::from(\\\"Yes\\\"),\\n                    String::from(\\\"Maybe\\\"),\\n                    String::from(\\\"No\\\")\\n                ],\\n            }),\\n            Box::new(Button {\\n                largura: 50,\\n                altura: 10,\\n                label: String::from(\\\"OK\\\"),\\n            }),\\n        ],\\n    };\\n\\n    screen.executar();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,31": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-9: Usando objetos trait para armazenar valores\\nde tipos diferentes que implmentam trait semelhantes.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,32": {
+    "value": "\"Quando escrevemos uma biblioteca, não sabemos o que alguém pode adicionar ao\\ntipo `SelectBox`, mas nossa implementação de `Janela` foi capaz de operar no\\nnovo tipo e desenhá-lo, porque `SelectBox` implementa o tipo `Draw`, o que\\nsignifica que ele implementa o método `desenhar`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,33": {
+    "value": "\"Esse conceito - de se preocupar apenas com as mensagem que um valor responde\\nem vez do tipo concreto de valores - é similar ao conceito *duck typing*\\nem linguagens dinâmicamente tipadas: se anda como um pato e é como um pato,\\nentão deve ser um pato! Na implementação do `executar` na `Janela` na Listagem\\n17-5, `executar` não precisa saber qual é o tipo concreto que cada componente é.\\nEle não verifica se um componente é uma instância de `Button` ou\\num `SelectBox`, apenas chama o método `desenhar` do componente. Especificando\\n`Box\u003CDraw\u003E` como o tipo dos valores do vetor `componentes`, definimos\\n`Janela` por precisarmos de valores nos quais podemos chamar o método `desenhar`.\\n\\nA vantagem de usar objetos trait e o sistema de tipos do Rust para escrever códigos\\nsemelhante ao código usando duck typing é que nunca precisamos verificar se um valor\\nimplementa umm método em particular no tempo de execução ou se preocupar com erros se\\num valor não implementa um método, mas nós o chamamos mesmo assim. Rust não irá compilar nosso\\ncódigo se os valores não implementarem os traits que o objeto trait precisa.\\n\\nPor exemplo, a Listagem 17-10 mostra o que acontece se tentarmos criar uma `Janela`\\ncom uma `String` como um componente:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,34,0": {
+    "value": "\"extern crate gui;\\nuse gui::Janela;\\n\\nfn main() {\\n    let screen = Janela {\\n        componentes: vec![\\n            Box::new(String::from(\\\"Hi\\\")),\\n        ],\\n    };\\n\\n    screen.executar();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,35": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-10: Tentativa de usar um tipo que não\\nimplementa o trait do objeto trait.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,36": {
+    "value": "\"Obteremos esse erro, porque `String` não implementa o trait `Draw`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,37,0": {
+    "value": "\"error trait bound `std::string::String: gui::Draw` is not satisfied\\n  --\u003E src/main.rs:7:13\\n   |\\n 7 |             Box::new(String::from(\\\"Hi\\\")),\\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Draw is not\\n   implemented for `std::string::String`\\n   |\\n   = note: required for the cast to the object type `gui::Draw`\"",
+    "dependencies": {
+      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,38": {
+    "value": "\"Esse erro nos permite saber se estamos passando algo para `Janela` que não\\npretenderíamos passar e que deveríamos passar um tipo diferente ou devemos implementar\\n`Draw` na `String`, para que `Janela` possa chamar `desenhar` nela.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,39": {
+    "value": "\"Lembre-se da seção \\\"Desempenho de código usando genéricos\\\" no Capítulo 10, nossa\\ndiscussão sobre o processo de monomorfização realizado pelo compilador quando\\nusamos trait bounds em genéricos: o compilador gera implementações não genéricas\\nde funções e métodos para cada tipo concreto que usamos no lugar\\nde um parâmetro de tipo genérico. O código que resulta da monomorfização\\nestá fazendo *despacho estático*, que é quando o compilador sabe qual método você está\\nchamando em tempo de compilação. Isso é oposto ao *despacho dinâmico*, que é quando\\no compilador não sabe dizer que método você está chamando em tempo de compilação. Nos casos\\nde despacho dinâmico, o compilador emite códigos que, em tempo de execução, descobrirá qual método\\nchamar.\\n\\nQuando usamos objetos trait, o Rust deve usar despacho dinâmico. O compilador não\\nsabe todos os tipos que podem ser usados com código que está usando os objetos trait,\\npor isso não sabe qual método implementado em que tipo chamar.\\nEm vez disso, em tempo de execução, Rust usa os ponteiros dentro de objeto trait para saber\\nque método, específico, deve chamar. Há um custo de tempo de execução quando essa pesquisa ocorre,\\nque não ocorre com despacho estático. Dispacho dinâmico também impede que o\\ncompilador escolha inline o código de um método, o que, por vezes, impede\\nalgumas otimizações. No entanto, conseguimos uma maior flexibilidade no código que escrevemos\\nna Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem\\na se considerar.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,39,1,0": {
+    "value": "\"Lembre-se da seção \\\"Desempenho de código usando genéricos\\\" no Capítulo 10, nossa\\ndiscussão sobre o processo de monomorfização realizado pelo compilador quando\\nusamos trait bounds em genéricos: o compilador gera implementações não genéricas\\nde funções e métodos para cada tipo concreto que usamos no lugar\\nde um parâmetro de tipo genérico. O código que resulta da monomorfização\\nestá fazendo *despacho estático*, que é quando o compilador sabe qual método você está\\nchamando em tempo de compilação. Isso é oposto ao *despacho dinâmico*, que é quando\\no compilador não sabe dizer que método você está chamando em tempo de compilação. Nos casos\\nde despacho dinâmico, o compilador emite códigos que, em tempo de execução, descobrirá qual método\\nchamar.\\n\\nQuando usamos objetos trait, o Rust deve usar despacho dinâmico. O compilador não\\nsabe todos os tipos que podem ser usados com código que está usando os objetos trait,\\npor isso não sabe qual método implementado em que tipo chamar.\\nEm vez disso, em tempo de execução, Rust usa os ponteiros dentro de objeto trait para saber\\nque método, específico, deve chamar. Há um custo de tempo de execução quando essa pesquisa ocorre,\\nque não ocorre com despacho estático. Dispacho dinâmico também impede que o\\ncompilador escolha inline o código de um método, o que, por vezes, impede\\nalgumas otimizações. No entanto, conseguimos uma maior flexibilidade no código que escrevemos\\nna Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem\\na se considerar.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,4,0": {
+    "value": "\"pub trait Draw {\\n    fn desenhar(\u0026self);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,40": {
+    "value": "\"Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas\\ndeterminam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas\\nduas regras são relevantes. Um trait é um objeto seguro se todos os métodos definidos no\\ntrait tem as seguintes propriedades:\\n\\n* O retorno não é do tipo `Self`.\\n* Não há parâmetros de tipo genérico.\\n\\nA palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou\\nmétodo. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,\\no Rust não conhece mais o tipo concreto que está implementando aquele trait.\\nSe um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece\\no tipo exato que `Self é, não há como o método usar o tipo concreto\\noriginal. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com\\num parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem\\nparte do tipo que implementa o trait. Quando o tipo é esquecido através \\ndo uso de um objeto trait, não há como saber  que tipo preenchem os parâmetros de\\ntipo genérico.\\n\\nUm exemplo de trait cujos métodos não são seguros para objetos\\né o trait `Clone` da biblioteca padrão. A assinatura do método `clone` é o trait `Clone`\\nse parece com isso:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,40,1,0": {
+    "value": "\"Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas\\ndeterminam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas\\nduas regras são relevantes. Um trait é um objeto seguro se todos os métodos definidos no\\ntrait tem as seguintes propriedades:\\n\\n* O retorno não é do tipo `Self`.\\n* Não há parâmetros de tipo genérico.\\n\\nA palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou\\nmétodo. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,\\no Rust não conhece mais o tipo concreto que está implementando aquele trait.\\nSe um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece\\no tipo exato que `Self é, não há como o método usar o tipo concreto\\noriginal. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com\\num parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem\\nparte do tipo que implementa o trait. Quando o tipo é esquecido através \\ndo uso de um objeto trait, não há como saber  que tipo preenchem os parâmetros de\\ntipo genérico.\\n\\nUm exemplo de trait cujos métodos não são seguros para objetos\\né o trait `Clone` da biblioteca padrão. A assinatura do método `clone` é o trait `Clone`\\nse parece com isso:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,41,0": {
+    "value": "\"pub trait Clone {\\n    fn clone(\u0026self) -\u003E Self;\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,42": {
+    "value": "\"O tipo `String` implemento o trait `Clone` e quando chamamos o método `clone`\\nnuma instância de `String`, obtemos de retorno uma instância de `String`.\\nDa mesma forma, se chamarmos `clone` numa instância de `Vec`, retornamos uma instância\\nde `Vec`. A assinatura de do `clone` precisa saber que tipo terá o\\n`Self`, porque esse é o tipo de retorno.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,43": {
+    "value": "\"O compilador indicará quando você estiver tentando fazer algo que viole as\\nregras de segurança de objetos em relação a objetos trait. Por exemplo, digamos\\nque tentamos implementar a estrutuda da Listagem 17-4 para manter os tipos que\\nimplementam o trait `Clone` em vez do trait `Draw`, desta forma:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,44,0": {
+    "value": "\"pub struct Janela {\\n    pub componentes: Vec\u003CBox\u003CClone\u003E\u003E,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,45": {
+    "value": "\"Teremos o seguinte erro:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,46,0": {
+    "value": "\"error trait `std::clone::Clone` cannot be made into an object\\n --\u003E src/lib.rs:2:5\\n  |\\n2 |     pub componentes: Vec\u003CBox\u003CClone\u003E\u003E,\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `std::clone::Clone` cannot be\\nmade into an object\\n  |\\n  = note: the trait cannot require that `Self : Sized`\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,47": {
+    "value": "\"Esse erro significa que você não pode usar esse trait como um objeto trait dessa maneira. Se\\nestiver interessado em mais detalhes sobre segurança de objetos, veja (https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md).\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-3: Definição do trait `Draw`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,6": {
+    "value": "\"Essa sintaxe deve parecer familiar de outras discussões de como definir traits\\ndo Capítulo 10. Em seguida, vem uma nova sintaxe: A Listagem 17-4 define uma estrutuca chamada\\n`Janela` que contém um vetor chamado `componentes`. Esse vetor é do tipo\\n`Box\u003CDraw\u003E`, que é um objeto trait: é um substituto para qualquer tipo dentro de um\\n`Box` que implementa o trait `Draw`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,7": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,8,0": {
+    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Janela {\\n    pub componentes: Vec\u003CBox\u003CDraw\u003E\u003E,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#body@0,9": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-4: Definição da estrutura `Janela` com um\\ncampo `componentes` que contém um vetor de objetos trait que implementam o\\ntrait `Draw`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,26,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,34,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,13,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,16,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,41,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,44,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,46,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,20": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,39": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,40": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,2": {
+    "value": "\"Usando objetos trait que permitem valores de tipos diferentes\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,20": {
+    "value": "\"Implementando o Trait\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,3": {
+    "value": "\"Definindo um Trait para componentes comuns\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,39": {
+    "value": "\"Objetos trait executam despacho dinâmico\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#title@0,40": {
+    "value": "\"A segurança do objeto é necessário para objetos trait\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -307,504 +805,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch17-02-trait-objects#body@0,10": {
-    "value": "\"Na estrutura `Janela`, definiremos um método chamado `executar` que irá chamar o\\nmétodo `desenhar` em cada item do `componentes`, como mostrado na Listagem 17-5:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,11": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,12,0": {
-    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\n# pub struct Janela {\\n#     pub componentes: Vec\u003CBox\u003CDraw\u003E\u003E,\\n# }\\n#\\nimpl Janela {\\n    pub fn executar(\u0026self) {\\n        for component in self.componentes.iter() {\\n            component.desenhar();\\n        }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,13": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-5: Implementando um método`executar` na `Janela`\\nque chama o método `desenhar` para cada componente\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,14": {
-    "value": "\"Isso funciona de forma diferente do que definir uma estrutura que usa um parâmetro de tipo\\ngenérico com trait bounds. Um parâmetro de tipo genérico pode\\napenas ser substituido por um tipo concreto de cada vez, enquanto objetos trait permitem vários tipos\\nconcretos para preencher o objeto trait em tempo de execução. Por exemplo, poderíamos\\nter definido a estrutura `Janela` usando um tipo genérico e um trait bounds\\ncomo na Listagem 17-6:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,15": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,16,0": {
-    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Janela\u003CT: Draw\u003E {\\n    pub componentes: Vec\u003CT\u003E,\\n}\\n\\nimpl\u003CT\u003E Janela\u003CT\u003E\\n    where T: Draw {\\n    pub fn executar(\u0026self) {\\n        for component in self.componentes.iter() {\\n            component.desenhar();\\n        }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-6: Uma implementação alternativa da estrutura `Janela`\\ne seu método `executar` usando genéricos e trait bounds\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,18": {
-    "value": "\"Isso nos restringe a uma instância de `Janela` que tem uma lista de componentes, todos\\ndo tipo `Button` ou do tipo `TextField`. Se você tiver somente coleções do mesmo tipo,\\nusar genéricos e  trait bounds é preferível, porque as\\ndefinições serão monomorfizadas em tempo de compilação para os tipos concretos.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,19": {
-    "value": "\"Por outro lado, com o método usando objetos trait, uma instância de `Janela`\\npode conter um `Vec` que contém um `Box\u003CButton\u003E` assim como um `Box\u003CTextField\u003E`.\\nVamos ver como isso funciona e falaremos sobre as impliciações do desempenho\\nem tempo de compilação.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,2": {
-    "value": "\"No Capítulo 8, mencionamos que uma limitação dos vetores é que eles apenas podem\\narmazenar elementos do mesmo tipo. Criamos uma solução alternativa na Listagem 8-10, onde\\ndefinimos um enum chamado `SpreadsheetCell` que tinha variantes para conter inteiros, flutuantes\\ne texto. Isso significa que poderiamos armazenar diferentes tipos de dados em cada célula e\\nainda ter um vetor que representasse uma linha de células. Isso é uma solução ótima\\nquando nossos itens intercambiáveis são um conjunto fixo de tipos que sabemos\\nquando nosso código é compilado.\\n\\nNo entanto, algumas vezes queremos que nosso usuário de biblioteca seja capaz de estender o conjunto de\\ntipos que são válidos em uma situação específica. Para mostrar como podemos alcançar\\nisso, criaremos um exemplo de ferramenta de interface gráfica (GUI) que interage\\natravés de uma lista de itens, chamando um método `desenhar` em cada um para desenhá-lo\\nna tela - uma técnica comum para ferramentas GUI. Criaremos uma crate chamada \\n`gui` que contém a estrutura da biblioteca GUI. Essa crate pode incluir\\nalguns tipos para as pessoas usarem, como um `Button` ou `TextField`. Além disso,\\nusuários de `gui`vão querer criar seus próprios tipos que podem ser desenhados: por\\nexemplo, um programados pode adicionar uma `Image` e outro pode adicionar um\\n`SelectBox`.\\n\\nNão implementamos uma biblioteca gráfica completa para esse exemplo, mas mostraremos\\ncomo as peças se encaixariam. No momento de escrever a biblioteca, não podemos\\nsaber e definir todos os tipos que outros programadores podem querer criar. Mas sabemos\\nque `gui` precisa manter o controle de diferentes valores de diferentes tipos e ele\\nprecisa chamar o método `desenhar` em cada um desses diferentes tipos de valores. Não\\né necessário saber exatamente o que acontecerá quando chamarmos o método `desenhar`,\\napenas que o valor tera este método disponível para executarmos.\\n\\nPara fazer isso em uma linguagem com herança, podemos definir uma classe chamada\\n`Component` que possui um método chamado `desenhar`. As outras classes, como as\\n`Button`, `Image` e `SelectBox`, herdam de `Component` e, assim,\\nherdam o método `desenhar`. Cada uma pode sobrescrever o método `desenhar` para definir\\nseu comportamento próprio, mas o framework poderia tratar todos esses tipos se\\neles fossem instâncias de `Component` e chamar `desenhar` neles. Mas como Rust\\nnão tem herança, precisamos de outra maneira para estruturar a biblioteca `gui` para\\nperminir que os usuários o estendam com novos tipos.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,2,1,0": {
-    "value": "\"No Capítulo 8, mencionamos que uma limitação dos vetores é que eles apenas podem\\narmazenar elementos do mesmo tipo. Criamos uma solução alternativa na Listagem 8-10, onde\\ndefinimos um enum chamado `SpreadsheetCell` que tinha variantes para conter inteiros, flutuantes\\ne texto. Isso significa que poderiamos armazenar diferentes tipos de dados em cada célula e\\nainda ter um vetor que representasse uma linha de células. Isso é uma solução ótima\\nquando nossos itens intercambiáveis são um conjunto fixo de tipos que sabemos\\nquando nosso código é compilado.\\n\\nNo entanto, algumas vezes queremos que nosso usuário de biblioteca seja capaz de estender o conjunto de\\ntipos que são válidos em uma situação específica. Para mostrar como podemos alcançar\\nisso, criaremos um exemplo de ferramenta de interface gráfica (GUI) que interage\\natravés de uma lista de itens, chamando um método `desenhar` em cada um para desenhá-lo\\nna tela - uma técnica comum para ferramentas GUI. Criaremos uma crate chamada \\n`gui` que contém a estrutura da biblioteca GUI. Essa crate pode incluir\\nalguns tipos para as pessoas usarem, como um `Button` ou `TextField`. Além disso,\\nusuários de `gui`vão querer criar seus próprios tipos que podem ser desenhados: por\\nexemplo, um programados pode adicionar uma `Image` e outro pode adicionar um\\n`SelectBox`.\\n\\nNão implementamos uma biblioteca gráfica completa para esse exemplo, mas mostraremos\\ncomo as peças se encaixariam. No momento de escrever a biblioteca, não podemos\\nsaber e definir todos os tipos que outros programadores podem querer criar. Mas sabemos\\nque `gui` precisa manter o controle de diferentes valores de diferentes tipos e ele\\nprecisa chamar o método `desenhar` em cada um desses diferentes tipos de valores. Não\\né necessário saber exatamente o que acontecerá quando chamarmos o método `desenhar`,\\napenas que o valor tera este método disponível para executarmos.\\n\\nPara fazer isso em uma linguagem com herança, podemos definir uma classe chamada\\n`Component` que possui um método chamado `desenhar`. As outras classes, como as\\n`Button`, `Image` e `SelectBox`, herdam de `Component` e, assim,\\nherdam o método `desenhar`. Cada uma pode sobrescrever o método `desenhar` para definir\\nseu comportamento próprio, mas o framework poderia tratar todos esses tipos se\\neles fossem instâncias de `Component` e chamar `desenhar` neles. Mas como Rust\\nnão tem herança, precisamos de outra maneira para estruturar a biblioteca `gui` para\\nperminir que os usuários o estendam com novos tipos.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,20": {
-    "value": "\"Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o\\ntipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo\\ndeste livro, então o método `desenhar` não terá nenhum implementação útil.\\nPara imaginar como a implementação pode parecerm uma estrutura `Button`\\npode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,20,1,0": {
-    "value": "\"Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o\\ntipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo\\ndeste livro, então o método `desenhar` não terá nenhum implementação útil.\\nPara imaginar como a implementação pode parecerm uma estrutura `Button`\\npode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,21,0": {
-    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Button {\\n    pub largura: u32,\\n    pub altura: u32,\\n    pub label: String,\\n}\\n\\nimpl Draw for Button {\\n    fn desenhar(\u0026self) {\\n        // Código para realmente desenhar um botão\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,22": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-7: Uma estrutura `Button` que implementa o\\ntrait `Draw`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,23": {
-    "value": "\"Os campos `largura`, `altura` e `label` do `Button` serão diferentes\\nde campos de outros componentes, como o tipo `TextField`, que pode ter esses campos,\\nmais um campo `placeholder`. Para cada um dos tipo, queremos que desenhar na\\ntela o que implementamos no trait `Draw`, mas usará códigos diferentes no\\nmétodo `desenhar` para definir como desenhar aquele tipo em específico, como o `Button` tem\\naqui (sem o atual código da interface gráfica que está além do escopo desse capítulo).\\n`Button`, por exemplo, pode ter um bloco `impl` adicional,\\ncontêndo métodos reladionados com o que acontece quando um usuário clica no botão. Esses tipos de\\nmétodos não se aplicam a tipos como `TextField`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,24": {
-    "value": "\"Se alguém estiver usando nossa biblioteca para implementar a estrutura `SelectBox` que tem\\nos campos `largura`, `altura` e `opcoes`, eles implementam o \\ntrait `Draw` no tipo `SelectBox`, como mostra a Listagem 17-8:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,25": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,26,0": {
-    "value": "\"extern crate gui;\\nuse gui::Draw;\\n\\nstruct SelectBox {\\n    largura: u32,\\n    altura: u32,\\n    opcoes: Vec\u003CString\u003E,\\n}\\n\\nimpl Draw for SelectBox {\\n    fn desenhar(\u0026self) {\\n        // Código para realmente desenhar um select box\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-8: Outro crate usando `gui` e implementando\\no trait `Draw` na estrutura `SelectBox`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,28": {
-    "value": "\"Os usuários da nosso biblioteca agoora podem escrever suas funções `main` para criar uma\\ninstância de `Janela`. Para a instância de `Janela`, eles podem adicionar um `SelectBox` e um `Button`\\ncolocando cada um em um `Box\u003CT\u003E` para se tornar um objeto trait. Eles podem chamar o\\nmétodo `executar` na instância de `Janela`, que irá chamar o `desenhar` para cada um dos\\ncomponentes. A Listagem 17-9 mostra essa implementação:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,29": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,3": {
-    "value": "\"Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado\\n`Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor\\nque tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que\\nimplmenta o trait que especificamos. Criamos um objeto trait especificando alguns\\ntipos de ponteiros, como uma referência `\u0026` ou um ponteiro `Box\u003CT\u003E` e\\nespecificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait\\ndevem ser usados no Capítulo 19, na seção \\\"Tipos e tamanhos dimensionados dinamicamente\\\").\\nPodemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos\\num objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer\\nvalor usado nesse contexto implementará o trait de um objeto trait.\\nConsequentemente, não precisamos saber todos os possíveis tipos em tempo de compilação.\\n\\nMencionamos que em Rust evitamos de chamar estruturas e enums de\\n\\\"objetos\\\" para distingui-los dos objetos de outras linguagens. Em uma estrutura ou\\nenum, o dado nos campos e o comportamento no bloco `impl` são\\nseparados, enquanto em outras linguagens o dado e o comportamento são combinados em um\\nconceito muitas vezes chamado de objeto. No entanto, objetos trait *são* mais como\\nobjetos em outras linguagens no sentido de combinar dados e comportamento.\\nMas objetos trait diferem de objetos tradicionais, pois não podemos adicionar dados\\na um objeto trait. Objetos trait geralmente não são proveitosas como um objeto de outras\\nlinguagens: sua finalidade é simplemente possibilitar a abstração entre\\ncomportamento comum.\\n\\nListagem 17-3 mostra como definir um trait chamado `Draw` com um método chamado\\n`desenhar`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,3,1,0": {
-    "value": "\"Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado\\n`Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor\\nque tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que\\nimplmenta o trait que especificamos. Criamos um objeto trait especificando alguns\\ntipos de ponteiros, como uma referência `\u0026` ou um ponteiro `Box\u003CT\u003E` e\\nespecificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait\\ndevem ser usados no Capítulo 19, na seção \\\"Tipos e tamanhos dimensionados dinamicamente\\\").\\nPodemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos\\num objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer\\nvalor usado nesse contexto implementará o trait de um objeto trait.\\nConsequentemente, não precisamos saber todos os possíveis tipos em tempo de compilação.\\n\\nMencionamos que em Rust evitamos de chamar estruturas e enums de\\n\\\"objetos\\\" para distingui-los dos objetos de outras linguagens. Em uma estrutura ou\\nenum, o dado nos campos e o comportamento no bloco `impl` são\\nseparados, enquanto em outras linguagens o dado e o comportamento são combinados em um\\nconceito muitas vezes chamado de objeto. No entanto, objetos trait *são* mais como\\nobjetos em outras linguagens no sentido de combinar dados e comportamento.\\nMas objetos trait diferem de objetos tradicionais, pois não podemos adicionar dados\\na um objeto trait. Objetos trait geralmente não são proveitosas como um objeto de outras\\nlinguagens: sua finalidade é simplemente possibilitar a abstração entre\\ncomportamento comum.\\n\\nListagem 17-3 mostra como definir um trait chamado `Draw` com um método chamado\\n`desenhar`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,30,0": {
-    "value": "\"use gui::{Janela, Button};\\n\\nfn main() {\\n    let screen = Janela {\\n        componentes: vec![\\n            Box::new(SelectBox {\\n                largura: 75,\\n                altura: 10,\\n                opcoes: vec![\\n                    String::from(\\\"Yes\\\"),\\n                    String::from(\\\"Maybe\\\"),\\n                    String::from(\\\"No\\\")\\n                ],\\n            }),\\n            Box::new(Button {\\n                largura: 50,\\n                altura: 10,\\n                label: String::from(\\\"OK\\\"),\\n            }),\\n        ],\\n    };\\n\\n    screen.executar();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,31": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-9: Usando objetos trait para armazenar valores\\nde tipos diferentes que implmentam trait semelhantes.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,32": {
-    "value": "\"Quando escrevemos uma biblioteca, não sabemos o que alguém pode adicionar ao\\ntipo `SelectBox`, mas nossa implementação de `Janela` foi capaz de operar no\\nnovo tipo e desenhá-lo, porque `SelectBox` implementa o tipo `Draw`, o que\\nsignifica que ele implementa o método `desenhar`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,33": {
-    "value": "\"Esse conceito - de se preocupar apenas com as mensagem que um valor responde\\nem vez do tipo concreto de valores - é similar ao conceito *duck typing*\\nem linguagens dinâmicamente tipadas: se anda como um pato e é como um pato,\\nentão deve ser um pato! Na implementação do `executar` na `Janela` na Listagem\\n17-5, `executar` não precisa saber qual é o tipo concreto que cada componente é.\\nEle não verifica se um componente é uma instância de `Button` ou\\num `SelectBox`, apenas chama o método `desenhar` do componente. Especificando\\n`Box\u003CDraw\u003E` como o tipo dos valores do vetor `componentes`, definimos\\n`Janela` por precisarmos de valores nos quais podemos chamar o método `desenhar`.\\n\\nA vantagem de usar objetos trait e o sistema de tipos do Rust para escrever códigos\\nsemelhante ao código usando duck typing é que nunca precisamos verificar se um valor\\nimplementa umm método em particular no tempo de execução ou se preocupar com erros se\\num valor não implementa um método, mas nós o chamamos mesmo assim. Rust não irá compilar nosso\\ncódigo se os valores não implementarem os traits que o objeto trait precisa.\\n\\nPor exemplo, a Listagem 17-10 mostra o que acontece se tentarmos criar uma `Janela`\\ncom uma `String` como um componente:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,34,0": {
-    "value": "\"extern crate gui;\\nuse gui::Janela;\\n\\nfn main() {\\n    let screen = Janela {\\n        componentes: vec![\\n            Box::new(String::from(\\\"Hi\\\")),\\n        ],\\n    };\\n\\n    screen.executar();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,35": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-10: Tentativa de usar um tipo que não\\nimplementa o trait do objeto trait.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,36": {
-    "value": "\"Obteremos esse erro, porque `String` não implementa o trait `Draw`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,37,0": {
-    "value": "\"error trait bound `std::string::String: gui::Draw` is not satisfied\\n  --\u003E src/main.rs:7:13\\n   |\\n 7 |             Box::new(String::from(\\\"Hi\\\")),\\n   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Draw is not\\n   implemented for `std::string::String`\\n   |\\n   = note: required for the cast to the object type `gui::Draw`\"",
-    "dependencies": {
-      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,38": {
-    "value": "\"Esse erro nos permite saber se estamos passando algo para `Janela` que não\\npretenderíamos passar e que deveríamos passar um tipo diferente ou devemos implementar\\n`Draw` na `String`, para que `Janela` possa chamar `desenhar` nela.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,39": {
-    "value": "\"Lembre-se da seção \\\"Desempenho de código usando genéricos\\\" no Capítulo 10, nossa\\ndiscussão sobre o processo de monomorfização realizado pelo compilador quando\\nusamos trait bounds em genéricos: o compilador gera implementações não genéricas\\nde funções e métodos para cada tipo concreto que usamos no lugar\\nde um parâmetro de tipo genérico. O código que resulta da monomorfização\\nestá fazendo *despacho estático*, que é quando o compilador sabe qual método você está\\nchamando em tempo de compilação. Isso é oposto ao *despacho dinâmico*, que é quando\\no compilador não sabe dizer que método você está chamando em tempo de compilação. Nos casos\\nde despacho dinâmico, o compilador emite códigos que, em tempo de execução, descobrirá qual método\\nchamar.\\n\\nQuando usamos objetos trait, o Rust deve usar despacho dinâmico. O compilador não\\nsabe todos os tipos que podem ser usados com código que está usando os objetos trait,\\npor isso não sabe qual método implementado em que tipo chamar.\\nEm vez disso, em tempo de execução, Rust usa os ponteiros dentro de objeto trait para saber\\nque método, específico, deve chamar. Há um custo de tempo de execução quando essa pesquisa ocorre,\\nque não ocorre com despacho estático. Dispacho dinâmico também impede que o\\ncompilador escolha inline o código de um método, o que, por vezes, impede\\nalgumas otimizações. No entanto, conseguimos uma maior flexibilidade no código que escrevemos\\nna Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem\\na se considerar.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,39,1,0": {
-    "value": "\"Lembre-se da seção \\\"Desempenho de código usando genéricos\\\" no Capítulo 10, nossa\\ndiscussão sobre o processo de monomorfização realizado pelo compilador quando\\nusamos trait bounds em genéricos: o compilador gera implementações não genéricas\\nde funções e métodos para cada tipo concreto que usamos no lugar\\nde um parâmetro de tipo genérico. O código que resulta da monomorfização\\nestá fazendo *despacho estático*, que é quando o compilador sabe qual método você está\\nchamando em tempo de compilação. Isso é oposto ao *despacho dinâmico*, que é quando\\no compilador não sabe dizer que método você está chamando em tempo de compilação. Nos casos\\nde despacho dinâmico, o compilador emite códigos que, em tempo de execução, descobrirá qual método\\nchamar.\\n\\nQuando usamos objetos trait, o Rust deve usar despacho dinâmico. O compilador não\\nsabe todos os tipos que podem ser usados com código que está usando os objetos trait,\\npor isso não sabe qual método implementado em que tipo chamar.\\nEm vez disso, em tempo de execução, Rust usa os ponteiros dentro de objeto trait para saber\\nque método, específico, deve chamar. Há um custo de tempo de execução quando essa pesquisa ocorre,\\nque não ocorre com despacho estático. Dispacho dinâmico também impede que o\\ncompilador escolha inline o código de um método, o que, por vezes, impede\\nalgumas otimizações. No entanto, conseguimos uma maior flexibilidade no código que escrevemos\\nna Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem\\na se considerar.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,4,0": {
-    "value": "\"pub trait Draw {\\n    fn desenhar(\u0026self);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,40": {
-    "value": "\"Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas\\ndeterminam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas\\nduas regras são relevantes. Um trait é um objeto seguro se todos os métodos definidos no\\ntrait tem as seguintes propriedades:\\n\\n* O retorno não é do tipo `Self`.\\n* Não há parâmetros de tipo genérico.\\n\\nA palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou\\nmétodo. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,\\no Rust não conhece mais o tipo concreto que está implementando aquele trait.\\nSe um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece\\no tipo exato que `Self é, não há como o método usar o tipo concreto\\noriginal. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com\\num parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem\\nparte do tipo que implementa o trait. Quando o tipo é esquecido através \\ndo uso de um objeto trait, não há como saber  que tipo preenchem os parâmetros de\\ntipo genérico.\\n\\nUm exemplo de trait cujos métodos não são seguros para objetos\\né o trait `Clone` da biblioteca padrão. A assinatura do método `clone` é o trait `Clone`\\nse parece com isso:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,40,1,0": {
-    "value": "\"Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas\\ndeterminam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas\\nduas regras são relevantes. Um trait é um objeto seguro se todos os métodos definidos no\\ntrait tem as seguintes propriedades:\\n\\n* O retorno não é do tipo `Self`.\\n* Não há parâmetros de tipo genérico.\\n\\nA palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou\\nmétodo. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,\\no Rust não conhece mais o tipo concreto que está implementando aquele trait.\\nSe um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece\\no tipo exato que `Self é, não há como o método usar o tipo concreto\\noriginal. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com\\num parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem\\nparte do tipo que implementa o trait. Quando o tipo é esquecido através \\ndo uso de um objeto trait, não há como saber  que tipo preenchem os parâmetros de\\ntipo genérico.\\n\\nUm exemplo de trait cujos métodos não são seguros para objetos\\né o trait `Clone` da biblioteca padrão. A assinatura do método `clone` é o trait `Clone`\\nse parece com isso:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,41,0": {
-    "value": "\"pub trait Clone {\\n    fn clone(\u0026self) -\u003E Self;\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,42": {
-    "value": "\"O tipo `String` implemento o trait `Clone` e quando chamamos o método `clone`\\nnuma instância de `String`, obtemos de retorno uma instância de `String`.\\nDa mesma forma, se chamarmos `clone` numa instância de `Vec`, retornamos uma instância\\nde `Vec`. A assinatura de do `clone` precisa saber que tipo terá o\\n`Self`, porque esse é o tipo de retorno.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,43": {
-    "value": "\"O compilador indicará quando você estiver tentando fazer algo que viole as\\nregras de segurança de objetos em relação a objetos trait. Por exemplo, digamos\\nque tentamos implementar a estrutuda da Listagem 17-4 para manter os tipos que\\nimplementam o trait `Clone` em vez do trait `Draw`, desta forma:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,44,0": {
-    "value": "\"pub struct Janela {\\n    pub componentes: Vec\u003CBox\u003CClone\u003E\u003E,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,45": {
-    "value": "\"Teremos o seguinte erro:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,46,0": {
-    "value": "\"error trait `std::clone::Clone` cannot be made into an object\\n --\u003E src/lib.rs:2:5\\n  |\\n2 |     pub componentes: Vec\u003CBox\u003CClone\u003E\u003E,\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `std::clone::Clone` cannot be\\nmade into an object\\n  |\\n  = note: the trait cannot require that `Self : Sized`\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,47": {
-    "value": "\"Esse erro significa que você não pode usar esse trait como um objeto trait dessa maneira. Se\\nestiver interessado em mais detalhes sobre segurança de objetos, veja (https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md).\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-3: Definição do trait `Draw`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,6": {
-    "value": "\"Essa sintaxe deve parecer familiar de outras discussões de como definir traits\\ndo Capítulo 10. Em seguida, vem uma nova sintaxe: A Listagem 17-4 define uma estrutuca chamada\\n`Janela` que contém um vetor chamado `componentes`. Esse vetor é do tipo\\n`Box\u003CDraw\u003E`, que é um objeto trait: é um substituto para qualquer tipo dentro de um\\n`Box` que implementa o trait `Draw`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,7": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,8,0": {
-    "value": "\"# pub trait Draw {\\n#     fn desenhar(\u0026self);\\n# }\\n#\\npub struct Janela {\\n    pub componentes: Vec\u003CBox\u003CDraw\u003E\u003E,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#body@0,9": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 17-4: Definição da estrutura `Janela` com um\\ncampo `componentes` que contém um vetor de objetos trait que implementam o\\ntrait `Draw`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,26,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,34,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,13,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,13,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,13,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,16,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,41,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,44,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,46,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#open@0,20": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#open@0,39": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#open@0,40": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,2": {
-    "value": "\"Usando objetos trait que permitem valores de tipos diferentes\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,20": {
-    "value": "\"Implementando o Trait\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,3": {
-    "value": "\"Definindo um Trait para componentes comuns\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,39": {
-    "value": "\"Objetos trait executam despacho dinâmico\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch17-02-trait-objects#title@0,40": {
-    "value": "\"A segurança do objeto é necessário para objetos trait\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1023,7 +1023,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1220,7 +1220,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="usando-objetos-trait-que-permitem-valores-de-tipos-diferentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-02-trait-objects#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando objetos trait que permitem valores de tipos diferentes</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="usando-objetos-trait-que-permitem-valores-de-tipos-diferentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando objetos trait que permitem valores de tipos diferentes</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>No Capítulo 8, mencionamos que uma limitação dos vetores é que eles apenas podem
 armazenar elementos do mesmo tipo. Criamos uma solução alternativa na Listagem 8-10, onde
 definimos um enum chamado <code>SpreadsheetCell</code> que tinha variantes para conter inteiros, flutuantes
@@ -1257,7 +1257,7 @@ eles fossem instâncias de <code>Component</code> e chamar <code>desenhar</code>
 não tem herança, precisamos de outra maneira para estruturar a biblioteca <code>gui</code> para
 perminir que os usuários o estendam com novos tipos.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="definindo-um-trait-para-componentes-comuns" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-02-trait-objects#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo um Trait para componentes comuns</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="definindo-um-trait-para-componentes-comuns" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo um Trait para componentes comuns</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para implementar o comportamento que queremos que <code>gui</code> tenha, definiremos um trait chamado
 <code>Draw</code> que terá um método chamado <code>desenhar</code>. Então podemos definir um vetor
 que tenha um <em>objeto trait</em>. Um objeto trait aponta para uma instância de um tipo que
@@ -1400,7 +1400,7 @@ comportamento comum.</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 17-6: Uma implementação alternativa da estrutura <code>Janela</code> e seu método <code>executar</code> usando genéricos e trait bounds<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Isso nos restringe a uma instância de <code>Janela</code> que tem uma lista de componentes, todos do tipo <code>Button</code> ou do tipo <code>TextField</code>. Se você tiver somente coleções do mesmo tipo, usar genéricos e  trait bounds é preferível, porque as definições serão monomorfizadas em tempo de compilação para os tipos concretos.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Por outro lado, com o método usando objetos trait, uma instância de <code>Janela</code> pode conter um <code>Vec</code> que contém um <code>Box&lt;Button&gt;</code> assim como um <code>Box&lt;TextField&gt;</code>. Vamos ver como isso funciona e falaremos sobre as impliciações do desempenho em tempo de compilação.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="implementando-o-trait" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-02-trait-objects#open@0,20&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando o Trait</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="implementando-o-trait" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,20&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando o Trait</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Agora, adicionaremos alguns tipos que implementam o trait <code>Draw</code>. Forneceremos o
 tipo <code>Button</code>. Novamente, a implementação de uma biblioteca gráfica está além do escopo
 deste livro, então o método <code>desenhar</code> não terá nenhum implementação útil.
@@ -1613,7 +1613,7 @@ com uma <code>String</code> como um componente:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Esse erro nos permite saber se estamos passando algo para <code>Janela</code> que não pretenderíamos passar e que deveríamos passar um tipo diferente ou devemos implementar <code>Draw</code> na <code>String</code>, para que <code>Janela</code> possa chamar <code>desenhar</code> nela.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="objetos-trait-executam-despacho-dinamico" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-02-trait-objects#open@0,39&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Objetos trait executam despacho dinâmico</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="objetos-trait-executam-despacho-dinamico" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,39&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Objetos trait executam despacho dinâmico</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Lembre-se da seção “Desempenho de código usando genéricos” no Capítulo 10, nossa
 discussão sobre o processo de monomorfização realizado pelo compilador quando
 usamos trait bounds em genéricos: o compilador gera implementações não genéricas
@@ -1636,7 +1636,7 @@ algumas otimizações. No entanto, conseguimos uma maior flexibilidade no códig
 na Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem
 a se considerar.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="a-seguranca-do-objeto-e-necessario-para-objetos-trait" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch17-02-trait-objects#open@0,40&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A segurança do objeto é necessário para objetos trait</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="a-seguranca-do-objeto-e-necessario-para-objetos-trait" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch17-02-trait-objects#open@0,40&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">A segurança do objeto é necessário para objetos trait</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Você apenas pode fazer <em>objetos traits seguros</em> em objetos traits. Algumas regras complexas
 determinam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas
 duas regras são relevantes. Um trait é um objeto seguro se todos os métodos definidos no

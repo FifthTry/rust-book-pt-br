@@ -12,6 +12,483 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,10": {
+    "value": "\"Para os tipos que implementam a `Copy` trait, como `i32`, os valores são copiados\\nno hash map. Para valores owned como `String`, os valores serão movidos e\\no hash map será o owner desses valores:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,10,1,0": {
+    "value": "\"Para os tipos que implementam a `Copy` trait, como `i32`, os valores são copiados\\nno hash map. Para valores owned como `String`, os valores serão movidos e\\no hash map será o owner desses valores:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,11,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet field_name = String::from(\\\"Favorite color\\\");\\nlet field_value = String::from(\\\"Blue\\\");\\n\\nlet mut map = HashMap::new();\\nmap.insert(field_name, field_value);\\n\\\\// field_name e field_value são inválidos neste ponto\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,12": {
+    "value": "\"Não poderíamos usar as ligações `field_name` e` field_value` depois\\nque foram transferidos para o hash map com a chamada para `insert`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,13": {
+    "value": "\"Se inserimos referências a valores no hash map, os próprios valores\\nnão serão movido para o hash map. Os valores que as referências apontam devem ser\\nválido pelo menos enquanto o hash map seja válido, no entanto. Falaremos mais\\nsobre esses problemas na seção Lifetimes do Capítulo 10.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,14": {
+    "value": "\"Podemos obter um valor do hash map fornecendo a chave para o método `get`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,14,1,0": {
+    "value": "\"Podemos obter um valor do hash map fornecendo a chave para o método `get`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,15,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\\n\\nlet team_name = String::from(\\\"Blue\\\");\\nlet score = scores.get(\u0026team_name);\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,16": {
+    "value": "\"Aqui, `score` terá o valor que está associado à equipe Blue, e o\\nresultado será `Some(\u002610)`. O resultado está envolvido em `Some` porque `get`\\nretorna `Option\u003C\u0026V\u003E`; se não houver valor para essa chave no hash map, `get`\\nretornará `None`. O programa precisará lidar com `Option` em uma das\\nformas que abordamos no Capítulo 6.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,17": {
+    "value": "\"Podemos iterar sobre cada par chave/valor em um hash map de uma maneira similar à que \\nfazemos com vetores, usando um loop `for`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,18,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\\n\\nfor (key, value) in \u0026scores {\\n    println!(\\\"{}: {}\\\", key, value);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,19": {
+    "value": "\"Isso imprimirá cada par, em uma ordem arbitrária:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,2": {
+    "value": "\"A última das nossas coleções comuns é o *hash map*. O tipo `HashMap \u003CK, V\u003E`\\narmazena um mapeamento de chaves do tipo `K` para valores do tipo` V`. Ele faz isso através de um\\n*hashing function*, que determina como ele coloca essas chaves e valores em\\nmemória. Muitas linguagens de programação diferentes suportam este tipo de \\nestrutura de dados, mas muitas vezes com um nome diferente: hash, map, object, hash table ou\\nassociative array, apenas para citar alguns.\\n\\nOs Hash maps são úteis para quando você deseja poder procurar dados sem uso de\\níndice, como você pode com vetores, mas usando uma chave que pode ser de qualquer tipo. Por \\nexemplo, em um jogo, você poderia acompanhar a pontuação de cada equipe em um hash map\\nonde cada chave é o nome de uma equipe e os valores são cada pontuação da equipe. Dado um\\nnome da equipe, você pode recuperar sua pontuação.\\n\\nExaminaremos a API básica dos hash map neste capítulo, mas há muitos\\nmais coisas escondidas nas funções definidas no `HashMap` pela biblioteca\\npadrão. Como sempre, verifique a documentação da biblioteca padrão para mais\\ninformação.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,2,1,0": {
+    "value": "\"A última das nossas coleções comuns é o *hash map*. O tipo `HashMap \u003CK, V\u003E`\\narmazena um mapeamento de chaves do tipo `K` para valores do tipo` V`. Ele faz isso através de um\\n*hashing function*, que determina como ele coloca essas chaves e valores em\\nmemória. Muitas linguagens de programação diferentes suportam este tipo de \\nestrutura de dados, mas muitas vezes com um nome diferente: hash, map, object, hash table ou\\nassociative array, apenas para citar alguns.\\n\\nOs Hash maps são úteis para quando você deseja poder procurar dados sem uso de\\níndice, como você pode com vetores, mas usando uma chave que pode ser de qualquer tipo. Por \\nexemplo, em um jogo, você poderia acompanhar a pontuação de cada equipe em um hash map\\nonde cada chave é o nome de uma equipe e os valores são cada pontuação da equipe. Dado um\\nnome da equipe, você pode recuperar sua pontuação.\\n\\nExaminaremos a API básica dos hash map neste capítulo, mas há muitos\\nmais coisas escondidas nas funções definidas no `HashMap` pela biblioteca\\npadrão. Como sempre, verifique a documentação da biblioteca padrão para mais\\ninformação.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,20,0": {
+    "value": "\"Yellow: 50\\nBlue: 10\"",
+    "dependencies": {
+      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,21": {
+    "value": "\"Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas\\ntem um valor associado a ele por vez. Quando queremos mudar os dados em\\num hash map, temos que decidir como lidar com o caso quando uma chave já possui uma\\nvalor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,\\ndesconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo\\ne ignorar o novo valor, e apenas adicione o novo valor se a chave ainda *não*\\ntem um valor. Ou podemos combinar o valor antigo ao valor novo.\\nVejamos como fazer cada um desses!\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,21,1,0": {
+    "value": "\"Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas\\ntem um valor associado a ele por vez. Quando queremos mudar os dados em\\num hash map, temos que decidir como lidar com o caso quando uma chave já possui uma\\nvalor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,\\ndesconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo\\ne ignorar o novo valor, e apenas adicione o novo valor se a chave ainda *não*\\ntem um valor. Ou podemos combinar o valor antigo ao valor novo.\\nVejamos como fazer cada um desses!\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,22": {
+    "value": "\"Se inserimos uma chave e um valor em um hash map, então  se inserir essa mesma chave com\\num valor diferente, o valor associado a essa chave será substituído. Eembora \\no seguinte código chame `insert` duas vezes, o hash map só conterá\\num par de chave/valor porque inserimos o valor da chave da equipe Blue\\nambas as vezes:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,22,1,0": {
+    "value": "\"Se inserimos uma chave e um valor em um hash map, então  se inserir essa mesma chave com\\num valor diferente, o valor associado a essa chave será substituído. Eembora \\no seguinte código chame `insert` duas vezes, o hash map só conterá\\num par de chave/valor porque inserimos o valor da chave da equipe Blue\\nambas as vezes:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,23,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Blue\\\"), 25);\\n\\nprintln!(\\\"{:?}\\\", scores);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,24": {
+    "value": "\"Isso imprimirá `{\\\"Blue\\\": 25}`. O valor original de 10 foi substituído.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,25": {
+    "value": "\"É comum querer verificar se uma determinada chave tem um valor e, se \\nnão tiver, inserir um valor para ela. Os Hash maps possuem uma API especial para isso, chamada\\n`entry`, que leva a chave que queremos verificar como um argumento. O valor de retorno\\nda função `entry` é um enum, `Entry`, que representa um valor que pode\\nou não existir. Digamos que queremos verificar se a chave para o time Yellow\\ntem um valor associado a ela. Se não tiver, queremos inserir o valor\\n50, e o mesmo para a equipe Blue. Com a API de entrada, o código irá parecer \\ncom:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,25,1,0": {
+    "value": "\"É comum querer verificar se uma determinada chave tem um valor e, se \\nnão tiver, inserir um valor para ela. Os Hash maps possuem uma API especial para isso, chamada\\n`entry`, que leva a chave que queremos verificar como um argumento. O valor de retorno\\nda função `entry` é um enum, `Entry`, que representa um valor que pode\\nou não existir. Digamos que queremos verificar se a chave para o time Yellow\\ntem um valor associado a ela. Se não tiver, queremos inserir o valor\\n50, e o mesmo para a equipe Blue. Com a API de entrada, o código irá parecer \\ncom:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,26,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\n\\nscores.entry(String::from(\\\"Yellow\\\")).or_insert(50);\\nscores.entry(String::from(\\\"Blue\\\")).or_insert(50);\\n\\nprintln!(\\\"{:?}\\\", scores);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,27": {
+    "value": "\"O método `or_insert` em `Entry` retorna o valor para o `Entry` correspondente\\nse a chave existir, e se não, insere seu argumento como o novo valor para\\nesta chave e retorna a `Entry` modificada. Isso é muito mais limpo do que escrever\\na lógica por nós mesmos e, além disso, trabalha-se de forma mais limpa com o borrow checker.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,28": {
+    "value": "\"Este código imprimirá `{\\\"Yellow\\\": 50, \\\"Blue\\\": 10}`. A primeira chamada para `entry`\\nirá inserir a chave para a equipe Yellow com o valor 50, uma vez que o time Yellow\\njá não possua um valor. A segunda chamada para `entry` não vai mudar\\no hash map pois o time Blue já possui o valor 10.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,29": {
+    "value": "\"Outro caso de uso comum para hash maps é procurar o valor de uma chave e, em seguida, atualiza-la\\n, com base no valor antigo. Por exemplo, se quisermos contar quantas vezes\\ncada palavra apareceu em algum texto, podemos usar um hash map com as palavras como chaves\\ne incrementar o valor para acompanhar quantas vezes vimos essa palavra.\\nSe esta é a primeira vez que vimos uma palavra, primeiro inseriremos o valor `0`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,29,1,0": {
+    "value": "\"Outro caso de uso comum para hash maps é procurar o valor de uma chave e, em seguida, atualiza-la\\n, com base no valor antigo. Por exemplo, se quisermos contar quantas vezes\\ncada palavra apareceu em algum texto, podemos usar um hash map com as palavras como chaves\\ne incrementar o valor para acompanhar quantas vezes vimos essa palavra.\\nSe esta é a primeira vez que vimos uma palavra, primeiro inseriremos o valor `0`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,3": {
+    "value": "\"Podemos criar um `HashMap` vazio com `new`, e adicionar elementos com `insert`.\\nAqui, estamos acompanhando as pontuações de duas equipes cujos nomes são Blue e\\nYellow. A equipe blue começará com 10 pontos e a equipe yellow começa com\\n50:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,3,1,0": {
+    "value": "\"Podemos criar um `HashMap` vazio com `new`, e adicionar elementos com `insert`.\\nAqui, estamos acompanhando as pontuações de duas equipes cujos nomes são Blue e\\nYellow. A equipe blue começará com 10 pontos e a equipe yellow começa com\\n50:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,30,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet text = \\\"hello world wonderful world\\\";\\n\\nlet mut map = HashMap::new();\\n\\nfor word in text.split_whitespace() {\\n    let count = map.entry(word).or_insert(0);\\n    *count += 1;\\n}\\n\\nprintln!(\\\"{:?}\\\", map);\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,31": {
+    "value": "\"Isso imprimirá `{\\\"world\\\": 2, \\\"hello\\\": 1, \\\"wonderful\\\": 1}`. O método `or_insert`\\nna verdade retorna uma referência mutável (`\u0026 mutV`) para o valor desta\\nchave. Aqui nós armazenamos essa referência mutável na variável `count`, então, \\npara poder atribuir esse valor, devemos primeiro desreferenciar `count` usando o asterisco\\n(`*`). A referência mutável fica fora do escopo no final do loop `for`, então\\ntodas essas mudanças são seguras e permitidas pelas regras de borrow.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,32": {
+    "value": "\"Por padrão, `HashMap` usa uma função de hashing criptográficamente segura que pode\\nfornecer resistência aos ataques de Negação de Serviço (DoS). Este não é o algoritmo \\nmais rápido de hashing por aí, mas a compensação por uma melhor segurança que vem\\ncom a queda na performance vale a pena. Se você testar a velocidade do seu código e encontrar\\nque a função de hash padrão é muito lenta para seus propósitos, você pode mudar para\\noutra função especificando um *hasher* diferente. Um hasher é um tipo que\\nimplementa a trait `BuildHasher`. Vamos falar sobre traits e como\\nimplementá-los no Capítulo 10. Você não precisa necessariamente implementar o seu próprio\\nhasher do zero; crates.io tem bibliotecas de hashers de uso comum que \\noutras pessoas compartilharam lá.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,32,1,0": {
+    "value": "\"Por padrão, `HashMap` usa uma função de hashing criptográficamente segura que pode\\nfornecer resistência aos ataques de Negação de Serviço (DoS). Este não é o algoritmo \\nmais rápido de hashing por aí, mas a compensação por uma melhor segurança que vem\\ncom a queda na performance vale a pena. Se você testar a velocidade do seu código e encontrar\\nque a função de hash padrão é muito lenta para seus propósitos, você pode mudar para\\noutra função especificando um *hasher* diferente. Um hasher é um tipo que\\nimplementa a trait `BuildHasher`. Vamos falar sobre traits e como\\nimplementá-los no Capítulo 10. Você não precisa necessariamente implementar o seu próprio\\nhasher do zero; crates.io tem bibliotecas de hashers de uso comum que \\noutras pessoas compartilharam lá.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,33": {
+    "value": "\"Vetores, strings e hash maps irão levá-lo longe em programas onde você precisa\\narmazenar, acessar e modificar dados. Aqui estão alguns exercícios que você deve estar\\ncapacitado para resolver:\\n\\n\\n* Dada uma lista de inteiros, use um vetor e retorne a média, a mediana\\n   (quando classificado, o valor na posição do meio) e modo (o valor que\\n   ocorre com mais frequência; um hash map será útil aqui) da lista.\\n* Converta strings para Pig Latin, onde a primeira consoante de cada palavra é movida\\n   para o final da palavra adicionado um \\\"ay\\\" , então “first” se torna “irst-fay”.\\n   Palavras que começam com uma vogal recebem “hay” adicionado ao final (“apple”\\n   torna-se “apple-hay”). Lembre-se sobre a codificação UTF-8!\\n* Usando um hash map e vetores, crie uma interface de texto para permitir que um usuário adicione\\n   nomes de funcionários para um departamento da empresa. Por exemplo, “Add Sally to\\n   Engineering” ou “Add Amir to Sales”. Em seguida, deixe o usuário recuperar uma lista de todas\\n   as pessoas de um departamento ou todas as pessoas na empresa por departamento, ordenadas\\n   alfabeticamente.\\n\\nA documentação da API da biblioteca padrão descreve métodos que esses tipos possuem\\nque será útil para esses exercícios!\\n\\nEstamos entrando em programas mais complexos onde as operações podem falhar, o que significa\\nque é um momento perfeito para passar pelo tratamento de erros em seguida!\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,33,1,0": {
+    "value": "\"Vetores, strings e hash maps irão levá-lo longe em programas onde você precisa\\narmazenar, acessar e modificar dados. Aqui estão alguns exercícios que você deve estar\\ncapacitado para resolver:\\n\\n\\n* Dada uma lista de inteiros, use um vetor e retorne a média, a mediana\\n   (quando classificado, o valor na posição do meio) e modo (o valor que\\n   ocorre com mais frequência; um hash map será útil aqui) da lista.\\n* Converta strings para Pig Latin, onde a primeira consoante de cada palavra é movida\\n   para o final da palavra adicionado um \\\"ay\\\" , então “first” se torna “irst-fay”.\\n   Palavras que começam com uma vogal recebem “hay” adicionado ao final (“apple”\\n   torna-se “apple-hay”). Lembre-se sobre a codificação UTF-8!\\n* Usando um hash map e vetores, crie uma interface de texto para permitir que um usuário adicione\\n   nomes de funcionários para um departamento da empresa. Por exemplo, “Add Sally to\\n   Engineering” ou “Add Amir to Sales”. Em seguida, deixe o usuário recuperar uma lista de todas\\n   as pessoas de um departamento ou todas as pessoas na empresa por departamento, ordenadas\\n   alfabeticamente.\\n\\nA documentação da API da biblioteca padrão descreve métodos que esses tipos possuem\\nque será útil para esses exercícios!\\n\\nEstamos entrando em programas mais complexos onde as operações podem falhar, o que significa\\nque é um momento perfeito para passar pelo tratamento de erros em seguida!\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,4,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,5": {
+    "value": "\"Observe que precisamos primeiro `use` o `HashMap` da parte de coleções da\\nbiblioteca padrão. De nossas três coleções comuns, esta é a de menor\\nfrequencia de uso, por isso não está inclusa nos recursos importados automaticamente no\\nprelúdio. Os Hash maps também têm menos suporte da biblioteca padrão; não há\\nmacro embutida para construí-los, por exemplo.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,6": {
+    "value": "\"Assim como os vetores, os mapas hash armazenam seus dados no heap. Este `HashMap` tem\\nchaves do tipo `String` e valores do tipo `i32`. Como vetores, os hash maps são\\nhomogêneos: todas as chaves devem ter o mesmo tipo e todos os valores\\ndevem ter o mesmo tipo.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,7": {
+    "value": "\"Outra maneira de construir um hash map é usando o método `collect` em um\\nvetor de tuplas, onde cada tupla consiste de uma chave e seu valor. O \\nmétodo `collect` reúne dados em vários tipos de coleção, incluindo\\n`HashMap`. Por exemplo, se tivéssemos os nomes das equipes e as pontuações iniciais em dois\\nvetores separados, podemos usar o método `zip` para criar um vetor de tuplas\\nonde “Blue” é emparelhado com 10, e assim por diante. Então podemos usar o método `collect`\\npara transformar esse vetor de tuplas em um `HashMap`:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,8,0": {
+    "value": "\"use std::collections::HashMap;\\n\\nlet teams  = vec![String::from(\\\"Blue\\\"), String::from(\\\"Yellow\\\")];\\nlet initial_scores = vec![10, 50];\\n\\nlet scores: HashMap\u003C_, _\u003E = teams.iter().zip(initial_scores.iter()).collect();\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#body@0,9": {
+    "value": "\"A anotação de tipo `HashMap \u003C_, _\u003E` é necessária aqui porque é possível\\n`collect` em muitas estruturas de dados diferentes, e Rust não sabe qual você\\ndeseja, a menos que você especifique. Para os parâmetros de tipo, para os tipos de chave e valor,\\nno entanto, usamos underscores e Rust pode inferir os tipos que o hash map\\ncontém com base nos tipos de dados no vetor.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,20,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,26,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,10": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,14": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,21": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,22": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,25": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,29": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,32": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,33": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,10": {
+    "value": "\"Hash Maps e Ownership\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,14": {
+    "value": "\"Acessando Valores em um Hash Map\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,2": {
+    "value": "\"Hash Maps\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,21": {
+    "value": "\"Atualizando um Hash Map\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,22": {
+    "value": "\"Sobrescrevendo um Valor\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,25": {
+    "value": "\"Insira Apenas se a Chave Não Possui Valor\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,29": {
+    "value": "\"Atualize um Valor com Base no Valor Antigo\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,3": {
+    "value": "\"Criando um novo Hash Map\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,32": {
+    "value": "\"Funções Hashing\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#title@0,33": {
+    "value": "\"Sumário\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -295,483 +772,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch08-03-hash-maps#body@0,10": {
-    "value": "\"Para os tipos que implementam a `Copy` trait, como `i32`, os valores são copiados\\nno hash map. Para valores owned como `String`, os valores serão movidos e\\no hash map será o owner desses valores:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,10,1,0": {
-    "value": "\"Para os tipos que implementam a `Copy` trait, como `i32`, os valores são copiados\\nno hash map. Para valores owned como `String`, os valores serão movidos e\\no hash map será o owner desses valores:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,11,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet field_name = String::from(\\\"Favorite color\\\");\\nlet field_value = String::from(\\\"Blue\\\");\\n\\nlet mut map = HashMap::new();\\nmap.insert(field_name, field_value);\\n\\\\// field_name e field_value são inválidos neste ponto\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,12": {
-    "value": "\"Não poderíamos usar as ligações `field_name` e` field_value` depois\\nque foram transferidos para o hash map com a chamada para `insert`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,13": {
-    "value": "\"Se inserimos referências a valores no hash map, os próprios valores\\nnão serão movido para o hash map. Os valores que as referências apontam devem ser\\nválido pelo menos enquanto o hash map seja válido, no entanto. Falaremos mais\\nsobre esses problemas na seção Lifetimes do Capítulo 10.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,14": {
-    "value": "\"Podemos obter um valor do hash map fornecendo a chave para o método `get`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,14,1,0": {
-    "value": "\"Podemos obter um valor do hash map fornecendo a chave para o método `get`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,15,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\\n\\nlet team_name = String::from(\\\"Blue\\\");\\nlet score = scores.get(\u0026team_name);\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,16": {
-    "value": "\"Aqui, `score` terá o valor que está associado à equipe Blue, e o\\nresultado será `Some(\u002610)`. O resultado está envolvido em `Some` porque `get`\\nretorna `Option\u003C\u0026V\u003E`; se não houver valor para essa chave no hash map, `get`\\nretornará `None`. O programa precisará lidar com `Option` em uma das\\nformas que abordamos no Capítulo 6.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,17": {
-    "value": "\"Podemos iterar sobre cada par chave/valor em um hash map de uma maneira similar à que \\nfazemos com vetores, usando um loop `for`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,18,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\\n\\nfor (key, value) in \u0026scores {\\n    println!(\\\"{}: {}\\\", key, value);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,19": {
-    "value": "\"Isso imprimirá cada par, em uma ordem arbitrária:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,2": {
-    "value": "\"A última das nossas coleções comuns é o *hash map*. O tipo `HashMap \u003CK, V\u003E`\\narmazena um mapeamento de chaves do tipo `K` para valores do tipo` V`. Ele faz isso através de um\\n*hashing function*, que determina como ele coloca essas chaves e valores em\\nmemória. Muitas linguagens de programação diferentes suportam este tipo de \\nestrutura de dados, mas muitas vezes com um nome diferente: hash, map, object, hash table ou\\nassociative array, apenas para citar alguns.\\n\\nOs Hash maps são úteis para quando você deseja poder procurar dados sem uso de\\níndice, como você pode com vetores, mas usando uma chave que pode ser de qualquer tipo. Por \\nexemplo, em um jogo, você poderia acompanhar a pontuação de cada equipe em um hash map\\nonde cada chave é o nome de uma equipe e os valores são cada pontuação da equipe. Dado um\\nnome da equipe, você pode recuperar sua pontuação.\\n\\nExaminaremos a API básica dos hash map neste capítulo, mas há muitos\\nmais coisas escondidas nas funções definidas no `HashMap` pela biblioteca\\npadrão. Como sempre, verifique a documentação da biblioteca padrão para mais\\ninformação.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,2,1,0": {
-    "value": "\"A última das nossas coleções comuns é o *hash map*. O tipo `HashMap \u003CK, V\u003E`\\narmazena um mapeamento de chaves do tipo `K` para valores do tipo` V`. Ele faz isso através de um\\n*hashing function*, que determina como ele coloca essas chaves e valores em\\nmemória. Muitas linguagens de programação diferentes suportam este tipo de \\nestrutura de dados, mas muitas vezes com um nome diferente: hash, map, object, hash table ou\\nassociative array, apenas para citar alguns.\\n\\nOs Hash maps são úteis para quando você deseja poder procurar dados sem uso de\\níndice, como você pode com vetores, mas usando uma chave que pode ser de qualquer tipo. Por \\nexemplo, em um jogo, você poderia acompanhar a pontuação de cada equipe em um hash map\\nonde cada chave é o nome de uma equipe e os valores são cada pontuação da equipe. Dado um\\nnome da equipe, você pode recuperar sua pontuação.\\n\\nExaminaremos a API básica dos hash map neste capítulo, mas há muitos\\nmais coisas escondidas nas funções definidas no `HashMap` pela biblioteca\\npadrão. Como sempre, verifique a documentação da biblioteca padrão para mais\\ninformação.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,20,0": {
-    "value": "\"Yellow: 50\\nBlue: 10\"",
-    "dependencies": {
-      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,21": {
-    "value": "\"Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas\\ntem um valor associado a ele por vez. Quando queremos mudar os dados em\\num hash map, temos que decidir como lidar com o caso quando uma chave já possui uma\\nvalor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,\\ndesconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo\\ne ignorar o novo valor, e apenas adicione o novo valor se a chave ainda *não*\\ntem um valor. Ou podemos combinar o valor antigo ao valor novo.\\nVejamos como fazer cada um desses!\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,21,1,0": {
-    "value": "\"Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas\\ntem um valor associado a ele por vez. Quando queremos mudar os dados em\\num hash map, temos que decidir como lidar com o caso quando uma chave já possui uma\\nvalor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,\\ndesconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo\\ne ignorar o novo valor, e apenas adicione o novo valor se a chave ainda *não*\\ntem um valor. Ou podemos combinar o valor antigo ao valor novo.\\nVejamos como fazer cada um desses!\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,22": {
-    "value": "\"Se inserimos uma chave e um valor em um hash map, então  se inserir essa mesma chave com\\num valor diferente, o valor associado a essa chave será substituído. Eembora \\no seguinte código chame `insert` duas vezes, o hash map só conterá\\num par de chave/valor porque inserimos o valor da chave da equipe Blue\\nambas as vezes:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,22,1,0": {
-    "value": "\"Se inserimos uma chave e um valor em um hash map, então  se inserir essa mesma chave com\\num valor diferente, o valor associado a essa chave será substituído. Eembora \\no seguinte código chame `insert` duas vezes, o hash map só conterá\\num par de chave/valor porque inserimos o valor da chave da equipe Blue\\nambas as vezes:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,23,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Blue\\\"), 25);\\n\\nprintln!(\\\"{:?}\\\", scores);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,24": {
-    "value": "\"Isso imprimirá `{\\\"Blue\\\": 25}`. O valor original de 10 foi substituído.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,25": {
-    "value": "\"É comum querer verificar se uma determinada chave tem um valor e, se \\nnão tiver, inserir um valor para ela. Os Hash maps possuem uma API especial para isso, chamada\\n`entry`, que leva a chave que queremos verificar como um argumento. O valor de retorno\\nda função `entry` é um enum, `Entry`, que representa um valor que pode\\nou não existir. Digamos que queremos verificar se a chave para o time Yellow\\ntem um valor associado a ela. Se não tiver, queremos inserir o valor\\n50, e o mesmo para a equipe Blue. Com a API de entrada, o código irá parecer \\ncom:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,25,1,0": {
-    "value": "\"É comum querer verificar se uma determinada chave tem um valor e, se \\nnão tiver, inserir um valor para ela. Os Hash maps possuem uma API especial para isso, chamada\\n`entry`, que leva a chave que queremos verificar como um argumento. O valor de retorno\\nda função `entry` é um enum, `Entry`, que representa um valor que pode\\nou não existir. Digamos que queremos verificar se a chave para o time Yellow\\ntem um valor associado a ela. Se não tiver, queremos inserir o valor\\n50, e o mesmo para a equipe Blue. Com a API de entrada, o código irá parecer \\ncom:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,26,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\n\\nscores.entry(String::from(\\\"Yellow\\\")).or_insert(50);\\nscores.entry(String::from(\\\"Blue\\\")).or_insert(50);\\n\\nprintln!(\\\"{:?}\\\", scores);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,27": {
-    "value": "\"O método `or_insert` em `Entry` retorna o valor para o `Entry` correspondente\\nse a chave existir, e se não, insere seu argumento como o novo valor para\\nesta chave e retorna a `Entry` modificada. Isso é muito mais limpo do que escrever\\na lógica por nós mesmos e, além disso, trabalha-se de forma mais limpa com o borrow checker.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,28": {
-    "value": "\"Este código imprimirá `{\\\"Yellow\\\": 50, \\\"Blue\\\": 10}`. A primeira chamada para `entry`\\nirá inserir a chave para a equipe Yellow com o valor 50, uma vez que o time Yellow\\njá não possua um valor. A segunda chamada para `entry` não vai mudar\\no hash map pois o time Blue já possui o valor 10.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,29": {
-    "value": "\"Outro caso de uso comum para hash maps é procurar o valor de uma chave e, em seguida, atualiza-la\\n, com base no valor antigo. Por exemplo, se quisermos contar quantas vezes\\ncada palavra apareceu em algum texto, podemos usar um hash map com as palavras como chaves\\ne incrementar o valor para acompanhar quantas vezes vimos essa palavra.\\nSe esta é a primeira vez que vimos uma palavra, primeiro inseriremos o valor `0`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,29,1,0": {
-    "value": "\"Outro caso de uso comum para hash maps é procurar o valor de uma chave e, em seguida, atualiza-la\\n, com base no valor antigo. Por exemplo, se quisermos contar quantas vezes\\ncada palavra apareceu em algum texto, podemos usar um hash map com as palavras como chaves\\ne incrementar o valor para acompanhar quantas vezes vimos essa palavra.\\nSe esta é a primeira vez que vimos uma palavra, primeiro inseriremos o valor `0`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,3": {
-    "value": "\"Podemos criar um `HashMap` vazio com `new`, e adicionar elementos com `insert`.\\nAqui, estamos acompanhando as pontuações de duas equipes cujos nomes são Blue e\\nYellow. A equipe blue começará com 10 pontos e a equipe yellow começa com\\n50:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,3,1,0": {
-    "value": "\"Podemos criar um `HashMap` vazio com `new`, e adicionar elementos com `insert`.\\nAqui, estamos acompanhando as pontuações de duas equipes cujos nomes são Blue e\\nYellow. A equipe blue começará com 10 pontos e a equipe yellow começa com\\n50:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,30,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet text = \\\"hello world wonderful world\\\";\\n\\nlet mut map = HashMap::new();\\n\\nfor word in text.split_whitespace() {\\n    let count = map.entry(word).or_insert(0);\\n    *count += 1;\\n}\\n\\nprintln!(\\\"{:?}\\\", map);\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,31": {
-    "value": "\"Isso imprimirá `{\\\"world\\\": 2, \\\"hello\\\": 1, \\\"wonderful\\\": 1}`. O método `or_insert`\\nna verdade retorna uma referência mutável (`\u0026 mutV`) para o valor desta\\nchave. Aqui nós armazenamos essa referência mutável na variável `count`, então, \\npara poder atribuir esse valor, devemos primeiro desreferenciar `count` usando o asterisco\\n(`*`). A referência mutável fica fora do escopo no final do loop `for`, então\\ntodas essas mudanças são seguras e permitidas pelas regras de borrow.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,32": {
-    "value": "\"Por padrão, `HashMap` usa uma função de hashing criptográficamente segura que pode\\nfornecer resistência aos ataques de Negação de Serviço (DoS). Este não é o algoritmo \\nmais rápido de hashing por aí, mas a compensação por uma melhor segurança que vem\\ncom a queda na performance vale a pena. Se você testar a velocidade do seu código e encontrar\\nque a função de hash padrão é muito lenta para seus propósitos, você pode mudar para\\noutra função especificando um *hasher* diferente. Um hasher é um tipo que\\nimplementa a trait `BuildHasher`. Vamos falar sobre traits e como\\nimplementá-los no Capítulo 10. Você não precisa necessariamente implementar o seu próprio\\nhasher do zero; crates.io tem bibliotecas de hashers de uso comum que \\noutras pessoas compartilharam lá.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,32,1,0": {
-    "value": "\"Por padrão, `HashMap` usa uma função de hashing criptográficamente segura que pode\\nfornecer resistência aos ataques de Negação de Serviço (DoS). Este não é o algoritmo \\nmais rápido de hashing por aí, mas a compensação por uma melhor segurança que vem\\ncom a queda na performance vale a pena. Se você testar a velocidade do seu código e encontrar\\nque a função de hash padrão é muito lenta para seus propósitos, você pode mudar para\\noutra função especificando um *hasher* diferente. Um hasher é um tipo que\\nimplementa a trait `BuildHasher`. Vamos falar sobre traits e como\\nimplementá-los no Capítulo 10. Você não precisa necessariamente implementar o seu próprio\\nhasher do zero; crates.io tem bibliotecas de hashers de uso comum que \\noutras pessoas compartilharam lá.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,33": {
-    "value": "\"Vetores, strings e hash maps irão levá-lo longe em programas onde você precisa\\narmazenar, acessar e modificar dados. Aqui estão alguns exercícios que você deve estar\\ncapacitado para resolver:\\n\\n\\n* Dada uma lista de inteiros, use um vetor e retorne a média, a mediana\\n   (quando classificado, o valor na posição do meio) e modo (o valor que\\n   ocorre com mais frequência; um hash map será útil aqui) da lista.\\n* Converta strings para Pig Latin, onde a primeira consoante de cada palavra é movida\\n   para o final da palavra adicionado um \\\"ay\\\" , então “first” se torna “irst-fay”.\\n   Palavras que começam com uma vogal recebem “hay” adicionado ao final (“apple”\\n   torna-se “apple-hay”). Lembre-se sobre a codificação UTF-8!\\n* Usando um hash map e vetores, crie uma interface de texto para permitir que um usuário adicione\\n   nomes de funcionários para um departamento da empresa. Por exemplo, “Add Sally to\\n   Engineering” ou “Add Amir to Sales”. Em seguida, deixe o usuário recuperar uma lista de todas\\n   as pessoas de um departamento ou todas as pessoas na empresa por departamento, ordenadas\\n   alfabeticamente.\\n\\nA documentação da API da biblioteca padrão descreve métodos que esses tipos possuem\\nque será útil para esses exercícios!\\n\\nEstamos entrando em programas mais complexos onde as operações podem falhar, o que significa\\nque é um momento perfeito para passar pelo tratamento de erros em seguida!\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,33,1,0": {
-    "value": "\"Vetores, strings e hash maps irão levá-lo longe em programas onde você precisa\\narmazenar, acessar e modificar dados. Aqui estão alguns exercícios que você deve estar\\ncapacitado para resolver:\\n\\n\\n* Dada uma lista de inteiros, use um vetor e retorne a média, a mediana\\n   (quando classificado, o valor na posição do meio) e modo (o valor que\\n   ocorre com mais frequência; um hash map será útil aqui) da lista.\\n* Converta strings para Pig Latin, onde a primeira consoante de cada palavra é movida\\n   para o final da palavra adicionado um \\\"ay\\\" , então “first” se torna “irst-fay”.\\n   Palavras que começam com uma vogal recebem “hay” adicionado ao final (“apple”\\n   torna-se “apple-hay”). Lembre-se sobre a codificação UTF-8!\\n* Usando um hash map e vetores, crie uma interface de texto para permitir que um usuário adicione\\n   nomes de funcionários para um departamento da empresa. Por exemplo, “Add Sally to\\n   Engineering” ou “Add Amir to Sales”. Em seguida, deixe o usuário recuperar uma lista de todas\\n   as pessoas de um departamento ou todas as pessoas na empresa por departamento, ordenadas\\n   alfabeticamente.\\n\\nA documentação da API da biblioteca padrão descreve métodos que esses tipos possuem\\nque será útil para esses exercícios!\\n\\nEstamos entrando em programas mais complexos onde as operações podem falhar, o que significa\\nque é um momento perfeito para passar pelo tratamento de erros em seguida!\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,4,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet mut scores = HashMap::new();\\n\\nscores.insert(String::from(\\\"Blue\\\"), 10);\\nscores.insert(String::from(\\\"Yellow\\\"), 50);\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,5": {
-    "value": "\"Observe que precisamos primeiro `use` o `HashMap` da parte de coleções da\\nbiblioteca padrão. De nossas três coleções comuns, esta é a de menor\\nfrequencia de uso, por isso não está inclusa nos recursos importados automaticamente no\\nprelúdio. Os Hash maps também têm menos suporte da biblioteca padrão; não há\\nmacro embutida para construí-los, por exemplo.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,6": {
-    "value": "\"Assim como os vetores, os mapas hash armazenam seus dados no heap. Este `HashMap` tem\\nchaves do tipo `String` e valores do tipo `i32`. Como vetores, os hash maps são\\nhomogêneos: todas as chaves devem ter o mesmo tipo e todos os valores\\ndevem ter o mesmo tipo.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,7": {
-    "value": "\"Outra maneira de construir um hash map é usando o método `collect` em um\\nvetor de tuplas, onde cada tupla consiste de uma chave e seu valor. O \\nmétodo `collect` reúne dados em vários tipos de coleção, incluindo\\n`HashMap`. Por exemplo, se tivéssemos os nomes das equipes e as pontuações iniciais em dois\\nvetores separados, podemos usar o método `zip` para criar um vetor de tuplas\\nonde “Blue” é emparelhado com 10, e assim por diante. Então podemos usar o método `collect`\\npara transformar esse vetor de tuplas em um `HashMap`:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,8,0": {
-    "value": "\"use std::collections::HashMap;\\n\\nlet teams  = vec![String::from(\\\"Blue\\\"), String::from(\\\"Yellow\\\")];\\nlet initial_scores = vec![10, 50];\\n\\nlet scores: HashMap\u003C_, _\u003E = teams.iter().zip(initial_scores.iter()).collect();\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#body@0,9": {
-    "value": "\"A anotação de tipo `HashMap \u003C_, _\u003E` é necessária aqui porque é possível\\n`collect` em muitas estruturas de dados diferentes, e Rust não sabe qual você\\ndeseja, a menos que você especifique. Para os parâmetros de tipo, para os tipos de chave e valor,\\nno entanto, usamos underscores e Rust pode inferir os tipos que o hash map\\ncontém com base nos tipos de dados no vetor.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,20,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,26,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,10": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,14": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,21": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,22": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,25": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,29": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,32": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#open@0,33": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,10": {
-    "value": "\"Hash Maps e Ownership\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,14": {
-    "value": "\"Acessando Valores em um Hash Map\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,2": {
-    "value": "\"Hash Maps\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,21": {
-    "value": "\"Atualizando um Hash Map\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,22": {
-    "value": "\"Sobrescrevendo um Valor\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,25": {
-    "value": "\"Insira Apenas se a Chave Não Possui Valor\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,29": {
-    "value": "\"Atualize um Valor com Base no Valor Antigo\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,3": {
-    "value": "\"Criando um novo Hash Map\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,32": {
-    "value": "\"Funções Hashing\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch08-03-hash-maps#title@0,33": {
-    "value": "\"Sumário\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1022,7 +1022,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1219,7 +1219,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="hash-maps" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hash Maps</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="hash-maps" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hash Maps</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A última das nossas coleções comuns é o <em>hash map</em>. O tipo <code>HashMap &lt;K, V&gt;</code>
 armazena um mapeamento de chaves do tipo <code>K</code> para valores do tipo<code> V</code>. Ele faz isso através de um
 <em>hashing function</em>, que determina como ele coloca essas chaves e valores em
@@ -1238,7 +1238,7 @@ mais coisas escondidas nas funções definidas no <code>HashMap</code> pela bibl
 padrão. Como sempre, verifique a documentação da biblioteca padrão para mais
 informação.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-novo-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um novo Hash Map</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-novo-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um novo Hash Map</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Podemos criar um <code>HashMap</code> vazio com <code>new</code>, e adicionar elementos com <code>insert</code>. Aqui, estamos acompanhando as pontuações de duas equipes cujos nomes são Blue e Yellow. A equipe blue começará com 10 pontos e a equipe yellow começa com 50:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1278,7 +1278,7 @@ informação.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A anotação de tipo <code>HashMap &lt;_, _&gt;</code> é necessária aqui porque é possível <code>collect</code> em muitas estruturas de dados diferentes, e Rust não sabe qual você deseja, a menos que você especifique. Para os parâmetros de tipo, para os tipos de chave e valor, no entanto, usamos underscores e Rust pode inferir os tipos que o hash map contém com base nos tipos de dados no vetor.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="hash-maps-e-ownership" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hash Maps e Ownership</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="hash-maps-e-ownership" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Hash Maps e Ownership</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para os tipos que implementam a <code>Copy</code> trait, como <code>i32</code>, os valores são copiados no hash map. Para valores owned como <code>String</code>, os valores serão movidos e o hash map será o owner desses valores:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1303,7 +1303,7 @@ informação.</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Não poderíamos usar as ligações <code>field_name</code> e<code> field_value</code> depois que foram transferidos para o hash map com a chamada para <code>insert</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Se inserimos referências a valores no hash map, os próprios valores não serão movido para o hash map. Os valores que as referências apontam devem ser válido pelo menos enquanto o hash map seja válido, no entanto. Falaremos mais sobre esses problemas na seção Lifetimes do Capítulo 10.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="acessando-valores-em-um-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,14&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Acessando Valores em um Hash Map</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="acessando-valores-em-um-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,14&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Acessando Valores em um Hash Map</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Podemos obter um valor do hash map fornecendo a chave para o método <code>get</code>:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1365,9 +1365,9 @@ informação.</p>
 </span><span style="color:#323232;">Blue: 10
 </span></pre>
 </div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="atualizando-um-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Atualizando um Hash Map</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="atualizando-um-hash-map" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Atualizando um Hash Map</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas tem um valor associado a ele por vez. Quando queremos mudar os dados em um hash map, temos que decidir como lidar com o caso quando uma chave já possui uma valor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor, desconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo e ignorar o novo valor, e apenas adicione o novo valor se a chave ainda <em>não</em> tem um valor. Ou podemos combinar o valor antigo ao valor novo. Vejamos como fazer cada um desses!</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="sobrescrevendo-um-valor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Sobrescrevendo um Valor</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="sobrescrevendo-um-valor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Sobrescrevendo um Valor</div>
 <div data-id="inner:0,0,0,1,3,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Se inserimos uma chave e um valor em um hash map, então  se inserir essa mesma chave com um valor diferente, o valor associado a essa chave será substituído. Eembora o seguinte código chame <code>insert</code> duas vezes, o hash map só conterá um par de chave/valor porque inserimos o valor da chave da equipe Blue ambas as vezes:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" data-id="0,0,0,1,3,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,3,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1391,7 +1391,7 @@ informação.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" data-id="0,0,0,1,3,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Isso imprimirá <code>{&quot;Blue&quot;: 25}</code>. O valor original de 10 foi substituído.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="insira-apenas-se-a-chave-nao-possui-valor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Insira Apenas se a Chave Não Possui Valor</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="insira-apenas-se-a-chave-nao-possui-valor" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Insira Apenas se a Chave Não Possui Valor</div>
 <div data-id="inner:0,0,0,1,3,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">É comum querer verificar se uma determinada chave tem um valor e, se não tiver, inserir um valor para ela. Os Hash maps possuem uma API especial para isso, chamada <code>entry</code>, que leva a chave que queremos verificar como um argumento. O valor de retorno da função <code>entry</code> é um enum, <code>Entry</code>, que representa um valor que pode ou não existir. Digamos que queremos verificar se a chave para o time Yellow tem um valor associado a ela. Se não tiver, queremos inserir o valor 50, e o mesmo para a equipe Blue. Com a API de entrada, o código irá parecer com:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" data-id="0,0,0,1,3,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,3,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1418,7 +1418,7 @@ informação.</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" data-id="0,0,0,1,3,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O método <code>or_insert</code> em <code>Entry</code> retorna o valor para o <code>Entry</code> correspondente se a chave existir, e se não, insere seu argumento como o novo valor para esta chave e retorna a <code>Entry</code> modificada. Isso é muito mais limpo do que escrever a lógica por nós mesmos e, além disso, trabalha-se de forma mais limpa com o borrow checker.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" data-id="0,0,0,1,3,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Este código imprimirá <code>{&quot;Yellow&quot;: 50, &quot;Blue&quot;: 10}</code>. A primeira chamada para <code>entry</code> irá inserir a chave para a equipe Yellow com o valor 50, uma vez que o time Yellow já não possua um valor. A segunda chamada para <code>entry</code> não vai mudar o hash map pois o time Blue já possui o valor 10.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="atualize-um-valor-com-base-no-valor-antigo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,29&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Atualize um Valor com Base no Valor Antigo</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" id="atualize-um-valor-com-base-no-valor-antigo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,29&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Atualize um Valor com Base no Valor Antigo</div>
 <div data-id="inner:0,0,0,1,3,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Outro caso de uso comum para hash maps é procurar o valor de uma chave e, em seguida, atualiza-la , com base no valor antigo. Por exemplo, se quisermos contar quantas vezes cada palavra apareceu em algum texto, podemos usar um hash map com as palavras como chaves e incrementar o valor para acompanhar quantas vezes vimos essa palavra. Se esta é a primeira vez que vimos uma palavra, primeiro inseriremos o valor <code>0</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" data-id="0,0,0,1,3,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,3,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::collections::HashMap;
@@ -1450,9 +1450,9 @@ informação.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" data-id="0,0,0,1,3,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3.inner-external:0,0,0,1,3,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Isso imprimirá <code>{&quot;world&quot;: 2, &quot;hello&quot;: 1, &quot;wonderful&quot;: 1}</code>. O método <code>or_insert</code> na verdade retorna uma referência mutável (<code>&amp; mutV</code>) para o valor desta chave. Aqui nós armazenamos essa referência mutável na variável <code>count</code>, então, para poder atribuir esse valor, devemos primeiro desreferenciar <code>count</code> usando o asterisco (<code>*</code>). A referência mutável fica fora do escopo no final do loop <code>for</code>, então todas essas mudanças são seguras e permitidas pelas regras de borrow.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="funcoes-hashing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,32&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Funções Hashing</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="funcoes-hashing" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,32&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Funções Hashing</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Por padrão, <code>HashMap</code> usa uma função de hashing criptográficamente segura que pode fornecer resistência aos ataques de Negação de Serviço (DoS). Este não é o algoritmo mais rápido de hashing por aí, mas a compensação por uma melhor segurança que vem com a queda na performance vale a pena. Se você testar a velocidade do seu código e encontrar que a função de hash padrão é muito lenta para seus propósitos, você pode mudar para outra função especificando um <em>hasher</em> diferente. Um hasher é um tipo que implementa a trait <code>BuildHasher</code>. Vamos falar sobre traits e como implementá-los no Capítulo 10. Você não precisa necessariamente implementar o seu próprio hasher do zero; crates.io tem bibliotecas de hashers de uso comum que outras pessoas compartilharam lá.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="sumario" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch08-03-hash-maps#open@0,33&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sumário</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="sumario" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch08-03-hash-maps#open@0,33&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Sumário</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vetores, strings e hash maps irão levá-lo longe em programas onde você precisa
 armazenar, acessar e modificar dados. Aqui estão alguns exercícios que você deve estar
 capacitado para resolver:</p>

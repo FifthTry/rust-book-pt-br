@@ -12,6 +12,528 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,10": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-16: Definindo apenas o suficiente da função `search`\\npara que nosso teste compile\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,11": {
+    "value": "\"Observe que precisamos de uma lifetime explícita `'a` definida na assinatura do\\n`search` e usada com o argumento `contents` e o valor de retorno. Lembre-se no\\nCapítulo 10 que os parâmetros de lifetime especificam qual o lifetime do argumento\\nconectado ao lifetime do valor de retorno. Neste caso, indicamos que\\no vetor retornado deve conter pedaços de string que fazem referência a pedaços do\\nargumento `contents` (em vez do argumento `query`).\"",
+    "dependencies": {
+      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,12": {
+    "value": "\"Em outras palavras, dizemos ao Rust que os dados retornados pela função `search`\\nirá viver enquanto os dados passarem para a função `search` no\\nargumento de `contents`. Isso é importante! Os dados referenciados *por* um pedaço precisa\\nser válido para que a referência seja válida; se o compilador assume que estamos fazendo\\npedaços de string de `query` em vez de `contents`, ele fará sua verificação de segurança\\nincorretamente.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,13": {
+    "value": "\"Se esquecermos as anotações de lifetime e tentarmos compilar esta função, iremos\\nobter este erro:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,14,0": {
+    "value": "\"error lifetime specifier\\n --\u003E src/lib.rs:5:51\\n  |\\n5 | pub fn search(query: \u0026str, contents: \u0026str) -\u003E Vec\u003C\u0026str\u003E {\\n  |                                                   ^ expected lifetime\\nparameter\\n  |\\n  = help: this function's return type contains a borrowed value, but the\\n  signature does not say whether it is borrowed from `query` or `contents`\"",
+    "dependencies": {
+      "0,0,0,1,0,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,15": {
+    "value": "\"Rust não consegue saber qual dos dois argumentos que precisamos, então precisamos informar\\nisto. Porque `contents` é o argumento que contém todo o nosso texto e nós\\nqueremos retornar as partes desse texto que combinam, sabemos que o `contents` é o\\nargumento que deve ser conectado ao valor de retorno usando a sintaxe de lifetime.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,16": {
+    "value": "\"Outras linguagens de programação não exigem que você conecte argumentos para retornar\\nvalores na assinatura, por isso, embora isso possa parecer estranho, ele ficará\\nmais fácil ao longo do tempo. Você pode querer comparar este exemplo com a seção “Validando\\nReferências com Lifetimes” no Capítulo 10.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,17": {
+    "value": "\"Agora vamos executar o teste:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,18,0": {
+    "value": "\"$ cargo test\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n--warnings--\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs\\n     Running target/debug/deps/minigrep-abcabcabc\\n\\nrunning 1 test\\ntest test::one_result ... FAILED\\n\\nfailures:\\n\\n---- test::one_result stdout ----\\n        thread 'test::one_result' panicked at 'assertion failed: `(left ==\\nright)`\\nleft: `[\\\"safe, fast, productive.\\\"]`,\\nright: `[]`)', src/lib.rs:48:8\\nnote: Run with `RUST_BACKTRACE=1` for a backtrace.\\n\\n\\nfailures:\\n    test::one_result\\n\\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out\\n\\nerror: test failed, to rerun pass '--lib'\"",
+    "dependencies": {
+      "0,0,0,1,0,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,19": {
+    "value": "\"Ótimo, o teste falha, exatamente como esperávamos. Vamos fazer o teste passar!\"",
+    "dependencies": {
+      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,2": {
+    "value": "\"Agora que extraímos a lógica em *src/lib.rs* e deixamos o argumento de\\ncoleta e tratamento de erros em *src/main.rs*, é muito mais fácil escrever testes\\npara nosso código da funcionalidade principal. Podemos chamar funções diretamente com\\nvários argumentos e verificar valores de retorno sem ter que chamar o nosso binário\\nda linha de comando. Sinta-se livre para escrever alguns testes para \\nas funções `Config::new` e `run` por sua conta.\\n\\nNesta seção, adicionaremos a lógica de busca ao programa `minigrep`\\nusando o processo Desenvolvimento Guiado por Testes (Test Driven Development (TDD)). \\nNessa técnica de desenvolvimento de software, segue estas etapas:\\n\\n1. Escreva um teste que falha e execute-o, para certificar-se de que ele falha pelo motivo \\n    esperado por você.\\n2. Escreva ou modifique o código apenas o suficiente para fazer passar no teste.\\n3. Refatore o código que você acabou de adicionar ou alterou e certifique-se de que os testes\\n    continuam a passar.\\n4. Repita a partir do passo 1!\\n\\nEste processo é apenas uma das muitas maneiras de escrever software, mas o TDD pode ajudar a conduzir\\ndesign de código também. Escrevendo o teste antes de escrever o código que faz o\\nteste passar, ajuda a manter uma alta cobertura de teste ao longo do processo.\\n\\nTestaremos a implementação da funcionalidade que realmente fará\\na busca da string de consulta no conteúdo do arquivo, e produzir uma lista de\\nlinhas que correspondem à consulta. Vamos adicionar essa funcionalidade em uma função chamada\\n`search`.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,2,1,0": {
+    "value": "\"Agora que extraímos a lógica em *src/lib.rs* e deixamos o argumento de\\ncoleta e tratamento de erros em *src/main.rs*, é muito mais fácil escrever testes\\npara nosso código da funcionalidade principal. Podemos chamar funções diretamente com\\nvários argumentos e verificar valores de retorno sem ter que chamar o nosso binário\\nda linha de comando. Sinta-se livre para escrever alguns testes para \\nas funções `Config::new` e `run` por sua conta.\\n\\nNesta seção, adicionaremos a lógica de busca ao programa `minigrep`\\nusando o processo Desenvolvimento Guiado por Testes (Test Driven Development (TDD)). \\nNessa técnica de desenvolvimento de software, segue estas etapas:\\n\\n1. Escreva um teste que falha e execute-o, para certificar-se de que ele falha pelo motivo \\n    esperado por você.\\n2. Escreva ou modifique o código apenas o suficiente para fazer passar no teste.\\n3. Refatore o código que você acabou de adicionar ou alterou e certifique-se de que os testes\\n    continuam a passar.\\n4. Repita a partir do passo 1!\\n\\nEste processo é apenas uma das muitas maneiras de escrever software, mas o TDD pode ajudar a conduzir\\ndesign de código também. Escrevendo o teste antes de escrever o código que faz o\\nteste passar, ajuda a manter uma alta cobertura de teste ao longo do processo.\\n\\nTestaremos a implementação da funcionalidade que realmente fará\\na busca da string de consulta no conteúdo do arquivo, e produzir uma lista de\\nlinhas que correspondem à consulta. Vamos adicionar essa funcionalidade em uma função chamada\\n`search`.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,20": {
+    "value": "\"Atualmente, nosso teste está falhando porque sempre devolvemos um vetor vazio. Para consertar \\nisso é preciso implementar `search`, nosso programa precisa seguir essas etapas:\\n\\n* Iterar através de cada linha do conteúdo.\\n* Verificar se a linha contém nossa string de consulta.\\n* Se a tiver, adicione-a à lista de valores que estamos retornando.\\n* Se não, não faça nada.\\n* Retorna a lista de resultados que correspondem.\\n\\nVamos trabalhar em cada passo, começando por iterar através de linhas.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,20,1,0": {
+    "value": "\"Atualmente, nosso teste está falhando porque sempre devolvemos um vetor vazio. Para consertar \\nisso é preciso implementar `search`, nosso programa precisa seguir essas etapas:\\n\\n* Iterar através de cada linha do conteúdo.\\n* Verificar se a linha contém nossa string de consulta.\\n* Se a tiver, adicione-a à lista de valores que estamos retornando.\\n* Se não, não faça nada.\\n* Retorna a lista de resultados que correspondem.\\n\\nVamos trabalhar em cada passo, começando por iterar através de linhas.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,21": {
+    "value": "\"Rust tem um método útil para lidar com a iteração linha-a-linha de strings,\\nconvenientemente chamado `lines`, que funciona como mostrado na Listagem 12-17. Observe que isso\\nainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,21,1,0": {
+    "value": "\"Rust tem um método útil para lidar com a iteração linha-a-linha de strings,\\nconvenientemente chamado `lines`, que funciona como mostrado na Listagem 12-17. Observe que isso\\nainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,22,0": {
+    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    for line in contents.lines() {\\n        // faça algo com line\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,23": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-17: Iterando para cada linha em `contents`\\n\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,24": {
+    "value": "\"O método `lines` retorna um iterador. Vamos falar sobre iteradores em profundidade no\\nCapítulo 13, mas lembre-se de que você viu essa maneira de usar um iterador na Listagem\\n3-4, onde usamos um loop `for` com um iterador para executar algum código em cada item\\nde uma coleção.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,25": {
+    "value": "\"Em seguida, verificamos se a linha atual contém nossa string de consulta.\\nFelizmente, as strings possuem um método útil chamado `contains` que faz isso para\\nnós! Adicione uma chamada ao método `contains` na função `search`, conforme mostrado na\\nListagem 12-18. Observe que isso ainda não compilará ainda:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,25,1,0": {
+    "value": "\"Em seguida, verificamos se a linha atual contém nossa string de consulta.\\nFelizmente, as strings possuem um método útil chamado `contains` que faz isso para\\nnós! Adicione uma chamada ao método `contains` na função `search`, conforme mostrado na\\nListagem 12-18. Observe que isso ainda não compilará ainda:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,26,0": {
+    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    for line in contents.lines() {\\n        if line.contains(query) {\\n            // do something with line\\n        }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-18: Adicionando funcionalidade para ver se\\na linha contém a string na `query`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,28": {
+    "value": "\"Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,\\npodemos fazer um vetor mutável antes do loop `for` e chamar o método `push`\\npara armazenar uma `line` no vetor. Após o loop `for`, devolvemos o vetor, como\\nmostrado na Listagem 12-19:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,28,1,0": {
+    "value": "\"Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,\\npodemos fazer um vetor mutável antes do loop `for` e chamar o método `push`\\npara armazenar uma `line` no vetor. Após o loop `for`, devolvemos o vetor, como\\nmostrado na Listagem 12-19:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,29,0": {
+    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    let mut results = Vec::new();\\n\\n    for line in contents.lines() {\\n        if line.contains(query) {\\n            results.push(line);\\n        }\\n    }\\n\\n    results\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,3": {
+    "value": "\"Porque não precisamos mais deles, vamos remover as instruções `println!` de\\n*src/lib.rs* e *src/main.rs* que costumávamos verificar o comportamento do programa.\\nEntão, em *src/lib.rs*, adicionaremos um módulo `test` com uma função de teste, como nós\\nfizemos no Capítulo 11. A função de teste especifica o comportamento que queremos\\npara a função `search` tenha: receberá os parâmetros da consulta e o texto para realizar a\\nconsulta, e retornará apenas as linhas do texto que contém a consulta.\\nA Listagem 12-15 mostra esse teste, que ainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,3,1,0": {
+    "value": "\"Porque não precisamos mais deles, vamos remover as instruções `println!` de\\n*src/lib.rs* e *src/main.rs* que costumávamos verificar o comportamento do programa.\\nEntão, em *src/lib.rs*, adicionaremos um módulo `test` com uma função de teste, como nós\\nfizemos no Capítulo 11. A função de teste especifica o comportamento que queremos\\npara a função `search` tenha: receberá os parâmetros da consulta e o texto para realizar a\\nconsulta, e retornará apenas as linhas do texto que contém a consulta.\\nA Listagem 12-15 mostra esse teste, que ainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,30": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-19: Armazenando as linhas que combinam para que possamos\\ndevolvê-las\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,31": {
+    "value": "\"Agora, a função `search` deve retornar apenas as linhas que contêm` query`,\\ne nosso teste deve passar. Vamos executar o teste:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,32,0": {
+    "value": "\"$ cargo test\\n--snip--\\nrunning 1 test\\ntest test::one_result ... ok\\n\\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,33": {
+    "value": "\"Nosso teste passou, então sabemos que funciona!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,34": {
+    "value": "\"Neste ponto, poderíamos considerar oportunidades de refatorar\\na implementação da função de pesquisa, mantendo os testes passando para\\na mesma funcionalidade. O código na função de pesquisa não é muito ruim,\\nmas não tira proveito de algumas características úteis dos iteradores. Iremos\\nvoltar para este exemplo no Capítulo 13, onde exploraremos iteradores em detalhes\\ne veremos como melhorá-lo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,35": {
+    "value": "\"Agora que a função `search` está funcionando e testada, precisamos chamar `search`\\nda nossa função `run`. Precisamos passar o valor `config.query` e o \\n`contents` que `run` lê do arquivo para a função `search`. Então, `run`\\nirá imprimir cada linha retornada de `search`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,35,1,0": {
+    "value": "\"Agora que a função `search` está funcionando e testada, precisamos chamar `search`\\nda nossa função `run`. Precisamos passar o valor `config.query` e o \\n`contents` que `run` lê do arquivo para a função `search`. Então, `run`\\nirá imprimir cada linha retornada de `search`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,36,0": {
+    "value": "\"pub fn run(config: Config) -\u003E Result\u003C(), Box\u003CError\u003E\u003E {\\n    let mut f = File::open(config.filename)?;\\n\\n    let mut contents = String::new();\\n    f.read_to_string(\u0026mut contents)?;\\n\\n    for line in search(\u0026config.query, \u0026contents) {\\n        println!(\\\"{}\\\", line);\\n    }\\n\\n    Ok(())\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,37": {
+    "value": "\"Ainda estamos usando um loop `for` para retornar cada linha de `search` e imprimi-lo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,38": {
+    "value": "\"Agora, todo o programa deve funcionar! Vamos tentar, primeiro, com uma palavra que\\ndeve retornar exatamente uma linha do poema de Emily Dickinson, “frog”:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,39,0": {
+    "value": "\"$ cargo run frog poem.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.38 secs\\n     Running `target/debug/minigrep frog poem.txt`\\nHow public, like a frog\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,4,0": {
+    "value": "\"# fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n#[cfg(test)]\\nmod test {\\n    use super::*;\\n\\n    #[test]\\n    fn one_result() {\\n        let query = \\\"duct\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"safe, fast, productive.\\\"],\\n            search(query, contents)\\n        );\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,40": {
+    "value": "\"Legal! Agora vamos tentar uma palavra que combine várias linhas, como “body”:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,41,0": {
+    "value": "\"$ cargo run body poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep body poem.txt`\\nI’m nobody! Who are you?\\nAre you nobody, too?\\nHow dreary to be somebody!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,42": {
+    "value": "\"E, finalmente, vamos nos certificar de que não recebemos nenhuma linha quando buscamos uma\\npalavra que não está em qualquer lugar no poema, como “monomorphization”:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,43,0": {
+    "value": "\"$ cargo run monomorphization poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep monomorphization poem.txt`\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,44": {
+    "value": "\"Excelente! Nós construímos nossa própria mini versão de uma ferramenta clássica e aprendemos muito\\nsobre como estruturar aplicativos. Também aprendemos um pouco sobre a entrada de arquivos\\ne saída, lifetimes, teste e análise de linha de comando.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,45": {
+    "value": "\"Para completar este projeto, brevemente demonstraremos como trabalhar com\\nvariáveis de ambiente e como imprimir em erro padrão, ambos\\núteis quando você está escrevendo programas de linha de comando.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-15: Criando um teste de falha para a função `search`\\nque desejamos ter\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,6": {
+    "value": "\"Este teste procura a string “duct”. O texto que estamos procurando contém três\\nlinhas, apenas uma das quais contém “duct.” Afirmamos que o valor retornado\\na partir da função `search` contém apenas a linha que esperamos.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,7": {
+    "value": "\"Não somos capazes de executar este teste e vê-lo falhar porque o teste nem mesmo\\ncompila: a função `search` ainda não existe! Então, agora vamos adicionar código apenas o suficiente\\npara obter a compilação do teste, e executar, adicionando uma definição da função `search`\\nque sempre retorna um vetor vazio, como mostrado na Listagem 12-16. Então\\no teste deve compilar e falhar porque um vetor vazio não corresponde a um vetor\\ncontendo a linha `\\\"safe, fast, productive.\\\"`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,8": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#body@0,9,0": {
+    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    vec![]\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,14,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,22,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,26,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,29,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,32,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,36,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,39,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,41,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,43,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#caption@0,9,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,20": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,21": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,25": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,28": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,35": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,2": {
+    "value": "\"Desenvolvendo a Biblioteca de Funcionalidades com Desenvolvimento Guiado por Testes\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,20": {
+    "value": "\"Escrevendo Código para Passar no Teste\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,21": {
+    "value": "\"Iterar Através de Linhas com o Método `lines`\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,25": {
+    "value": "\"Pesquisando Cada Linha para a Consulta\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,28": {
+    "value": "\"Armazenamento de Linhas Correspondentes\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,3": {
+    "value": "\"Escrevendo um Teste de Falha\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#title@0,35": {
+    "value": "\"Usando a Função `search` na Função` run`\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -307,528 +829,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,10": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-16: Definindo apenas o suficiente da função `search`\\npara que nosso teste compile\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,11": {
-    "value": "\"Observe que precisamos de uma lifetime explícita `'a` definida na assinatura do\\n`search` e usada com o argumento `contents` e o valor de retorno. Lembre-se no\\nCapítulo 10 que os parâmetros de lifetime especificam qual o lifetime do argumento\\nconectado ao lifetime do valor de retorno. Neste caso, indicamos que\\no vetor retornado deve conter pedaços de string que fazem referência a pedaços do\\nargumento `contents` (em vez do argumento `query`).\"",
-    "dependencies": {
-      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,12": {
-    "value": "\"Em outras palavras, dizemos ao Rust que os dados retornados pela função `search`\\nirá viver enquanto os dados passarem para a função `search` no\\nargumento de `contents`. Isso é importante! Os dados referenciados *por* um pedaço precisa\\nser válido para que a referência seja válida; se o compilador assume que estamos fazendo\\npedaços de string de `query` em vez de `contents`, ele fará sua verificação de segurança\\nincorretamente.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,13": {
-    "value": "\"Se esquecermos as anotações de lifetime e tentarmos compilar esta função, iremos\\nobter este erro:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,14,0": {
-    "value": "\"error lifetime specifier\\n --\u003E src/lib.rs:5:51\\n  |\\n5 | pub fn search(query: \u0026str, contents: \u0026str) -\u003E Vec\u003C\u0026str\u003E {\\n  |                                                   ^ expected lifetime\\nparameter\\n  |\\n  = help: this function's return type contains a borrowed value, but the\\n  signature does not say whether it is borrowed from `query` or `contents`\"",
-    "dependencies": {
-      "0,0,0,1,0,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,15": {
-    "value": "\"Rust não consegue saber qual dos dois argumentos que precisamos, então precisamos informar\\nisto. Porque `contents` é o argumento que contém todo o nosso texto e nós\\nqueremos retornar as partes desse texto que combinam, sabemos que o `contents` é o\\nargumento que deve ser conectado ao valor de retorno usando a sintaxe de lifetime.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,16": {
-    "value": "\"Outras linguagens de programação não exigem que você conecte argumentos para retornar\\nvalores na assinatura, por isso, embora isso possa parecer estranho, ele ficará\\nmais fácil ao longo do tempo. Você pode querer comparar este exemplo com a seção “Validando\\nReferências com Lifetimes” no Capítulo 10.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,17": {
-    "value": "\"Agora vamos executar o teste:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,18,0": {
-    "value": "\"$ cargo test\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n--warnings--\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs\\n     Running target/debug/deps/minigrep-abcabcabc\\n\\nrunning 1 test\\ntest test::one_result ... FAILED\\n\\nfailures:\\n\\n---- test::one_result stdout ----\\n        thread 'test::one_result' panicked at 'assertion failed: `(left ==\\nright)`\\nleft: `[\\\"safe, fast, productive.\\\"]`,\\nright: `[]`)', src/lib.rs:48:8\\nnote: Run with `RUST_BACKTRACE=1` for a backtrace.\\n\\n\\nfailures:\\n    test::one_result\\n\\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out\\n\\nerror: test failed, to rerun pass '--lib'\"",
-    "dependencies": {
-      "0,0,0,1,0,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,19": {
-    "value": "\"Ótimo, o teste falha, exatamente como esperávamos. Vamos fazer o teste passar!\"",
-    "dependencies": {
-      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,2": {
-    "value": "\"Agora que extraímos a lógica em *src/lib.rs* e deixamos o argumento de\\ncoleta e tratamento de erros em *src/main.rs*, é muito mais fácil escrever testes\\npara nosso código da funcionalidade principal. Podemos chamar funções diretamente com\\nvários argumentos e verificar valores de retorno sem ter que chamar o nosso binário\\nda linha de comando. Sinta-se livre para escrever alguns testes para \\nas funções `Config::new` e `run` por sua conta.\\n\\nNesta seção, adicionaremos a lógica de busca ao programa `minigrep`\\nusando o processo Desenvolvimento Guiado por Testes (Test Driven Development (TDD)). \\nNessa técnica de desenvolvimento de software, segue estas etapas:\\n\\n1. Escreva um teste que falha e execute-o, para certificar-se de que ele falha pelo motivo \\n    esperado por você.\\n2. Escreva ou modifique o código apenas o suficiente para fazer passar no teste.\\n3. Refatore o código que você acabou de adicionar ou alterou e certifique-se de que os testes\\n    continuam a passar.\\n4. Repita a partir do passo 1!\\n\\nEste processo é apenas uma das muitas maneiras de escrever software, mas o TDD pode ajudar a conduzir\\ndesign de código também. Escrevendo o teste antes de escrever o código que faz o\\nteste passar, ajuda a manter uma alta cobertura de teste ao longo do processo.\\n\\nTestaremos a implementação da funcionalidade que realmente fará\\na busca da string de consulta no conteúdo do arquivo, e produzir uma lista de\\nlinhas que correspondem à consulta. Vamos adicionar essa funcionalidade em uma função chamada\\n`search`.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,2,1,0": {
-    "value": "\"Agora que extraímos a lógica em *src/lib.rs* e deixamos o argumento de\\ncoleta e tratamento de erros em *src/main.rs*, é muito mais fácil escrever testes\\npara nosso código da funcionalidade principal. Podemos chamar funções diretamente com\\nvários argumentos e verificar valores de retorno sem ter que chamar o nosso binário\\nda linha de comando. Sinta-se livre para escrever alguns testes para \\nas funções `Config::new` e `run` por sua conta.\\n\\nNesta seção, adicionaremos a lógica de busca ao programa `minigrep`\\nusando o processo Desenvolvimento Guiado por Testes (Test Driven Development (TDD)). \\nNessa técnica de desenvolvimento de software, segue estas etapas:\\n\\n1. Escreva um teste que falha e execute-o, para certificar-se de que ele falha pelo motivo \\n    esperado por você.\\n2. Escreva ou modifique o código apenas o suficiente para fazer passar no teste.\\n3. Refatore o código que você acabou de adicionar ou alterou e certifique-se de que os testes\\n    continuam a passar.\\n4. Repita a partir do passo 1!\\n\\nEste processo é apenas uma das muitas maneiras de escrever software, mas o TDD pode ajudar a conduzir\\ndesign de código também. Escrevendo o teste antes de escrever o código que faz o\\nteste passar, ajuda a manter uma alta cobertura de teste ao longo do processo.\\n\\nTestaremos a implementação da funcionalidade que realmente fará\\na busca da string de consulta no conteúdo do arquivo, e produzir uma lista de\\nlinhas que correspondem à consulta. Vamos adicionar essa funcionalidade em uma função chamada\\n`search`.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,20": {
-    "value": "\"Atualmente, nosso teste está falhando porque sempre devolvemos um vetor vazio. Para consertar \\nisso é preciso implementar `search`, nosso programa precisa seguir essas etapas:\\n\\n* Iterar através de cada linha do conteúdo.\\n* Verificar se a linha contém nossa string de consulta.\\n* Se a tiver, adicione-a à lista de valores que estamos retornando.\\n* Se não, não faça nada.\\n* Retorna a lista de resultados que correspondem.\\n\\nVamos trabalhar em cada passo, começando por iterar através de linhas.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,20,1,0": {
-    "value": "\"Atualmente, nosso teste está falhando porque sempre devolvemos um vetor vazio. Para consertar \\nisso é preciso implementar `search`, nosso programa precisa seguir essas etapas:\\n\\n* Iterar através de cada linha do conteúdo.\\n* Verificar se a linha contém nossa string de consulta.\\n* Se a tiver, adicione-a à lista de valores que estamos retornando.\\n* Se não, não faça nada.\\n* Retorna a lista de resultados que correspondem.\\n\\nVamos trabalhar em cada passo, começando por iterar através de linhas.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,21": {
-    "value": "\"Rust tem um método útil para lidar com a iteração linha-a-linha de strings,\\nconvenientemente chamado `lines`, que funciona como mostrado na Listagem 12-17. Observe que isso\\nainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,21,1,0": {
-    "value": "\"Rust tem um método útil para lidar com a iteração linha-a-linha de strings,\\nconvenientemente chamado `lines`, que funciona como mostrado na Listagem 12-17. Observe que isso\\nainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,22,0": {
-    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    for line in contents.lines() {\\n        // faça algo com line\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,23": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-17: Iterando para cada linha em `contents`\\n\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,24": {
-    "value": "\"O método `lines` retorna um iterador. Vamos falar sobre iteradores em profundidade no\\nCapítulo 13, mas lembre-se de que você viu essa maneira de usar um iterador na Listagem\\n3-4, onde usamos um loop `for` com um iterador para executar algum código em cada item\\nde uma coleção.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,25": {
-    "value": "\"Em seguida, verificamos se a linha atual contém nossa string de consulta.\\nFelizmente, as strings possuem um método útil chamado `contains` que faz isso para\\nnós! Adicione uma chamada ao método `contains` na função `search`, conforme mostrado na\\nListagem 12-18. Observe que isso ainda não compilará ainda:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,25,1,0": {
-    "value": "\"Em seguida, verificamos se a linha atual contém nossa string de consulta.\\nFelizmente, as strings possuem um método útil chamado `contains` que faz isso para\\nnós! Adicione uma chamada ao método `contains` na função `search`, conforme mostrado na\\nListagem 12-18. Observe que isso ainda não compilará ainda:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,26,0": {
-    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    for line in contents.lines() {\\n        if line.contains(query) {\\n            // do something with line\\n        }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-18: Adicionando funcionalidade para ver se\\na linha contém a string na `query`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,28": {
-    "value": "\"Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,\\npodemos fazer um vetor mutável antes do loop `for` e chamar o método `push`\\npara armazenar uma `line` no vetor. Após o loop `for`, devolvemos o vetor, como\\nmostrado na Listagem 12-19:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,28,1,0": {
-    "value": "\"Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,\\npodemos fazer um vetor mutável antes do loop `for` e chamar o método `push`\\npara armazenar uma `line` no vetor. Após o loop `for`, devolvemos o vetor, como\\nmostrado na Listagem 12-19:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,29,0": {
-    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    let mut results = Vec::new();\\n\\n    for line in contents.lines() {\\n        if line.contains(query) {\\n            results.push(line);\\n        }\\n    }\\n\\n    results\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,3": {
-    "value": "\"Porque não precisamos mais deles, vamos remover as instruções `println!` de\\n*src/lib.rs* e *src/main.rs* que costumávamos verificar o comportamento do programa.\\nEntão, em *src/lib.rs*, adicionaremos um módulo `test` com uma função de teste, como nós\\nfizemos no Capítulo 11. A função de teste especifica o comportamento que queremos\\npara a função `search` tenha: receberá os parâmetros da consulta e o texto para realizar a\\nconsulta, e retornará apenas as linhas do texto que contém a consulta.\\nA Listagem 12-15 mostra esse teste, que ainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,3,1,0": {
-    "value": "\"Porque não precisamos mais deles, vamos remover as instruções `println!` de\\n*src/lib.rs* e *src/main.rs* que costumávamos verificar o comportamento do programa.\\nEntão, em *src/lib.rs*, adicionaremos um módulo `test` com uma função de teste, como nós\\nfizemos no Capítulo 11. A função de teste especifica o comportamento que queremos\\npara a função `search` tenha: receberá os parâmetros da consulta e o texto para realizar a\\nconsulta, e retornará apenas as linhas do texto que contém a consulta.\\nA Listagem 12-15 mostra esse teste, que ainda não compilará:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,30": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-19: Armazenando as linhas que combinam para que possamos\\ndevolvê-las\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,31": {
-    "value": "\"Agora, a função `search` deve retornar apenas as linhas que contêm` query`,\\ne nosso teste deve passar. Vamos executar o teste:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,32,0": {
-    "value": "\"$ cargo test\\n--snip--\\nrunning 1 test\\ntest test::one_result ... ok\\n\\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,33": {
-    "value": "\"Nosso teste passou, então sabemos que funciona!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,34": {
-    "value": "\"Neste ponto, poderíamos considerar oportunidades de refatorar\\na implementação da função de pesquisa, mantendo os testes passando para\\na mesma funcionalidade. O código na função de pesquisa não é muito ruim,\\nmas não tira proveito de algumas características úteis dos iteradores. Iremos\\nvoltar para este exemplo no Capítulo 13, onde exploraremos iteradores em detalhes\\ne veremos como melhorá-lo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,35": {
-    "value": "\"Agora que a função `search` está funcionando e testada, precisamos chamar `search`\\nda nossa função `run`. Precisamos passar o valor `config.query` e o \\n`contents` que `run` lê do arquivo para a função `search`. Então, `run`\\nirá imprimir cada linha retornada de `search`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,35,1,0": {
-    "value": "\"Agora que a função `search` está funcionando e testada, precisamos chamar `search`\\nda nossa função `run`. Precisamos passar o valor `config.query` e o \\n`contents` que `run` lê do arquivo para a função `search`. Então, `run`\\nirá imprimir cada linha retornada de `search`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,36,0": {
-    "value": "\"pub fn run(config: Config) -\u003E Result\u003C(), Box\u003CError\u003E\u003E {\\n    let mut f = File::open(config.filename)?;\\n\\n    let mut contents = String::new();\\n    f.read_to_string(\u0026mut contents)?;\\n\\n    for line in search(\u0026config.query, \u0026contents) {\\n        println!(\\\"{}\\\", line);\\n    }\\n\\n    Ok(())\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,37": {
-    "value": "\"Ainda estamos usando um loop `for` para retornar cada linha de `search` e imprimi-lo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,38": {
-    "value": "\"Agora, todo o programa deve funcionar! Vamos tentar, primeiro, com uma palavra que\\ndeve retornar exatamente uma linha do poema de Emily Dickinson, “frog”:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,39,0": {
-    "value": "\"$ cargo run frog poem.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.38 secs\\n     Running `target/debug/minigrep frog poem.txt`\\nHow public, like a frog\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,4,0": {
-    "value": "\"# fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n#[cfg(test)]\\nmod test {\\n    use super::*;\\n\\n    #[test]\\n    fn one_result() {\\n        let query = \\\"duct\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"safe, fast, productive.\\\"],\\n            search(query, contents)\\n        );\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,40": {
-    "value": "\"Legal! Agora vamos tentar uma palavra que combine várias linhas, como “body”:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,41,0": {
-    "value": "\"$ cargo run body poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep body poem.txt`\\nI’m nobody! Who are you?\\nAre you nobody, too?\\nHow dreary to be somebody!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,42": {
-    "value": "\"E, finalmente, vamos nos certificar de que não recebemos nenhuma linha quando buscamos uma\\npalavra que não está em qualquer lugar no poema, como “monomorphization”:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,43,0": {
-    "value": "\"$ cargo run monomorphization poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep monomorphization poem.txt`\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,44": {
-    "value": "\"Excelente! Nós construímos nossa própria mini versão de uma ferramenta clássica e aprendemos muito\\nsobre como estruturar aplicativos. Também aprendemos um pouco sobre a entrada de arquivos\\ne saída, lifetimes, teste e análise de linha de comando.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,45": {
-    "value": "\"Para completar este projeto, brevemente demonstraremos como trabalhar com\\nvariáveis de ambiente e como imprimir em erro padrão, ambos\\núteis quando você está escrevendo programas de linha de comando.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-15: Criando um teste de falha para a função `search`\\nque desejamos ter\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,6": {
-    "value": "\"Este teste procura a string “duct”. O texto que estamos procurando contém três\\nlinhas, apenas uma das quais contém “duct.” Afirmamos que o valor retornado\\na partir da função `search` contém apenas a linha que esperamos.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,7": {
-    "value": "\"Não somos capazes de executar este teste e vê-lo falhar porque o teste nem mesmo\\ncompila: a função `search` ainda não existe! Então, agora vamos adicionar código apenas o suficiente\\npara obter a compilação do teste, e executar, adicionando uma definição da função `search`\\nque sempre retorna um vetor vazio, como mostrado na Listagem 12-16. Então\\no teste deve compilar e falhar porque um vetor vazio não corresponde a um vetor\\ncontendo a linha `\\\"safe, fast, productive.\\\"`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,8": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#body@0,9,0": {
-    "value": "\"pub fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    vec![]\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,14,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,22,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,26,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,29,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,32,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,36,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,39,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,3,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,41,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,3,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,43,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,3,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,3,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#caption@0,9,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,20": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,21": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,25": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,28": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#open@0,35": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,2": {
-    "value": "\"Desenvolvendo a Biblioteca de Funcionalidades com Desenvolvimento Guiado por Testes\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,20": {
-    "value": "\"Escrevendo Código para Passar no Teste\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,21": {
-    "value": "\"Iterar Através de Linhas com o Método `lines`\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,25": {
-    "value": "\"Pesquisando Cada Linha para a Consulta\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,28": {
-    "value": "\"Armazenamento de Linhas Correspondentes\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,3": {
-    "value": "\"Escrevendo um Teste de Falha\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-04-testing-the-librarys-functionality#title@0,35": {
-    "value": "\"Usando a Função `search` na Função` run`\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1071,7 +1071,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1268,7 +1268,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="desenvolvendo-a-biblioteca-de-funcionalidades-com-desenvolvimento-guiado-por-testes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Desenvolvendo a Biblioteca de Funcionalidades com Desenvolvimento Guiado por Testes</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="desenvolvendo-a-biblioteca-de-funcionalidades-com-desenvolvimento-guiado-por-testes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Desenvolvendo a Biblioteca de Funcionalidades com Desenvolvimento Guiado por Testes</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Agora que extraímos a lógica em <em>src/lib.rs</em> e deixamos o argumento de
 coleta e tratamento de erros em <em>src/main.rs</em>, é muito mais fácil escrever testes
 para nosso código da funcionalidade principal. Podemos chamar funções diretamente com
@@ -1298,7 +1298,7 @@ a busca da string de consulta no conteúdo do arquivo, e produzir uma lista de
 linhas que correspondem à consulta. Vamos adicionar essa funcionalidade em uma função chamada
 <code>search</code>.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-um-teste-de-falha" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo um Teste de Falha</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-um-teste-de-falha" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo um Teste de Falha</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Porque não precisamos mais deles, vamos remover as instruções <code>println!</code> de
 <em>src/lib.rs</em> e <em>src/main.rs</em> que costumávamos verificar o comportamento do programa.
 Então, em <em>src/lib.rs</em>, adicionaremos um módulo <code>test</code> com uma função de teste, como nós
@@ -1459,7 +1459,7 @@ A Listagem 12-15 mostra esse teste, que ainda não compilará:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Ótimo, o teste falha, exatamente como esperávamos. Vamos fazer o teste passar!</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-codigo-para-passar-no-teste" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,20&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo Código para Passar no Teste</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-codigo-para-passar-no-teste" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,20&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo Código para Passar no Teste</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Atualmente, nosso teste está falhando porque sempre devolvemos um vetor vazio. Para consertar
 isso é preciso implementar <code>search</code>, nosso programa precisa seguir essas etapas:</p>
 </p>
@@ -1473,7 +1473,7 @@ isso é preciso implementar <code>search</code>, nosso programa precisa seguir e
 </p>
 <p data-id="0,0,0,1,1,1,0,2:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos trabalhar em cada passo, começando por iterar através de linhas.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="iterar-atraves-de-linhas-com-o-metodo-lines" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Iterar Através de Linhas com o Método <code>lines</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="iterar-atraves-de-linhas-com-o-metodo-lines" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Iterar Através de Linhas com o Método <code>lines</code></div>
 <div data-id="inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Rust tem um método útil para lidar com a iteração linha-a-linha de strings,
 convenientemente chamado <code>lines</code>, que funciona como mostrado na Listagem 12-17. Observe que isso
 ainda não compilará:</p>
@@ -1497,7 +1497,7 @@ ainda não compilará:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 12-17: Iterando para cada linha em <code>contents</code> <!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O método <code>lines</code> retorna um iterador. Vamos falar sobre iteradores em profundidade no Capítulo 13, mas lembre-se de que você viu essa maneira de usar um iterador na Listagem 3-4, onde usamos um loop <code>for</code> com um iterador para executar algum código em cada item de uma coleção.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="pesquisando-cada-linha-para-a-consulta" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Pesquisando Cada Linha para a Consulta</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="pesquisando-cada-linha-para-a-consulta" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Pesquisando Cada Linha para a Consulta</div>
 <div data-id="inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Em seguida, verificamos se a linha atual contém nossa string de consulta.
 Felizmente, as strings possuem um método útil chamado <code>contains</code> que faz isso para
 nós! Adicione uma chamada ao método <code>contains</code> na função <code>search</code>, conforme mostrado na
@@ -1525,7 +1525,7 @@ Listagem 12-18. Observe que isso ainda não compilará ainda:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 12-18: Adicionando funcionalidade para ver se a linha contém a string na <code>query</code><!-- raw HTML omitted --></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="armazenamento-de-linhas-correspondentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Armazenamento de Linhas Correspondentes</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="armazenamento-de-linhas-correspondentes" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,28&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Armazenamento de Linhas Correspondentes</div>
 <div data-id="inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,
 podemos fazer um vetor mutável antes do loop <code>for</code> e chamar o método <code>push</code>
 para armazenar uma <code>line</code> no vetor. Após o loop <code>for</code>, devolvemos o vetor, como
@@ -1581,7 +1581,7 @@ mostrado na Listagem 12-19:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" data-id="0,0,0,1,1,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nosso teste passou, então sabemos que funciona!</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" data-id="0,0,0,1,1,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Neste ponto, poderíamos considerar oportunidades de refatorar a implementação da função de pesquisa, mantendo os testes passando para a mesma funcionalidade. O código na função de pesquisa não é muito ruim, mas não tira proveito de algumas características úteis dos iteradores. Iremos voltar para este exemplo no Capítulo 13, onde exploraremos iteradores em detalhes e veremos como melhorá-lo.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="usando-a-funcao-search-na-funcao-run" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-04-testing-the-librarys-functionality#open@0,35&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Usando a Função <code>search</code> na Função<code> run</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="usando-a-funcao-search-na-funcao-run" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-04-testing-the-librarys-functionality#open@0,35&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Usando a Função <code>search</code> na Função<code> run</code></div>
 <div data-id="inner:0,0,0,1,1,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Agora que a função <code>search</code> está funcionando e testada, precisamos chamar <code>search</code>
 da nossa função <code>run</code>. Precisamos passar o valor <code>config.query</code> e o
 <code>contents</code> que <code>run</code> lê do arquivo para a função <code>search</code>. Então, <code>run</code>

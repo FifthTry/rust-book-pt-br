@@ -12,6 +12,492 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,10": {
+    "value": "\"Um _dublê de teste_ (_test double_) é um conceito geral de programação para um\\ntipo usado no lugar de outro durante os testes. _Objetos simulados_ (_mock\\nobjects_) são tipos específicos de dublês de teste que registram o que acontece\\ndurante o teste para que possamos confirmar que as ações corretas aconteceram.\\n\\nRust não tem objetos da mesma forma que outras linguagens, e não tem\\nfuncionalidade de objetos simulados embutida na biblioteca padrão como algumas\\noutras linguagens. Contudo, certamente podemos criar uma struct que serve os\\nmesmos propósitos que um objeto simulado.\\n\\nEis o cenário que vamos testar: vamos criar uma biblioteca que acompanha um\\nvalor contra um valor máximo e envia mensagens com base em quão próximo do valor\\nmáximo o valor atual está. Esta biblioteca pode ser usada para acompanhar a cota\\nde um usuário para o número de chamadas de API que ele tem direito a fazer, por\\nexemplo.\\n\\nNossa biblioteca irá prover somente a funcionalidade de acompanhar quão perto do\\nmáximo um valor está e o que as mensagens deveriam ser em quais momentos. As\\naplicações que usarem nossa biblioteca terão a responsabilidade de prover o\\nmecanismo para enviar as mensagens: a aplicação pode pôr a mensagem na própria\\naplicação, enviar um email, uma mensagem de texto, ou alguma outra coisa. A\\nbiblioteca não precisa saber deste detalhe. Tudo que ela precisa é de algo que\\nimplemente uma trait que iremos prover chamada `Mensageiro`. A\\nListagem 15-20 mostra o código da biblioteca:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,10,1,0": {
+    "value": "\"Um _dublê de teste_ (_test double_) é um conceito geral de programação para um\\ntipo usado no lugar de outro durante os testes. _Objetos simulados_ (_mock\\nobjects_) são tipos específicos de dublês de teste que registram o que acontece\\ndurante o teste para que possamos confirmar que as ações corretas aconteceram.\\n\\nRust não tem objetos da mesma forma que outras linguagens, e não tem\\nfuncionalidade de objetos simulados embutida na biblioteca padrão como algumas\\noutras linguagens. Contudo, certamente podemos criar uma struct que serve os\\nmesmos propósitos que um objeto simulado.\\n\\nEis o cenário que vamos testar: vamos criar uma biblioteca que acompanha um\\nvalor contra um valor máximo e envia mensagens com base em quão próximo do valor\\nmáximo o valor atual está. Esta biblioteca pode ser usada para acompanhar a cota\\nde um usuário para o número de chamadas de API que ele tem direito a fazer, por\\nexemplo.\\n\\nNossa biblioteca irá prover somente a funcionalidade de acompanhar quão perto do\\nmáximo um valor está e o que as mensagens deveriam ser em quais momentos. As\\naplicações que usarem nossa biblioteca terão a responsabilidade de prover o\\nmecanismo para enviar as mensagens: a aplicação pode pôr a mensagem na própria\\naplicação, enviar um email, uma mensagem de texto, ou alguma outra coisa. A\\nbiblioteca não precisa saber deste detalhe. Tudo que ela precisa é de algo que\\nimplemente uma trait que iremos prover chamada `Mensageiro`. A\\nListagem 15-20 mostra o código da biblioteca:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,11,0": {
+    "value": "\"pub trait Mensageiro {\\n    fn enviar(\u0026self, msg: \u0026str);\\n}\\n\\npub struct AvisaLimite\u003C'a, T: 'a + Mensageiro\u003E {\\n    mensageiro: \u0026'a T,\\n    valor: usize,\\n    max: usize,\\n}\\n\\nimpl\u003C'a, T\u003E AvisaLimite\u003C'a, T\u003E\\n    where T: Mensageiro {\\n    pub fn new(mensageiro: \u0026T, max: usize) -\u003E AvisaLimite\u003CT\u003E {\\n        AvisaLimite {\\n            mensageiro,\\n            valor: 0,\\n            max,\\n        }\\n    }\\n\\n    pub fn set_valor(\u0026mut self, valor: usize) {\\n        self.valor = valor;\\n\\n        let porcentagem_do_max = self.valor as f64 / self.max as f64;\\n\\n        if porcentagem_do_max \u003E= 0.75 \u0026\u0026 porcentagem_do_max \u003C 0.9 {\\n            self.mensageiro.enviar(\\\"Aviso: Você usou mais de 75% da sua cota!\\\");\\n        } else if porcentagem_do_max \u003E= 0.9 \u0026\u0026 porcentagem_do_max \u003C 1.0 {\\n            self.mensageiro.enviar(\\\"Aviso urgente: Você usou mais de 90% da sua cota!\\\");\\n        } else if porcentagem_do_max \u003E= 1.0 {\\n            self.mensageiro.enviar(\\\"Erro: Você excedeu sua cota!\\\");\\n        }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,12": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-20: Uma biblioteca para acompanhar quão perto\\ndo máximo um valor está e avisar quando o valor está em certos níveis\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,13": {
+    "value": "\"Uma parte importante deste código é que a trait `Mensageiro` tem um método\\nchamado `enviar` que recebe uma referência imutável a `self` e o texto da\\nmensagem. Esta é a interface que nosso objeto simulado precisa ter. A outra\\nparte importante é que queremos testar o comportamento do método `set_valor` no\\n`AvisaLimite`. Podemos mudar o que passamos para o parâmetro `valor`, mas o\\n`set_valor` não retorna nada sobre o qual possamos fazer asserções. Queremos\\npoder dizer que se criarmos um `AvisaLimite` com algo que implemente a trait\\n`Mensageiro` e um valor específico de `max`, quando passarmos diferentes números\\npara o `valor`, o mensageiro receberá o comando para enviar as mensagens\\napropriadas.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,14": {
+    "value": "\"Precisamos de um objeto simulado que, em vez de enviar um email ou mensagem de\\ntexto quando chamarmos `enviar`, irá apenas registrar as mensagens que recebeu\\npara enviar. Podemos criar uma nova instância do objeto simulado, criar um\\n`AvisaLimite` que use o objeto simulado, chamar o método `set_valor` no\\n`AvisaLimite`, e então verificar se o objeto simulado tem as mensagens que\\nesperamos. A Listagem 15-21 mostra uma tentativa de implementar um objeto\\nsimulado para fazer exatamente isto, mas que o borrow checker não permite:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,15": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,16,0": {
+    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::*;\\n\\n    struct MensageiroSimulado {\\n        mensagens_enviadas: Vec\u003CString\u003E,\\n    }\\n\\n    impl MensageiroSimulado {\\n        fn new() -\u003E MensageiroSimulado {\\n            MensageiroSimulado { mensagens_enviadas: vec![] }\\n        }\\n    }\\n\\n    impl Mensageiro for MensageiroSimulado {\\n        fn enviar(\u0026self, mensagem: \u0026str) {\\n            self.mensagens_enviadas.push(String::from(mensagem));\\n        }\\n    }\\n\\n    #[test]\\n    fn envia_uma_mensagem_de_aviso_de_acima_de_75_porcento() {\\n        let mensageiro_simulado = MensageiroSimulado::new();\\n        let mut avisa_limite = AvisaLimite::new(\u0026mensageiro_simulado, 100);\\n\\n        avisa_limite.set_valor(80);\\n\\n        assert_eq!(mensageiro_simulado.mensagens_enviadas.len(), 1);\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-21: Uma tentativa de implementar um\\n`MensageiroSimulado` que não é permitida pelo borrow checker\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,18": {
+    "value": "\"Este código de teste define uma struct `MensageiroSimulado` que tem um campo\\n`mensagens_enviadas` com um `Vec` de valores `String` para registrar as\\nmensagens que ele recebe para enviar. Também definimos uma função associada\\n`new` para facilitar a criação de novos valores `MensageiroSimulado` que começam\\ncom uma lista vazia de mensagens. Então implementamos a trait `Mensageiro` para\\no `MensageiroSimulado` para que possamos passar um `MensageiroSimulado` a um\\n`AvisaLimite`. Na definição do método `enviar`, nós pegamos a mensagem passada\\ncomo parâmetro e a armazenamos na lista `mensagens_enviadas` do\\n`MensageiroSimulado`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,19": {
+    "value": "\"No teste, estamos testando o que acontece quando o `AvisaLimite` recebe o\\ncomando para setar o `valor` para algo que é mais do que 75 porcento do valor\\n`max`. Primeiro, criamos um novo `MensageiroSimulado`, que irá começar com uma\\nlista vazia de mensagens. Então criamos um novo `AvisaLimite` e lhe damos uma\\nreferência ao novo `MensageiroSimulado` e um valor `max` de 100. Nós chamamos o\\nmétodo `set_valor` no `AvisaLimite` com um valor de 80, que é mais do que 75\\nporcento de 100. Então conferimos se a lista de mensagens que o\\n`MensageiroSimulado` está registrando agora tem uma mensagem nela.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,2": {
+    "value": "\"_Mutabilidade interior_ (_interior mutability_) é uma design pattern em Rust que\\nlhe permite modificar um dado mesmo quando há referências imutáveis a ele:\\nnormalmente, esta ação é proibida pelas regras de empréstimo. Para fazer isso, a\\npattern usa código `unsafe` (_inseguro_) dentro de uma estrutura de dados para\\ndobrar as regras normais do Rust que governam mutação e empréstimo. Nós ainda\\nnão cobrimos código unsafe; faremos isso no Capítulo 19. Podemos usar tipos que\\nusam a pattern de mutabilidade interior quando podemos garantir que as regras de\\nempréstimo serão seguidas em tempo de execução, ainda que o compilador não o\\npossa garantir. O código `unsafe` envolvido é então embrulhado em uma API safe,\\ne o tipo exterior permanece imutável.\\n\\nPara explorar este conceito, vamos ver o tipo `RefCell\u003CT\u003E` que segue a pattern\\nde mutabilidade interior.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,2,1,0": {
+    "value": "\"_Mutabilidade interior_ (_interior mutability_) é uma design pattern em Rust que\\nlhe permite modificar um dado mesmo quando há referências imutáveis a ele:\\nnormalmente, esta ação é proibida pelas regras de empréstimo. Para fazer isso, a\\npattern usa código `unsafe` (_inseguro_) dentro de uma estrutura de dados para\\ndobrar as regras normais do Rust que governam mutação e empréstimo. Nós ainda\\nnão cobrimos código unsafe; faremos isso no Capítulo 19. Podemos usar tipos que\\nusam a pattern de mutabilidade interior quando podemos garantir que as regras de\\nempréstimo serão seguidas em tempo de execução, ainda que o compilador não o\\npossa garantir. O código `unsafe` envolvido é então embrulhado em uma API safe,\\ne o tipo exterior permanece imutável.\\n\\nPara explorar este conceito, vamos ver o tipo `RefCell\u003CT\u003E` que segue a pattern\\nde mutabilidade interior.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,20": {
+    "value": "\"Entretanto, há um problema neste teste, conforme abaixo:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,21,0": {
+    "value": "\"erro posso pegar emprestado o campo imutável\\n             `self.mensagens_enviadas` como mutável\\n  --\u003E src/lib.rs:52:13\\n   |\\n51 |         fn send(\u0026self, message: \u0026str) {\\n   |                 ----- use `\u0026mut self` aqui para torná-lo mutável\\n52 |             self.sent_messages.push(String::from(message));\\n   |             ^^^^^^^^^^^^^^^^^^ não posso pegar emprestado mutavelmente um\\n                                    campo imutável\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,22": {
+    "value": "\"Não podemos modificar o `MensageiroSimulado` para registrar as mensagens porque\\no método `enviar` recebe uma referência imutável a `self`. Também não podemos\\nseguir a sugestão do texto de erro e usar `\u0026mut self` em vez disso porque a\\nassinatura de `enviar` não corresponderia à assinatura na definição da trait\\n`Mensageiro` (fique à vontade para tentar e ver qual mensagem de erro você\\nrecebe).\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,23": {
+    "value": "\"Esta é uma situação em que a mutabilidade interior pode ajudar! Vamos armazenas\\nas `mensagens_enviadas` dentro de um `RefCell\u003CT\u003E`, e então o método `enviar`\\npoderá modificar `mensagens_enviadas` para armazenar as mensagens que já vimos.\\nA Listagem 15-22 mostra como fica isto:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,24": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,25,0": {
+    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::*;\\n    use std::cell::RefCell;\\n\\n    struct MensageiroSimulado {\\n        mensagens_enviadas: RefCell\u003CVec\u003CString\u003E\u003E,\\n    }\\n\\n    impl MensageiroSimulado {\\n        fn new() -\u003E MensageiroSimulado {\\n            MensageiroSimulado { mensagens_enviadas: RefCell::new(vec![]) }\\n        }\\n    }\\n\\n    impl Mensageiro for MensageiroSimulado {\\n        fn enviar(\u0026self, mensagem: \u0026str) {\\n            self.mensagens_enviadas.borrow_mut().push(String::from(mensagem));\\n        }\\n    }\\n\\n    #[test]\\n    fn envia_uma_mensagem_de_aviso_de_acima_de_75_porcento() {\\n        // --snip--\\n#         let mensageiro_simulado = MensageiroSimulado::new();\\n#         let mut avisa_limite = AvisaLimite::new(\u0026mensageiro_simulado, 100);\\n#         avisa_limite.set_valor(75);\\n\\n        assert_eq!(mensageiro_simulado.mensagens_enviadas.borrow().len(), 1);\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,26": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-22: Usando `RefCell\u003CT\u003E` para modificar um\\nvalor interno enquanto o valor externo é considerado imutável\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,27": {
+    "value": "\"O campo `mensagens_enviadas` agora é do tipo `RefCell\u003CVec\u003CString\u003E\u003E` em vez de\\n`Vec\u003CString\u003E`. Na função `new`, nós criamos uma nova instância de\\n`RefCell\u003CVec\u003CString\u003E\u003E` em torno do vetor vazio.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,28": {
+    "value": "\"Para a implementação do método `enviar`, o primeiro parâmetro ainda é um\\nempréstimo imutável de `self`, que corresponde à definição da trait. Nós\\nchamamos `borrow_mut` no `RefCell\u003CVec\u003CString\u003E\u003E` em `self.mensagens_enviadas`\\npara obter uma referência mutável ao valor dentro do `RefCell\u003CVec\u003CString\u003E\u003E`, que\\né o vetor. Então podemos chamar `push` na referência mutável ao vetor para\\nregistrar as mensagens enviadas durante o teste.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,29": {
+    "value": "\"A última mudança que temos que fazer é na asserção: para ver quantos itens estão\\nno vetor interno, chamamos `borrow` no `RefCell\u003CVec\u003CString\u003E\u003E` para obter uma\\nreferência imutável ao vetor.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,3": {
+    "value": "\"Diferente do `Rc\u003CT\u003E`, o tipo `RefCell\u003CT\u003E` representa posse única sobre o dado\\nque ele contém. Então o que torna o `RefCell\u003CT\u003E` diferente de um tipo como o\\n`Box\u003CT\u003E`? Lembre-se das regras de empréstimo que você aprendeu no Capítulo 4:\\n\\n- Em qualquer momento, você pode ter _um dos_ mas não ambos os seguintes: uma\\n  única referência mutável _ou_ qualquer número de referências imutáveis;\\n- Referências devem sempre ser válidas.\\n\\nCom referências e com o `Box\u003CT\u003E`, as invariantes das regras de empréstimo são\\naplicadas em tempo de compilação. Com o `RefCell\u003CT\u003E`, essas invariantes são\\naplicadas _em tempo de execução_. Com referências, se você quebra essas regras,\\nvocê recebe um erro de compilação. Com o `RefCell\u003CT\u003E`, se você quebrar essas\\nregras, seu programa irá sofrer um `panic!` e terminar.\\n\\nAs vantagens de checar as regras de empréstimo em tempo de compilação são que\\nerros são pegos mais cedo no processo de desenvolvimento, e não há nenhum custo\\nde desempenho de execução porque toda a análise é completada de antemão. Por\\nesses motivos, checar as regras de empréstimo em tempo de compilação é a melhor\\nopção na maioria dos casos, e por isso este é o padrão do Rust.\\n\\nA vantagem de checar as regras de empréstimo em tempo de execução,\\nalternativamente, é que certos cenários _memory-safe_ (_seguros em termos de\\nmemória_) são então permitidos, ao passo que seriam proibidos pelas checagens em\\ntempo de compilação. A análise estática, como a do compilador Rust, é\\ninerentemente conservadora. Algumas propriedades do programa são impossíveis de\\ndetectar analisando o código: o exemplo mais famoso é o Problema da Parada, que\\nestá além do escopo deste livro mas é um tópico interessante para pesquisa.\\n\\nComo algumas análises são impossíveis, se o compilador Rust não consegue se\\nassegurar que o código obedece às regras de posse, ele pode rejeitar um programa\\ncorreto; neste sentido, ele é conservador. Se o Rust aceitasse um programa\\nincorreto, os usuários não poderiam confiar nas garantias que ele faz. Se, por\\noutro lado, o Rust rejeita um programa correto, o programador terá alguma\\ninconveniência, mas nada catastrófico pode acontecer. O tipo `RefCell\u003CT\u003E` é útil\\nquando você tem certeza que seu código segue as regras de empréstimo, mas o\\ncompilador é incapaz de entender e garantir isso.\\n\\nAssim como o `Rc\u003CT\u003E`, o `RefCell\u003CT\u003E` é apenas para uso em cenários de thread\\núnica e lhe darão um erro de compilação se você tentar usá-lo em um contexto de\\nmúltiplas threads. Falaremos sobre como obter a funcionalidade de um\\n`RefCell\u003CT\u003E` em um programa multithread no Capítulo 16.\\n\\nAqui está uma recapitulação das razões para escolher o `Box\u003CT\u003E`, o `Rc\u003CT\u003E` ou o\\n`RefCell\u003CT\u003E`:\\n\\n- O `Rc\u003CT\u003E` permite múltiplos possuidores do mesmo dado; `Box\u003CT\u003E` e `RefCell\u003CT\u003E`\\n  têm possuidores únicos.\\n- O `Box\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados em tempo de\\n  compilação; o `Rc\u003CT\u003E` permite apenas empréstimos imutáveis em tempo de\\n  compilação; o `RefCell\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados\\n  em tempo de execução.\\n- Como o `RefCell\u003CT\u003E` permite empréstimos mutáveis checados em tempo de\\n  execução, nós podemos modificar o valor dentro de um `RefCell\u003CT\u003E` mesmo quando\\n  o `RefCell\u003CT\u003E` é imutável.\\n\\nModificar o valor dentro de um valor imutável é a pattern de _mutabilidade\\ninterior_. Vamos dar uma olhada em uma situação em que a mutabilidade interior é\\nútil e examinar como ela é possível.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,3,1,0": {
+    "value": "\"Diferente do `Rc\u003CT\u003E`, o tipo `RefCell\u003CT\u003E` representa posse única sobre o dado\\nque ele contém. Então o que torna o `RefCell\u003CT\u003E` diferente de um tipo como o\\n`Box\u003CT\u003E`? Lembre-se das regras de empréstimo que você aprendeu no Capítulo 4:\\n\\n- Em qualquer momento, você pode ter _um dos_ mas não ambos os seguintes: uma\\n  única referência mutável _ou_ qualquer número de referências imutáveis;\\n- Referências devem sempre ser válidas.\\n\\nCom referências e com o `Box\u003CT\u003E`, as invariantes das regras de empréstimo são\\naplicadas em tempo de compilação. Com o `RefCell\u003CT\u003E`, essas invariantes são\\naplicadas _em tempo de execução_. Com referências, se você quebra essas regras,\\nvocê recebe um erro de compilação. Com o `RefCell\u003CT\u003E`, se você quebrar essas\\nregras, seu programa irá sofrer um `panic!` e terminar.\\n\\nAs vantagens de checar as regras de empréstimo em tempo de compilação são que\\nerros são pegos mais cedo no processo de desenvolvimento, e não há nenhum custo\\nde desempenho de execução porque toda a análise é completada de antemão. Por\\nesses motivos, checar as regras de empréstimo em tempo de compilação é a melhor\\nopção na maioria dos casos, e por isso este é o padrão do Rust.\\n\\nA vantagem de checar as regras de empréstimo em tempo de execução,\\nalternativamente, é que certos cenários _memory-safe_ (_seguros em termos de\\nmemória_) são então permitidos, ao passo que seriam proibidos pelas checagens em\\ntempo de compilação. A análise estática, como a do compilador Rust, é\\ninerentemente conservadora. Algumas propriedades do programa são impossíveis de\\ndetectar analisando o código: o exemplo mais famoso é o Problema da Parada, que\\nestá além do escopo deste livro mas é um tópico interessante para pesquisa.\\n\\nComo algumas análises são impossíveis, se o compilador Rust não consegue se\\nassegurar que o código obedece às regras de posse, ele pode rejeitar um programa\\ncorreto; neste sentido, ele é conservador. Se o Rust aceitasse um programa\\nincorreto, os usuários não poderiam confiar nas garantias que ele faz. Se, por\\noutro lado, o Rust rejeita um programa correto, o programador terá alguma\\ninconveniência, mas nada catastrófico pode acontecer. O tipo `RefCell\u003CT\u003E` é útil\\nquando você tem certeza que seu código segue as regras de empréstimo, mas o\\ncompilador é incapaz de entender e garantir isso.\\n\\nAssim como o `Rc\u003CT\u003E`, o `RefCell\u003CT\u003E` é apenas para uso em cenários de thread\\núnica e lhe darão um erro de compilação se você tentar usá-lo em um contexto de\\nmúltiplas threads. Falaremos sobre como obter a funcionalidade de um\\n`RefCell\u003CT\u003E` em um programa multithread no Capítulo 16.\\n\\nAqui está uma recapitulação das razões para escolher o `Box\u003CT\u003E`, o `Rc\u003CT\u003E` ou o\\n`RefCell\u003CT\u003E`:\\n\\n- O `Rc\u003CT\u003E` permite múltiplos possuidores do mesmo dado; `Box\u003CT\u003E` e `RefCell\u003CT\u003E`\\n  têm possuidores únicos.\\n- O `Box\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados em tempo de\\n  compilação; o `Rc\u003CT\u003E` permite apenas empréstimos imutáveis em tempo de\\n  compilação; o `RefCell\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados\\n  em tempo de execução.\\n- Como o `RefCell\u003CT\u003E` permite empréstimos mutáveis checados em tempo de\\n  execução, nós podemos modificar o valor dentro de um `RefCell\u003CT\u003E` mesmo quando\\n  o `RefCell\u003CT\u003E` é imutável.\\n\\nModificar o valor dentro de um valor imutável é a pattern de _mutabilidade\\ninterior_. Vamos dar uma olhada em uma situação em que a mutabilidade interior é\\nútil e examinar como ela é possível.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,30": {
+    "value": "\"Agora que você viu como usar o `RefCell\u003CT\u003E`, vamos nos aprofundar em como ele\\nfunciona!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,31": {
+    "value": "\"Quando estamos criando referências imutáveis e mutáveis, usamos as sintaxes `\u0026`\\ne `\u0026mut`, respectivamente. Com o `RefCell\u003CT\u003E`, usamos os métodos `borrow` e\\n`borrow_mut`, que são parte da API safe que pertence ao `RefCell\u003CT\u003E`. O método\\n`borrow` retorna o ponteiro inteligente `Ref\u003CT\u003E`, e o `borrow_mut` retorna o\\nponteiro inteligente `RefMut\u003CT\u003E`. Ambos os tipos implementam `Deref`, então\\npodemos tratá-los como referências normais.\\n\\nO tipo `RefCell\u003CT\u003E` mantém registro de quantos ponteiros inteligentes `Ref\u003CT\u003E` e\\n`RefMut\u003CT\u003E` estão atualmente ativos. Cada vez que chamamos `borrow`, o\\n`RefCell\u003CT\u003E` aumenta seu contador de quantos empréstimos imutáveis estão ativos.\\nQuando um valor `Ref\u003CT\u003E` sai de escopo, o contador de empréstimos imutáveis\\ndiminui em um. Assim como as regras de empréstimo em tempo de compilação, o\\n`RefCell\u003CT\u003E` nos permite ter vários empréstimos imutáveis ou um empréstimo\\nmutável em um dado momento.\\n\\nSe tentarmos violar estas regras, em vez de receber um erro do compilador como\\niríamos com referências, a implementação de `RefCell\u003CT\u003E` chamará `panic!` em\\ntempo de execução. A Listagem 15-23 mostra uma modificação da implementação do\\n`enviar` da Listagem 15-22. Estamos deliberadamente tentando criar dois\\nempréstimos mutáveis ativos para o mesmo escopo para ilustrar que o `RefCell\u003CT\u003E`\\nnos impede de fazer isto em tempo de execução:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,31,1,0": {
+    "value": "\"Quando estamos criando referências imutáveis e mutáveis, usamos as sintaxes `\u0026`\\ne `\u0026mut`, respectivamente. Com o `RefCell\u003CT\u003E`, usamos os métodos `borrow` e\\n`borrow_mut`, que são parte da API safe que pertence ao `RefCell\u003CT\u003E`. O método\\n`borrow` retorna o ponteiro inteligente `Ref\u003CT\u003E`, e o `borrow_mut` retorna o\\nponteiro inteligente `RefMut\u003CT\u003E`. Ambos os tipos implementam `Deref`, então\\npodemos tratá-los como referências normais.\\n\\nO tipo `RefCell\u003CT\u003E` mantém registro de quantos ponteiros inteligentes `Ref\u003CT\u003E` e\\n`RefMut\u003CT\u003E` estão atualmente ativos. Cada vez que chamamos `borrow`, o\\n`RefCell\u003CT\u003E` aumenta seu contador de quantos empréstimos imutáveis estão ativos.\\nQuando um valor `Ref\u003CT\u003E` sai de escopo, o contador de empréstimos imutáveis\\ndiminui em um. Assim como as regras de empréstimo em tempo de compilação, o\\n`RefCell\u003CT\u003E` nos permite ter vários empréstimos imutáveis ou um empréstimo\\nmutável em um dado momento.\\n\\nSe tentarmos violar estas regras, em vez de receber um erro do compilador como\\niríamos com referências, a implementação de `RefCell\u003CT\u003E` chamará `panic!` em\\ntempo de execução. A Listagem 15-23 mostra uma modificação da implementação do\\n`enviar` da Listagem 15-22. Estamos deliberadamente tentando criar dois\\nempréstimos mutáveis ativos para o mesmo escopo para ilustrar que o `RefCell\u003CT\u003E`\\nnos impede de fazer isto em tempo de execução:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,32,0": {
+    "value": "\"impl Mensageiro for MensageiroSimulado {\\n    fn enviar(\u0026self, mensagem: \u0026str) {\\n        let mut emprestimo_um = self.mensagens_enviadas.borrow_mut();\\n        let mut emprestimo_dois = self.mensagens_enviadas.borrow_mut();\\n\\n        emprestimo_um.push(String::from(mensagem));\\n        emprestimo_dois.push(String::from(mensagem));\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,33": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-23: Criando duas referências mutáveis no mesmo\\nescopo para ver que o `RefCell\u003CT\u003E` irá \\\"entrar em pânico\\\" (i.e., executar\\n`panic!`)\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,34": {
+    "value": "\"Nós criamos uma variável `emprestimo_um` para o ponteiro inteligente `RefMut\u003CT\u003E`\\nretornado por `borrow_mut`. Então criamos outro empréstimo mutável da mesma\\nforma na variável `emprestimo_dois`. Isto resulta em duas referências mutáveis\\nno mesmo escopo, o que não é permitido. Quando rodarmos os testes para nossa\\nbiblioteca, o código na Listagem 15-23 irá compilar sem nenhum erro, mas o teste\\nirá falhar:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,35,0": {
+    "value": "\"---- tests::envia_uma_mensagem_de_aviso_de_acima_de_75_porcento stdout ----\\n\\tthread 'tests::envia_uma_mensagem_de_aviso_de_acima_de_75_porcento' entrou\\n    em pânico em\\n    'já emprestado: BorrowMutError', src/libcore/result.rs:906:4\\nnota: Rode com `RUST_BACKTRACE=1` para um backtrace.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,36": {
+    "value": "\"Note como o código entrou em pânico com a mensagem `já emprestado: BorrowMutError`. É assim que o `RefCell\u003CT\u003E` lida com violações das regras de\\nempréstimo em tempo de execução.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,37": {
+    "value": "\"Pegar erros de empréstimo em tempo de execução em vez de em tempo de compilação\\nsignifica encontrar defeitos no nosso código mais tarde no processo de\\ndesenvolvimento, e possivelmente nem mesmo até que nosso código já tenha sido\\nimplantado em produção. Além disso, nosso código irá incorrer em uma pequena\\npenalidade de desempenho de execução como resultado de manter registro dos\\nempréstimos em tempo de execução em vez de compilação. Ainda assim, usar o\\n`RefCell\u003CT\u003E` nos torna possível escrever um objeto simulado que pode se\\nmodificar para registrar as mensagens que ele já viu enquanto o usamos em um\\ncontexto onde apenas valores imutáveis são permitidos. Podemos usar o\\n`RefCell\u003CT\u003E`, apesar de seus trade-offs, para obter mais funcionalidade do que\\nreferências regulares nos dão.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,38": {
+    "value": "\"Um jeito comum de usar o `RefCell\u003CT\u003E` é em combinação com o `Rc\u003CT\u003E`. Lembre-se\\nde que o `Rc\u003CT\u003E` nos permite ter múltiplos possuidores de algum dado, mas ele só\\nnos permite acesso imutável a esse dado. Se temos um `Rc\u003CT\u003E` que contém um\\n`RefCell\u003CT\u003E`, podemos ter um valor que pode ter múltiplos possuidores _e_ que\\npodemos modificar!\\n\\nPor exemplo, lembre-se da cons list na Listagem 15-18 onde usamos o `Rc\u003CT\u003E` para\\nnos permitir que múltiplas listas compartilhassem posse de outra lista. Como o\\n`Rc\u003CT\u003E` guarda apenas valores imutáveis, nós não podemos modificar nenhum dos\\nvalores na lista uma vez que os criamos. Vamos adicionar o `RefCell\u003CT\u003E` para\\nganhar a habilidade de mudar os valores nas listas. A Listagem 15-24 mostra que,\\nusando um `RefCell\u003CT\u003E` na definição do `Cons`, podemos modificar o valor\\narmazenado em todas as listas:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,38,1,0": {
+    "value": "\"Um jeito comum de usar o `RefCell\u003CT\u003E` é em combinação com o `Rc\u003CT\u003E`. Lembre-se\\nde que o `Rc\u003CT\u003E` nos permite ter múltiplos possuidores de algum dado, mas ele só\\nnos permite acesso imutável a esse dado. Se temos um `Rc\u003CT\u003E` que contém um\\n`RefCell\u003CT\u003E`, podemos ter um valor que pode ter múltiplos possuidores _e_ que\\npodemos modificar!\\n\\nPor exemplo, lembre-se da cons list na Listagem 15-18 onde usamos o `Rc\u003CT\u003E` para\\nnos permitir que múltiplas listas compartilhassem posse de outra lista. Como o\\n`Rc\u003CT\u003E` guarda apenas valores imutáveis, nós não podemos modificar nenhum dos\\nvalores na lista uma vez que os criamos. Vamos adicionar o `RefCell\u003CT\u003E` para\\nganhar a habilidade de mudar os valores nas listas. A Listagem 15-24 mostra que,\\nusando um `RefCell\u003CT\u003E` na definição do `Cons`, podemos modificar o valor\\narmazenado em todas as listas:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,39,0": {
+    "value": "\"#[derive(Debug)]\\nenum List {\\n    Cons(Rc\u003CRefCell\u003Ci32\u003E\u003E, Rc\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\nuse std::rc::Rc;\\nuse std::cell::RefCell;\\n\\nfn main() {\\n    let valor = Rc::new(RefCell::new(5));\\n\\n    let a = Rc::new(Cons(Rc::clone(\u0026valor), Rc::new(Nil)));\\n\\n    let b = Cons(Rc::new(RefCell::new(6)), Rc::clone(\u0026a));\\n    let c = Cons(Rc::new(RefCell::new(10)), Rc::clone(\u0026a));\\n\\n    *valor.borrow_mut() += 10;\\n\\n    println!(\\\"a depois = {:?}\\\", a);\\n    println!(\\\"b depois = {:?}\\\", b);\\n    println!(\\\"c depois = {:?}\\\", c);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,4": {
+    "value": "\"Uma consequência das regras de empréstimo é que quando temos um valor imutável,\\nnós não podemos pegá-lo emprestado mutavelmente. Por exemplo, este código não\\ncompila:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,4,1,0": {
+    "value": "\"Uma consequência das regras de empréstimo é que quando temos um valor imutável,\\nnós não podemos pegá-lo emprestado mutavelmente. Por exemplo, este código não\\ncompila:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,40": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-24: Usando `Rc\u003CRefCell\u003Ci32\u003E\u003E` para criar uma\\n`List` que podemos modificar\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,41": {
+    "value": "\"Nós criamos um valor que é uma instância de `Rc\u003CRefCell\u003Ci32\u003E\u003E` e o armazenamos\\nem uma variável chamada `valor` para que possamos acessá-lo diretamente mais\\ntarde. Então criamos uma `List` em `a` com uma variante `Cons` que guarda\\n`valor`.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,42": {
+    "value": "\"Nós embrulhamos a lista `a` em um `Rc\u003CT\u003E` para que, quando criarmos as listas\\n`b` e `c`, elas possam ambas se referir a `a`, que é o que fizemos na Listagem\\n15-18.\\n\\nDepois de criarmos as listas em `a`, `b` e `c`, adicionamos 10 ao valor em\\n`valor`. Fazemos isto chamando `borrow_mut` em `valor`, o que usa a\\nfuncionalidade de desreferência automática que discutimos no Capítulo 5 (veja a\\nseção \\\"Onde está o operador `-\u003E`?\\\") para desreferenciar o `Rc\u003CT\u003E` ao valor\\ninterno `RefCell\u003CT\u003E`. O método `borrow_mut` retorna um ponteiro inteligente\\n`RefMut\u003CT\u003E` no qual usamos o operador de desreferência e modificamos o valor\\ninterno.\\n\\nQuando imprimimos `a`, `b` e `c`, podemos ver que todos eles têm o valor\\nmodificado de 15 em vez de 5:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,43,0": {
+    "value": "\"a depois = Cons(RefCell { value: 15 }, Nil)\\nb depois = Cons(RefCell { value: 6 }, Cons(RefCell { value: 15 }, Nil))\\nc depois = Cons(RefCell { value: 10 }, Cons(RefCell { value: 15 }, Nil))\"",
+    "dependencies": {
+      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,44": {
+    "value": "\"Esta técnica é bem bacana! Usando um `RefCell\u003CT\u003E`, temos uma `List`\\nexteriormente imutável. Mas podemos usar os métodos no `RefCell\u003CT\u003E` que dão\\nacesso a sua mutabilidade interior para que possamos modificar nossos dados\\nquando precisarmos. As checagens em tempo de execução das regras de empréstimo\\nnos protegem de corridas de dados, e às vezes vale a pena trocar um pouco de\\nvelocidade por esta flexibilidade nas nossas estruturas de dados.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,45": {
+    "value": "\"A biblioteca padrão tem outros tipos que proveem mutabilidade interior, como o\\n`Cell\u003CT\u003E`, que é parecido, exceto que em vez de dar referências ao valor\\ninterno, o valor é copiado para dentro e para fora do `Cell\u003CT\u003E`. Tem também o\\n`Mutex\u003CT\u003E`, que oferece mutabilidade interior que é segura de usar entre\\nthreads; vamos discutir seu uso no Capítulo 16. Confira a documentação da\\nbiblioteca padrão para mais detalhes sobre as diferenças entre estes tipos.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,5,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n    let y = \u0026mut x;\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,6": {
+    "value": "\"Quando tentamos compilar este código, recebemos o seguinte erro:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,7,0": {
+    "value": "\"erro posso pegar emprestado a variável local imutável `x` como\\nmutável\\n --\u003E src/main.rs:3:18\\n  |\\n2 |     let x = 5;\\n  |         - considere mudar isto para `mut x`\\n3 |     let y = \u0026mut x;\\n  |                  ^ não posso pegar emprestado mutavelmente\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,8": {
+    "value": "\"Contudo, há situações em que seria útil para um valor modificar a si mesmo em\\nseus métodos, mas continuar parecendo imutável para código externo. Código fora\\ndos métodos do valor não teriam como modificá-lo. Usar o `RefCell\u003CT\u003E` é um jeito\\nde obter a habilidade de ter mutabilidade interior. Mas o `RefCell\u003CT\u003E` não dá a\\nvolta nas regras de empréstimo por completo: o borrow checker no compilador\\npermite esta mutabilidade interior, e as regras de empréstimo são em vez disso\\nchecadas em tempo de execução. Se violarmos as regras, receberemos um `panic!`\\nem vez de um erro de compilação.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#body@0,9": {
+    "value": "\"Vamos trabalhar com um exemplo prático onde podemos usar o `RefCell\u003CT\u003E` para\\nmodificar um valor imutável e ver por que isto é útil.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,5,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,5,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,5,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,32,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,35,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,6,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,39,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,43,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,5,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,10": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,5,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,31": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,38": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,4": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,10": {
+    "value": "\"Um Caso de Uso para a Mutabilidade Interior: Objetos Simulados\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,2": {
+    "value": "\"`RefCell\u003CT\u003E` e a Pattern de Mutabilidade Interior\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,3": {
+    "value": "\"Aplicando Regras de Empréstimo em Tempo de Execução com o `RefCell\u003CT\u003E`\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,31": {
+    "value": "\"O `RefCell\u003CT\u003E` Registra Empréstimos em Tempo de Execução\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,38": {
+    "value": "\"Conseguindo Múltiplos Possuidores de Dados Mutáveis pela Combinação de `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#title@0,4": {
+    "value": "\"Mutabilidade Interior: Um Empréstimo Mutável de um Valor Imutável\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -304,492 +790,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,10": {
-    "value": "\"Um _dublê de teste_ (_test double_) é um conceito geral de programação para um\\ntipo usado no lugar de outro durante os testes. _Objetos simulados_ (_mock\\nobjects_) são tipos específicos de dublês de teste que registram o que acontece\\ndurante o teste para que possamos confirmar que as ações corretas aconteceram.\\n\\nRust não tem objetos da mesma forma que outras linguagens, e não tem\\nfuncionalidade de objetos simulados embutida na biblioteca padrão como algumas\\noutras linguagens. Contudo, certamente podemos criar uma struct que serve os\\nmesmos propósitos que um objeto simulado.\\n\\nEis o cenário que vamos testar: vamos criar uma biblioteca que acompanha um\\nvalor contra um valor máximo e envia mensagens com base em quão próximo do valor\\nmáximo o valor atual está. Esta biblioteca pode ser usada para acompanhar a cota\\nde um usuário para o número de chamadas de API que ele tem direito a fazer, por\\nexemplo.\\n\\nNossa biblioteca irá prover somente a funcionalidade de acompanhar quão perto do\\nmáximo um valor está e o que as mensagens deveriam ser em quais momentos. As\\naplicações que usarem nossa biblioteca terão a responsabilidade de prover o\\nmecanismo para enviar as mensagens: a aplicação pode pôr a mensagem na própria\\naplicação, enviar um email, uma mensagem de texto, ou alguma outra coisa. A\\nbiblioteca não precisa saber deste detalhe. Tudo que ela precisa é de algo que\\nimplemente uma trait que iremos prover chamada `Mensageiro`. A\\nListagem 15-20 mostra o código da biblioteca:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,10,1,0": {
-    "value": "\"Um _dublê de teste_ (_test double_) é um conceito geral de programação para um\\ntipo usado no lugar de outro durante os testes. _Objetos simulados_ (_mock\\nobjects_) são tipos específicos de dublês de teste que registram o que acontece\\ndurante o teste para que possamos confirmar que as ações corretas aconteceram.\\n\\nRust não tem objetos da mesma forma que outras linguagens, e não tem\\nfuncionalidade de objetos simulados embutida na biblioteca padrão como algumas\\noutras linguagens. Contudo, certamente podemos criar uma struct que serve os\\nmesmos propósitos que um objeto simulado.\\n\\nEis o cenário que vamos testar: vamos criar uma biblioteca que acompanha um\\nvalor contra um valor máximo e envia mensagens com base em quão próximo do valor\\nmáximo o valor atual está. Esta biblioteca pode ser usada para acompanhar a cota\\nde um usuário para o número de chamadas de API que ele tem direito a fazer, por\\nexemplo.\\n\\nNossa biblioteca irá prover somente a funcionalidade de acompanhar quão perto do\\nmáximo um valor está e o que as mensagens deveriam ser em quais momentos. As\\naplicações que usarem nossa biblioteca terão a responsabilidade de prover o\\nmecanismo para enviar as mensagens: a aplicação pode pôr a mensagem na própria\\naplicação, enviar um email, uma mensagem de texto, ou alguma outra coisa. A\\nbiblioteca não precisa saber deste detalhe. Tudo que ela precisa é de algo que\\nimplemente uma trait que iremos prover chamada `Mensageiro`. A\\nListagem 15-20 mostra o código da biblioteca:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,11,0": {
-    "value": "\"pub trait Mensageiro {\\n    fn enviar(\u0026self, msg: \u0026str);\\n}\\n\\npub struct AvisaLimite\u003C'a, T: 'a + Mensageiro\u003E {\\n    mensageiro: \u0026'a T,\\n    valor: usize,\\n    max: usize,\\n}\\n\\nimpl\u003C'a, T\u003E AvisaLimite\u003C'a, T\u003E\\n    where T: Mensageiro {\\n    pub fn new(mensageiro: \u0026T, max: usize) -\u003E AvisaLimite\u003CT\u003E {\\n        AvisaLimite {\\n            mensageiro,\\n            valor: 0,\\n            max,\\n        }\\n    }\\n\\n    pub fn set_valor(\u0026mut self, valor: usize) {\\n        self.valor = valor;\\n\\n        let porcentagem_do_max = self.valor as f64 / self.max as f64;\\n\\n        if porcentagem_do_max \u003E= 0.75 \u0026\u0026 porcentagem_do_max \u003C 0.9 {\\n            self.mensageiro.enviar(\\\"Aviso: Você usou mais de 75% da sua cota!\\\");\\n        } else if porcentagem_do_max \u003E= 0.9 \u0026\u0026 porcentagem_do_max \u003C 1.0 {\\n            self.mensageiro.enviar(\\\"Aviso urgente: Você usou mais de 90% da sua cota!\\\");\\n        } else if porcentagem_do_max \u003E= 1.0 {\\n            self.mensageiro.enviar(\\\"Erro: Você excedeu sua cota!\\\");\\n        }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,12": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-20: Uma biblioteca para acompanhar quão perto\\ndo máximo um valor está e avisar quando o valor está em certos níveis\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,13": {
-    "value": "\"Uma parte importante deste código é que a trait `Mensageiro` tem um método\\nchamado `enviar` que recebe uma referência imutável a `self` e o texto da\\nmensagem. Esta é a interface que nosso objeto simulado precisa ter. A outra\\nparte importante é que queremos testar o comportamento do método `set_valor` no\\n`AvisaLimite`. Podemos mudar o que passamos para o parâmetro `valor`, mas o\\n`set_valor` não retorna nada sobre o qual possamos fazer asserções. Queremos\\npoder dizer que se criarmos um `AvisaLimite` com algo que implemente a trait\\n`Mensageiro` e um valor específico de `max`, quando passarmos diferentes números\\npara o `valor`, o mensageiro receberá o comando para enviar as mensagens\\napropriadas.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,14": {
-    "value": "\"Precisamos de um objeto simulado que, em vez de enviar um email ou mensagem de\\ntexto quando chamarmos `enviar`, irá apenas registrar as mensagens que recebeu\\npara enviar. Podemos criar uma nova instância do objeto simulado, criar um\\n`AvisaLimite` que use o objeto simulado, chamar o método `set_valor` no\\n`AvisaLimite`, e então verificar se o objeto simulado tem as mensagens que\\nesperamos. A Listagem 15-21 mostra uma tentativa de implementar um objeto\\nsimulado para fazer exatamente isto, mas que o borrow checker não permite:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,15": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,16,0": {
-    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::*;\\n\\n    struct MensageiroSimulado {\\n        mensagens_enviadas: Vec\u003CString\u003E,\\n    }\\n\\n    impl MensageiroSimulado {\\n        fn new() -\u003E MensageiroSimulado {\\n            MensageiroSimulado { mensagens_enviadas: vec![] }\\n        }\\n    }\\n\\n    impl Mensageiro for MensageiroSimulado {\\n        fn enviar(\u0026self, mensagem: \u0026str) {\\n            self.mensagens_enviadas.push(String::from(mensagem));\\n        }\\n    }\\n\\n    #[test]\\n    fn envia_uma_mensagem_de_aviso_de_acima_de_75_porcento() {\\n        let mensageiro_simulado = MensageiroSimulado::new();\\n        let mut avisa_limite = AvisaLimite::new(\u0026mensageiro_simulado, 100);\\n\\n        avisa_limite.set_valor(80);\\n\\n        assert_eq!(mensageiro_simulado.mensagens_enviadas.len(), 1);\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-21: Uma tentativa de implementar um\\n`MensageiroSimulado` que não é permitida pelo borrow checker\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,18": {
-    "value": "\"Este código de teste define uma struct `MensageiroSimulado` que tem um campo\\n`mensagens_enviadas` com um `Vec` de valores `String` para registrar as\\nmensagens que ele recebe para enviar. Também definimos uma função associada\\n`new` para facilitar a criação de novos valores `MensageiroSimulado` que começam\\ncom uma lista vazia de mensagens. Então implementamos a trait `Mensageiro` para\\no `MensageiroSimulado` para que possamos passar um `MensageiroSimulado` a um\\n`AvisaLimite`. Na definição do método `enviar`, nós pegamos a mensagem passada\\ncomo parâmetro e a armazenamos na lista `mensagens_enviadas` do\\n`MensageiroSimulado`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,19": {
-    "value": "\"No teste, estamos testando o que acontece quando o `AvisaLimite` recebe o\\ncomando para setar o `valor` para algo que é mais do que 75 porcento do valor\\n`max`. Primeiro, criamos um novo `MensageiroSimulado`, que irá começar com uma\\nlista vazia de mensagens. Então criamos um novo `AvisaLimite` e lhe damos uma\\nreferência ao novo `MensageiroSimulado` e um valor `max` de 100. Nós chamamos o\\nmétodo `set_valor` no `AvisaLimite` com um valor de 80, que é mais do que 75\\nporcento de 100. Então conferimos se a lista de mensagens que o\\n`MensageiroSimulado` está registrando agora tem uma mensagem nela.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,2": {
-    "value": "\"_Mutabilidade interior_ (_interior mutability_) é uma design pattern em Rust que\\nlhe permite modificar um dado mesmo quando há referências imutáveis a ele:\\nnormalmente, esta ação é proibida pelas regras de empréstimo. Para fazer isso, a\\npattern usa código `unsafe` (_inseguro_) dentro de uma estrutura de dados para\\ndobrar as regras normais do Rust que governam mutação e empréstimo. Nós ainda\\nnão cobrimos código unsafe; faremos isso no Capítulo 19. Podemos usar tipos que\\nusam a pattern de mutabilidade interior quando podemos garantir que as regras de\\nempréstimo serão seguidas em tempo de execução, ainda que o compilador não o\\npossa garantir. O código `unsafe` envolvido é então embrulhado em uma API safe,\\ne o tipo exterior permanece imutável.\\n\\nPara explorar este conceito, vamos ver o tipo `RefCell\u003CT\u003E` que segue a pattern\\nde mutabilidade interior.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,2,1,0": {
-    "value": "\"_Mutabilidade interior_ (_interior mutability_) é uma design pattern em Rust que\\nlhe permite modificar um dado mesmo quando há referências imutáveis a ele:\\nnormalmente, esta ação é proibida pelas regras de empréstimo. Para fazer isso, a\\npattern usa código `unsafe` (_inseguro_) dentro de uma estrutura de dados para\\ndobrar as regras normais do Rust que governam mutação e empréstimo. Nós ainda\\nnão cobrimos código unsafe; faremos isso no Capítulo 19. Podemos usar tipos que\\nusam a pattern de mutabilidade interior quando podemos garantir que as regras de\\nempréstimo serão seguidas em tempo de execução, ainda que o compilador não o\\npossa garantir. O código `unsafe` envolvido é então embrulhado em uma API safe,\\ne o tipo exterior permanece imutável.\\n\\nPara explorar este conceito, vamos ver o tipo `RefCell\u003CT\u003E` que segue a pattern\\nde mutabilidade interior.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,20": {
-    "value": "\"Entretanto, há um problema neste teste, conforme abaixo:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,21,0": {
-    "value": "\"erro posso pegar emprestado o campo imutável\\n             `self.mensagens_enviadas` como mutável\\n  --\u003E src/lib.rs:52:13\\n   |\\n51 |         fn send(\u0026self, message: \u0026str) {\\n   |                 ----- use `\u0026mut self` aqui para torná-lo mutável\\n52 |             self.sent_messages.push(String::from(message));\\n   |             ^^^^^^^^^^^^^^^^^^ não posso pegar emprestado mutavelmente um\\n                                    campo imutável\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,22": {
-    "value": "\"Não podemos modificar o `MensageiroSimulado` para registrar as mensagens porque\\no método `enviar` recebe uma referência imutável a `self`. Também não podemos\\nseguir a sugestão do texto de erro e usar `\u0026mut self` em vez disso porque a\\nassinatura de `enviar` não corresponderia à assinatura na definição da trait\\n`Mensageiro` (fique à vontade para tentar e ver qual mensagem de erro você\\nrecebe).\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,23": {
-    "value": "\"Esta é uma situação em que a mutabilidade interior pode ajudar! Vamos armazenas\\nas `mensagens_enviadas` dentro de um `RefCell\u003CT\u003E`, e então o método `enviar`\\npoderá modificar `mensagens_enviadas` para armazenar as mensagens que já vimos.\\nA Listagem 15-22 mostra como fica isto:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,24": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,25,0": {
-    "value": "\"#[cfg(test)]\\nmod tests {\\n    use super::*;\\n    use std::cell::RefCell;\\n\\n    struct MensageiroSimulado {\\n        mensagens_enviadas: RefCell\u003CVec\u003CString\u003E\u003E,\\n    }\\n\\n    impl MensageiroSimulado {\\n        fn new() -\u003E MensageiroSimulado {\\n            MensageiroSimulado { mensagens_enviadas: RefCell::new(vec![]) }\\n        }\\n    }\\n\\n    impl Mensageiro for MensageiroSimulado {\\n        fn enviar(\u0026self, mensagem: \u0026str) {\\n            self.mensagens_enviadas.borrow_mut().push(String::from(mensagem));\\n        }\\n    }\\n\\n    #[test]\\n    fn envia_uma_mensagem_de_aviso_de_acima_de_75_porcento() {\\n        // --snip--\\n#         let mensageiro_simulado = MensageiroSimulado::new();\\n#         let mut avisa_limite = AvisaLimite::new(\u0026mensageiro_simulado, 100);\\n#         avisa_limite.set_valor(75);\\n\\n        assert_eq!(mensageiro_simulado.mensagens_enviadas.borrow().len(), 1);\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,26": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-22: Usando `RefCell\u003CT\u003E` para modificar um\\nvalor interno enquanto o valor externo é considerado imutável\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,27": {
-    "value": "\"O campo `mensagens_enviadas` agora é do tipo `RefCell\u003CVec\u003CString\u003E\u003E` em vez de\\n`Vec\u003CString\u003E`. Na função `new`, nós criamos uma nova instância de\\n`RefCell\u003CVec\u003CString\u003E\u003E` em torno do vetor vazio.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,28": {
-    "value": "\"Para a implementação do método `enviar`, o primeiro parâmetro ainda é um\\nempréstimo imutável de `self`, que corresponde à definição da trait. Nós\\nchamamos `borrow_mut` no `RefCell\u003CVec\u003CString\u003E\u003E` em `self.mensagens_enviadas`\\npara obter uma referência mutável ao valor dentro do `RefCell\u003CVec\u003CString\u003E\u003E`, que\\né o vetor. Então podemos chamar `push` na referência mutável ao vetor para\\nregistrar as mensagens enviadas durante o teste.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,29": {
-    "value": "\"A última mudança que temos que fazer é na asserção: para ver quantos itens estão\\nno vetor interno, chamamos `borrow` no `RefCell\u003CVec\u003CString\u003E\u003E` para obter uma\\nreferência imutável ao vetor.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,3": {
-    "value": "\"Diferente do `Rc\u003CT\u003E`, o tipo `RefCell\u003CT\u003E` representa posse única sobre o dado\\nque ele contém. Então o que torna o `RefCell\u003CT\u003E` diferente de um tipo como o\\n`Box\u003CT\u003E`? Lembre-se das regras de empréstimo que você aprendeu no Capítulo 4:\\n\\n- Em qualquer momento, você pode ter _um dos_ mas não ambos os seguintes: uma\\n  única referência mutável _ou_ qualquer número de referências imutáveis;\\n- Referências devem sempre ser válidas.\\n\\nCom referências e com o `Box\u003CT\u003E`, as invariantes das regras de empréstimo são\\naplicadas em tempo de compilação. Com o `RefCell\u003CT\u003E`, essas invariantes são\\naplicadas _em tempo de execução_. Com referências, se você quebra essas regras,\\nvocê recebe um erro de compilação. Com o `RefCell\u003CT\u003E`, se você quebrar essas\\nregras, seu programa irá sofrer um `panic!` e terminar.\\n\\nAs vantagens de checar as regras de empréstimo em tempo de compilação são que\\nerros são pegos mais cedo no processo de desenvolvimento, e não há nenhum custo\\nde desempenho de execução porque toda a análise é completada de antemão. Por\\nesses motivos, checar as regras de empréstimo em tempo de compilação é a melhor\\nopção na maioria dos casos, e por isso este é o padrão do Rust.\\n\\nA vantagem de checar as regras de empréstimo em tempo de execução,\\nalternativamente, é que certos cenários _memory-safe_ (_seguros em termos de\\nmemória_) são então permitidos, ao passo que seriam proibidos pelas checagens em\\ntempo de compilação. A análise estática, como a do compilador Rust, é\\ninerentemente conservadora. Algumas propriedades do programa são impossíveis de\\ndetectar analisando o código: o exemplo mais famoso é o Problema da Parada, que\\nestá além do escopo deste livro mas é um tópico interessante para pesquisa.\\n\\nComo algumas análises são impossíveis, se o compilador Rust não consegue se\\nassegurar que o código obedece às regras de posse, ele pode rejeitar um programa\\ncorreto; neste sentido, ele é conservador. Se o Rust aceitasse um programa\\nincorreto, os usuários não poderiam confiar nas garantias que ele faz. Se, por\\noutro lado, o Rust rejeita um programa correto, o programador terá alguma\\ninconveniência, mas nada catastrófico pode acontecer. O tipo `RefCell\u003CT\u003E` é útil\\nquando você tem certeza que seu código segue as regras de empréstimo, mas o\\ncompilador é incapaz de entender e garantir isso.\\n\\nAssim como o `Rc\u003CT\u003E`, o `RefCell\u003CT\u003E` é apenas para uso em cenários de thread\\núnica e lhe darão um erro de compilação se você tentar usá-lo em um contexto de\\nmúltiplas threads. Falaremos sobre como obter a funcionalidade de um\\n`RefCell\u003CT\u003E` em um programa multithread no Capítulo 16.\\n\\nAqui está uma recapitulação das razões para escolher o `Box\u003CT\u003E`, o `Rc\u003CT\u003E` ou o\\n`RefCell\u003CT\u003E`:\\n\\n- O `Rc\u003CT\u003E` permite múltiplos possuidores do mesmo dado; `Box\u003CT\u003E` e `RefCell\u003CT\u003E`\\n  têm possuidores únicos.\\n- O `Box\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados em tempo de\\n  compilação; o `Rc\u003CT\u003E` permite apenas empréstimos imutáveis em tempo de\\n  compilação; o `RefCell\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados\\n  em tempo de execução.\\n- Como o `RefCell\u003CT\u003E` permite empréstimos mutáveis checados em tempo de\\n  execução, nós podemos modificar o valor dentro de um `RefCell\u003CT\u003E` mesmo quando\\n  o `RefCell\u003CT\u003E` é imutável.\\n\\nModificar o valor dentro de um valor imutável é a pattern de _mutabilidade\\ninterior_. Vamos dar uma olhada em uma situação em que a mutabilidade interior é\\nútil e examinar como ela é possível.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,3,1,0": {
-    "value": "\"Diferente do `Rc\u003CT\u003E`, o tipo `RefCell\u003CT\u003E` representa posse única sobre o dado\\nque ele contém. Então o que torna o `RefCell\u003CT\u003E` diferente de um tipo como o\\n`Box\u003CT\u003E`? Lembre-se das regras de empréstimo que você aprendeu no Capítulo 4:\\n\\n- Em qualquer momento, você pode ter _um dos_ mas não ambos os seguintes: uma\\n  única referência mutável _ou_ qualquer número de referências imutáveis;\\n- Referências devem sempre ser válidas.\\n\\nCom referências e com o `Box\u003CT\u003E`, as invariantes das regras de empréstimo são\\naplicadas em tempo de compilação. Com o `RefCell\u003CT\u003E`, essas invariantes são\\naplicadas _em tempo de execução_. Com referências, se você quebra essas regras,\\nvocê recebe um erro de compilação. Com o `RefCell\u003CT\u003E`, se você quebrar essas\\nregras, seu programa irá sofrer um `panic!` e terminar.\\n\\nAs vantagens de checar as regras de empréstimo em tempo de compilação são que\\nerros são pegos mais cedo no processo de desenvolvimento, e não há nenhum custo\\nde desempenho de execução porque toda a análise é completada de antemão. Por\\nesses motivos, checar as regras de empréstimo em tempo de compilação é a melhor\\nopção na maioria dos casos, e por isso este é o padrão do Rust.\\n\\nA vantagem de checar as regras de empréstimo em tempo de execução,\\nalternativamente, é que certos cenários _memory-safe_ (_seguros em termos de\\nmemória_) são então permitidos, ao passo que seriam proibidos pelas checagens em\\ntempo de compilação. A análise estática, como a do compilador Rust, é\\ninerentemente conservadora. Algumas propriedades do programa são impossíveis de\\ndetectar analisando o código: o exemplo mais famoso é o Problema da Parada, que\\nestá além do escopo deste livro mas é um tópico interessante para pesquisa.\\n\\nComo algumas análises são impossíveis, se o compilador Rust não consegue se\\nassegurar que o código obedece às regras de posse, ele pode rejeitar um programa\\ncorreto; neste sentido, ele é conservador. Se o Rust aceitasse um programa\\nincorreto, os usuários não poderiam confiar nas garantias que ele faz. Se, por\\noutro lado, o Rust rejeita um programa correto, o programador terá alguma\\ninconveniência, mas nada catastrófico pode acontecer. O tipo `RefCell\u003CT\u003E` é útil\\nquando você tem certeza que seu código segue as regras de empréstimo, mas o\\ncompilador é incapaz de entender e garantir isso.\\n\\nAssim como o `Rc\u003CT\u003E`, o `RefCell\u003CT\u003E` é apenas para uso em cenários de thread\\núnica e lhe darão um erro de compilação se você tentar usá-lo em um contexto de\\nmúltiplas threads. Falaremos sobre como obter a funcionalidade de um\\n`RefCell\u003CT\u003E` em um programa multithread no Capítulo 16.\\n\\nAqui está uma recapitulação das razões para escolher o `Box\u003CT\u003E`, o `Rc\u003CT\u003E` ou o\\n`RefCell\u003CT\u003E`:\\n\\n- O `Rc\u003CT\u003E` permite múltiplos possuidores do mesmo dado; `Box\u003CT\u003E` e `RefCell\u003CT\u003E`\\n  têm possuidores únicos.\\n- O `Box\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados em tempo de\\n  compilação; o `Rc\u003CT\u003E` permite apenas empréstimos imutáveis em tempo de\\n  compilação; o `RefCell\u003CT\u003E` permite empréstimos imutáveis ou mutáveis checados\\n  em tempo de execução.\\n- Como o `RefCell\u003CT\u003E` permite empréstimos mutáveis checados em tempo de\\n  execução, nós podemos modificar o valor dentro de um `RefCell\u003CT\u003E` mesmo quando\\n  o `RefCell\u003CT\u003E` é imutável.\\n\\nModificar o valor dentro de um valor imutável é a pattern de _mutabilidade\\ninterior_. Vamos dar uma olhada em uma situação em que a mutabilidade interior é\\nútil e examinar como ela é possível.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,30": {
-    "value": "\"Agora que você viu como usar o `RefCell\u003CT\u003E`, vamos nos aprofundar em como ele\\nfunciona!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,31": {
-    "value": "\"Quando estamos criando referências imutáveis e mutáveis, usamos as sintaxes `\u0026`\\ne `\u0026mut`, respectivamente. Com o `RefCell\u003CT\u003E`, usamos os métodos `borrow` e\\n`borrow_mut`, que são parte da API safe que pertence ao `RefCell\u003CT\u003E`. O método\\n`borrow` retorna o ponteiro inteligente `Ref\u003CT\u003E`, e o `borrow_mut` retorna o\\nponteiro inteligente `RefMut\u003CT\u003E`. Ambos os tipos implementam `Deref`, então\\npodemos tratá-los como referências normais.\\n\\nO tipo `RefCell\u003CT\u003E` mantém registro de quantos ponteiros inteligentes `Ref\u003CT\u003E` e\\n`RefMut\u003CT\u003E` estão atualmente ativos. Cada vez que chamamos `borrow`, o\\n`RefCell\u003CT\u003E` aumenta seu contador de quantos empréstimos imutáveis estão ativos.\\nQuando um valor `Ref\u003CT\u003E` sai de escopo, o contador de empréstimos imutáveis\\ndiminui em um. Assim como as regras de empréstimo em tempo de compilação, o\\n`RefCell\u003CT\u003E` nos permite ter vários empréstimos imutáveis ou um empréstimo\\nmutável em um dado momento.\\n\\nSe tentarmos violar estas regras, em vez de receber um erro do compilador como\\niríamos com referências, a implementação de `RefCell\u003CT\u003E` chamará `panic!` em\\ntempo de execução. A Listagem 15-23 mostra uma modificação da implementação do\\n`enviar` da Listagem 15-22. Estamos deliberadamente tentando criar dois\\nempréstimos mutáveis ativos para o mesmo escopo para ilustrar que o `RefCell\u003CT\u003E`\\nnos impede de fazer isto em tempo de execução:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,31,1,0": {
-    "value": "\"Quando estamos criando referências imutáveis e mutáveis, usamos as sintaxes `\u0026`\\ne `\u0026mut`, respectivamente. Com o `RefCell\u003CT\u003E`, usamos os métodos `borrow` e\\n`borrow_mut`, que são parte da API safe que pertence ao `RefCell\u003CT\u003E`. O método\\n`borrow` retorna o ponteiro inteligente `Ref\u003CT\u003E`, e o `borrow_mut` retorna o\\nponteiro inteligente `RefMut\u003CT\u003E`. Ambos os tipos implementam `Deref`, então\\npodemos tratá-los como referências normais.\\n\\nO tipo `RefCell\u003CT\u003E` mantém registro de quantos ponteiros inteligentes `Ref\u003CT\u003E` e\\n`RefMut\u003CT\u003E` estão atualmente ativos. Cada vez que chamamos `borrow`, o\\n`RefCell\u003CT\u003E` aumenta seu contador de quantos empréstimos imutáveis estão ativos.\\nQuando um valor `Ref\u003CT\u003E` sai de escopo, o contador de empréstimos imutáveis\\ndiminui em um. Assim como as regras de empréstimo em tempo de compilação, o\\n`RefCell\u003CT\u003E` nos permite ter vários empréstimos imutáveis ou um empréstimo\\nmutável em um dado momento.\\n\\nSe tentarmos violar estas regras, em vez de receber um erro do compilador como\\niríamos com referências, a implementação de `RefCell\u003CT\u003E` chamará `panic!` em\\ntempo de execução. A Listagem 15-23 mostra uma modificação da implementação do\\n`enviar` da Listagem 15-22. Estamos deliberadamente tentando criar dois\\nempréstimos mutáveis ativos para o mesmo escopo para ilustrar que o `RefCell\u003CT\u003E`\\nnos impede de fazer isto em tempo de execução:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,32,0": {
-    "value": "\"impl Mensageiro for MensageiroSimulado {\\n    fn enviar(\u0026self, mensagem: \u0026str) {\\n        let mut emprestimo_um = self.mensagens_enviadas.borrow_mut();\\n        let mut emprestimo_dois = self.mensagens_enviadas.borrow_mut();\\n\\n        emprestimo_um.push(String::from(mensagem));\\n        emprestimo_dois.push(String::from(mensagem));\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,33": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-23: Criando duas referências mutáveis no mesmo\\nescopo para ver que o `RefCell\u003CT\u003E` irá \\\"entrar em pânico\\\" (i.e., executar\\n`panic!`)\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,34": {
-    "value": "\"Nós criamos uma variável `emprestimo_um` para o ponteiro inteligente `RefMut\u003CT\u003E`\\nretornado por `borrow_mut`. Então criamos outro empréstimo mutável da mesma\\nforma na variável `emprestimo_dois`. Isto resulta em duas referências mutáveis\\nno mesmo escopo, o que não é permitido. Quando rodarmos os testes para nossa\\nbiblioteca, o código na Listagem 15-23 irá compilar sem nenhum erro, mas o teste\\nirá falhar:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,35,0": {
-    "value": "\"---- tests::envia_uma_mensagem_de_aviso_de_acima_de_75_porcento stdout ----\\n\\tthread 'tests::envia_uma_mensagem_de_aviso_de_acima_de_75_porcento' entrou\\n    em pânico em\\n    'já emprestado: BorrowMutError', src/libcore/result.rs:906:4\\nnota: Rode com `RUST_BACKTRACE=1` para um backtrace.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,36": {
-    "value": "\"Note como o código entrou em pânico com a mensagem `já emprestado: BorrowMutError`. É assim que o `RefCell\u003CT\u003E` lida com violações das regras de\\nempréstimo em tempo de execução.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,37": {
-    "value": "\"Pegar erros de empréstimo em tempo de execução em vez de em tempo de compilação\\nsignifica encontrar defeitos no nosso código mais tarde no processo de\\ndesenvolvimento, e possivelmente nem mesmo até que nosso código já tenha sido\\nimplantado em produção. Além disso, nosso código irá incorrer em uma pequena\\npenalidade de desempenho de execução como resultado de manter registro dos\\nempréstimos em tempo de execução em vez de compilação. Ainda assim, usar o\\n`RefCell\u003CT\u003E` nos torna possível escrever um objeto simulado que pode se\\nmodificar para registrar as mensagens que ele já viu enquanto o usamos em um\\ncontexto onde apenas valores imutáveis são permitidos. Podemos usar o\\n`RefCell\u003CT\u003E`, apesar de seus trade-offs, para obter mais funcionalidade do que\\nreferências regulares nos dão.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,38": {
-    "value": "\"Um jeito comum de usar o `RefCell\u003CT\u003E` é em combinação com o `Rc\u003CT\u003E`. Lembre-se\\nde que o `Rc\u003CT\u003E` nos permite ter múltiplos possuidores de algum dado, mas ele só\\nnos permite acesso imutável a esse dado. Se temos um `Rc\u003CT\u003E` que contém um\\n`RefCell\u003CT\u003E`, podemos ter um valor que pode ter múltiplos possuidores _e_ que\\npodemos modificar!\\n\\nPor exemplo, lembre-se da cons list na Listagem 15-18 onde usamos o `Rc\u003CT\u003E` para\\nnos permitir que múltiplas listas compartilhassem posse de outra lista. Como o\\n`Rc\u003CT\u003E` guarda apenas valores imutáveis, nós não podemos modificar nenhum dos\\nvalores na lista uma vez que os criamos. Vamos adicionar o `RefCell\u003CT\u003E` para\\nganhar a habilidade de mudar os valores nas listas. A Listagem 15-24 mostra que,\\nusando um `RefCell\u003CT\u003E` na definição do `Cons`, podemos modificar o valor\\narmazenado em todas as listas:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,38,1,0": {
-    "value": "\"Um jeito comum de usar o `RefCell\u003CT\u003E` é em combinação com o `Rc\u003CT\u003E`. Lembre-se\\nde que o `Rc\u003CT\u003E` nos permite ter múltiplos possuidores de algum dado, mas ele só\\nnos permite acesso imutável a esse dado. Se temos um `Rc\u003CT\u003E` que contém um\\n`RefCell\u003CT\u003E`, podemos ter um valor que pode ter múltiplos possuidores _e_ que\\npodemos modificar!\\n\\nPor exemplo, lembre-se da cons list na Listagem 15-18 onde usamos o `Rc\u003CT\u003E` para\\nnos permitir que múltiplas listas compartilhassem posse de outra lista. Como o\\n`Rc\u003CT\u003E` guarda apenas valores imutáveis, nós não podemos modificar nenhum dos\\nvalores na lista uma vez que os criamos. Vamos adicionar o `RefCell\u003CT\u003E` para\\nganhar a habilidade de mudar os valores nas listas. A Listagem 15-24 mostra que,\\nusando um `RefCell\u003CT\u003E` na definição do `Cons`, podemos modificar o valor\\narmazenado em todas as listas:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,39,0": {
-    "value": "\"#[derive(Debug)]\\nenum List {\\n    Cons(Rc\u003CRefCell\u003Ci32\u003E\u003E, Rc\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\nuse std::rc::Rc;\\nuse std::cell::RefCell;\\n\\nfn main() {\\n    let valor = Rc::new(RefCell::new(5));\\n\\n    let a = Rc::new(Cons(Rc::clone(\u0026valor), Rc::new(Nil)));\\n\\n    let b = Cons(Rc::new(RefCell::new(6)), Rc::clone(\u0026a));\\n    let c = Cons(Rc::new(RefCell::new(10)), Rc::clone(\u0026a));\\n\\n    *valor.borrow_mut() += 10;\\n\\n    println!(\\\"a depois = {:?}\\\", a);\\n    println!(\\\"b depois = {:?}\\\", b);\\n    println!(\\\"c depois = {:?}\\\", c);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,4": {
-    "value": "\"Uma consequência das regras de empréstimo é que quando temos um valor imutável,\\nnós não podemos pegá-lo emprestado mutavelmente. Por exemplo, este código não\\ncompila:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,4,1,0": {
-    "value": "\"Uma consequência das regras de empréstimo é que quando temos um valor imutável,\\nnós não podemos pegá-lo emprestado mutavelmente. Por exemplo, este código não\\ncompila:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,40": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-24: Usando `Rc\u003CRefCell\u003Ci32\u003E\u003E` para criar uma\\n`List` que podemos modificar\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,41": {
-    "value": "\"Nós criamos um valor que é uma instância de `Rc\u003CRefCell\u003Ci32\u003E\u003E` e o armazenamos\\nem uma variável chamada `valor` para que possamos acessá-lo diretamente mais\\ntarde. Então criamos uma `List` em `a` com uma variante `Cons` que guarda\\n`valor`.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,42": {
-    "value": "\"Nós embrulhamos a lista `a` em um `Rc\u003CT\u003E` para que, quando criarmos as listas\\n`b` e `c`, elas possam ambas se referir a `a`, que é o que fizemos na Listagem\\n15-18.\\n\\nDepois de criarmos as listas em `a`, `b` e `c`, adicionamos 10 ao valor em\\n`valor`. Fazemos isto chamando `borrow_mut` em `valor`, o que usa a\\nfuncionalidade de desreferência automática que discutimos no Capítulo 5 (veja a\\nseção \\\"Onde está o operador `-\u003E`?\\\") para desreferenciar o `Rc\u003CT\u003E` ao valor\\ninterno `RefCell\u003CT\u003E`. O método `borrow_mut` retorna um ponteiro inteligente\\n`RefMut\u003CT\u003E` no qual usamos o operador de desreferência e modificamos o valor\\ninterno.\\n\\nQuando imprimimos `a`, `b` e `c`, podemos ver que todos eles têm o valor\\nmodificado de 15 em vez de 5:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,43,0": {
-    "value": "\"a depois = Cons(RefCell { value: 15 }, Nil)\\nb depois = Cons(RefCell { value: 6 }, Cons(RefCell { value: 15 }, Nil))\\nc depois = Cons(RefCell { value: 10 }, Cons(RefCell { value: 15 }, Nil))\"",
-    "dependencies": {
-      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,44": {
-    "value": "\"Esta técnica é bem bacana! Usando um `RefCell\u003CT\u003E`, temos uma `List`\\nexteriormente imutável. Mas podemos usar os métodos no `RefCell\u003CT\u003E` que dão\\nacesso a sua mutabilidade interior para que possamos modificar nossos dados\\nquando precisarmos. As checagens em tempo de execução das regras de empréstimo\\nnos protegem de corridas de dados, e às vezes vale a pena trocar um pouco de\\nvelocidade por esta flexibilidade nas nossas estruturas de dados.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,45": {
-    "value": "\"A biblioteca padrão tem outros tipos que proveem mutabilidade interior, como o\\n`Cell\u003CT\u003E`, que é parecido, exceto que em vez de dar referências ao valor\\ninterno, o valor é copiado para dentro e para fora do `Cell\u003CT\u003E`. Tem também o\\n`Mutex\u003CT\u003E`, que oferece mutabilidade interior que é segura de usar entre\\nthreads; vamos discutir seu uso no Capítulo 16. Confira a documentação da\\nbiblioteca padrão para mais detalhes sobre as diferenças entre estes tipos.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,5,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n    let y = \u0026mut x;\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,6": {
-    "value": "\"Quando tentamos compilar este código, recebemos o seguinte erro:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,7,0": {
-    "value": "\"erro posso pegar emprestado a variável local imutável `x` como\\nmutável\\n --\u003E src/main.rs:3:18\\n  |\\n2 |     let x = 5;\\n  |         - considere mudar isto para `mut x`\\n3 |     let y = \u0026mut x;\\n  |                  ^ não posso pegar emprestado mutavelmente\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,8": {
-    "value": "\"Contudo, há situações em que seria útil para um valor modificar a si mesmo em\\nseus métodos, mas continuar parecendo imutável para código externo. Código fora\\ndos métodos do valor não teriam como modificá-lo. Usar o `RefCell\u003CT\u003E` é um jeito\\nde obter a habilidade de ter mutabilidade interior. Mas o `RefCell\u003CT\u003E` não dá a\\nvolta nas regras de empréstimo por completo: o borrow checker no compilador\\npermite esta mutabilidade interior, e as regras de empréstimo são em vez disso\\nchecadas em tempo de execução. Se violarmos as regras, receberemos um `panic!`\\nem vez de um erro de compilação.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#body@0,9": {
-    "value": "\"Vamos trabalhar com um exemplo prático onde podemos usar o `RefCell\u003CT\u003E` para\\nmodificar um valor imutável e ver por que isto é útil.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,5,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,5,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,5,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,5,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,5,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,32,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,6,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,35,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,6,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,6,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,39,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,43,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,5,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,10": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,5,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,31": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,38": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#open@0,4": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,10": {
-    "value": "\"Um Caso de Uso para a Mutabilidade Interior: Objetos Simulados\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,2": {
-    "value": "\"`RefCell\u003CT\u003E` e a Pattern de Mutabilidade Interior\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,3": {
-    "value": "\"Aplicando Regras de Empréstimo em Tempo de Execução com o `RefCell\u003CT\u003E`\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,31": {
-    "value": "\"O `RefCell\u003CT\u003E` Registra Empréstimos em Tempo de Execução\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,38": {
-    "value": "\"Conseguindo Múltiplos Possuidores de Dados Mutáveis pela Combinação de `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-05-interior-mutability#title@0,4": {
-    "value": "\"Mutabilidade Interior: Um Empréstimo Mutável de um Valor Imutável\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1016,7 +1016,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1213,7 +1213,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="refcell-t-e-a-pattern-de-mutabilidade-interior" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>RefCell&lt;T&gt;</code> e a Pattern de Mutabilidade Interior</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="refcell-t-e-a-pattern-de-mutabilidade-interior" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>RefCell&lt;T&gt;</code> e a Pattern de Mutabilidade Interior</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p><em>Mutabilidade interior</em> (<em>interior mutability</em>) é uma design pattern em Rust que
 lhe permite modificar um dado mesmo quando há referências imutáveis a ele:
 normalmente, esta ação é proibida pelas regras de empréstimo. Para fazer isso, a
@@ -1228,7 +1228,7 @@ e o tipo exterior permanece imutável.</p>
 <p data-id="0,0,0,1,0,1:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para explorar este conceito, vamos ver o tipo <code>RefCell&lt;T&gt;</code> que segue a pattern
 de mutabilidade interior.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="aplicando-regras-de-emprestimo-em-tempo-de-execucao-com-o-refcell-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Aplicando Regras de Empréstimo em Tempo de Execução com o <code>RefCell&lt;T&gt;</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="aplicando-regras-de-emprestimo-em-tempo-de-execucao-com-o-refcell-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Aplicando Regras de Empréstimo em Tempo de Execução com o <code>RefCell&lt;T&gt;</code></div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Diferente do <code>Rc&lt;T&gt;</code>, o tipo <code>RefCell&lt;T&gt;</code> representa posse única sobre o dado
 que ele contém. Então o que torna o <code>RefCell&lt;T&gt;</code> diferente de um tipo como o
 <code>Box&lt;T&gt;</code>? Lembre-se das regras de empréstimo que você aprendeu no Capítulo 4:</p>
@@ -1292,7 +1292,7 @@ o <code>RefCell&lt;T&gt;</code> é imutável.</li>
 interior</em>. Vamos dar uma olhada em uma situação em que a mutabilidade interior é
 útil e examinar como ela é possível.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="mutabilidade-interior-um-emprestimo-mutavel-de-um-valor-imutavel" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Mutabilidade Interior: Um Empréstimo Mutável de um Valor Imutável</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="mutabilidade-interior-um-emprestimo-mutavel-de-um-valor-imutavel" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Mutabilidade Interior: Um Empréstimo Mutável de um Valor Imutável</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Uma consequência das regras de empréstimo é que quando temos um valor imutável, nós não podemos pegá-lo emprestado mutavelmente. Por exemplo, este código não compila:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">fn main() {
@@ -1331,7 +1331,7 @@ interior</em>. Vamos dar uma olhada em uma situação em que a mutabilidade inte
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Contudo, há situações em que seria útil para um valor modificar a si mesmo em seus métodos, mas continuar parecendo imutável para código externo. Código fora dos métodos do valor não teriam como modificá-lo. Usar o <code>RefCell&lt;T&gt;</code> é um jeito de obter a habilidade de ter mutabilidade interior. Mas o <code>RefCell&lt;T&gt;</code> não dá a volta nas regras de empréstimo por completo: o borrow checker no compilador permite esta mutabilidade interior, e as regras de empréstimo são em vez disso checadas em tempo de execução. Se violarmos as regras, receberemos um <code>panic!</code> em vez de um erro de compilação.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Vamos trabalhar com um exemplo prático onde podemos usar o <code>RefCell&lt;T&gt;</code> para modificar um valor imutável e ver por que isto é útil.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="um-caso-de-uso-para-a-mutabilidade-interior-objetos-simulados" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,5,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Um Caso de Uso para a Mutabilidade Interior: Objetos Simulados</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="um-caso-de-uso-para-a-mutabilidade-interior-objetos-simulados" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,5,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Um Caso de Uso para a Mutabilidade Interior: Objetos Simulados</div>
 <div data-id="inner:0,0,0,1,1,1,5,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,5,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,5,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Um <em>dublê de teste</em> (<em>test double</em>) é um conceito geral de programação para um
 tipo usado no lugar de outro durante os testes. <em>Objetos simulados</em> (<em>mock
 objects</em>) são tipos específicos de dublês de teste que registram o que acontece
@@ -1603,7 +1603,7 @@ Listagem 15-20 mostra o código da biblioteca:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" data-id="0,0,0,1,1,1,5,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Para a implementação do método <code>enviar</code>, o primeiro parâmetro ainda é um empréstimo imutável de <code>self</code>, que corresponde à definição da trait. Nós chamamos <code>borrow_mut</code> no <code>RefCell&lt;Vec&lt;String&gt;&gt;</code> em <code>self.mensagens_enviadas</code> para obter uma referência mutável ao valor dentro do <code>RefCell&lt;Vec&lt;String&gt;&gt;</code>, que é o vetor. Então podemos chamar <code>push</code> na referência mutável ao vetor para registrar as mensagens enviadas durante o teste.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" data-id="0,0,0,1,1,1,5,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A última mudança que temos que fazer é na asserção: para ver quantos itens estão no vetor interno, chamamos <code>borrow</code> no <code>RefCell&lt;Vec&lt;String&gt;&gt;</code> para obter uma referência imutável ao vetor.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" data-id="0,0,0,1,1,1,5,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,5:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Agora que você viu como usar o <code>RefCell&lt;T&gt;</code>, vamos nos aprofundar em como ele funciona!</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="o-refcell-t-registra-emprestimos-em-tempo-de-execucao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,31&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">O <code>RefCell&lt;T&gt;</code> Registra Empréstimos em Tempo de Execução</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="o-refcell-t-registra-emprestimos-em-tempo-de-execucao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,6,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,31&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">O <code>RefCell&lt;T&gt;</code> Registra Empréstimos em Tempo de Execução</div>
 <div data-id="inner:0,0,0,1,1,1,6,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,6,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,6,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Quando estamos criando referências imutáveis e mutáveis, usamos as sintaxes <code>&amp;</code>
 e <code>&amp;mut</code>, respectivamente. Com o <code>RefCell&lt;T&gt;</code>, usamos os métodos <code>borrow</code> e
 <code>borrow_mut</code>, que são parte da API safe que pertence ao <code>RefCell&lt;T&gt;</code>. O método
@@ -1670,7 +1670,7 @@ nos impede de fazer isto em tempo de execução:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6:main" data-id="0,0,0,1,1,1,6,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Note como o código entrou em pânico com a mensagem <code>já emprestado: BorrowMutError</code>. É assim que o <code>RefCell&lt;T&gt;</code> lida com violações das regras de empréstimo em tempo de execução.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6:main" data-id="0,0,0,1,1,1,6,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,6:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Pegar erros de empréstimo em tempo de execução em vez de em tempo de compilação significa encontrar defeitos no nosso código mais tarde no processo de desenvolvimento, e possivelmente nem mesmo até que nosso código já tenha sido implantado em produção. Além disso, nosso código irá incorrer em uma pequena penalidade de desempenho de execução como resultado de manter registro dos empréstimos em tempo de execução em vez de compilação. Ainda assim, usar o <code>RefCell&lt;T&gt;</code> nos torna possível escrever um objeto simulado que pode se modificar para registrar as mensagens que ele já viu enquanto o usamos em um contexto onde apenas valores imutáveis são permitidos. Podemos usar o <code>RefCell&lt;T&gt;</code>, apesar de seus trade-offs, para obter mais funcionalidade do que referências regulares nos dão.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="conseguindo-multiplos-possuidores-de-dados-mutaveis-pela-combinacao-de-rc-t-e-refcell-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-05-interior-mutability#open@0,38&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Conseguindo Múltiplos Possuidores de Dados Mutáveis pela Combinação de <code>Rc&lt;T&gt;</code> e <code>RefCell&lt;T&gt;</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="conseguindo-multiplos-possuidores-de-dados-mutaveis-pela-combinacao-de-rc-t-e-refcell-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-05-interior-mutability#open@0,38&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Conseguindo Múltiplos Possuidores de Dados Mutáveis pela Combinação de <code>Rc&lt;T&gt;</code> e <code>RefCell&lt;T&gt;</code></div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Um jeito comum de usar o <code>RefCell&lt;T&gt;</code> é em combinação com o <code>Rc&lt;T&gt;</code>. Lembre-se
 de que o <code>Rc&lt;T&gt;</code> nos permite ter múltiplos possuidores de algum dado, mas ele só
 nos permite acesso imutável a esse dado. Se temos um <code>Rc&lt;T&gt;</code> que contém um

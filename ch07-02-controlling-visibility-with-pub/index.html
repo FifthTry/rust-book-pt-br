@@ -12,6 +12,498 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,10": {
+    "value": "\"Observe também que, mesmo que estejamos usando um crate externo dentro de um submódulo do nosso\\nprojeto, o `extern crate` deve entrar em nosso módulo raiz (então em *src/main.rs*\\nou *src/lib.rs*). Então, em nossos submódulos, podemos consultar itens de crates externos\\ncomo se os itens fossem módulos de nível superior.\"",
+    "dependencies": {
+      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,11": {
+    "value": "\"Agora, nosso crate binário apenas chama a função `connect` da nossa biblioteca do\\nmódulo `client`. No entanto, invocar agora `cargo build` nos dará um erro\\napós os *warnings*:\"",
+    "dependencies": {
+      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,12,0": {
+    "value": "\"error `client` is private\\n --\u003E src/main.rs:4:5\\n  |\\n4 |     communicator::client::connect();\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\"",
+    "dependencies": {
+      "0,0,0,1,9,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,13": {
+    "value": "\"Ah ha! Este erro nos diz que o módulo `client` é privado, que é o\\ncerne das advertências. É também a primeira vez em que nos encontramos com os conceitos de\\n*público* e *privado* no contexto do Rust. O estado padrão de todos os códigos em\\nRust é privado: ninguém mais tem permissão para usar o código. Se você não usar uma\\nfunção privada dentro do seu programa, como ele é o único código\\npermitido a usar essa função, Rust irá avisá-lo de que a função \\nnão foi utilizada.\"",
+    "dependencies": {
+      "0,0,0,1,10:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,14": {
+    "value": "\"Depois de especificar que uma função como `client::connect` é pública, não só\\nserá permitida a nossa chamada para essa função a partir de nosso crate binário, mas o\\nwarning(aviso) de que a função não é utilizada irá desaparecer. Marcar uma função como pública\\npermite ao Rust saber que a função será usada por código fora do nosso programa.\\nRust considera que agora é possível que a \\nfunção esteja \\\"sendo usada\\\". Assim, quando uma função é marcada como pública, Rust não\\nexige que seja usada em nosso programa e deixará de avisar que a função\\nnão é utilizada.\"",
+    "dependencies": {
+      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,15": {
+    "value": "\"Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave `pub` ao início\\nda declaração. Nos focaremos em corrigir o *warning* que indica\\n`client::connect` não foi utilizado por enquanto, assim como o erro `` module `client` is\\nprivate `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para tornar\\no módulo `client` público, assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,15,1,0": {
+    "value": "\"Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave `pub` ao início\\nda declaração. Nos focaremos em corrigir o *warning* que indica\\n`client::connect` não foi utilizado por enquanto, assim como o erro `` module `client` is\\nprivate `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para tornar\\no módulo `client` público, assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,16,0": {
+    "value": "\"pub mod client;\\n\\nmod network;\"",
+    "dependencies": {
+      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,17": {
+    "value": "\"A palavra-chave `pub` é colocada logo antes do `mod`. Vamos tentar fazer o build novamente:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,18,0": {
+    "value": "\"error(module): function `connect` is private\\n --\u003E src/main.rs:4:5\\n  |\\n4 |     communicator::client::connect();\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\"",
+    "dependencies": {
+      "0,0,0,1,12,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,19": {
+    "value": "\"Opa! Temos um erro diferente! Sim, mensagens diferentes de erro \\nsão motivo para comemorar. O novo erro mostra que que a função `connect` é privada \\n(function `connect` is private), então vamos editar *src/client.rs* para torná-la pública também:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,2": {
+    "value": "\"Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de `network` e\\n`network::server` para  os arquivos *src/network/mod.rs* e\\n*src/network/server.rs*, respectivamente. Nesse ponto, `cargo build` era\\ncapaz de construir nosso projeto, mas ainda recebemos mensagens de *warning* sobre as\\nfunções `client::connect`, `network::connect`, e `network::server::connect`\\nnão estarem em uso:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,2,1,0": {
+    "value": "\"Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de `network` e\\n`network::server` para  os arquivos *src/network/mod.rs* e\\n*src/network/server.rs*, respectivamente. Nesse ponto, `cargo build` era\\ncapaz de construir nosso projeto, mas ainda recebemos mensagens de *warning* sobre as\\nfunções `client::connect`, `network::connect`, e `network::server::connect`\\nnão estarem em uso:\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,20": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/client.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,12,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,21,0": {
+    "value": "\"pub fn connect() {\\n}\"",
+    "dependencies": {
+      "0,0,0,1,12,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,22": {
+    "value": "\"Agora execute `cargo build` novamente:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,23,0": {
+    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
+    "dependencies": {
+      "0,0,0,1,12,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,24": {
+    "value": "\"O código compila, e o warning(aviso) sobre `client::connect` não estar em uso \\nse foi!\"",
+    "dependencies": {
+      "0,0,0,1,12,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,25": {
+    "value": "\"Os avisos de código não utilizados nem sempre indicam que um item no seu código precisa\\nse tornar público: se você *não* quiser que essas funções façam parte de sua \\nAPI pública, *warnings* de código não utilizado podem alertá-lo de que esses códigos não são mais necessários,\\ne que podem ser excluídos com segurança. Eles também podem estar alertando você para um bug, caso você tivesse apenas\\nacidentalmente removido todos os lugares dentro da sua biblioteca onde esta função é\\nchamada.\"",
+    "dependencies": {
+      "0,0,0,1,12,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,26": {
+    "value": "\"Mas neste caso, nós *queremos* que as outras duas funções façam parte da nossa\\nAPI pública do crate, então vamos marcá-las como `pub` também para nos livrar dos\\n*warnings* remanescentes. Modifique *src/network/mod.rs* dessa forma:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/network/mod.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,12,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,28,0": {
+    "value": "\"pub fn connect() {\\n}\\n\\nmod server;\"",
+    "dependencies": {
+      "0,0,0,1,12,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,29": {
+    "value": "\"Em seguida, compile o código:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,3,0": {
+    "value": "\"warning: function is never used: `connect`\\n --\u003E src/client.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,30,0": {
+    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / pub fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
+    "dependencies": {
+      "0,0,0,1,12,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,31": {
+    "value": "\"Hmmm, ainda estamos recebendo um *warning* de função não utilizada, embora\\n`network::connect` esteja marcada como `pub`. A razão é que a função é pública\\ndentro do módulo, mas o módulo `network` na qual a função reside não é\\npúblico. Estamos trabalhando a partir do interior da biblioteca desta vez, enquanto que\\ncom `client::connect` trabalhamos de fora. Precisamos mudar\\n*src/lib.rs* para tornar `network` pública também, assim:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,32": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,12,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,33,0": {
+    "value": "\"pub mod client;\\n\\npub mod network;\"",
+    "dependencies": {
+      "0,0,0,1,12,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,34": {
+    "value": "\"Agora, quando compilamos, esse aviso desapareceu:\"",
+    "dependencies": {
+      "0,0,0,1,12,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,35,0": {
+    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\"",
+    "dependencies": {
+      "0,0,0,1,12,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,36": {
+    "value": "\"Apenas um warning(aviso) permanece. Tente consertar isso por conta própria!\"",
+    "dependencies": {
+      "0,0,0,1,12,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,37": {
+    "value": "\"No geral, estas são as regras para a visibilidade do item:\\n\\n1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos pais.\\n2. Se um item é privado, ele só pode ser acessado por seu módulo pai imediato e\\n   qualquer um dos módulos filhos do pai.\"",
+    "dependencies": {
+      "0,0,0,1,13,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,37,1,0": {
+    "value": "\"No geral, estas são as regras para a visibilidade do item:\\n\\n1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos pais.\\n2. Se um item é privado, ele só pode ser acessado por seu módulo pai imediato e\\n   qualquer um dos módulos filhos do pai.\"",
+    "dependencies": {
+      "0,0,0,1,13,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,38": {
+    "value": "\"Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo\\nprojeto de biblioteca e digite o código da Listagem 7-6 no arquivo \\n*src/lib.rs* desse novo projeto:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,14,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,38,1,0": {
+    "value": "\"Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo\\nprojeto de biblioteca e digite o código da Listagem 7-6 no arquivo \\n*src/lib.rs* desse novo projeto:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,14,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,39,0": {
+    "value": "\"mod outermost {\\n    pub fn middle_function() {}\\n\\n    fn middle_secret_function() {}\\n\\n    mod inside {\\n        pub fn inner_function() {}\\n\\n        fn secret_function() {}\\n    }\\n}\\n\\nfn try_me() {\\n    outermost::middle_function();\\n    outermost::middle_secret_function();\\n    outermost::inside::inner_function();\\n    outermost::inside::secret_function();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,14,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,14,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,4": {
+    "value": "\"Então, por que estamos recebendo esses warnings(avisos)? Afinal, estamos construindo uma biblioteca\\ncom funções que se destinam a ser usadas pelos nossos *usuários*, não necessariamente por\\nnós dentro de nosso próprio projeto, por isso não deveria importar que essas funções `connect`\\nnão sejam utilizadas. O ponto de criá-las é que elas serão usadas por\\noutro projeto, não o nosso.\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,40": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 7-6: Exemplos de funções públicas e privadas,\\nalguns dos quais estão incorretos\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,14,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,41": {
+    "value": "\"Antes de tentar compilar este código, tente um palpite sobre quais linhas na\\nfunção `try_me` terá erros. Em seguida, tente compilar o código para ver se\\nvocê estava certo e leia sobre a discussão dos erros!\"",
+    "dependencies": {
+      "0,0,0,1,14,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,42": {
+    "value": "\"A função `try_me` está no módulo raiz do nosso projeto. O módulo chamado\\n`outermost` é privado, mas a segunda regra de privacidade afirma que a função `try_me`\\npode acessar o módulo `outermost` porque `outermost` está no\\nmódulo atual (raiz), bem como `try_me`.\\n\\nA chamada para `outermost::middle_function` funcionará porque `middle_function` é\\npública e `try_me` está acessando `middle_function` através do seu módulo pai\\n`outermost`. Determinamos no parágrafo anterior que este módulo é\\nacessível.\\n\\nA chamada para `outermost::middle_secret_function` causará um erro de compilação.\\n`middle_secret_function` é privado, então a segunda regra se aplica. O módulo raiz\\nnão é nem o módulo atual de `middle_secret_function` (que seria o `outermost`), \\nnem um módulo filho do módulo atual de `middle_secret_function`.\\n\\nO módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode\\nser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`\\nnão tem permissão de chamar `outermost::inside::inner_function` ou\\n`outermost::inside::secret_function`.\"",
+    "dependencies": {
+      "0,0,0,1,14,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,42,1,0": {
+    "value": "\"A função `try_me` está no módulo raiz do nosso projeto. O módulo chamado\\n`outermost` é privado, mas a segunda regra de privacidade afirma que a função `try_me`\\npode acessar o módulo `outermost` porque `outermost` está no\\nmódulo atual (raiz), bem como `try_me`.\\n\\nA chamada para `outermost::middle_function` funcionará porque `middle_function` é\\npública e `try_me` está acessando `middle_function` através do seu módulo pai\\n`outermost`. Determinamos no parágrafo anterior que este módulo é\\nacessível.\\n\\nA chamada para `outermost::middle_secret_function` causará um erro de compilação.\\n`middle_secret_function` é privado, então a segunda regra se aplica. O módulo raiz\\nnão é nem o módulo atual de `middle_secret_function` (que seria o `outermost`), \\nnem um módulo filho do módulo atual de `middle_secret_function`.\\n\\nO módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode\\nser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`\\nnão tem permissão de chamar `outermost::inside::inner_function` ou\\n`outermost::inside::secret_function`.\"",
+    "dependencies": {
+      "0,0,0,1,14,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,43": {
+    "value": "\"Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os\\nerros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os\\nerros e, em seguida, compile o código para ver se você está certo ou não, usando as\\nregras de privacidade para entender o porquê.\\n\\n* E se o módulo `inside` fosse público?\\n* E se `outermost` fosse público e `inside` fosse privado?\\n* E se, no corpo de `inner_function`, você chamasse o\\n  `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam\\n   que queremos consultar os módulos a partir do módulo raiz.)\\n\\nSinta-se livre para projetar mais experimentos que lhe vierem à mente!\\n\\nEm seguida, vamos falar sobre trazer itens ao escopo com a palavra-chave `use`.\"",
+    "dependencies": {
+      "0,0,0,1,14,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,43,1,0": {
+    "value": "\"Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os\\nerros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os\\nerros e, em seguida, compile o código para ver se você está certo ou não, usando as\\nregras de privacidade para entender o porquê.\\n\\n* E se o módulo `inside` fosse público?\\n* E se `outermost` fosse público e `inside` fosse privado?\\n* E se, no corpo de `inner_function`, você chamasse o\\n  `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam\\n   que queremos consultar os módulos a partir do módulo raiz.)\\n\\nSinta-se livre para projetar mais experimentos que lhe vierem à mente!\\n\\nEm seguida, vamos falar sobre trazer itens ao escopo com a palavra-chave `use`.\"",
+    "dependencies": {
+      "0,0,0,1,14,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,5": {
+    "value": "\"Para entender por que esse programa invoca esses warnings(avisos), vamos tentar usar a\\nbiblioteca `connect` de outro projeto, chamando-a externamente. Para fazer isso,\\nvamos criar um crate binário no mesmo diretório que o nosso crate de biblioteca\\ninserindo um arquivo *src/main.rs* que contém esse código:\"",
+    "dependencies": {
+      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,6": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,7,0": {
+    "value": "\"extern crate communicator;\\n\\nfn main() {\\n    communicator::client::connect();\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,8": {
+    "value": "\"Usamos o comando `extern crate` para trazer o crate de biblioteca `communicator`\\npara o escopo. Nosso pacote agora contém *duas* crates. Cargo trata *src/main.rs*\\ncomo um arquivo raiz de um crate binário, que é separado do crate de biblioteca existente\\ncujo arquivo raiz é *src/lib.rs*. Esse padrão é bastante comum para\\nprojetos executáveis: a maioria das funcionalidades está em um crate de biblioteca e o crate binário\\nusa esse crate de biblioteca. Como resultado, outros programas também podem usar o\\ncrate de biblioteca, e é uma boa separação de responsabilidades.\"",
+    "dependencies": {
+      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#body@0,9": {
+    "value": "\"Do ponto de vista de um crate fora da biblioteca `communicator` \\ntodos os módulos que criamos estão dentro de um módulo que tem o mesmo\\nnome como do crate, `communicator`. Chamamos o módulo de nível superior de um\\ncrate de *módulo raiz*.\"",
+    "dependencies": {
+      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,9,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,9,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,9,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,16,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,28,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,30,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,35,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,12,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,12,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,12,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,39,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,14,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,14,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,14,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,15": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,37": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,13,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,38": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,14,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,42": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,14,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,43": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,14,1,4,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,15": {
+    "value": "\"Fazendo uma Função Pública\"",
+    "dependencies": {
+      "0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,2": {
+    "value": "\"Controlando a Visibilidade com `pub`\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,37": {
+    "value": "\"Regras de Privacidade\"",
+    "dependencies": {
+      "0,0,0,1,13,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,38": {
+    "value": "\"Exemplos de Privacidade\"",
+    "dependencies": {
+      "0,0,0,1,14,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,42": {
+    "value": "\"Olhando para os Erros\"",
+    "dependencies": {
+      "0,0,0,1,14,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#title@0,43": {
+    "value": "\"Reparando os Erros\"",
+    "dependencies": {
+      "0,0,0,1,14,1,4,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -304,498 +796,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,10": {
-    "value": "\"Observe também que, mesmo que estejamos usando um crate externo dentro de um submódulo do nosso\\nprojeto, o `extern crate` deve entrar em nosso módulo raiz (então em *src/main.rs*\\nou *src/lib.rs*). Então, em nossos submódulos, podemos consultar itens de crates externos\\ncomo se os itens fossem módulos de nível superior.\"",
-    "dependencies": {
-      "0,0,0,1,7:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,11": {
-    "value": "\"Agora, nosso crate binário apenas chama a função `connect` da nossa biblioteca do\\nmódulo `client`. No entanto, invocar agora `cargo build` nos dará um erro\\napós os *warnings*:\"",
-    "dependencies": {
-      "0,0,0,1,8:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,12,0": {
-    "value": "\"error `client` is private\\n --\u003E src/main.rs:4:5\\n  |\\n4 |     communicator::client::connect();\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\"",
-    "dependencies": {
-      "0,0,0,1,9,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,13": {
-    "value": "\"Ah ha! Este erro nos diz que o módulo `client` é privado, que é o\\ncerne das advertências. É também a primeira vez em que nos encontramos com os conceitos de\\n*público* e *privado* no contexto do Rust. O estado padrão de todos os códigos em\\nRust é privado: ninguém mais tem permissão para usar o código. Se você não usar uma\\nfunção privada dentro do seu programa, como ele é o único código\\npermitido a usar essa função, Rust irá avisá-lo de que a função \\nnão foi utilizada.\"",
-    "dependencies": {
-      "0,0,0,1,10:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,14": {
-    "value": "\"Depois de especificar que uma função como `client::connect` é pública, não só\\nserá permitida a nossa chamada para essa função a partir de nosso crate binário, mas o\\nwarning(aviso) de que a função não é utilizada irá desaparecer. Marcar uma função como pública\\npermite ao Rust saber que a função será usada por código fora do nosso programa.\\nRust considera que agora é possível que a \\nfunção esteja \\\"sendo usada\\\". Assim, quando uma função é marcada como pública, Rust não\\nexige que seja usada em nosso programa e deixará de avisar que a função\\nnão é utilizada.\"",
-    "dependencies": {
-      "0,0,0,1,11:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,15": {
-    "value": "\"Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave `pub` ao início\\nda declaração. Nos focaremos em corrigir o *warning* que indica\\n`client::connect` não foi utilizado por enquanto, assim como o erro `` module `client` is\\nprivate `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para tornar\\no módulo `client` público, assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,15,1,0": {
-    "value": "\"Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave `pub` ao início\\nda declaração. Nos focaremos em corrigir o *warning* que indica\\n`client::connect` não foi utilizado por enquanto, assim como o erro `` module `client` is\\nprivate `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para tornar\\no módulo `client` público, assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,16,0": {
-    "value": "\"pub mod client;\\n\\nmod network;\"",
-    "dependencies": {
-      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,17": {
-    "value": "\"A palavra-chave `pub` é colocada logo antes do `mod`. Vamos tentar fazer o build novamente:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,18,0": {
-    "value": "\"error(module): function `connect` is private\\n --\u003E src/main.rs:4:5\\n  |\\n4 |     communicator::client::connect();\\n  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\"",
-    "dependencies": {
-      "0,0,0,1,12,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,19": {
-    "value": "\"Opa! Temos um erro diferente! Sim, mensagens diferentes de erro \\nsão motivo para comemorar. O novo erro mostra que que a função `connect` é privada \\n(function `connect` is private), então vamos editar *src/client.rs* para torná-la pública também:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,2": {
-    "value": "\"Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de `network` e\\n`network::server` para  os arquivos *src/network/mod.rs* e\\n*src/network/server.rs*, respectivamente. Nesse ponto, `cargo build` era\\ncapaz de construir nosso projeto, mas ainda recebemos mensagens de *warning* sobre as\\nfunções `client::connect`, `network::connect`, e `network::server::connect`\\nnão estarem em uso:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,2,1,0": {
-    "value": "\"Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de `network` e\\n`network::server` para  os arquivos *src/network/mod.rs* e\\n*src/network/server.rs*, respectivamente. Nesse ponto, `cargo build` era\\ncapaz de construir nosso projeto, mas ainda recebemos mensagens de *warning* sobre as\\nfunções `client::connect`, `network::connect`, e `network::server::connect`\\nnão estarem em uso:\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,20": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/client.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,12,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,21,0": {
-    "value": "\"pub fn connect() {\\n}\"",
-    "dependencies": {
-      "0,0,0,1,12,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,22": {
-    "value": "\"Agora execute `cargo build` novamente:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,23,0": {
-    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
-    "dependencies": {
-      "0,0,0,1,12,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,24": {
-    "value": "\"O código compila, e o warning(aviso) sobre `client::connect` não estar em uso \\nse foi!\"",
-    "dependencies": {
-      "0,0,0,1,12,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,25": {
-    "value": "\"Os avisos de código não utilizados nem sempre indicam que um item no seu código precisa\\nse tornar público: se você *não* quiser que essas funções façam parte de sua \\nAPI pública, *warnings* de código não utilizado podem alertá-lo de que esses códigos não são mais necessários,\\ne que podem ser excluídos com segurança. Eles também podem estar alertando você para um bug, caso você tivesse apenas\\nacidentalmente removido todos os lugares dentro da sua biblioteca onde esta função é\\nchamada.\"",
-    "dependencies": {
-      "0,0,0,1,12,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,26": {
-    "value": "\"Mas neste caso, nós *queremos* que as outras duas funções façam parte da nossa\\nAPI pública do crate, então vamos marcá-las como `pub` também para nos livrar dos\\n*warnings* remanescentes. Modifique *src/network/mod.rs* dessa forma:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/network/mod.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,12,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,28,0": {
-    "value": "\"pub fn connect() {\\n}\\n\\nmod server;\"",
-    "dependencies": {
-      "0,0,0,1,12,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,29": {
-    "value": "\"Em seguida, compile o código:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,3,0": {
-    "value": "\"warning: function is never used: `connect`\\n --\u003E src/client.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,30,0": {
-    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/mod.rs:1:1\\n  |\\n1 | / pub fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\\n\\nwarning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\"",
-    "dependencies": {
-      "0,0,0,1,12,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,31": {
-    "value": "\"Hmmm, ainda estamos recebendo um *warning* de função não utilizada, embora\\n`network::connect` esteja marcada como `pub`. A razão é que a função é pública\\ndentro do módulo, mas o módulo `network` na qual a função reside não é\\npúblico. Estamos trabalhando a partir do interior da biblioteca desta vez, enquanto que\\ncom `client::connect` trabalhamos de fora. Precisamos mudar\\n*src/lib.rs* para tornar `network` pública também, assim:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,32": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,12,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,33,0": {
-    "value": "\"pub mod client;\\n\\npub mod network;\"",
-    "dependencies": {
-      "0,0,0,1,12,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,34": {
-    "value": "\"Agora, quando compilamos, esse aviso desapareceu:\"",
-    "dependencies": {
-      "0,0,0,1,12,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,35,0": {
-    "value": "\"warning: function is never used: `connect`\\n --\u003E src/network/server.rs:1:1\\n  |\\n1 | / fn connect() {\\n2 | | }\\n  | |_^\\n  |\\n  = note: #[warn(dead_code)] on by default\"",
-    "dependencies": {
-      "0,0,0,1,12,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,36": {
-    "value": "\"Apenas um warning(aviso) permanece. Tente consertar isso por conta própria!\"",
-    "dependencies": {
-      "0,0,0,1,12,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,37": {
-    "value": "\"No geral, estas são as regras para a visibilidade do item:\\n\\n1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos pais.\\n2. Se um item é privado, ele só pode ser acessado por seu módulo pai imediato e\\n   qualquer um dos módulos filhos do pai.\"",
-    "dependencies": {
-      "0,0,0,1,13,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,37,1,0": {
-    "value": "\"No geral, estas são as regras para a visibilidade do item:\\n\\n1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos pais.\\n2. Se um item é privado, ele só pode ser acessado por seu módulo pai imediato e\\n   qualquer um dos módulos filhos do pai.\"",
-    "dependencies": {
-      "0,0,0,1,13,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,38": {
-    "value": "\"Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo\\nprojeto de biblioteca e digite o código da Listagem 7-6 no arquivo \\n*src/lib.rs* desse novo projeto:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,14,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,38,1,0": {
-    "value": "\"Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo\\nprojeto de biblioteca e digite o código da Listagem 7-6 no arquivo \\n*src/lib.rs* desse novo projeto:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,14,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,39,0": {
-    "value": "\"mod outermost {\\n    pub fn middle_function() {}\\n\\n    fn middle_secret_function() {}\\n\\n    mod inside {\\n        pub fn inner_function() {}\\n\\n        fn secret_function() {}\\n    }\\n}\\n\\nfn try_me() {\\n    outermost::middle_function();\\n    outermost::middle_secret_function();\\n    outermost::inside::inner_function();\\n    outermost::inside::secret_function();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,14,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,14,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,4": {
-    "value": "\"Então, por que estamos recebendo esses warnings(avisos)? Afinal, estamos construindo uma biblioteca\\ncom funções que se destinam a ser usadas pelos nossos *usuários*, não necessariamente por\\nnós dentro de nosso próprio projeto, por isso não deveria importar que essas funções `connect`\\nnão sejam utilizadas. O ponto de criá-las é que elas serão usadas por\\noutro projeto, não o nosso.\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,40": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003ELista 7-6: Exemplos de funções públicas e privadas,\\nalguns dos quais estão incorretos\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,14,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,41": {
-    "value": "\"Antes de tentar compilar este código, tente um palpite sobre quais linhas na\\nfunção `try_me` terá erros. Em seguida, tente compilar o código para ver se\\nvocê estava certo e leia sobre a discussão dos erros!\"",
-    "dependencies": {
-      "0,0,0,1,14,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,42": {
-    "value": "\"A função `try_me` está no módulo raiz do nosso projeto. O módulo chamado\\n`outermost` é privado, mas a segunda regra de privacidade afirma que a função `try_me`\\npode acessar o módulo `outermost` porque `outermost` está no\\nmódulo atual (raiz), bem como `try_me`.\\n\\nA chamada para `outermost::middle_function` funcionará porque `middle_function` é\\npública e `try_me` está acessando `middle_function` através do seu módulo pai\\n`outermost`. Determinamos no parágrafo anterior que este módulo é\\nacessível.\\n\\nA chamada para `outermost::middle_secret_function` causará um erro de compilação.\\n`middle_secret_function` é privado, então a segunda regra se aplica. O módulo raiz\\nnão é nem o módulo atual de `middle_secret_function` (que seria o `outermost`), \\nnem um módulo filho do módulo atual de `middle_secret_function`.\\n\\nO módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode\\nser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`\\nnão tem permissão de chamar `outermost::inside::inner_function` ou\\n`outermost::inside::secret_function`.\"",
-    "dependencies": {
-      "0,0,0,1,14,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,42,1,0": {
-    "value": "\"A função `try_me` está no módulo raiz do nosso projeto. O módulo chamado\\n`outermost` é privado, mas a segunda regra de privacidade afirma que a função `try_me`\\npode acessar o módulo `outermost` porque `outermost` está no\\nmódulo atual (raiz), bem como `try_me`.\\n\\nA chamada para `outermost::middle_function` funcionará porque `middle_function` é\\npública e `try_me` está acessando `middle_function` através do seu módulo pai\\n`outermost`. Determinamos no parágrafo anterior que este módulo é\\nacessível.\\n\\nA chamada para `outermost::middle_secret_function` causará um erro de compilação.\\n`middle_secret_function` é privado, então a segunda regra se aplica. O módulo raiz\\nnão é nem o módulo atual de `middle_secret_function` (que seria o `outermost`), \\nnem um módulo filho do módulo atual de `middle_secret_function`.\\n\\nO módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode\\nser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`\\nnão tem permissão de chamar `outermost::inside::inner_function` ou\\n`outermost::inside::secret_function`.\"",
-    "dependencies": {
-      "0,0,0,1,14,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,43": {
-    "value": "\"Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os\\nerros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os\\nerros e, em seguida, compile o código para ver se você está certo ou não, usando as\\nregras de privacidade para entender o porquê.\\n\\n* E se o módulo `inside` fosse público?\\n* E se `outermost` fosse público e `inside` fosse privado?\\n* E se, no corpo de `inner_function`, você chamasse o\\n  `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam\\n   que queremos consultar os módulos a partir do módulo raiz.)\\n\\nSinta-se livre para projetar mais experimentos que lhe vierem à mente!\\n\\nEm seguida, vamos falar sobre trazer itens ao escopo com a palavra-chave `use`.\"",
-    "dependencies": {
-      "0,0,0,1,14,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,43,1,0": {
-    "value": "\"Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os\\nerros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os\\nerros e, em seguida, compile o código para ver se você está certo ou não, usando as\\nregras de privacidade para entender o porquê.\\n\\n* E se o módulo `inside` fosse público?\\n* E se `outermost` fosse público e `inside` fosse privado?\\n* E se, no corpo de `inner_function`, você chamasse o\\n  `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam\\n   que queremos consultar os módulos a partir do módulo raiz.)\\n\\nSinta-se livre para projetar mais experimentos que lhe vierem à mente!\\n\\nEm seguida, vamos falar sobre trazer itens ao escopo com a palavra-chave `use`.\"",
-    "dependencies": {
-      "0,0,0,1,14,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,5": {
-    "value": "\"Para entender por que esse programa invoca esses warnings(avisos), vamos tentar usar a\\nbiblioteca `connect` de outro projeto, chamando-a externamente. Para fazer isso,\\nvamos criar um crate binário no mesmo diretório que o nosso crate de biblioteca\\ninserindo um arquivo *src/main.rs* que contém esse código:\"",
-    "dependencies": {
-      "0,0,0,1,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,6": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,7,0": {
-    "value": "\"extern crate communicator;\\n\\nfn main() {\\n    communicator::client::connect();\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,8": {
-    "value": "\"Usamos o comando `extern crate` para trazer o crate de biblioteca `communicator`\\npara o escopo. Nosso pacote agora contém *duas* crates. Cargo trata *src/main.rs*\\ncomo um arquivo raiz de um crate binário, que é separado do crate de biblioteca existente\\ncujo arquivo raiz é *src/lib.rs*. Esse padrão é bastante comum para\\nprojetos executáveis: a maioria das funcionalidades está em um crate de biblioteca e o crate binário\\nusa esse crate de biblioteca. Como resultado, outros programas também podem usar o\\ncrate de biblioteca, e é uma boa separação de responsabilidades.\"",
-    "dependencies": {
-      "0,0,0,1,5:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#body@0,9": {
-    "value": "\"Do ponto de vista de um crate fora da biblioteca `communicator` \\ntodos os módulos que criamos estão dentro de um módulo que tem o mesmo\\nnome como do crate, `communicator`. Chamamos o módulo de nível superior de um\\ncrate de *módulo raiz*.\"",
-    "dependencies": {
-      "0,0,0,1,6:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,9,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,9,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,9,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,16,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,2,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,2,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,2,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,28,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,30,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,14,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,14,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,14,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,17,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,17,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,17,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,35,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,12,1,19,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,12,1,19,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,12,1,19,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,39,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,14,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,14,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,14,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,15": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,37": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,13,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,38": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,14,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,42": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,14,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#open@0,43": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,14,1,4,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,15": {
-    "value": "\"Fazendo uma Função Pública\"",
-    "dependencies": {
-      "0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,2": {
-    "value": "\"Controlando a Visibilidade com `pub`\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,37": {
-    "value": "\"Regras de Privacidade\"",
-    "dependencies": {
-      "0,0,0,1,13,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,38": {
-    "value": "\"Exemplos de Privacidade\"",
-    "dependencies": {
-      "0,0,0,1,14,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,42": {
-    "value": "\"Olhando para os Erros\"",
-    "dependencies": {
-      "0,0,0,1,14,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch07-02-controlling-visibility-with-pub#title@0,43": {
-    "value": "\"Reparando os Erros\"",
-    "dependencies": {
-      "0,0,0,1,14,1,4,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1006,7 +1006,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1203,7 +1203,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="controlando-a-visibilidade-com-pub" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Controlando a Visibilidade com <code>pub</code></div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="controlando-a-visibilidade-com-pub" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Controlando a Visibilidade com <code>pub</code></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de <code>network</code> e <code>network::server</code> para  os arquivos <em>src/network/mod.rs</em> e <em>src/network/server.rs</em>, respectivamente. Nesse ponto, <code>cargo build</code> era capaz de construir nosso projeto, mas ainda recebemos mensagens de <em>warning</em> sobre as funções <code>client::connect</code>, <code>network::connect</code>, e <code>network::server::connect</code> não estarem em uso:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">warning: function is never used: `connect`
@@ -1293,7 +1293,7 @@ body.fpm-dark .ft_md a:visited code {
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,10:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Ah ha! Este erro nos diz que o módulo <code>client</code> é privado, que é o cerne das advertências. É também a primeira vez em que nos encontramos com os conceitos de <em>público</em> e <em>privado</em> no contexto do Rust. O estado padrão de todos os códigos em Rust é privado: ninguém mais tem permissão para usar o código. Se você não usar uma função privada dentro do seu programa, como ele é o único código permitido a usar essa função, Rust irá avisá-lo de que a função não foi utilizada.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,11:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Depois de especificar que uma função como <code>client::connect</code> é pública, não só será permitida a nossa chamada para essa função a partir de nosso crate binário, mas o warning(aviso) de que a função não é utilizada irá desaparecer. Marcar uma função como pública permite ao Rust saber que a função será usada por código fora do nosso programa. Rust considera que agora é possível que a função esteja “sendo usada”. Assim, quando uma função é marcada como pública, Rust não exige que seja usada em nosso programa e deixará de avisar que a função não é utilizada.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,12:main-container-external:0.inner-external:0,0,0:main" id="fazendo-uma-funcao-publica" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Fazendo uma Função Pública</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,12:main-container-external:0.inner-external:0,0,0:main" id="fazendo-uma-funcao-publica" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,15&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Fazendo uma Função Pública</div>
 <div data-id="inner:0,0,0,1,12,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,12,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,12,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave <code>pub</code> ao início
 da declaração. Nos focaremos em corrigir o <em>warning</em> que indica
 <code>client::connect</code> não foi utilizado por enquanto, assim como o erro <code>module `client` is private</code> (<code>módulo `client` é privado</code>) do nosso crate binário. Modifique <em>src/lib.rs</em> para tornar
@@ -1464,7 +1464,7 @@ o módulo <code>client</code> público, assim:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" data-id="0,0,0,1,12,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,12:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Apenas um warning(aviso) permanece. Tente consertar isso por conta própria!</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,13:main-container-external:0.inner-external:0,0,0:main" id="regras-de-privacidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,13,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,37&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Regras de Privacidade</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,13:main-container-external:0.inner-external:0,0,0:main" id="regras-de-privacidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,13,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,37&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Regras de Privacidade</div>
 <div data-id="inner:0,0,0,1,13,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,13,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,13,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>No geral, estas são as regras para a visibilidade do item:</p>
 </p>
 <p data-id="0,0,0,1,13,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><ol>
@@ -1473,7 +1473,7 @@ o módulo <code>client</code> público, assim:</p>
    qualquer um dos módulos filhos do pai.</li>
 </ol>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,14:main-container-external:0.inner-external:0,0,0:main" id="exemplos-de-privacidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,38&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Exemplos de Privacidade</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,14:main-container-external:0.inner-external:0,0,0:main" id="exemplos-de-privacidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,38&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Exemplos de Privacidade</div>
 <div data-id="inner:0,0,0,1,14,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,14,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo
 projeto de biblioteca e digite o código da Listagem 7-6 no arquivo
 <em>src/lib.rs</em> desse novo projeto:</p>
@@ -1523,7 +1523,7 @@ projeto de biblioteca e digite o código da Listagem 7-6 no arquivo
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Lista 7-6: Exemplos de funções públicas e privadas, alguns dos quais estão incorretos<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Antes de tentar compilar este código, tente um palpite sobre quais linhas na função <code>try_me</code> terá erros. Em seguida, tente compilar o código para ver se você estava certo e leia sobre a discussão dos erros!</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" id="olhando-para-os-erros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,42&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Olhando para os Erros</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" id="olhando-para-os-erros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,3,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,42&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Olhando para os Erros</div>
 <div data-id="inner:0,0,0,1,14,1,3,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,3,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,14,1,3,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A função <code>try_me</code> está no módulo raiz do nosso projeto. O módulo chamado
 <code>outermost</code> é privado, mas a segunda regra de privacidade afirma que a função <code>try_me</code>
 pode acessar o módulo <code>outermost</code> porque <code>outermost</code> está no
@@ -1544,7 +1544,7 @@ ser acessado pelo seu módulo atual <code>outermost</code>. Isso significa que a
 não tem permissão de chamar <code>outermost::inside::inner_function</code> ou
 <code>outermost::inside::secret_function</code>.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" id="reparando-os-erros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,4,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch07-02-controlling-visibility-with-pub#open@0,43&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Reparando os Erros</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" data-id="0,0,0,1,14,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" id="reparando-os-erros" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,4,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch07-02-controlling-visibility-with-pub#open@0,43&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Reparando os Erros</div>
 <div data-id="inner:0,0,0,1,14,1,4,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,14,1,4,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,14,1,4,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,14:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os
 erros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os
 erros e, em seguida, compile o código para ver se você está certo ou não, usando as

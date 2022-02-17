@@ -12,6 +12,273 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,10": {
+    "value": "\"A expressão `if` checa se nosso valor está fora dos limites, informa o usuário\\nsobre o problema, e chama `continue` para começar a próxima iteração do loop\\ne pedir por outro chute. Depois da expressão `if` podemos proceder com as \\ncomparações entre `palpite` e o número secreto sabendo que `palpite` está \\nentre 1 e 100.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,11": {
+    "value": "\"No entanto, essa não é a solução ideal: se fosse absolutamente crítico que o\\nprograma somente operasse em valores entre 1 e 100, e ele tivesse várias funções\\ncom esse requisito, seria tedioso (e potencialmente impactante na performance)\\nter uma checagem dessa em cada função.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,12": {
+    "value": "\"Em vez disso, podemos fazer um novo tipo e colocar as validações em uma função\\npara criar uma instância do tipo em vez de repetir as validações em todo lugar.\\nDessa maneira, é seguro para funções usarem o novo tipo nas suas assinaturas e \\nconfidentemente usar os valores que recebem. A Listagem 9-9  mostra uma maneira de \\ndefinir um tipo `Palpite` que vai somente criar uma instância de `Palpite` se a função\\n`new` receber um valor entre 1 e 100:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,13,0": {
+    "value": "\"pub struct Palpite {\\n    valor: u32,\\n}\\n\\nimpl Palpite {\\n    pub fn new(valor: u32) -\u003E Palpite {\\n        if valor \u003C 1 || valor \u003E 100 {\\n            panic!(\\\"Valor de chute deve ser entre 1 e 100, recebi {}.\\\", valor);\\n        }\\n\\n        Palpite {\\n            valor\\n        }\\n    }\\n\\n    pub fn valor(\u0026self) -\u003E u32 {\\n        self.valor\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,14": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 9-9: Um tipo `Palpite` que somente funciona com valores\\nentre 1 e 100.\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,15": {
+    "value": "\"Primeiro, definimos uma struct chamada `Palpite` que tem um campo chamado `valor`\\nque guarda um `u32`. Isso é onde o número vai ser guardado.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,16": {
+    "value": "\"Então nós implementamos uma função associada chamada `new` em `Palpite` que cria\\ninstâncias de valores `Palpite`. A função `new` é definida a ter um parâmetro\\nchamado `valor` de tipo `u32` e retornar um `Palpite`. O código no corpo da função\\n`new` testa para ter certeza que `valor` está entre 1 e 100. Se `valor` não passa\\nnesse teste, fazemos uma chamada a `panic!`, que vai alertar ao programador que\\nestá escrevendo o código chamando a função que ele tem um bug que precisa ser \\ncorrigido, porque criar um `Palpite` com um `valor` fora desses limites violaria\\no contrato em que `Palpite::new` se baseia. As condições em que `Palpite::new` pode \\nentrar em pânico devem ser discutidas na sua documentação da API voltada ao público;\\nno Capítulo 14 nós cobriremos convenções de documentação indicando a possibilidade de um `panic!`\\nna documentação de API. Se `valor` de fato passa no\\nteste, criamos um novo `Palpite` com o campo `valor` preenchido com o parâmetro\\n`valor` e retornamos o `Palpite`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,17": {
+    "value": "\"Em seguida, implementamos um método chamado `valor` que pega `self` emprestado, não\\ntem nenhum outro parâmetro, e retorna um `u32`. Esse é o tipo de método às vezes\\nchamado de *getter*, pois seu propósito é pegar um dado de um dos campos e o retornar.\\nEsse método público é necessário porque o campo `valor` da struct `Palpite` é privado.\\nÉ importante que o campo `valor` seja privado para que código usando a struct `Palpite`\\nnão tenha permissão de definir o valor de `valor` diretamente: código de fora do módulo\\n*deve* usar a função `Palpite::new` para criar uma instância de `Palpite`, o que certifica\\nque não há maneira de um `Palpite` ter um `valor` que não foi checado pelas condições\\ndefinidas na função `Palpite::new`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,18": {
+    "value": "\"Uma função que tem um parâmetro ou retorna somente números entre 1 e 100 pode\\nentão declarar na sua assinatura que ela recebe ou retorna um `Palpite` em vez\\nde um `u32` e não precisaria fazer nenhuma checagem adicional no seu corpo.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,19": {
+    "value": "\"As ferramentas de tratamento de erros de Rust são feitas para te ajudar a escrever\\ncódigo mais robusto. A macro `panic!` sinaliza que seu programa está num estado que\\nnão consegue lidar e deixa você parar o processo ao invés de tentar prosseguir com\\nvalores inválidos ou incorretos. O enum `Result` usa o sistema de tipos de Rust para \\nindicar que operações podem falhar de uma maneira que seu código pode se recuperar. \\nVocê pode usar `Result` para dizer ao código que chama seu código que ele precisa\\ntratar potenciais sucessos ou falhas também. Usar `panic!` e `Result` nas situações\\napropriadas fará seu código mais confiável em face aos problemas inevitáveis.\\n\\nAgora que você viu as maneiras úteis em que a biblioteca padrão usa genéricos com\\nos enums `Option` e `Result`, nós falaremos como genéricos funcionam e como você\\npode usá-los em seu código no próximo capítulo.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,19,1,0": {
+    "value": "\"As ferramentas de tratamento de erros de Rust são feitas para te ajudar a escrever\\ncódigo mais robusto. A macro `panic!` sinaliza que seu programa está num estado que\\nnão consegue lidar e deixa você parar o processo ao invés de tentar prosseguir com\\nvalores inválidos ou incorretos. O enum `Result` usa o sistema de tipos de Rust para \\nindicar que operações podem falhar de uma maneira que seu código pode se recuperar. \\nVocê pode usar `Result` para dizer ao código que chama seu código que ele precisa\\ntratar potenciais sucessos ou falhas também. Usar `panic!` e `Result` nas situações\\napropriadas fará seu código mais confiável em face aos problemas inevitáveis.\\n\\nAgora que você viu as maneiras úteis em que a biblioteca padrão usa genéricos com\\nos enums `Option` e `Result`, nós falaremos como genéricos funcionam e como você\\npode usá-los em seu código no próximo capítulo.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,2": {
+    "value": "\"Então como você decide quando entrar em `panic!` e quando você deveria retornar\\num `Result`? Quando o código entra em pânico, não há maneira de se recuperar. Você\\npoderia chamar `panic!` para qualquer situação de erro, tendo uma maneira de se recuperar\\nou não, mas então você estaria decidindo no lugar do código que chama seu código\\nque a situação é irrecuperável. Quando você decide retornar um valor de `Result`,\\nvocê lhe dá opções em vez de tomar a decisão por ele. O código\\nque chama seu código pode tentar se recuperar de uma maneira que é apropriada para\\na situação, ou ele pode decidir que um valor de `Err` nesse caso é irrecuperável,\\nchamando `panic!` e transformando seu erro recuperável em um irrecuperável.\\nPortanto, retornar `Result` é uma boa escolha padrão quando você está definindo\\numa função que pode falhar.\\n\\nEm algumas situações é mais apropriado escrever código que entra em pânico em vez\\nde retornar um `Result`, mas eles são menos comuns. Vamos explorar porque é apropriado\\nentrar em pânico em alguns exemplos, protótipos de código e testes; depois situações\\nem que você como humano pode saber que um método não vai falhar, mas que o compilador não\\ntem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou\\nnão em pânico em código de biblioteca.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,2,1,0": {
+    "value": "\"Então como você decide quando entrar em `panic!` e quando você deveria retornar\\num `Result`? Quando o código entra em pânico, não há maneira de se recuperar. Você\\npoderia chamar `panic!` para qualquer situação de erro, tendo uma maneira de se recuperar\\nou não, mas então você estaria decidindo no lugar do código que chama seu código\\nque a situação é irrecuperável. Quando você decide retornar um valor de `Result`,\\nvocê lhe dá opções em vez de tomar a decisão por ele. O código\\nque chama seu código pode tentar se recuperar de uma maneira que é apropriada para\\na situação, ou ele pode decidir que um valor de `Err` nesse caso é irrecuperável,\\nchamando `panic!` e transformando seu erro recuperável em um irrecuperável.\\nPortanto, retornar `Result` é uma boa escolha padrão quando você está definindo\\numa função que pode falhar.\\n\\nEm algumas situações é mais apropriado escrever código que entra em pânico em vez\\nde retornar um `Result`, mas eles são menos comuns. Vamos explorar porque é apropriado\\nentrar em pânico em alguns exemplos, protótipos de código e testes; depois situações\\nem que você como humano pode saber que um método não vai falhar, mas que o compilador não\\ntem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou\\nnão em pânico em código de biblioteca.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,3": {
+    "value": "\"Quando você está escrevendo um exemplo para ilustrar algum conceito, ter código\\nde tratamento de erro robusto junto do exemplo pode torná-lo menos claro. Em exemplos,\\né compreensível que uma chamada a um método como `unwrap` que poderia chamar `panic!`\\napenas substitua a maneira como você trataria erros na sua aplicação,\\nque pode ser diferente baseado no que o resto do seu código está fazendo.\\n\\nDe forma semelhante, os métodos `unwrap` e `expect` são bem úteis ao fazer\\nprotótipos, antes de você estar pronto para decidir como tratar erros. Eles deixam\\nmarcadores claros no seu código para quando você estiver pronto para tornar\\nseu programa mais robusto.\\n\\nSe uma chamada de método falha em um teste, queremos que o teste inteiro falhe,\\nmesmo se esse método não é a funcionalidade sendo testada. Como `panic!` é o modo\\nque um teste é marcado como falha, chamar `unwrap` ou `expect` é exatamente o que\\ndeveria acontecer.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,3,1,0": {
+    "value": "\"Quando você está escrevendo um exemplo para ilustrar algum conceito, ter código\\nde tratamento de erro robusto junto do exemplo pode torná-lo menos claro. Em exemplos,\\né compreensível que uma chamada a um método como `unwrap` que poderia chamar `panic!`\\napenas substitua a maneira como você trataria erros na sua aplicação,\\nque pode ser diferente baseado no que o resto do seu código está fazendo.\\n\\nDe forma semelhante, os métodos `unwrap` e `expect` são bem úteis ao fazer\\nprotótipos, antes de você estar pronto para decidir como tratar erros. Eles deixam\\nmarcadores claros no seu código para quando você estiver pronto para tornar\\nseu programa mais robusto.\\n\\nSe uma chamada de método falha em um teste, queremos que o teste inteiro falhe,\\nmesmo se esse método não é a funcionalidade sendo testada. Como `panic!` é o modo\\nque um teste é marcado como falha, chamar `unwrap` ou `expect` é exatamente o que\\ndeveria acontecer.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,4": {
+    "value": "\"Seria também apropriado chamar `unwrap` quando você tem outra lógica que\\nassegura que o `Result` vai ter um valor `Ok`, mas essa lógica não é algo\\nque o compilador entenda. Você ainda vai ter um valor de `Result` que precisa \\nlidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade\\nde falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa \\nsituação particular. Se você consegue assegurar ao inspecionar manualmente o código que\\nvocê nunca tera uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.\\nAqui temos um exemplo:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,4,1,0": {
+    "value": "\"Seria também apropriado chamar `unwrap` quando você tem outra lógica que\\nassegura que o `Result` vai ter um valor `Ok`, mas essa lógica não é algo\\nque o compilador entenda. Você ainda vai ter um valor de `Result` que precisa \\nlidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade\\nde falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa \\nsituação particular. Se você consegue assegurar ao inspecionar manualmente o código que\\nvocê nunca tera uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.\\nAqui temos um exemplo:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,5,0": {
+    "value": "\"use std::net::IpAddr;\\n\\nlet home = \\\"127.0.0.1\\\".parse::\u003CIpAddr\u003E().unwrap();\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,6": {
+    "value": "\"Nós estamos criando uma instância `IpAddr` ao analisar uma string *hardcoded*. Nós\\npodemos ver que `127.0.0.1` é um endereço de IP válido, então é aceitável usar \\n`unwrap` aqui. No entanto, ter uma string válida *hardcoded* não muda o tipo retornado\\npelo método `parse`: ainda teremos um valor de `Result`, e o compilador ainda \\nvai nos fazer tratar o `Result` como se a variante `Err` fosse uma\\npossibilidade, porque o compilador não é inteligente o bastante para ver que essa string\\né sempre um endereço IP válido. Se a string de endereço IP viesse de um usuário ao invés\\nde ser *hardcoded* no programa, e portanto, de fato tivesse uma possibilidade de falha, nós\\ndefinitivamente iríamos querer tratar o `Result` de uma forma mais robusta.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,7": {
+    "value": "\"É aconselhável fazer que seu código entre em `panic!` quando é possível que\\nele entre em um mau estado. Nesse contexto, mau estado é quando\\nalguma hipótese, garantia, contrato ou invariante foi quebrada, tal como\\nvalores inválidos, valores contraditórios, ou valores faltando que são passados\\na seu código - além de um ou mais dos seguintes:\\n\\n* O mau estado não é algo que é *esperado* que aconteça ocasionalmente.\\n* Seu código após certo ponto precisa confiar que ele não está nesse mau estado.\\n* Não há uma forma boa de codificar essa informação nos tipos que você usa.\\n\\nSe alguém chama seu código e passa valores que não fazem sentido, a melhor escolha\\ntalvez seja entrar em `panic!` e alertar a pessoa usando sua biblioteca do bug no\\ncódigo dela para que ela possa consertá-la durante o desenvolvimento. Similarmente,\\n`panic!` é em geral apropriado se você está chamando código externo que está fora\\ndo seu controle e ele retorna um estado inválido que você não tem como consertar.\\n\\nQuando se chega a um mau estado, mas isso é esperado que aconteça não importa\\nquão bem você escreva seu código, ainda é mais apropriado retornar um `Result`\\na fazer uma chamada a `panic!`. Um exemplo disso é um *parser* recebendo dados\\nmalformados ou uma requisição HTTP retornando um status que indique que você atingiu\\num limite de taxa. Nesses casos, você deveria indicar que falha é uma possibilidade\\nesperada ao retornar um `Result` para propagar esses estados ruins para cima,\\nde forma que o código que chamou seu código pode decidir como tratar o problema.\\nEntrar em `panic!` não seria a melhor maneira de lidar com esses casos.\\n\\nQuando seu código realiza operações em valores, ele deveria verificar que os valores\\nsão válidos primeiro, e entrar em `panic!` caso não sejam. Isso é \\nem boa parte por razões de segurança: tentar operar em dados inválidos pode expor seu\\ncódigo a vulnerabilidades. Essa é a principal razão para a biblioteca padrão entrar em\\n`panic!` se você tentar um acesso de memória fora dos limites: tentar acessar memória \\nque não pertence à estrutura de dados atual é um problema de segurança comum. Funções \\nfrequentemente tem *contratos*: seu comportamento somente é garantido se os inputs cumprem\\nrequerimentos específicos. Entrar em pânico quando o contrato é violado faz sentido \\nporque uma violação de contrato sempre indica um bug da parte do chamador, e não é o tipo \\nde erro que você quer que seja tratado explicitamente. De fato, \\nnão há nenhuma maneira razoável para o código chamador se recuperar: os *programadores*\\nque precisam consertar o código. Contratos para uma função, especialmente quando uma\\nviolação leva a pânico, devem ser explicados na documentação da API da função.\\n\\nNo entanto, ter várias checagens de erro em todas suas funções pode ser verboso\\ne irritante. Felizmente, você pode usar o sistema de tipos do Rust (e portanto a\\nchecagem que o compilador faz) para fazer várias dessas checagens para você. Se\\nsua função tem um tipo particular como parâmetro, você pode continuar com a lógica\\ndo seu código sabendo que o compilador já assegurou que você tem um valor válido.\\nPor exemplo, se você tem um tipo em vez de uma `Option`, seu programa espera\\nter *algo* ao invés de *nada*. Seu código não precisa tratar dois casos para\\nas variantes `Some` e `None`: ele vai somente ter um caso para definitivamente ter\\num valor. Um código que tente passar nada para sua função não vai nem compilar,\\nentão sua função não precisa checar esse caso em tempo de execução. Outro exemplo é usar\\num tipo de inteiro sem sinal como `u32`, que assegura que o parâmetro nunca é\\nnegativo.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,7,1,0": {
+    "value": "\"É aconselhável fazer que seu código entre em `panic!` quando é possível que\\nele entre em um mau estado. Nesse contexto, mau estado é quando\\nalguma hipótese, garantia, contrato ou invariante foi quebrada, tal como\\nvalores inválidos, valores contraditórios, ou valores faltando que são passados\\na seu código - além de um ou mais dos seguintes:\\n\\n* O mau estado não é algo que é *esperado* que aconteça ocasionalmente.\\n* Seu código após certo ponto precisa confiar que ele não está nesse mau estado.\\n* Não há uma forma boa de codificar essa informação nos tipos que você usa.\\n\\nSe alguém chama seu código e passa valores que não fazem sentido, a melhor escolha\\ntalvez seja entrar em `panic!` e alertar a pessoa usando sua biblioteca do bug no\\ncódigo dela para que ela possa consertá-la durante o desenvolvimento. Similarmente,\\n`panic!` é em geral apropriado se você está chamando código externo que está fora\\ndo seu controle e ele retorna um estado inválido que você não tem como consertar.\\n\\nQuando se chega a um mau estado, mas isso é esperado que aconteça não importa\\nquão bem você escreva seu código, ainda é mais apropriado retornar um `Result`\\na fazer uma chamada a `panic!`. Um exemplo disso é um *parser* recebendo dados\\nmalformados ou uma requisição HTTP retornando um status que indique que você atingiu\\num limite de taxa. Nesses casos, você deveria indicar que falha é uma possibilidade\\nesperada ao retornar um `Result` para propagar esses estados ruins para cima,\\nde forma que o código que chamou seu código pode decidir como tratar o problema.\\nEntrar em `panic!` não seria a melhor maneira de lidar com esses casos.\\n\\nQuando seu código realiza operações em valores, ele deveria verificar que os valores\\nsão válidos primeiro, e entrar em `panic!` caso não sejam. Isso é \\nem boa parte por razões de segurança: tentar operar em dados inválidos pode expor seu\\ncódigo a vulnerabilidades. Essa é a principal razão para a biblioteca padrão entrar em\\n`panic!` se você tentar um acesso de memória fora dos limites: tentar acessar memória \\nque não pertence à estrutura de dados atual é um problema de segurança comum. Funções \\nfrequentemente tem *contratos*: seu comportamento somente é garantido se os inputs cumprem\\nrequerimentos específicos. Entrar em pânico quando o contrato é violado faz sentido \\nporque uma violação de contrato sempre indica um bug da parte do chamador, e não é o tipo \\nde erro que você quer que seja tratado explicitamente. De fato, \\nnão há nenhuma maneira razoável para o código chamador se recuperar: os *programadores*\\nque precisam consertar o código. Contratos para uma função, especialmente quando uma\\nviolação leva a pânico, devem ser explicados na documentação da API da função.\\n\\nNo entanto, ter várias checagens de erro em todas suas funções pode ser verboso\\ne irritante. Felizmente, você pode usar o sistema de tipos do Rust (e portanto a\\nchecagem que o compilador faz) para fazer várias dessas checagens para você. Se\\nsua função tem um tipo particular como parâmetro, você pode continuar com a lógica\\ndo seu código sabendo que o compilador já assegurou que você tem um valor válido.\\nPor exemplo, se você tem um tipo em vez de uma `Option`, seu programa espera\\nter *algo* ao invés de *nada*. Seu código não precisa tratar dois casos para\\nas variantes `Some` e `None`: ele vai somente ter um caso para definitivamente ter\\num valor. Um código que tente passar nada para sua função não vai nem compilar,\\nentão sua função não precisa checar esse caso em tempo de execução. Outro exemplo é usar\\num tipo de inteiro sem sinal como `u32`, que assegura que o parâmetro nunca é\\nnegativo.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,8": {
+    "value": "\"Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos\\num valor válido e ver como criar um tipo customizado para validação.\\nLembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário \\npara adivinhar um número entre 1 e 100. Nós nunca validamos que o chute do usuário\\nfosse entre esses números antes de compará-lo com o número secreto; nós somente \\nvalidamos que o chute era positivo. Nesse caso, as consequências não foram tão\\ndrásticas: nosso output de \\\"Muito alto\\\" ou \\\"Muito baixo\\\" ainda estariam corretos. Seria\\numa melhoria útil guiar o usuário para chutes válidos, e ter um comportamento distinto\\nquando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.\\n\\nUma maneira de fazer isso seria interpretar o chute como um `i32` em vez de\\nsomente um `u32` para permitir números potenciamente negativos, e então adicionar\\numa checagem se o número está dentro dos limites, conforme a seguir:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,8,1,0": {
+    "value": "\"Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos\\num valor válido e ver como criar um tipo customizado para validação.\\nLembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário \\npara adivinhar um número entre 1 e 100. Nós nunca validamos que o chute do usuário\\nfosse entre esses números antes de compará-lo com o número secreto; nós somente \\nvalidamos que o chute era positivo. Nesse caso, as consequências não foram tão\\ndrásticas: nosso output de \\\"Muito alto\\\" ou \\\"Muito baixo\\\" ainda estariam corretos. Seria\\numa melhoria útil guiar o usuário para chutes válidos, e ter um comportamento distinto\\nquando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.\\n\\nUma maneira de fazer isso seria interpretar o chute como um `i32` em vez de\\nsomente um `u32` para permitir números potenciamente negativos, e então adicionar\\numa checagem se o número está dentro dos limites, conforme a seguir:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#body@0,9,0": {
+    "value": "\"loop {\\n    // snip\\n\\n    let palpite: i32 = match palpite.trim().parse() {\\n        Ok(num) =\u003E num,\\n        Err(_) =\u003E continue,\\n    };\\n\\n    if palpite \u003C 1 || palpite \u003E 100 {\\n        println!(\\\"O número secreto vai estar entre 1 e 100.\\\");\\n        continue;\\n    }\\n\\n    match palpite.cmp(\u0026numero_secreto) {\\n    // snip\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#caption@0,13,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#caption@0,5,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#caption@0,9,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,19": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,4": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,7": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,8": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,19": {
+    "value": "\"Resumo\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,2": {
+    "value": "\"Entrar em `panic!` ou Não Entrar em `panic!`\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,3": {
+    "value": "\"Exemplos, Protótipos, e Testes São Todos Lugares em que É Perfeitamente Ok Entrar em Pânico\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,4": {
+    "value": "\"Casos em que Você Tem Mais Informação Que o Compilador\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,7": {
+    "value": "\"Diretrizes para Tratamento de Erro\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#title@0,8": {
+    "value": "\"Criando Tipos Customizados para Validação\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -271,273 +538,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,10": {
-    "value": "\"A expressão `if` checa se nosso valor está fora dos limites, informa o usuário\\nsobre o problema, e chama `continue` para começar a próxima iteração do loop\\ne pedir por outro chute. Depois da expressão `if` podemos proceder com as \\ncomparações entre `palpite` e o número secreto sabendo que `palpite` está \\nentre 1 e 100.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,11": {
-    "value": "\"No entanto, essa não é a solução ideal: se fosse absolutamente crítico que o\\nprograma somente operasse em valores entre 1 e 100, e ele tivesse várias funções\\ncom esse requisito, seria tedioso (e potencialmente impactante na performance)\\nter uma checagem dessa em cada função.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,12": {
-    "value": "\"Em vez disso, podemos fazer um novo tipo e colocar as validações em uma função\\npara criar uma instância do tipo em vez de repetir as validações em todo lugar.\\nDessa maneira, é seguro para funções usarem o novo tipo nas suas assinaturas e \\nconfidentemente usar os valores que recebem. A Listagem 9-9  mostra uma maneira de \\ndefinir um tipo `Palpite` que vai somente criar uma instância de `Palpite` se a função\\n`new` receber um valor entre 1 e 100:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,13,0": {
-    "value": "\"pub struct Palpite {\\n    valor: u32,\\n}\\n\\nimpl Palpite {\\n    pub fn new(valor: u32) -\u003E Palpite {\\n        if valor \u003C 1 || valor \u003E 100 {\\n            panic!(\\\"Valor de chute deve ser entre 1 e 100, recebi {}.\\\", valor);\\n        }\\n\\n        Palpite {\\n            valor\\n        }\\n    }\\n\\n    pub fn valor(\u0026self) -\u003E u32 {\\n        self.valor\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,14": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 9-9: Um tipo `Palpite` que somente funciona com valores\\nentre 1 e 100.\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,15": {
-    "value": "\"Primeiro, definimos uma struct chamada `Palpite` que tem um campo chamado `valor`\\nque guarda um `u32`. Isso é onde o número vai ser guardado.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,16": {
-    "value": "\"Então nós implementamos uma função associada chamada `new` em `Palpite` que cria\\ninstâncias de valores `Palpite`. A função `new` é definida a ter um parâmetro\\nchamado `valor` de tipo `u32` e retornar um `Palpite`. O código no corpo da função\\n`new` testa para ter certeza que `valor` está entre 1 e 100. Se `valor` não passa\\nnesse teste, fazemos uma chamada a `panic!`, que vai alertar ao programador que\\nestá escrevendo o código chamando a função que ele tem um bug que precisa ser \\ncorrigido, porque criar um `Palpite` com um `valor` fora desses limites violaria\\no contrato em que `Palpite::new` se baseia. As condições em que `Palpite::new` pode \\nentrar em pânico devem ser discutidas na sua documentação da API voltada ao público;\\nno Capítulo 14 nós cobriremos convenções de documentação indicando a possibilidade de um `panic!`\\nna documentação de API. Se `valor` de fato passa no\\nteste, criamos um novo `Palpite` com o campo `valor` preenchido com o parâmetro\\n`valor` e retornamos o `Palpite`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,17": {
-    "value": "\"Em seguida, implementamos um método chamado `valor` que pega `self` emprestado, não\\ntem nenhum outro parâmetro, e retorna um `u32`. Esse é o tipo de método às vezes\\nchamado de *getter*, pois seu propósito é pegar um dado de um dos campos e o retornar.\\nEsse método público é necessário porque o campo `valor` da struct `Palpite` é privado.\\nÉ importante que o campo `valor` seja privado para que código usando a struct `Palpite`\\nnão tenha permissão de definir o valor de `valor` diretamente: código de fora do módulo\\n*deve* usar a função `Palpite::new` para criar uma instância de `Palpite`, o que certifica\\nque não há maneira de um `Palpite` ter um `valor` que não foi checado pelas condições\\ndefinidas na função `Palpite::new`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,18": {
-    "value": "\"Uma função que tem um parâmetro ou retorna somente números entre 1 e 100 pode\\nentão declarar na sua assinatura que ela recebe ou retorna um `Palpite` em vez\\nde um `u32` e não precisaria fazer nenhuma checagem adicional no seu corpo.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,19": {
-    "value": "\"As ferramentas de tratamento de erros de Rust são feitas para te ajudar a escrever\\ncódigo mais robusto. A macro `panic!` sinaliza que seu programa está num estado que\\nnão consegue lidar e deixa você parar o processo ao invés de tentar prosseguir com\\nvalores inválidos ou incorretos. O enum `Result` usa o sistema de tipos de Rust para \\nindicar que operações podem falhar de uma maneira que seu código pode se recuperar. \\nVocê pode usar `Result` para dizer ao código que chama seu código que ele precisa\\ntratar potenciais sucessos ou falhas também. Usar `panic!` e `Result` nas situações\\napropriadas fará seu código mais confiável em face aos problemas inevitáveis.\\n\\nAgora que você viu as maneiras úteis em que a biblioteca padrão usa genéricos com\\nos enums `Option` e `Result`, nós falaremos como genéricos funcionam e como você\\npode usá-los em seu código no próximo capítulo.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,19,1,0": {
-    "value": "\"As ferramentas de tratamento de erros de Rust são feitas para te ajudar a escrever\\ncódigo mais robusto. A macro `panic!` sinaliza que seu programa está num estado que\\nnão consegue lidar e deixa você parar o processo ao invés de tentar prosseguir com\\nvalores inválidos ou incorretos. O enum `Result` usa o sistema de tipos de Rust para \\nindicar que operações podem falhar de uma maneira que seu código pode se recuperar. \\nVocê pode usar `Result` para dizer ao código que chama seu código que ele precisa\\ntratar potenciais sucessos ou falhas também. Usar `panic!` e `Result` nas situações\\napropriadas fará seu código mais confiável em face aos problemas inevitáveis.\\n\\nAgora que você viu as maneiras úteis em que a biblioteca padrão usa genéricos com\\nos enums `Option` e `Result`, nós falaremos como genéricos funcionam e como você\\npode usá-los em seu código no próximo capítulo.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,2": {
-    "value": "\"Então como você decide quando entrar em `panic!` e quando você deveria retornar\\num `Result`? Quando o código entra em pânico, não há maneira de se recuperar. Você\\npoderia chamar `panic!` para qualquer situação de erro, tendo uma maneira de se recuperar\\nou não, mas então você estaria decidindo no lugar do código que chama seu código\\nque a situação é irrecuperável. Quando você decide retornar um valor de `Result`,\\nvocê lhe dá opções em vez de tomar a decisão por ele. O código\\nque chama seu código pode tentar se recuperar de uma maneira que é apropriada para\\na situação, ou ele pode decidir que um valor de `Err` nesse caso é irrecuperável,\\nchamando `panic!` e transformando seu erro recuperável em um irrecuperável.\\nPortanto, retornar `Result` é uma boa escolha padrão quando você está definindo\\numa função que pode falhar.\\n\\nEm algumas situações é mais apropriado escrever código que entra em pânico em vez\\nde retornar um `Result`, mas eles são menos comuns. Vamos explorar porque é apropriado\\nentrar em pânico em alguns exemplos, protótipos de código e testes; depois situações\\nem que você como humano pode saber que um método não vai falhar, mas que o compilador não\\ntem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou\\nnão em pânico em código de biblioteca.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,2,1,0": {
-    "value": "\"Então como você decide quando entrar em `panic!` e quando você deveria retornar\\num `Result`? Quando o código entra em pânico, não há maneira de se recuperar. Você\\npoderia chamar `panic!` para qualquer situação de erro, tendo uma maneira de se recuperar\\nou não, mas então você estaria decidindo no lugar do código que chama seu código\\nque a situação é irrecuperável. Quando você decide retornar um valor de `Result`,\\nvocê lhe dá opções em vez de tomar a decisão por ele. O código\\nque chama seu código pode tentar se recuperar de uma maneira que é apropriada para\\na situação, ou ele pode decidir que um valor de `Err` nesse caso é irrecuperável,\\nchamando `panic!` e transformando seu erro recuperável em um irrecuperável.\\nPortanto, retornar `Result` é uma boa escolha padrão quando você está definindo\\numa função que pode falhar.\\n\\nEm algumas situações é mais apropriado escrever código que entra em pânico em vez\\nde retornar um `Result`, mas eles são menos comuns. Vamos explorar porque é apropriado\\nentrar em pânico em alguns exemplos, protótipos de código e testes; depois situações\\nem que você como humano pode saber que um método não vai falhar, mas que o compilador não\\ntem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou\\nnão em pânico em código de biblioteca.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,3": {
-    "value": "\"Quando você está escrevendo um exemplo para ilustrar algum conceito, ter código\\nde tratamento de erro robusto junto do exemplo pode torná-lo menos claro. Em exemplos,\\né compreensível que uma chamada a um método como `unwrap` que poderia chamar `panic!`\\napenas substitua a maneira como você trataria erros na sua aplicação,\\nque pode ser diferente baseado no que o resto do seu código está fazendo.\\n\\nDe forma semelhante, os métodos `unwrap` e `expect` são bem úteis ao fazer\\nprotótipos, antes de você estar pronto para decidir como tratar erros. Eles deixam\\nmarcadores claros no seu código para quando você estiver pronto para tornar\\nseu programa mais robusto.\\n\\nSe uma chamada de método falha em um teste, queremos que o teste inteiro falhe,\\nmesmo se esse método não é a funcionalidade sendo testada. Como `panic!` é o modo\\nque um teste é marcado como falha, chamar `unwrap` ou `expect` é exatamente o que\\ndeveria acontecer.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,3,1,0": {
-    "value": "\"Quando você está escrevendo um exemplo para ilustrar algum conceito, ter código\\nde tratamento de erro robusto junto do exemplo pode torná-lo menos claro. Em exemplos,\\né compreensível que uma chamada a um método como `unwrap` que poderia chamar `panic!`\\napenas substitua a maneira como você trataria erros na sua aplicação,\\nque pode ser diferente baseado no que o resto do seu código está fazendo.\\n\\nDe forma semelhante, os métodos `unwrap` e `expect` são bem úteis ao fazer\\nprotótipos, antes de você estar pronto para decidir como tratar erros. Eles deixam\\nmarcadores claros no seu código para quando você estiver pronto para tornar\\nseu programa mais robusto.\\n\\nSe uma chamada de método falha em um teste, queremos que o teste inteiro falhe,\\nmesmo se esse método não é a funcionalidade sendo testada. Como `panic!` é o modo\\nque um teste é marcado como falha, chamar `unwrap` ou `expect` é exatamente o que\\ndeveria acontecer.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,4": {
-    "value": "\"Seria também apropriado chamar `unwrap` quando você tem outra lógica que\\nassegura que o `Result` vai ter um valor `Ok`, mas essa lógica não é algo\\nque o compilador entenda. Você ainda vai ter um valor de `Result` que precisa \\nlidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade\\nde falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa \\nsituação particular. Se você consegue assegurar ao inspecionar manualmente o código que\\nvocê nunca tera uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.\\nAqui temos um exemplo:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,4,1,0": {
-    "value": "\"Seria também apropriado chamar `unwrap` quando você tem outra lógica que\\nassegura que o `Result` vai ter um valor `Ok`, mas essa lógica não é algo\\nque o compilador entenda. Você ainda vai ter um valor de `Result` que precisa \\nlidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade\\nde falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa \\nsituação particular. Se você consegue assegurar ao inspecionar manualmente o código que\\nvocê nunca tera uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.\\nAqui temos um exemplo:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,5,0": {
-    "value": "\"use std::net::IpAddr;\\n\\nlet home = \\\"127.0.0.1\\\".parse::\u003CIpAddr\u003E().unwrap();\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,6": {
-    "value": "\"Nós estamos criando uma instância `IpAddr` ao analisar uma string *hardcoded*. Nós\\npodemos ver que `127.0.0.1` é um endereço de IP válido, então é aceitável usar \\n`unwrap` aqui. No entanto, ter uma string válida *hardcoded* não muda o tipo retornado\\npelo método `parse`: ainda teremos um valor de `Result`, e o compilador ainda \\nvai nos fazer tratar o `Result` como se a variante `Err` fosse uma\\npossibilidade, porque o compilador não é inteligente o bastante para ver que essa string\\né sempre um endereço IP válido. Se a string de endereço IP viesse de um usuário ao invés\\nde ser *hardcoded* no programa, e portanto, de fato tivesse uma possibilidade de falha, nós\\ndefinitivamente iríamos querer tratar o `Result` de uma forma mais robusta.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,7": {
-    "value": "\"É aconselhável fazer que seu código entre em `panic!` quando é possível que\\nele entre em um mau estado. Nesse contexto, mau estado é quando\\nalguma hipótese, garantia, contrato ou invariante foi quebrada, tal como\\nvalores inválidos, valores contraditórios, ou valores faltando que são passados\\na seu código - além de um ou mais dos seguintes:\\n\\n* O mau estado não é algo que é *esperado* que aconteça ocasionalmente.\\n* Seu código após certo ponto precisa confiar que ele não está nesse mau estado.\\n* Não há uma forma boa de codificar essa informação nos tipos que você usa.\\n\\nSe alguém chama seu código e passa valores que não fazem sentido, a melhor escolha\\ntalvez seja entrar em `panic!` e alertar a pessoa usando sua biblioteca do bug no\\ncódigo dela para que ela possa consertá-la durante o desenvolvimento. Similarmente,\\n`panic!` é em geral apropriado se você está chamando código externo que está fora\\ndo seu controle e ele retorna um estado inválido que você não tem como consertar.\\n\\nQuando se chega a um mau estado, mas isso é esperado que aconteça não importa\\nquão bem você escreva seu código, ainda é mais apropriado retornar um `Result`\\na fazer uma chamada a `panic!`. Um exemplo disso é um *parser* recebendo dados\\nmalformados ou uma requisição HTTP retornando um status que indique que você atingiu\\num limite de taxa. Nesses casos, você deveria indicar que falha é uma possibilidade\\nesperada ao retornar um `Result` para propagar esses estados ruins para cima,\\nde forma que o código que chamou seu código pode decidir como tratar o problema.\\nEntrar em `panic!` não seria a melhor maneira de lidar com esses casos.\\n\\nQuando seu código realiza operações em valores, ele deveria verificar que os valores\\nsão válidos primeiro, e entrar em `panic!` caso não sejam. Isso é \\nem boa parte por razões de segurança: tentar operar em dados inválidos pode expor seu\\ncódigo a vulnerabilidades. Essa é a principal razão para a biblioteca padrão entrar em\\n`panic!` se você tentar um acesso de memória fora dos limites: tentar acessar memória \\nque não pertence à estrutura de dados atual é um problema de segurança comum. Funções \\nfrequentemente tem *contratos*: seu comportamento somente é garantido se os inputs cumprem\\nrequerimentos específicos. Entrar em pânico quando o contrato é violado faz sentido \\nporque uma violação de contrato sempre indica um bug da parte do chamador, e não é o tipo \\nde erro que você quer que seja tratado explicitamente. De fato, \\nnão há nenhuma maneira razoável para o código chamador se recuperar: os *programadores*\\nque precisam consertar o código. Contratos para uma função, especialmente quando uma\\nviolação leva a pânico, devem ser explicados na documentação da API da função.\\n\\nNo entanto, ter várias checagens de erro em todas suas funções pode ser verboso\\ne irritante. Felizmente, você pode usar o sistema de tipos do Rust (e portanto a\\nchecagem que o compilador faz) para fazer várias dessas checagens para você. Se\\nsua função tem um tipo particular como parâmetro, você pode continuar com a lógica\\ndo seu código sabendo que o compilador já assegurou que você tem um valor válido.\\nPor exemplo, se você tem um tipo em vez de uma `Option`, seu programa espera\\nter *algo* ao invés de *nada*. Seu código não precisa tratar dois casos para\\nas variantes `Some` e `None`: ele vai somente ter um caso para definitivamente ter\\num valor. Um código que tente passar nada para sua função não vai nem compilar,\\nentão sua função não precisa checar esse caso em tempo de execução. Outro exemplo é usar\\num tipo de inteiro sem sinal como `u32`, que assegura que o parâmetro nunca é\\nnegativo.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,7,1,0": {
-    "value": "\"É aconselhável fazer que seu código entre em `panic!` quando é possível que\\nele entre em um mau estado. Nesse contexto, mau estado é quando\\nalguma hipótese, garantia, contrato ou invariante foi quebrada, tal como\\nvalores inválidos, valores contraditórios, ou valores faltando que são passados\\na seu código - além de um ou mais dos seguintes:\\n\\n* O mau estado não é algo que é *esperado* que aconteça ocasionalmente.\\n* Seu código após certo ponto precisa confiar que ele não está nesse mau estado.\\n* Não há uma forma boa de codificar essa informação nos tipos que você usa.\\n\\nSe alguém chama seu código e passa valores que não fazem sentido, a melhor escolha\\ntalvez seja entrar em `panic!` e alertar a pessoa usando sua biblioteca do bug no\\ncódigo dela para que ela possa consertá-la durante o desenvolvimento. Similarmente,\\n`panic!` é em geral apropriado se você está chamando código externo que está fora\\ndo seu controle e ele retorna um estado inválido que você não tem como consertar.\\n\\nQuando se chega a um mau estado, mas isso é esperado que aconteça não importa\\nquão bem você escreva seu código, ainda é mais apropriado retornar um `Result`\\na fazer uma chamada a `panic!`. Um exemplo disso é um *parser* recebendo dados\\nmalformados ou uma requisição HTTP retornando um status que indique que você atingiu\\num limite de taxa. Nesses casos, você deveria indicar que falha é uma possibilidade\\nesperada ao retornar um `Result` para propagar esses estados ruins para cima,\\nde forma que o código que chamou seu código pode decidir como tratar o problema.\\nEntrar em `panic!` não seria a melhor maneira de lidar com esses casos.\\n\\nQuando seu código realiza operações em valores, ele deveria verificar que os valores\\nsão válidos primeiro, e entrar em `panic!` caso não sejam. Isso é \\nem boa parte por razões de segurança: tentar operar em dados inválidos pode expor seu\\ncódigo a vulnerabilidades. Essa é a principal razão para a biblioteca padrão entrar em\\n`panic!` se você tentar um acesso de memória fora dos limites: tentar acessar memória \\nque não pertence à estrutura de dados atual é um problema de segurança comum. Funções \\nfrequentemente tem *contratos*: seu comportamento somente é garantido se os inputs cumprem\\nrequerimentos específicos. Entrar em pânico quando o contrato é violado faz sentido \\nporque uma violação de contrato sempre indica um bug da parte do chamador, e não é o tipo \\nde erro que você quer que seja tratado explicitamente. De fato, \\nnão há nenhuma maneira razoável para o código chamador se recuperar: os *programadores*\\nque precisam consertar o código. Contratos para uma função, especialmente quando uma\\nviolação leva a pânico, devem ser explicados na documentação da API da função.\\n\\nNo entanto, ter várias checagens de erro em todas suas funções pode ser verboso\\ne irritante. Felizmente, você pode usar o sistema de tipos do Rust (e portanto a\\nchecagem que o compilador faz) para fazer várias dessas checagens para você. Se\\nsua função tem um tipo particular como parâmetro, você pode continuar com a lógica\\ndo seu código sabendo que o compilador já assegurou que você tem um valor válido.\\nPor exemplo, se você tem um tipo em vez de uma `Option`, seu programa espera\\nter *algo* ao invés de *nada*. Seu código não precisa tratar dois casos para\\nas variantes `Some` e `None`: ele vai somente ter um caso para definitivamente ter\\num valor. Um código que tente passar nada para sua função não vai nem compilar,\\nentão sua função não precisa checar esse caso em tempo de execução. Outro exemplo é usar\\num tipo de inteiro sem sinal como `u32`, que assegura que o parâmetro nunca é\\nnegativo.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,8": {
-    "value": "\"Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos\\num valor válido e ver como criar um tipo customizado para validação.\\nLembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário \\npara adivinhar um número entre 1 e 100. Nós nunca validamos que o chute do usuário\\nfosse entre esses números antes de compará-lo com o número secreto; nós somente \\nvalidamos que o chute era positivo. Nesse caso, as consequências não foram tão\\ndrásticas: nosso output de \\\"Muito alto\\\" ou \\\"Muito baixo\\\" ainda estariam corretos. Seria\\numa melhoria útil guiar o usuário para chutes válidos, e ter um comportamento distinto\\nquando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.\\n\\nUma maneira de fazer isso seria interpretar o chute como um `i32` em vez de\\nsomente um `u32` para permitir números potenciamente negativos, e então adicionar\\numa checagem se o número está dentro dos limites, conforme a seguir:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,8,1,0": {
-    "value": "\"Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos\\num valor válido e ver como criar um tipo customizado para validação.\\nLembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário \\npara adivinhar um número entre 1 e 100. Nós nunca validamos que o chute do usuário\\nfosse entre esses números antes de compará-lo com o número secreto; nós somente \\nvalidamos que o chute era positivo. Nesse caso, as consequências não foram tão\\ndrásticas: nosso output de \\\"Muito alto\\\" ou \\\"Muito baixo\\\" ainda estariam corretos. Seria\\numa melhoria útil guiar o usuário para chutes válidos, e ter um comportamento distinto\\nquando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.\\n\\nUma maneira de fazer isso seria interpretar o chute como um `i32` em vez de\\nsomente um `u32` para permitir números potenciamente negativos, e então adicionar\\numa checagem se o número está dentro dos limites, conforme a seguir:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#body@0,9,0": {
-    "value": "\"loop {\\n    // snip\\n\\n    let palpite: i32 = match palpite.trim().parse() {\\n        Ok(num) =\u003E num,\\n        Err(_) =\u003E continue,\\n    };\\n\\n    if palpite \u003C 1 || palpite \u003E 100 {\\n        println!(\\\"O número secreto vai estar entre 1 e 100.\\\");\\n        continue;\\n    }\\n\\n    match palpite.cmp(\u0026numero_secreto) {\\n    // snip\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#caption@0,13,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#caption@0,5,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#caption@0,9,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,19": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,4": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,7": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#open@0,8": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,19": {
-    "value": "\"Resumo\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,2": {
-    "value": "\"Entrar em `panic!` ou Não Entrar em `panic!`\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,3": {
-    "value": "\"Exemplos, Protótipos, e Testes São Todos Lugares em que É Perfeitamente Ok Entrar em Pânico\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,4": {
-    "value": "\"Casos em que Você Tem Mais Informação Que o Compilador\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,7": {
-    "value": "\"Diretrizes para Tratamento de Erro\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch09-03-to-panic-or-not-to-panic#title@0,8": {
-    "value": "\"Criando Tipos Customizados para Validação\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -748,7 +748,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -945,7 +945,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="entrar-em-panic-ou-nao-entrar-em-panic" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Entrar em <code>panic!</code> ou Não Entrar em <code>panic!</code></div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="entrar-em-panic-ou-nao-entrar-em-panic" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Entrar em <code>panic!</code> ou Não Entrar em <code>panic!</code></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Então como você decide quando entrar em <code>panic!</code> e quando você deveria retornar
 um <code>Result</code>? Quando o código entra em pânico, não há maneira de se recuperar. Você
 poderia chamar <code>panic!</code> para qualquer situação de erro, tendo uma maneira de se recuperar
@@ -965,7 +965,7 @@ em que você como humano pode saber que um método não vai falhar, mas que o co
 tem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou
 não em pânico em código de biblioteca.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="exemplos-prototipos-e-testes-sao-todos-lugares-em-que-e-perfeitamente-ok-entrar-em-panico" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Exemplos, Protótipos, e Testes São Todos Lugares em que É Perfeitamente Ok Entrar em Pânico</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="exemplos-prototipos-e-testes-sao-todos-lugares-em-que-e-perfeitamente-ok-entrar-em-panico" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Exemplos, Protótipos, e Testes São Todos Lugares em que É Perfeitamente Ok Entrar em Pânico</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Quando você está escrevendo um exemplo para ilustrar algum conceito, ter código
 de tratamento de erro robusto junto do exemplo pode torná-lo menos claro. Em exemplos,
 é compreensível que uma chamada a um método como <code>unwrap</code> que poderia chamar <code>panic!</code>
@@ -982,7 +982,7 @@ mesmo se esse método não é a funcionalidade sendo testada. Como <code>panic!<
 que um teste é marcado como falha, chamar <code>unwrap</code> ou <code>expect</code> é exatamente o que
 deveria acontecer.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="casos-em-que-voce-tem-mais-informacao-que-o-compilador" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Casos em que Você Tem Mais Informação Que o Compilador</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="casos-em-que-voce-tem-mais-informacao-que-o-compilador" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,4&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Casos em que Você Tem Mais Informação Que o Compilador</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Seria também apropriado chamar <code>unwrap</code> quando você tem outra lógica que assegura que o <code>Result</code> vai ter um valor <code>Ok</code>, mas essa lógica não é algo que o compilador entenda. Você ainda vai ter um valor de <code>Result</code> que precisa lidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade de falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa situação particular. Se você consegue assegurar ao inspecionar manualmente o código que você nunca tera uma variante <code>Err</code>, é perfeitamente aceitável chamar <code>unwrap</code>. Aqui temos um exemplo:</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">use std::net::IpAddr;
@@ -996,7 +996,7 @@ deveria acontecer.</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nós estamos criando uma instância <code>IpAddr</code> ao analisar uma string <em>hardcoded</em>. Nós podemos ver que <code>127.0.0.1</code> é um endereço de IP válido, então é aceitável usar <code>unwrap</code> aqui. No entanto, ter uma string válida <em>hardcoded</em> não muda o tipo retornado pelo método <code>parse</code>: ainda teremos um valor de <code>Result</code>, e o compilador ainda vai nos fazer tratar o <code>Result</code> como se a variante <code>Err</code> fosse uma possibilidade, porque o compilador não é inteligente o bastante para ver que essa string é sempre um endereço IP válido. Se a string de endereço IP viesse de um usuário ao invés de ser <em>hardcoded</em> no programa, e portanto, de fato tivesse uma possibilidade de falha, nós definitivamente iríamos querer tratar o <code>Result</code> de uma forma mais robusta.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="diretrizes-para-tratamento-de-erro" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Diretrizes para Tratamento de Erro</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="diretrizes-para-tratamento-de-erro" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Diretrizes para Tratamento de Erro</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>É aconselhável fazer que seu código entre em <code>panic!</code> quando é possível que
 ele entre em um mau estado. Nesse contexto, mau estado é quando
 alguma hipótese, garantia, contrato ou invariante foi quebrada, tal como
@@ -1051,7 +1051,7 @@ então sua função não precisa checar esse caso em tempo de execução. Outro 
 um tipo de inteiro sem sinal como <code>u32</code>, que assegura que o parâmetro nunca é
 negativo.</p>
 </p></div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="criando-tipos-customizados-para-validacao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando Tipos Customizados para Validação</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="criando-tipos-customizados-para-validacao" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando Tipos Customizados para Validação</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos
 um valor válido e ver como criar um tipo customizado para validação.
 Lembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário
@@ -1154,7 +1154,7 @@ uma checagem se o número está dentro dos limites, conforme a seguir:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Então nós implementamos uma função associada chamada <code>new</code> em <code>Palpite</code> que cria instâncias de valores <code>Palpite</code>. A função <code>new</code> é definida a ter um parâmetro chamado <code>valor</code> de tipo <code>u32</code> e retornar um <code>Palpite</code>. O código no corpo da função <code>new</code> testa para ter certeza que <code>valor</code> está entre 1 e 100. Se <code>valor</code> não passa nesse teste, fazemos uma chamada a <code>panic!</code>, que vai alertar ao programador que está escrevendo o código chamando a função que ele tem um bug que precisa ser corrigido, porque criar um <code>Palpite</code> com um <code>valor</code> fora desses limites violaria o contrato em que <code>Palpite::new</code> se baseia. As condições em que <code>Palpite::new</code> pode entrar em pânico devem ser discutidas na sua documentação da API voltada ao público; no Capítulo 14 nós cobriremos convenções de documentação indicando a possibilidade de um <code>panic!</code> na documentação de API. Se <code>valor</code> de fato passa no teste, criamos um novo <code>Palpite</code> com o campo <code>valor</code> preenchido com o parâmetro <code>valor</code> e retornamos o <code>Palpite</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Em seguida, implementamos um método chamado <code>valor</code> que pega <code>self</code> emprestado, não tem nenhum outro parâmetro, e retorna um <code>u32</code>. Esse é o tipo de método às vezes chamado de <em>getter</em>, pois seu propósito é pegar um dado de um dos campos e o retornar. Esse método público é necessário porque o campo <code>valor</code> da struct <code>Palpite</code> é privado. É importante que o campo <code>valor</code> seja privado para que código usando a struct <code>Palpite</code> não tenha permissão de definir o valor de <code>valor</code> diretamente: código de fora do módulo <em>deve</em> usar a função <code>Palpite::new</code> para criar uma instância de <code>Palpite</code>, o que certifica que não há maneira de um <code>Palpite</code> ter um <code>valor</code> que não foi checado pelas condições definidas na função <code>Palpite::new</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Uma função que tem um parâmetro ou retorna somente números entre 1 e 100 pode então declarar na sua assinatura que ela recebe ou retorna um <code>Palpite</code> em vez de um <code>u32</code> e não precisaria fazer nenhuma checagem adicional no seu corpo.</div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch09-03-to-panic-or-not-to-panic#open@0,19&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch09-03-to-panic-or-not-to-panic#open@0,19&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>As ferramentas de tratamento de erros de Rust são feitas para te ajudar a escrever
 código mais robusto. A macro <code>panic!</code> sinaliza que seu programa está num estado que
 não consegue lidar e deixa você parar o processo ao invés de tentar prosseguir com

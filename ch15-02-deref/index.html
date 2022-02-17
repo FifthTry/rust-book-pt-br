@@ -12,6 +12,543 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,10": {
+    "value": "\"Podemos reescrever o código na Listagem 15-6 para usar um `Box\u003CT\u003E` em vez de uma\\nreferência, e o operador de desreferência vai funcionar do mesmo jeito que na\\nListagem 15-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,10,1,0": {
+    "value": "\"Podemos reescrever o código na Listagem 15-6 para usar um `Box\u003CT\u003E` em vez de uma\\nreferência, e o operador de desreferência vai funcionar do mesmo jeito que na\\nListagem 15-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,11,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n    let y = Box::new(x);\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,12": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-7: Usando o operador de desreferência em um\\n`Box\u003Ci32\u003E`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,13": {
+    "value": "\"A única diferença entre a Listagem 15-7 e a Listagem 15-6 é que aqui nós setamos\\n`y` para ser uma instância de um box apontando para o valor em `x` em vez de uma\\nreferência apontando para o valor de `x`. Na última asserção, podemos usar o\\noperador de desreferência para seguir o ponteiro do box do mesmo jeito que\\nfizemos quando `y` era uma referência. A seguir, vamos explorar o que tem de\\nespecial no `Box\u003CT\u003E` que nos permite usar o operador de desreferência, criando\\nnosso próprio tipo box.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,14": {
+    "value": "\"Vamos construir um smart pointer parecido com o tipo `Box\u003CT\u003E` fornecido pela\\nbiblioteca padrão para vermos como ponteiros inteligentes, por padrão, se\\ncomportam diferente de referências. Em seguida, veremos como adicionar a\\nhabilidade de usar o operador de desreferência.\\n\\nO tipo `Box\u003CT\u003E` no fim das contas é definido como uma struct-tupla (_tuple\\nstruct_) de um elemento, então a Listagem 15-8 define um tipo `MeuBox\u003CT\u003E` da\\nmesma forma. Também vamos definir uma função `new` como a definida no `Box\u003CT\u003E`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,14,1,0": {
+    "value": "\"Vamos construir um smart pointer parecido com o tipo `Box\u003CT\u003E` fornecido pela\\nbiblioteca padrão para vermos como ponteiros inteligentes, por padrão, se\\ncomportam diferente de referências. Em seguida, veremos como adicionar a\\nhabilidade de usar o operador de desreferência.\\n\\nO tipo `Box\u003CT\u003E` no fim das contas é definido como uma struct-tupla (_tuple\\nstruct_) de um elemento, então a Listagem 15-8 define um tipo `MeuBox\u003CT\u003E` da\\nmesma forma. Também vamos definir uma função `new` como a definida no `Box\u003CT\u003E`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,15,0": {
+    "value": "\"struct MeuBox\u003CT\u003E(T);\\n\\nimpl\u003CT\u003E MeuBox\u003CT\u003E {\\n    fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n        MeuBox(x)\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,16": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-8: Definindo um tipo `MeuBox\u003CT\u003E`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,17": {
+    "value": "\"Definimos um struct chamado `MeuBox` e declaramos um parâmetro genérico `T`,\\nporque queremos que nosso tipo contenha valores de qualquer tipo. O tipo\\n`MeuBox` é uma struct-tupla de um elemento do tipo `T`. A função `MeuBox::new`\\nrecebe um argumento do tipo `T` e retorna uma instância de `MeuBox` que contém o\\nvalor passado.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,18": {
+    "value": "\"Vamos tentar adicionar a função `main` da Listagem 15-7 à Listagem 15-8 e\\nalterá-la para usar o tipo `MeuBox\u003CT\u003E` que definimos em vez de `Box\u003CT\u003E`. O\\ncódigo na Listagem 15-9 não irá compilar porque o Rust não sabe como\\ndesreferenciar `MeuBox`:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,19": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,2": {
+    "value": "\"Implementar a trait `Deref` nos permite personalizar o comportamento do\\n_operador de desreferência_ (_dereference operator_), `*` (que é diferente do\\noperador de multiplicação ou de glob). Implementando a `Deref` de tal modo que o\\nponteiro inteligente possa ser tratado como uma referência normal, podemos\\nescrever código que opere sobre referências e usar esse código com ponteiros\\ninteligentes também.\\n\\nPrimeiro vamos ver como o `*` funciona com referências normais, e então vamos\\ntentar definir nosso próprio tipo a la `Box\u003CT\u003E` e ver por que o `*` não funciona\\ncomo uma referência no nosso tipo recém-criado. Vamos explorar como a trait\\n`Deref` torna possível aos ponteiros inteligentes funcionarem de um jeito\\nsimilar a referências. E então iremos dar uma olhada na funcionalidade de\\n_coerção de desreferência_ (_deref coercion_) e como ela nos permite trabalhar\\ntanto com referências quanto com ponteiros inteligentes.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,2,1,0": {
+    "value": "\"Implementar a trait `Deref` nos permite personalizar o comportamento do\\n_operador de desreferência_ (_dereference operator_), `*` (que é diferente do\\noperador de multiplicação ou de glob). Implementando a `Deref` de tal modo que o\\nponteiro inteligente possa ser tratado como uma referência normal, podemos\\nescrever código que opere sobre referências e usar esse código com ponteiros\\ninteligentes também.\\n\\nPrimeiro vamos ver como o `*` funciona com referências normais, e então vamos\\ntentar definir nosso próprio tipo a la `Box\u003CT\u003E` e ver por que o `*` não funciona\\ncomo uma referência no nosso tipo recém-criado. Vamos explorar como a trait\\n`Deref` torna possível aos ponteiros inteligentes funcionarem de um jeito\\nsimilar a referências. E então iremos dar uma olhada na funcionalidade de\\n_coerção de desreferência_ (_deref coercion_) e como ela nos permite trabalhar\\ntanto com referências quanto com ponteiros inteligentes.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,20,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n    let y = MeuBox::new(x);\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,21": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-9: Tentando usar o `MeuBox\u003CT\u003E` do mesmo jeito\\nque usamos referências e o `Box\u003CT\u003E`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,22": {
+    "value": "\"Aqui está o erro de compilação resultante:\"",
+    "dependencies": {
+      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,23,0": {
+    "value": "\"erro `MeuBox\u003C{integer}\u003E` não pode ser desreferenciado\\n  --\u003E src/main.rs:14:19\\n   |\\n14 |     assert_eq!(5, *y);\\n   |                   ^^\"",
+    "dependencies": {
+      "0,0,0,1,2,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,24": {
+    "value": "\"Nosso tipo `MeuBox\u003CT\u003E` não pode ser desreferenciado porque não implementamos\\nessa habilidade nele. Para habilitar desreferenciamento com o operador `*`,\\ntemos que implementar a trait `Deref`.\"",
+    "dependencies": {
+      "0,0,0,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,25": {
+    "value": "\"Conforme discutimos no Capítulo 10, para implementar uma trait, precisamos\\nprover implementações para os métodos exigidos por ela. A trait `Deref`,\\ndisponibilizada pela biblioteca padrão, requer que implementemos um método\\nchamado `deref` que pega emprestado `self` e retorna uma referência para os\\ndados internos. A Listagem 15-10 contém uma implementação de `Deref` que\\nagrega à definição de `MeuBox`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,25,1,0": {
+    "value": "\"Conforme discutimos no Capítulo 10, para implementar uma trait, precisamos\\nprover implementações para os métodos exigidos por ela. A trait `Deref`,\\ndisponibilizada pela biblioteca padrão, requer que implementemos um método\\nchamado `deref` que pega emprestado `self` e retorna uma referência para os\\ndados internos. A Listagem 15-10 contém uma implementação de `Deref` que\\nagrega à definição de `MeuBox`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,26,0": {
+    "value": "\"use std::ops::Deref;\\n\\n# struct MeuBox\u003CT\u003E(T);\\nimpl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n    type Target = T;\\n\\n    fn deref(\u0026self) -\u003E \u0026T {\\n        \u0026self.0\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,27": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-10: Implementando `Deref` no\\n`MeuBox\u003CT\u003E`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,28": {
+    "value": "\"A sintaxe `type Target = T;` define um tipo associado para a trait `Deref` usar.\\nTipos associados são um jeito ligeiramente diferente de declarar um parâmetro\\ngenérico, mas você não precisa se preocupar com eles por ora; iremos cobri-los\\nem mais detalhe no Capítulo 19.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,29": {
+    "value": "\"Nós preenchemos o corpo do método `deref` com `\u0026self.0` para que `deref` retorne\\numa referência ao valor que queremos acessar com o operador `*`. A função `main`\\nna Listagem 15-9 que chama `*` no valor `MeuBox\u003CT\u003E` agora compila e as asserções\\npassam!\"",
+    "dependencies": {
+      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,3": {
+    "value": "\"Uma referência normal é um tipo de ponteiro, e um jeito de pensar sobre um\\nponteiro é como uma seta até um valor armazenado em outro lugar. Na Listagem\\n15-6, nós criamos uma referência a um valor `i32` e em seguida usamos o operador\\nde desreferência para seguir a referência até o dado:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,3,1,0": {
+    "value": "\"Uma referência normal é um tipo de ponteiro, e um jeito de pensar sobre um\\nponteiro é como uma seta até um valor armazenado em outro lugar. Na Listagem\\n15-6, nós criamos uma referência a um valor `i32` e em seguida usamos o operador\\nde desreferência para seguir a referência até o dado:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,30": {
+    "value": "\"Sem a trait `Deref`, o compilador só consegue desreferenciar referências `\u0026`. O\\nmétodo `deref` dá ao compilador a habilidade de tomar um valor de qualquer tipo\\nque implemente `Deref` e chamar o método `deref` para pegar uma referência `\u0026`,\\nque ele sabe como desreferenciar.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,31": {
+    "value": "\"Quando entramos `*y` na Listagem 15-9, por trás dos panos o Rust na verdade\\nrodou este código:\"",
+    "dependencies": {
+      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,32,0": {
+    "value": "\"*(y.deref())\"",
+    "dependencies": {
+      "0,0,0,1,3,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,33": {
+    "value": "\"O Rust substitui o operador `*` com uma chamada ao método `deref` e em seguida\\numa desreferência comum, de modo que nós programadores não precisamos pensar\\nsobre se temos ou não que chamar o método `deref`. Essa funcionalidade do Rust\\nnos permite escrever código que funcione identicamente quando temos uma\\nreferência comum ou um tipo que implementa `Deref`.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,34": {
+    "value": "\"O fato de o método `deref` retornar uma referência ao valor, e a desreferência\\ncomum fora dos parênteses em `*(y.deref())` ainda ser necessária, é devido ao\\nsistema de posse (_ownership_). Se o método `deref` retornasse o valor\\ndiretamente em vez de uma referência ao valor, o valor seria movido para fora do\\n`self`. Nós não queremos tomar posse do valor interno do `MeuBox\u003CT\u003E` neste e na\\nmaioria dos casos em que usamos o operador de desreferência.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,35": {
+    "value": "\"Note que o `*` é substituído por uma chamada ao método `deref` e então uma\\nchamada ao `*` apenas uma vez, cada vez que digitamos um `*` no nosso código.\\nComo a substituição do `*` não entra em recursão infinita, nós terminamos com o\\ndado do tipo `i32`, que corresponde ao `5` em `assert_eq!` na Listagem 15-9.\"",
+    "dependencies": {
+      "0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,36": {
+    "value": "\"_Coerção de desreferência_ (_deref coercion_) é uma conveniência que o Rust\\naplica a argumentos de funções e métodos. A coerção de desreferência converte\\numa referência a um tipo que implementa `Deref` em uma referência a um tipo ao\\nqual a `Deref` pode converter o tipo original. A coerção de desreferência\\nacontece automaticamente quando passamos uma referência ao valor de um tipo\\nespecífico como argumento a uma função ou método e esse tipo não corresponde ao\\ntipo do parâmetro na definição da função ou método. Uma sequência de chamadas ao\\nmétodo `deref` converte o tipo que providenciamos no tipo que o parâmetro exige.\\n\\nA coerção de desreferência foi adicionada ao Rust para que programadores\\nescrevendo chamadas a métodos e funções não precisassem adicionar tantas\\nreferências e desreferências explícitas com `\u0026` e `*`. A funcionalidade de\\ncoerção de desreferência também nos permite escrever mais código que funcione\\ntanto com referências quanto com ponteiros inteligentes.\\n\\nPara ver a coerção de desreferência em ação, vamos usar o tipo `MeuBox\u003CT\u003E` que\\ndefinimos na Listagem 15-8 e também a implementação de `Deref` que adicionamos\\nna Listagem 15-10. A Listagem 15-11 mostra a definição de uma função que tem um\\nparâmetro do tipo string slice:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,36,1,0": {
+    "value": "\"_Coerção de desreferência_ (_deref coercion_) é uma conveniência que o Rust\\naplica a argumentos de funções e métodos. A coerção de desreferência converte\\numa referência a um tipo que implementa `Deref` em uma referência a um tipo ao\\nqual a `Deref` pode converter o tipo original. A coerção de desreferência\\nacontece automaticamente quando passamos uma referência ao valor de um tipo\\nespecífico como argumento a uma função ou método e esse tipo não corresponde ao\\ntipo do parâmetro na definição da função ou método. Uma sequência de chamadas ao\\nmétodo `deref` converte o tipo que providenciamos no tipo que o parâmetro exige.\\n\\nA coerção de desreferência foi adicionada ao Rust para que programadores\\nescrevendo chamadas a métodos e funções não precisassem adicionar tantas\\nreferências e desreferências explícitas com `\u0026` e `*`. A funcionalidade de\\ncoerção de desreferência também nos permite escrever mais código que funcione\\ntanto com referências quanto com ponteiros inteligentes.\\n\\nPara ver a coerção de desreferência em ação, vamos usar o tipo `MeuBox\u003CT\u003E` que\\ndefinimos na Listagem 15-8 e também a implementação de `Deref` que adicionamos\\nna Listagem 15-10. A Listagem 15-11 mostra a definição de uma função que tem um\\nparâmetro do tipo string slice:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,37,0": {
+    "value": "\"fn ola(nome: \u0026str) {\\n    println!(\\\"Olá, {}!\\\", nome);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,38": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-11: Uma função `ola` que tem um parâmetro\\n`nome` do tipo `\u0026str`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,39": {
+    "value": "\"Podemos chamar a função `ola` passando uma string slice como argumento, por\\nexemplo `ola(\\\"Rust\\\");`. A coerção de desreferência torna possível chamar `ola`\\ncom uma referência a um valor do tipo `MeuBox\u003CString\u003E`, como mostra a Listagem\\n15-12:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,4,0": {
+    "value": "\"fn main() {\\n    let x = 5;\\n    let y = \u0026x;\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,40,0": {
+    "value": "\"# use std::ops::Deref;\\n#\\n# struct MeuBox\u003CT\u003E(T);\\n#\\n# impl\u003CT\u003E MeuBox\u003CT\u003E {\\n#     fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n#         MeuBox(x)\\n#     }\\n# }\\n#\\n# impl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n#     type Target = T;\\n#\\n#     fn deref(\u0026self) -\u003E \u0026T {\\n#         \u0026self.0\\n#     }\\n# }\\n#\\n# fn ola(name: \u0026str) {\\n#     println!(\\\"Olá, {}!\\\", name);\\n# }\\n#\\nfn main() {\\n    let m = MeuBox::new(String::from(\\\"Rust\\\"));\\n    ola(\u0026m);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,41": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-12: Chamando `ola` com uma referência a um\\nvalor `MeuBox\u003CString\u003E`, o que só funciona por causa da coerção de\\ndesreferência\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,42": {
+    "value": "\"Aqui estamos chamando a função `ola` com o argumento `\u0026m`, que é uma referência\\na um valor `MeuBox\u003CString\u003E`. Como implementamos a trait `Deref` em `MeuBox\u003CT\u003E`\\nna Listagem 15-10, o Rust pode transformar `\u0026MeuBox\u003CString\u003E` em `\u0026String`\\nchamando `deref`. A biblioteca padrão provê uma implementação de `Deref` para\\n`String` que retorna uma string slice, documentada na API de `Deref`. O Rust\\nchama `deref` de novo para transformar o `\u0026String` em `\u0026str`, que corresponde à\\ndefinição da função `ola`.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,43": {
+    "value": "\"Se o Rust não implementasse coerção de desreferência, teríamos que escrever o\\ncódigo na Listagem 15-13 em vez do código na Listagem 15-12 para chamar `ola`\\ncom um valor do tipo `\u0026MeuBox\u003CString\u003E`:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,44": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,45,0": {
+    "value": "\"# use std::ops::Deref;\\n#\\n# struct MeuBox\u003CT\u003E(T);\\n#\\n# impl\u003CT\u003E MeuBox\u003CT\u003E {\\n#     fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n#         MeuBox(x)\\n#     }\\n# }\\n#\\n# impl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n#     type Target = T;\\n#\\n#     fn deref(\u0026self) -\u003E \u0026T {\\n#         \u0026self.0\\n#     }\\n# }\\n#\\n# fn ola(name: \u0026str) {\\n#     println!(\\\"Olá, {}!\\\", name);\\n# }\\n#\\nfn main() {\\n    let m = MeuBox::new(String::from(\\\"Rust\\\"));\\n    ola(\u0026(*m)[..]);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,46": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-13: O código que teríamos que escrever se o\\nRust não tivesse coerção de desreferência\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,47": {
+    "value": "\"O `(*m)` desreferencia o `MeuBox\u003CString\u003E` em uma `String`. Então o `\u0026` e o\\n`[..]` obtêm uma string slice da `String` que é igual à string inteira para\\ncorresponder à assinatura de `ola`. O código sem coerção de desreferência é mais\\ndifícil de ler, escrever e entender com todos esses símbolos envolvidos. A\\ncoerção de desreferência permite que o Rust lide com essas conversões\\nautomaticamente para nós.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,48": {
+    "value": "\"Quando a trait `Deref` está definida para os tipos envolvidos, o Rust analisa os\\ntipos e usa `Deref::deref` tantas vezes quanto necessário para chegar a uma\\nreferência que corresponda ao tipo do parâmetro. O número de vezes que\\n`Deref::deref` precisa ser inserida é resolvido em tempo de compilação, então\\nnão existe nenhuma penalidade em tempo de execução para tomar vantagem da\\ncoerção de desreferência.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,49": {
+    "value": "\"De modo semelhante a como usamos a trait `Deref` para redefinir `*` em\\nreferências imutáveis, o Rust provê uma trait `DerefMut` para redefinir `*` em\\nreferências mutáveis.\\n\\nO Rust faz coerção de desreferência quando ele encontra tipos e implementações\\nde traits em três casos:\\n\\n- De `\u0026T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026mut U` quando `T: DerefMut\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`.\\n\\nOs primeiros dois casos são o mesmo exceto pela mutabilidade. O primeiro caso\\nafirma que se você tem uma `\u0026T`, e `T` implementa `Deref` para algum tipo `U`,\\nvocê pode obter um `\u0026U` de maneira transparente. O segundo caso afirma que a\\nmesma coerção de desreferência acontece para referências mutáveis.\\n\\nO terceiro caso é mais complicado: o Rust também irá coagir uma referência\\nmutável a uma imutável. Mas o contrário _não_ é possível: referências imutáveis\\nnunca serão coagidas a referências mutáveis. Por causa das regras de empréstimo,\\nse você tem uma referência mutável, ela deve ser a única referência àqueles\\ndados (caso contrário, o programa não compila). Converter uma referência mutável\\na uma imutável nunca quebrará as regras de empréstimo. Converter uma referência\\nimutável a uma mutável exigiria que houvesse apenas uma referência imutável\\nàqueles dados, e as regras de empréstimo não garantem isso. Portanto, o Rust não\\npode assumir que converter uma referência imutável a uma mutável seja possível.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,49,1,0": {
+    "value": "\"De modo semelhante a como usamos a trait `Deref` para redefinir `*` em\\nreferências imutáveis, o Rust provê uma trait `DerefMut` para redefinir `*` em\\nreferências mutáveis.\\n\\nO Rust faz coerção de desreferência quando ele encontra tipos e implementações\\nde traits em três casos:\\n\\n- De `\u0026T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026mut U` quando `T: DerefMut\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`.\\n\\nOs primeiros dois casos são o mesmo exceto pela mutabilidade. O primeiro caso\\nafirma que se você tem uma `\u0026T`, e `T` implementa `Deref` para algum tipo `U`,\\nvocê pode obter um `\u0026U` de maneira transparente. O segundo caso afirma que a\\nmesma coerção de desreferência acontece para referências mutáveis.\\n\\nO terceiro caso é mais complicado: o Rust também irá coagir uma referência\\nmutável a uma imutável. Mas o contrário _não_ é possível: referências imutáveis\\nnunca serão coagidas a referências mutáveis. Por causa das regras de empréstimo,\\nse você tem uma referência mutável, ela deve ser a única referência àqueles\\ndados (caso contrário, o programa não compila). Converter uma referência mutável\\na uma imutável nunca quebrará as regras de empréstimo. Converter uma referência\\nimutável a uma mutável exigiria que houvesse apenas uma referência imutável\\nàqueles dados, e as regras de empréstimo não garantem isso. Portanto, o Rust não\\npode assumir que converter uma referência imutável a uma mutável seja possível.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-6: Usando o operador de desreferência para\\nseguir uma referência a um valor `i32`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,6": {
+    "value": "\"A variável `x` contém um valor `i32`, `5`. Nós setamos `y` igual a uma\\nreferência a `x`. Podemos conferir (coloquialmente, \\\"assertar\\\") que `x` é igual\\na `5`. Contudo, se queremos fazer uma asserção sobre o valor em `y`, temos que\\nusar `*y` para seguir a referência até o valor ao qual `y` aponta (por isso\\n\\\"desreferência\\\"). Uma vez que desreferenciamos `y`, temos acesso ao valor\\ninteiro ao qual `y` aponta para podermos compará-lo com `5`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,7": {
+    "value": "\"Se em vez disso tentássemos escrever `assert_eq!(5, y);`, receberíamos este erro\\nde compilação:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,8,0": {
+    "value": "\"erro trait bound `{integer}: std::cmp::PartialEq\u003C\u0026{integer}\u003E` não foi\\nsatisfeita\\n --\u003E src/main.rs:6:5\\n  |\\n6 |     assert_eq!(5, y);\\n  |     ^^^^^^^^^^^^^^^^^ não posso comparar `{integer}` com `\u0026{integer}`\\n  |\\n  = ajuda: a trait `std::cmp::PartialEq\u003C\u0026{integer}\u003E` não está implementada para\\n  `{integer}`\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#body@0,9": {
+    "value": "\"Comparar um número com uma referência a um número não é permitido porque eles\\nsão de tipos diferentes. Devemos usar `*` para seguir a referência até o valor\\nao qual ela está apontando.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,11,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,20,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,26,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,32,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,3,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,3,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,3,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,37,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,40,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,45,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,10": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,14": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,25": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,36": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,49": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,10": {
+    "value": "\"Usando `Box\u003CT\u003E` como uma Referência\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,14": {
+    "value": "\"Definindo Nosso Próprio Ponteiro Inteligente\"",
+    "dependencies": {
+      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,2": {
+    "value": "\"Tratando Ponteiros Inteligentes como Referências Normais com a Trait `Deref`\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,25": {
+    "value": "\"Implementando a Trait `Deref` para Tratar um Tipo como uma Referência\"",
+    "dependencies": {
+      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,3": {
+    "value": "\"Seguindo o Ponteiro até o Valor com `*`\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,36": {
+    "value": "\"Coerções de Desreferência Implícitas com Funções e Métodos\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-02-deref#title@0,49": {
+    "value": "\"Como a Coerção de Desreferência Interage com a Mutabilidade\"",
+    "dependencies": {
+      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -310,543 +847,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-02-deref#body@0,10": {
-    "value": "\"Podemos reescrever o código na Listagem 15-6 para usar um `Box\u003CT\u003E` em vez de uma\\nreferência, e o operador de desreferência vai funcionar do mesmo jeito que na\\nListagem 15-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,10,1,0": {
-    "value": "\"Podemos reescrever o código na Listagem 15-6 para usar um `Box\u003CT\u003E` em vez de uma\\nreferência, e o operador de desreferência vai funcionar do mesmo jeito que na\\nListagem 15-7:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,11,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n    let y = Box::new(x);\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,12": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-7: Usando o operador de desreferência em um\\n`Box\u003Ci32\u003E`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,13": {
-    "value": "\"A única diferença entre a Listagem 15-7 e a Listagem 15-6 é que aqui nós setamos\\n`y` para ser uma instância de um box apontando para o valor em `x` em vez de uma\\nreferência apontando para o valor de `x`. Na última asserção, podemos usar o\\noperador de desreferência para seguir o ponteiro do box do mesmo jeito que\\nfizemos quando `y` era uma referência. A seguir, vamos explorar o que tem de\\nespecial no `Box\u003CT\u003E` que nos permite usar o operador de desreferência, criando\\nnosso próprio tipo box.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,14": {
-    "value": "\"Vamos construir um smart pointer parecido com o tipo `Box\u003CT\u003E` fornecido pela\\nbiblioteca padrão para vermos como ponteiros inteligentes, por padrão, se\\ncomportam diferente de referências. Em seguida, veremos como adicionar a\\nhabilidade de usar o operador de desreferência.\\n\\nO tipo `Box\u003CT\u003E` no fim das contas é definido como uma struct-tupla (_tuple\\nstruct_) de um elemento, então a Listagem 15-8 define um tipo `MeuBox\u003CT\u003E` da\\nmesma forma. Também vamos definir uma função `new` como a definida no `Box\u003CT\u003E`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,14,1,0": {
-    "value": "\"Vamos construir um smart pointer parecido com o tipo `Box\u003CT\u003E` fornecido pela\\nbiblioteca padrão para vermos como ponteiros inteligentes, por padrão, se\\ncomportam diferente de referências. Em seguida, veremos como adicionar a\\nhabilidade de usar o operador de desreferência.\\n\\nO tipo `Box\u003CT\u003E` no fim das contas é definido como uma struct-tupla (_tuple\\nstruct_) de um elemento, então a Listagem 15-8 define um tipo `MeuBox\u003CT\u003E` da\\nmesma forma. Também vamos definir uma função `new` como a definida no `Box\u003CT\u003E`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,15,0": {
-    "value": "\"struct MeuBox\u003CT\u003E(T);\\n\\nimpl\u003CT\u003E MeuBox\u003CT\u003E {\\n    fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n        MeuBox(x)\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,16": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-8: Definindo um tipo `MeuBox\u003CT\u003E`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,17": {
-    "value": "\"Definimos um struct chamado `MeuBox` e declaramos um parâmetro genérico `T`,\\nporque queremos que nosso tipo contenha valores de qualquer tipo. O tipo\\n`MeuBox` é uma struct-tupla de um elemento do tipo `T`. A função `MeuBox::new`\\nrecebe um argumento do tipo `T` e retorna uma instância de `MeuBox` que contém o\\nvalor passado.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,18": {
-    "value": "\"Vamos tentar adicionar a função `main` da Listagem 15-7 à Listagem 15-8 e\\nalterá-la para usar o tipo `MeuBox\u003CT\u003E` que definimos em vez de `Box\u003CT\u003E`. O\\ncódigo na Listagem 15-9 não irá compilar porque o Rust não sabe como\\ndesreferenciar `MeuBox`:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,19": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,2": {
-    "value": "\"Implementar a trait `Deref` nos permite personalizar o comportamento do\\n_operador de desreferência_ (_dereference operator_), `*` (que é diferente do\\noperador de multiplicação ou de glob). Implementando a `Deref` de tal modo que o\\nponteiro inteligente possa ser tratado como uma referência normal, podemos\\nescrever código que opere sobre referências e usar esse código com ponteiros\\ninteligentes também.\\n\\nPrimeiro vamos ver como o `*` funciona com referências normais, e então vamos\\ntentar definir nosso próprio tipo a la `Box\u003CT\u003E` e ver por que o `*` não funciona\\ncomo uma referência no nosso tipo recém-criado. Vamos explorar como a trait\\n`Deref` torna possível aos ponteiros inteligentes funcionarem de um jeito\\nsimilar a referências. E então iremos dar uma olhada na funcionalidade de\\n_coerção de desreferência_ (_deref coercion_) e como ela nos permite trabalhar\\ntanto com referências quanto com ponteiros inteligentes.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,2,1,0": {
-    "value": "\"Implementar a trait `Deref` nos permite personalizar o comportamento do\\n_operador de desreferência_ (_dereference operator_), `*` (que é diferente do\\noperador de multiplicação ou de glob). Implementando a `Deref` de tal modo que o\\nponteiro inteligente possa ser tratado como uma referência normal, podemos\\nescrever código que opere sobre referências e usar esse código com ponteiros\\ninteligentes também.\\n\\nPrimeiro vamos ver como o `*` funciona com referências normais, e então vamos\\ntentar definir nosso próprio tipo a la `Box\u003CT\u003E` e ver por que o `*` não funciona\\ncomo uma referência no nosso tipo recém-criado. Vamos explorar como a trait\\n`Deref` torna possível aos ponteiros inteligentes funcionarem de um jeito\\nsimilar a referências. E então iremos dar uma olhada na funcionalidade de\\n_coerção de desreferência_ (_deref coercion_) e como ela nos permite trabalhar\\ntanto com referências quanto com ponteiros inteligentes.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,20,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n    let y = MeuBox::new(x);\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,21": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-9: Tentando usar o `MeuBox\u003CT\u003E` do mesmo jeito\\nque usamos referências e o `Box\u003CT\u003E`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,2,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,22": {
-    "value": "\"Aqui está o erro de compilação resultante:\"",
-    "dependencies": {
-      "0,0,0,1,2,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,23,0": {
-    "value": "\"erro `MeuBox\u003C{integer}\u003E` não pode ser desreferenciado\\n  --\u003E src/main.rs:14:19\\n   |\\n14 |     assert_eq!(5, *y);\\n   |                   ^^\"",
-    "dependencies": {
-      "0,0,0,1,2,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,24": {
-    "value": "\"Nosso tipo `MeuBox\u003CT\u003E` não pode ser desreferenciado porque não implementamos\\nessa habilidade nele. Para habilitar desreferenciamento com o operador `*`,\\ntemos que implementar a trait `Deref`.\"",
-    "dependencies": {
-      "0,0,0,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,25": {
-    "value": "\"Conforme discutimos no Capítulo 10, para implementar uma trait, precisamos\\nprover implementações para os métodos exigidos por ela. A trait `Deref`,\\ndisponibilizada pela biblioteca padrão, requer que implementemos um método\\nchamado `deref` que pega emprestado `self` e retorna uma referência para os\\ndados internos. A Listagem 15-10 contém uma implementação de `Deref` que\\nagrega à definição de `MeuBox`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,25,1,0": {
-    "value": "\"Conforme discutimos no Capítulo 10, para implementar uma trait, precisamos\\nprover implementações para os métodos exigidos por ela. A trait `Deref`,\\ndisponibilizada pela biblioteca padrão, requer que implementemos um método\\nchamado `deref` que pega emprestado `self` e retorna uma referência para os\\ndados internos. A Listagem 15-10 contém uma implementação de `Deref` que\\nagrega à definição de `MeuBox`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,26,0": {
-    "value": "\"use std::ops::Deref;\\n\\n# struct MeuBox\u003CT\u003E(T);\\nimpl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n    type Target = T;\\n\\n    fn deref(\u0026self) -\u003E \u0026T {\\n        \u0026self.0\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,27": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-10: Implementando `Deref` no\\n`MeuBox\u003CT\u003E`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,3,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,28": {
-    "value": "\"A sintaxe `type Target = T;` define um tipo associado para a trait `Deref` usar.\\nTipos associados são um jeito ligeiramente diferente de declarar um parâmetro\\ngenérico, mas você não precisa se preocupar com eles por ora; iremos cobri-los\\nem mais detalhe no Capítulo 19.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,29": {
-    "value": "\"Nós preenchemos o corpo do método `deref` com `\u0026self.0` para que `deref` retorne\\numa referência ao valor que queremos acessar com o operador `*`. A função `main`\\nna Listagem 15-9 que chama `*` no valor `MeuBox\u003CT\u003E` agora compila e as asserções\\npassam!\"",
-    "dependencies": {
-      "0,0,0,1,3,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,3": {
-    "value": "\"Uma referência normal é um tipo de ponteiro, e um jeito de pensar sobre um\\nponteiro é como uma seta até um valor armazenado em outro lugar. Na Listagem\\n15-6, nós criamos uma referência a um valor `i32` e em seguida usamos o operador\\nde desreferência para seguir a referência até o dado:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,3,1,0": {
-    "value": "\"Uma referência normal é um tipo de ponteiro, e um jeito de pensar sobre um\\nponteiro é como uma seta até um valor armazenado em outro lugar. Na Listagem\\n15-6, nós criamos uma referência a um valor `i32` e em seguida usamos o operador\\nde desreferência para seguir a referência até o dado:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,30": {
-    "value": "\"Sem a trait `Deref`, o compilador só consegue desreferenciar referências `\u0026`. O\\nmétodo `deref` dá ao compilador a habilidade de tomar um valor de qualquer tipo\\nque implemente `Deref` e chamar o método `deref` para pegar uma referência `\u0026`,\\nque ele sabe como desreferenciar.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,31": {
-    "value": "\"Quando entramos `*y` na Listagem 15-9, por trás dos panos o Rust na verdade\\nrodou este código:\"",
-    "dependencies": {
-      "0,0,0,1,3,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,32,0": {
-    "value": "\"*(y.deref())\"",
-    "dependencies": {
-      "0,0,0,1,3,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,33": {
-    "value": "\"O Rust substitui o operador `*` com uma chamada ao método `deref` e em seguida\\numa desreferência comum, de modo que nós programadores não precisamos pensar\\nsobre se temos ou não que chamar o método `deref`. Essa funcionalidade do Rust\\nnos permite escrever código que funcione identicamente quando temos uma\\nreferência comum ou um tipo que implementa `Deref`.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,34": {
-    "value": "\"O fato de o método `deref` retornar uma referência ao valor, e a desreferência\\ncomum fora dos parênteses em `*(y.deref())` ainda ser necessária, é devido ao\\nsistema de posse (_ownership_). Se o método `deref` retornasse o valor\\ndiretamente em vez de uma referência ao valor, o valor seria movido para fora do\\n`self`. Nós não queremos tomar posse do valor interno do `MeuBox\u003CT\u003E` neste e na\\nmaioria dos casos em que usamos o operador de desreferência.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,35": {
-    "value": "\"Note que o `*` é substituído por uma chamada ao método `deref` e então uma\\nchamada ao `*` apenas uma vez, cada vez que digitamos um `*` no nosso código.\\nComo a substituição do `*` não entra em recursão infinita, nós terminamos com o\\ndado do tipo `i32`, que corresponde ao `5` em `assert_eq!` na Listagem 15-9.\"",
-    "dependencies": {
-      "0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,36": {
-    "value": "\"_Coerção de desreferência_ (_deref coercion_) é uma conveniência que o Rust\\naplica a argumentos de funções e métodos. A coerção de desreferência converte\\numa referência a um tipo que implementa `Deref` em uma referência a um tipo ao\\nqual a `Deref` pode converter o tipo original. A coerção de desreferência\\nacontece automaticamente quando passamos uma referência ao valor de um tipo\\nespecífico como argumento a uma função ou método e esse tipo não corresponde ao\\ntipo do parâmetro na definição da função ou método. Uma sequência de chamadas ao\\nmétodo `deref` converte o tipo que providenciamos no tipo que o parâmetro exige.\\n\\nA coerção de desreferência foi adicionada ao Rust para que programadores\\nescrevendo chamadas a métodos e funções não precisassem adicionar tantas\\nreferências e desreferências explícitas com `\u0026` e `*`. A funcionalidade de\\ncoerção de desreferência também nos permite escrever mais código que funcione\\ntanto com referências quanto com ponteiros inteligentes.\\n\\nPara ver a coerção de desreferência em ação, vamos usar o tipo `MeuBox\u003CT\u003E` que\\ndefinimos na Listagem 15-8 e também a implementação de `Deref` que adicionamos\\nna Listagem 15-10. A Listagem 15-11 mostra a definição de uma função que tem um\\nparâmetro do tipo string slice:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,36,1,0": {
-    "value": "\"_Coerção de desreferência_ (_deref coercion_) é uma conveniência que o Rust\\naplica a argumentos de funções e métodos. A coerção de desreferência converte\\numa referência a um tipo que implementa `Deref` em uma referência a um tipo ao\\nqual a `Deref` pode converter o tipo original. A coerção de desreferência\\nacontece automaticamente quando passamos uma referência ao valor de um tipo\\nespecífico como argumento a uma função ou método e esse tipo não corresponde ao\\ntipo do parâmetro na definição da função ou método. Uma sequência de chamadas ao\\nmétodo `deref` converte o tipo que providenciamos no tipo que o parâmetro exige.\\n\\nA coerção de desreferência foi adicionada ao Rust para que programadores\\nescrevendo chamadas a métodos e funções não precisassem adicionar tantas\\nreferências e desreferências explícitas com `\u0026` e `*`. A funcionalidade de\\ncoerção de desreferência também nos permite escrever mais código que funcione\\ntanto com referências quanto com ponteiros inteligentes.\\n\\nPara ver a coerção de desreferência em ação, vamos usar o tipo `MeuBox\u003CT\u003E` que\\ndefinimos na Listagem 15-8 e também a implementação de `Deref` que adicionamos\\nna Listagem 15-10. A Listagem 15-11 mostra a definição de uma função que tem um\\nparâmetro do tipo string slice:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,37,0": {
-    "value": "\"fn ola(nome: \u0026str) {\\n    println!(\\\"Olá, {}!\\\", nome);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,38": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-11: Uma função `ola` que tem um parâmetro\\n`nome` do tipo `\u0026str`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,39": {
-    "value": "\"Podemos chamar a função `ola` passando uma string slice como argumento, por\\nexemplo `ola(\\\"Rust\\\");`. A coerção de desreferência torna possível chamar `ola`\\ncom uma referência a um valor do tipo `MeuBox\u003CString\u003E`, como mostra a Listagem\\n15-12:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,4,0": {
-    "value": "\"fn main() {\\n    let x = 5;\\n    let y = \u0026x;\\n\\n    assert_eq!(5, x);\\n    assert_eq!(5, *y);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,40,0": {
-    "value": "\"# use std::ops::Deref;\\n#\\n# struct MeuBox\u003CT\u003E(T);\\n#\\n# impl\u003CT\u003E MeuBox\u003CT\u003E {\\n#     fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n#         MeuBox(x)\\n#     }\\n# }\\n#\\n# impl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n#     type Target = T;\\n#\\n#     fn deref(\u0026self) -\u003E \u0026T {\\n#         \u0026self.0\\n#     }\\n# }\\n#\\n# fn ola(name: \u0026str) {\\n#     println!(\\\"Olá, {}!\\\", name);\\n# }\\n#\\nfn main() {\\n    let m = MeuBox::new(String::from(\\\"Rust\\\"));\\n    ola(\u0026m);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,41": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-12: Chamando `ola` com uma referência a um\\nvalor `MeuBox\u003CString\u003E`, o que só funciona por causa da coerção de\\ndesreferência\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,42": {
-    "value": "\"Aqui estamos chamando a função `ola` com o argumento `\u0026m`, que é uma referência\\na um valor `MeuBox\u003CString\u003E`. Como implementamos a trait `Deref` em `MeuBox\u003CT\u003E`\\nna Listagem 15-10, o Rust pode transformar `\u0026MeuBox\u003CString\u003E` em `\u0026String`\\nchamando `deref`. A biblioteca padrão provê uma implementação de `Deref` para\\n`String` que retorna uma string slice, documentada na API de `Deref`. O Rust\\nchama `deref` de novo para transformar o `\u0026String` em `\u0026str`, que corresponde à\\ndefinição da função `ola`.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,43": {
-    "value": "\"Se o Rust não implementasse coerção de desreferência, teríamos que escrever o\\ncódigo na Listagem 15-13 em vez do código na Listagem 15-12 para chamar `ola`\\ncom um valor do tipo `\u0026MeuBox\u003CString\u003E`:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,44": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,45,0": {
-    "value": "\"# use std::ops::Deref;\\n#\\n# struct MeuBox\u003CT\u003E(T);\\n#\\n# impl\u003CT\u003E MeuBox\u003CT\u003E {\\n#     fn new(x: T) -\u003E MeuBox\u003CT\u003E {\\n#         MeuBox(x)\\n#     }\\n# }\\n#\\n# impl\u003CT\u003E Deref for MeuBox\u003CT\u003E {\\n#     type Target = T;\\n#\\n#     fn deref(\u0026self) -\u003E \u0026T {\\n#         \u0026self.0\\n#     }\\n# }\\n#\\n# fn ola(name: \u0026str) {\\n#     println!(\\\"Olá, {}!\\\", name);\\n# }\\n#\\nfn main() {\\n    let m = MeuBox::new(String::from(\\\"Rust\\\"));\\n    ola(\u0026(*m)[..]);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,46": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-13: O código que teríamos que escrever se o\\nRust não tivesse coerção de desreferência\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,47": {
-    "value": "\"O `(*m)` desreferencia o `MeuBox\u003CString\u003E` em uma `String`. Então o `\u0026` e o\\n`[..]` obtêm uma string slice da `String` que é igual à string inteira para\\ncorresponder à assinatura de `ola`. O código sem coerção de desreferência é mais\\ndifícil de ler, escrever e entender com todos esses símbolos envolvidos. A\\ncoerção de desreferência permite que o Rust lide com essas conversões\\nautomaticamente para nós.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,48": {
-    "value": "\"Quando a trait `Deref` está definida para os tipos envolvidos, o Rust analisa os\\ntipos e usa `Deref::deref` tantas vezes quanto necessário para chegar a uma\\nreferência que corresponda ao tipo do parâmetro. O número de vezes que\\n`Deref::deref` precisa ser inserida é resolvido em tempo de compilação, então\\nnão existe nenhuma penalidade em tempo de execução para tomar vantagem da\\ncoerção de desreferência.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,49": {
-    "value": "\"De modo semelhante a como usamos a trait `Deref` para redefinir `*` em\\nreferências imutáveis, o Rust provê uma trait `DerefMut` para redefinir `*` em\\nreferências mutáveis.\\n\\nO Rust faz coerção de desreferência quando ele encontra tipos e implementações\\nde traits em três casos:\\n\\n- De `\u0026T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026mut U` quando `T: DerefMut\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`.\\n\\nOs primeiros dois casos são o mesmo exceto pela mutabilidade. O primeiro caso\\nafirma que se você tem uma `\u0026T`, e `T` implementa `Deref` para algum tipo `U`,\\nvocê pode obter um `\u0026U` de maneira transparente. O segundo caso afirma que a\\nmesma coerção de desreferência acontece para referências mutáveis.\\n\\nO terceiro caso é mais complicado: o Rust também irá coagir uma referência\\nmutável a uma imutável. Mas o contrário _não_ é possível: referências imutáveis\\nnunca serão coagidas a referências mutáveis. Por causa das regras de empréstimo,\\nse você tem uma referência mutável, ela deve ser a única referência àqueles\\ndados (caso contrário, o programa não compila). Converter uma referência mutável\\na uma imutável nunca quebrará as regras de empréstimo. Converter uma referência\\nimutável a uma mutável exigiria que houvesse apenas uma referência imutável\\nàqueles dados, e as regras de empréstimo não garantem isso. Portanto, o Rust não\\npode assumir que converter uma referência imutável a uma mutável seja possível.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,49,1,0": {
-    "value": "\"De modo semelhante a como usamos a trait `Deref` para redefinir `*` em\\nreferências imutáveis, o Rust provê uma trait `DerefMut` para redefinir `*` em\\nreferências mutáveis.\\n\\nO Rust faz coerção de desreferência quando ele encontra tipos e implementações\\nde traits em três casos:\\n\\n- De `\u0026T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026mut U` quando `T: DerefMut\u003CTarget=U\u003E`;\\n- De `\u0026mut T` para `\u0026U` quando `T: Deref\u003CTarget=U\u003E`.\\n\\nOs primeiros dois casos são o mesmo exceto pela mutabilidade. O primeiro caso\\nafirma que se você tem uma `\u0026T`, e `T` implementa `Deref` para algum tipo `U`,\\nvocê pode obter um `\u0026U` de maneira transparente. O segundo caso afirma que a\\nmesma coerção de desreferência acontece para referências mutáveis.\\n\\nO terceiro caso é mais complicado: o Rust também irá coagir uma referência\\nmutável a uma imutável. Mas o contrário _não_ é possível: referências imutáveis\\nnunca serão coagidas a referências mutáveis. Por causa das regras de empréstimo,\\nse você tem uma referência mutável, ela deve ser a única referência àqueles\\ndados (caso contrário, o programa não compila). Converter uma referência mutável\\na uma imutável nunca quebrará as regras de empréstimo. Converter uma referência\\nimutável a uma mutável exigiria que houvesse apenas uma referência imutável\\nàqueles dados, e as regras de empréstimo não garantem isso. Portanto, o Rust não\\npode assumir que converter uma referência imutável a uma mutável seja possível.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-6: Usando o operador de desreferência para\\nseguir uma referência a um valor `i32`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,6": {
-    "value": "\"A variável `x` contém um valor `i32`, `5`. Nós setamos `y` igual a uma\\nreferência a `x`. Podemos conferir (coloquialmente, \\\"assertar\\\") que `x` é igual\\na `5`. Contudo, se queremos fazer uma asserção sobre o valor em `y`, temos que\\nusar `*y` para seguir a referência até o valor ao qual `y` aponta (por isso\\n\\\"desreferência\\\"). Uma vez que desreferenciamos `y`, temos acesso ao valor\\ninteiro ao qual `y` aponta para podermos compará-lo com `5`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,7": {
-    "value": "\"Se em vez disso tentássemos escrever `assert_eq!(5, y);`, receberíamos este erro\\nde compilação:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,8,0": {
-    "value": "\"erro trait bound `{integer}: std::cmp::PartialEq\u003C\u0026{integer}\u003E` não foi\\nsatisfeita\\n --\u003E src/main.rs:6:5\\n  |\\n6 |     assert_eq!(5, y);\\n  |     ^^^^^^^^^^^^^^^^^ não posso comparar `{integer}` com `\u0026{integer}`\\n  |\\n  = ajuda: a trait `std::cmp::PartialEq\u003C\u0026{integer}\u003E` não está implementada para\\n  `{integer}`\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#body@0,9": {
-    "value": "\"Comparar um número com uma referência a um número não é permitido porque eles\\nsão de tipos diferentes. Devemos usar `*` para seguir a referência até o valor\\nao qual ela está apontando.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,11,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,20,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,5,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,5,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,5,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,26,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,32,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,3,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,3,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,3,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,37,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,40,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,45,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,10": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,14": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,25": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,36": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#open@0,49": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,10": {
-    "value": "\"Usando `Box\u003CT\u003E` como uma Referência\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,14": {
-    "value": "\"Definindo Nosso Próprio Ponteiro Inteligente\"",
-    "dependencies": {
-      "0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,2": {
-    "value": "\"Tratando Ponteiros Inteligentes como Referências Normais com a Trait `Deref`\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,25": {
-    "value": "\"Implementando a Trait `Deref` para Tratar um Tipo como uma Referência\"",
-    "dependencies": {
-      "0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,3": {
-    "value": "\"Seguindo o Ponteiro até o Valor com `*`\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,36": {
-    "value": "\"Coerções de Desreferência Implícitas com Funções e Métodos\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-02-deref#title@0,49": {
-    "value": "\"Como a Coerção de Desreferência Interage com a Mutabilidade\"",
-    "dependencies": {
-      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1081,7 +1081,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1278,7 +1278,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="tratando-ponteiros-inteligentes-como-referencias-normais-com-a-trait-deref" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Tratando Ponteiros Inteligentes como Referências Normais com a Trait <code>Deref</code></div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="tratando-ponteiros-inteligentes-como-referencias-normais-com-a-trait-deref" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Tratando Ponteiros Inteligentes como Referências Normais com a Trait <code>Deref</code></div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Implementar a trait <code>Deref</code> nos permite personalizar o comportamento do
 <em>operador de desreferência</em> (<em>dereference operator</em>), <code>*</code> (que é diferente do
 operador de multiplicação ou de glob). Implementando a <code>Deref</code> de tal modo que o
@@ -1294,7 +1294,7 @@ similar a referências. E então iremos dar uma olhada na funcionalidade de
 <em>coerção de desreferência</em> (<em>deref coercion</em>) e como ela nos permite trabalhar
 tanto com referências quanto com ponteiros inteligentes.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="seguindo-o-ponteiro-ate-o-valor-com" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Seguindo o Ponteiro até o Valor com <code>*</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="seguindo-o-ponteiro-ate-o-valor-com" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Seguindo o Ponteiro até o Valor com <code>*</code></div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Uma referência normal é um tipo de ponteiro, e um jeito de pensar sobre um
 ponteiro é como uma seta até um valor armazenado em outro lugar. Na Listagem
 15-6, nós criamos uma referência a um valor <code>i32</code> e em seguida usamos o operador
@@ -1348,7 +1348,7 @@ de desreferência para seguir a referência até o dado:</p>
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Comparar um número com uma referência a um número não é permitido porque eles são de tipos diferentes. Devemos usar <code>*</code> para seguir a referência até o valor ao qual ela está apontando.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="usando-box-t-como-uma-referencia" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>Box&lt;T&gt;</code> como uma Referência</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="usando-box-t-como-uma-referencia" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,10&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>Box&lt;T&gt;</code> como uma Referência</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Podemos reescrever o código na Listagem 15-6 para usar um <code>Box&lt;T&gt;</code> em vez de uma
 referência, e o operador de desreferência vai funcionar do mesmo jeito que na
 Listagem 15-7:</p>
@@ -1376,7 +1376,7 @@ Listagem 15-7:</p>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-7: Usando o operador de desreferência em um <code>Box&lt;i32&gt;</code><!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A única diferença entre a Listagem 15-7 e a Listagem 15-6 é que aqui nós setamos <code>y</code> para ser uma instância de um box apontando para o valor em <code>x</code> em vez de uma referência apontando para o valor de <code>x</code>. Na última asserção, podemos usar o operador de desreferência para seguir o ponteiro do box do mesmo jeito que fizemos quando <code>y</code> era uma referência. A seguir, vamos explorar o que tem de especial no <code>Box&lt;T&gt;</code> que nos permite usar o operador de desreferência, criando nosso próprio tipo box.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="definindo-nosso-proprio-ponteiro-inteligente" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,14&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo Nosso Próprio Ponteiro Inteligente</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,2:main-container-external:0.inner-external:0,0,0:main" id="definindo-nosso-proprio-ponteiro-inteligente" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,14&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Definindo Nosso Próprio Ponteiro Inteligente</div>
 <div data-id="inner:0,0,0,1,2,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,2,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,2,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos construir um smart pointer parecido com o tipo <code>Box&lt;T&gt;</code> fornecido pela
 biblioteca padrão para vermos como ponteiros inteligentes, por padrão, se
 comportam diferente de referências. Em seguida, veremos como adicionar a
@@ -1448,7 +1448,7 @@ mesma forma. Também vamos definir uma função <code>new</code> como a definida
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" data-id="0,0,0,1,2,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,2:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nosso tipo <code>MeuBox&lt;T&gt;</code> não pode ser desreferenciado porque não implementamos essa habilidade nele. Para habilitar desreferenciamento com o operador <code>*</code>, temos que implementar a trait <code>Deref</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="implementando-a-trait-deref-para-tratar-um-tipo-como-uma-referencia" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando a Trait <code>Deref</code> para Tratar um Tipo como uma Referência</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" id="implementando-a-trait-deref-para-tratar-um-tipo-como-uma-referencia" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,25&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando a Trait <code>Deref</code> para Tratar um Tipo como uma Referência</div>
 <div data-id="inner:0,0,0,1,3,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,3,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,3,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Conforme discutimos no Capítulo 10, para implementar uma trait, precisamos
 prover implementações para os métodos exigidos por ela. A trait <code>Deref</code>,
 disponibilizada pela biblioteca padrão, requer que implementemos um método
@@ -1498,7 +1498,7 @@ agrega à definição de <code>MeuBox</code>:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O Rust substitui o operador <code>*</code> com uma chamada ao método <code>deref</code> e em seguida uma desreferência comum, de modo que nós programadores não precisamos pensar sobre se temos ou não que chamar o método <code>deref</code>. Essa funcionalidade do Rust nos permite escrever código que funcione identicamente quando temos uma referência comum ou um tipo que implementa <code>Deref</code>.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O fato de o método <code>deref</code> retornar uma referência ao valor, e a desreferência comum fora dos parênteses em <code>*(y.deref())</code> ainda ser necessária, é devido ao sistema de posse (<em>ownership</em>). Se o método <code>deref</code> retornasse o valor diretamente em vez de uma referência ao valor, o valor seria movido para fora do <code>self</code>. Nós não queremos tomar posse do valor interno do <code>MeuBox&lt;T&gt;</code> neste e na maioria dos casos em que usamos o operador de desreferência.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" data-id="0,0,0,1,3,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,3:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Note que o <code>*</code> é substituído por uma chamada ao método <code>deref</code> e então uma chamada ao <code>*</code> apenas uma vez, cada vez que digitamos um <code>*</code> no nosso código. Como a substituição do <code>*</code> não entra em recursão infinita, nós terminamos com o dado do tipo <code>i32</code>, que corresponde ao <code>5</code> em <code>assert_eq!</code> na Listagem 15-9.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="coercoes-de-desreferencia-implicitas-com-funcoes-e-metodos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Coerções de Desreferência Implícitas com Funções e Métodos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="coercoes-de-desreferencia-implicitas-com-funcoes-e-metodos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,36&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Coerções de Desreferência Implícitas com Funções e Métodos</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p><em>Coerção de desreferência</em> (<em>deref coercion</em>) é uma conveniência que o Rust
 aplica a argumentos de funções e métodos. A coerção de desreferência converte
 uma referência a um tipo que implementa <code>Deref</code> em uma referência a um tipo ao
@@ -1661,7 +1661,7 @@ com uma referência a um valor do tipo <code>MeuBox&lt;String&gt;</code>, como m
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-13: O código que teríamos que escrever se o Rust não tivesse coerção de desreferência<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O <code>(*m)</code> desreferencia o <code>MeuBox&lt;String&gt;</code> em uma <code>String</code>. Então o <code>&amp;</code> e o <code>[..]</code> obtêm uma string slice da <code>String</code> que é igual à string inteira para corresponder à assinatura de <code>ola</code>. O código sem coerção de desreferência é mais difícil de ler, escrever e entender com todos esses símbolos envolvidos. A coerção de desreferência permite que o Rust lide com essas conversões automaticamente para nós.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Quando a trait <code>Deref</code> está definida para os tipos envolvidos, o Rust analisa os tipos e usa <code>Deref::deref</code> tantas vezes quanto necessário para chegar a uma referência que corresponda ao tipo do parâmetro. O número de vezes que <code>Deref::deref</code> precisa ser inserida é resolvido em tempo de compilação, então não existe nenhuma penalidade em tempo de execução para tomar vantagem da coerção de desreferência.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="como-a-coercao-de-desreferencia-interage-com-a-mutabilidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-02-deref#open@0,49&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Como a Coerção de Desreferência Interage com a Mutabilidade</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="como-a-coercao-de-desreferencia-interage-com-a-mutabilidade" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-02-deref#open@0,49&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Como a Coerção de Desreferência Interage com a Mutabilidade</div>
 <div data-id="inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,5,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>De modo semelhante a como usamos a trait <code>Deref</code> para redefinir <code>*</code> em
 referências imutáveis, o Rust provê uma trait <code>DerefMut</code> para redefinir <code>*</code> em
 referências mutáveis.</p>

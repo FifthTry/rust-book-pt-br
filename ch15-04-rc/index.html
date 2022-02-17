@@ -12,6 +12,261 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,10": {
+    "value": "\"Em vez disso, vamos mudar nossa definição de `List` para usar o `Rc\u003CT\u003E` no lugar\\ndo `Box\u003CT\u003E`, como mostra a Listagem 15-18. Cada variante `Cons` agora vai conter\\num valor e um `Rc\u003CT\u003E` apontando para uma `List`. Quando criarmos `b`, em vez de\\ntomar posse de `a`, iremos clonar o `Rc\u003CList\u003E` que `a` está segurando, o que\\naumenta o número de referências de uma para duas e permite com que `a` e\\n`b`compartilhem posse dos dados naquele `Rc\u003CList\u003E`. Também vamos clonar `a`\\nquando criarmos `c`, o que aumenta o número de referências de duas para três.\\nCada vez que chamarmos `Rc::clone`, a contagem de referências ao valor dentro do\\n`Rc\u003CList\u003E` irá aumentar, e ele não será liberado até que haja zero referências a\\nele:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,11": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,12,0": {
+    "value": "\"enum List {\\n    Cons(i32, Rc\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\nuse std::rc::Rc;\\n\\nfn main() {\\n    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));\\n    let b = Cons(3, Rc::clone(\u0026a));\\n    let c = Cons(4, Rc::clone(\u0026a));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,13": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-18: Uma definição de `List` que usa o\\n`Rc\u003CT\u003E`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,14": {
+    "value": "\"Precisamos adicionar uma declaração `use` para trazer o `Rc\u003CT\u003E` ao escopo porque\\nele não está no prelúdio. Na `main`, criamos a lista contendo 5 e 10 e a\\narmazenamos em um novo `Rc\u003CList\u003E` em `a`. Então quando criamos `b` e `c`,\\nchamamos a função `Rc::clone` e passamos uma referência ao `Rc\u003CList\u003E` em `a`\\ncomo argumento.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,15": {
+    "value": "\"Poderíamos ter chamado `a.clone()` em vez de `Rc::clone(\u0026a)`, mas a convenção do\\nRust é usar `Rc::clone` neste caso. A implementação de `Rc::clone` não faz uma\\ncópia profunda de todos os dados como faz a implementação de `clone` da maioria\\ndos tipos. A chamada a `Rc::clone` apenas incrementa a contagem de referências,\\no que não leva muito tempo. Cópias profundas de dados podem levar muito tempo.\\nUsando `Rc::clone` para a contagem de referências, podemos distinguir\\nvisualmente entre os clones de cópia profunda e os clones que incrementam a\\ncontagem de referências. Quando estivermos procurando problemas de desempenho no\\ncódigo, precisamos apenas considerar os clones de cópia profunda e podemos\\nignorar as chamadas a `Rc::clone`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,16": {
+    "value": "\"Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a\\ncontagem de referências mudando conforme criamos e destruímos referências ao\\n`Rc\u003CList\u003E` em `a`.\\n\\nNa Listagem 15-19, vamos mudar a `main` para que tenha um escopo interno em\\nvolta da lista `c`; assim poderemos ver como a contagem de referências muda\\nquando `c` sai de escopo. Em cada ponto do programa onde a contagem de\\nreferências muda, iremos imprimir seu valor, que podemos obter chamando a função\\n`Rc::strong_count`. Essa função se chama `strong_count` (_contagem das\\nreferências fortes_) em vez de `count` (_contagem_) porque o tipo `Rc\u003CT\u003E` também\\ntem uma `weak_count` (_contagem das referências fracas_); veremos para que a\\n`weak_count` é usada na seção \\\"Evitando Ciclos de Referências\\\".\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,16,1,0": {
+    "value": "\"Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a\\ncontagem de referências mudando conforme criamos e destruímos referências ao\\n`Rc\u003CList\u003E` em `a`.\\n\\nNa Listagem 15-19, vamos mudar a `main` para que tenha um escopo interno em\\nvolta da lista `c`; assim poderemos ver como a contagem de referências muda\\nquando `c` sai de escopo. Em cada ponto do programa onde a contagem de\\nreferências muda, iremos imprimir seu valor, que podemos obter chamando a função\\n`Rc::strong_count`. Essa função se chama `strong_count` (_contagem das\\nreferências fortes_) em vez de `count` (_contagem_) porque o tipo `Rc\u003CT\u003E` também\\ntem uma `weak_count` (_contagem das referências fracas_); veremos para que a\\n`weak_count` é usada na seção \\\"Evitando Ciclos de Referências\\\".\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,17,0": {
+    "value": "\"# enum List {\\n#     Cons(i32, Rc\u003CList\u003E),\\n#     Nil,\\n# }\\n#\\n# use List::{Cons, Nil};\\n# use std::rc::Rc;\\n#\\nfn main() {\\n    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));\\n    println!(\\\"contagem depois de criar a = {}\\\", Rc::strong_count(\u0026a));\\n    let b = Cons(3, Rc::clone(\u0026a));\\n    println!(\\\"contagem depois de criar b = {}\\\", Rc::strong_count(\u0026a));\\n    {\\n        let c = Cons(4, Rc::clone(\u0026a));\\n        println!(\\\"contagem depois de criar c = {}\\\", Rc::strong_count(\u0026a));\\n    }\\n    println!(\\\"contagem depois que c sai de escopo = {}\\\", Rc::strong_count(\u0026a));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,18": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-19: Imprimindo a contagem de\\nreferências\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,19": {
+    "value": "\"Esse código imprime o seguinte:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,2": {
+    "value": "\"Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem\\nposse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos\\npossuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas\\npodem apontar para o mesmo vértice, e esse vértice é conceitualmente possuído\\npor todas as arestas que apontam para ele. Um vértice não deveria ser liberado a\\nnão ser que ele não tenha mais arestas apontando para ele.\\n\\nPara permitir posse múltipla, o Rust tem um tipo chamado `Rc\u003CT\u003E`. Seu nome é uma\\nabreviação para _reference counting_ (_contagem de referências_) que, como o\\nnome diz, mantém registro do número de referências a um valor para saber se ele\\nainda está em uso ou não. Se há zero referências a um valor, ele pode ser\\nliberado sem que nenhuma referência se torne inválida.\\n\\nImagine o `Rc\u003CT\u003E` como uma TV numa sala de família. Quando uma pessoa entra para\\nassistir à TV, ela a liga. Outros podem entrar na sala e assistir à TV. Quando a\\núltima pessoa sai da sala, ela desliga a TV porque essa não está mais em uso. Se\\nalguém desligasse a TV enquanto outros ainda estão assistindo, haveria revolta\\nentre os telespectadores restantes!\\n\\nNós usamos o tipo `Rc\u003CT\u003E` quando queremos alocar algum dado no heap para que\\nmúltiplas partes do nosso programa o leiam, e não conseguimos determinar em\\ntempo de compilação qual parte irá terminar de usar o dado por último. Se\\nsoubéssemos qual parte terminaria por último, poderíamos simplesmente tornar\\naquela parte a possuidora do dado e as regras normais de posse aplicadas em\\ntempo de compilação teriam efeito.\\n\\nNote que o `Rc\u003CT\u003E` serve apenas para cenários de thread única. Quando\\ndiscutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de\\nreferências em programas com múltiplas threads.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,2,1,0": {
+    "value": "\"Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem\\nposse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos\\npossuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas\\npodem apontar para o mesmo vértice, e esse vértice é conceitualmente possuído\\npor todas as arestas que apontam para ele. Um vértice não deveria ser liberado a\\nnão ser que ele não tenha mais arestas apontando para ele.\\n\\nPara permitir posse múltipla, o Rust tem um tipo chamado `Rc\u003CT\u003E`. Seu nome é uma\\nabreviação para _reference counting_ (_contagem de referências_) que, como o\\nnome diz, mantém registro do número de referências a um valor para saber se ele\\nainda está em uso ou não. Se há zero referências a um valor, ele pode ser\\nliberado sem que nenhuma referência se torne inválida.\\n\\nImagine o `Rc\u003CT\u003E` como uma TV numa sala de família. Quando uma pessoa entra para\\nassistir à TV, ela a liga. Outros podem entrar na sala e assistir à TV. Quando a\\núltima pessoa sai da sala, ela desliga a TV porque essa não está mais em uso. Se\\nalguém desligasse a TV enquanto outros ainda estão assistindo, haveria revolta\\nentre os telespectadores restantes!\\n\\nNós usamos o tipo `Rc\u003CT\u003E` quando queremos alocar algum dado no heap para que\\nmúltiplas partes do nosso programa o leiam, e não conseguimos determinar em\\ntempo de compilação qual parte irá terminar de usar o dado por último. Se\\nsoubéssemos qual parte terminaria por último, poderíamos simplesmente tornar\\naquela parte a possuidora do dado e as regras normais de posse aplicadas em\\ntempo de compilação teriam efeito.\\n\\nNote que o `Rc\u003CT\u003E` serve apenas para cenários de thread única. Quando\\ndiscutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de\\nreferências em programas com múltiplas threads.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,20,0": {
+    "value": "\"contagem depois de criar a = 1\\ncontagem depois de criar b = 2\\ncontagem depois de criar c = 3\\ncontagem depois que c sai de escopo = 2\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,21": {
+    "value": "\"Podemos ver que o `Rc\u003CList\u003E` em `a` tem uma contagem de referências inicial de\\num; depois, cada vez que chamamos `clone`, a contagem aumenta em um. Quando `c`\\nsai de escopo, a contagem diminui em um. Nós não temos que chamar uma função\\npara decrementar a contagem de referências como temos que fazer com a\\n`Rc::clone` para incrementá-la: a implementação da trait `Drop` diminui a\\ncontagem automaticamente quando um valor `Rc\u003CT\u003E` sai de escopo.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,22": {
+    "value": "\"O que não conseguimos ver nesse exemplo é que quando `b` e depois `a` saem de\\nescopo no final da `main`, a contagem se torna 0, e o `Rc\u003CList\u003E` é\\nliberado por completo nesse ponto. O uso do `Rc\u003CT\u003E` permite que um único valor\\ntenha múltiplos possuidores, e a contagem garante que o valor permaneça válido\\nenquanto algum dos possuidores ainda existir.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,23": {
+    "value": "\"Por funcionar com referências imutáveis, o `Rc\u003CT\u003E` nos permite compartilhar\\ndados entre diversas partes do nosso programa _apenas para leitura_. Se o\\n`Rc\u003CT\u003E` nos deixasse ter múltiplas referências mutáveis também, nós poderíamos\\nviolar uma das regras de empréstimo discutidas no Capítulo 4: múltiplos\\nempréstimos mutáveis do mesmo lugar podem causar corridas de dados (_data\\nraces_) e inconsistências. Mas conseguir modificar dados é muito útil! Na\\npróxima seção, discutiremos a pattern de mutabilidade interior (_interior\\nmutability_) e o tipo `RefCell\u003CT\u003E` que podemos usar junto com um `Rc\u003CT\u003E` para\\ntrabalhar com essa restrição de imutabilidade.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,3": {
+    "value": "\"Vamos retornar ao nosso exemplo de _cons list_ da Listagem 15-5. Lembre-se de\\nque a definimos usando o `Box\u003CT\u003E`. Desta vez, vamos criar duas listas que\\ncompartilham ambas a posse de uma terceira lista, o que conceitualmente vai se\\nparecer com a Figura 15-3:\\n\\n\u003Cimg alt=\\\"Duas listas que compartilham a posse de uma terceira lista\\\" src=\\\"img/trpl15-03.svg\\\" class=\\\"center\\\" /\u003E\\n\\n\u003Cspan class=\\\"caption\\\"\u003EFigura 15-3: Duas listas, `b` e `c`, compartilhando posse\\nde uma terceira lista, `a`\u003C/span\u003E\\n\\nVamos criar a lista `a` que contém 5 e depois 10. Então criaremos mais duas\\nlistas: `b`, que começa com 3 e `c`, que começa com 4. Ambas as listas `b` e `c`\\nirão então continuar na lista `a` contendo 5 e 10. Em outras palavras, ambas as\\nlistas irão compartilhar a primeira lista contendo 5 e 10.\\n\\nTentar implementar esse cenário usando nossa definição de `List` com `Box\u003CT\u003E`\\nnão irá funcionar, como mostra a Listagem 15-17:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,3,1,0": {
+    "value": "\"Vamos retornar ao nosso exemplo de _cons list_ da Listagem 15-5. Lembre-se de\\nque a definimos usando o `Box\u003CT\u003E`. Desta vez, vamos criar duas listas que\\ncompartilham ambas a posse de uma terceira lista, o que conceitualmente vai se\\nparecer com a Figura 15-3:\\n\\n\u003Cimg alt=\\\"Duas listas que compartilham a posse de uma terceira lista\\\" src=\\\"img/trpl15-03.svg\\\" class=\\\"center\\\" /\u003E\\n\\n\u003Cspan class=\\\"caption\\\"\u003EFigura 15-3: Duas listas, `b` e `c`, compartilhando posse\\nde uma terceira lista, `a`\u003C/span\u003E\\n\\nVamos criar a lista `a` que contém 5 e depois 10. Então criaremos mais duas\\nlistas: `b`, que começa com 3 e `c`, que começa com 4. Ambas as listas `b` e `c`\\nirão então continuar na lista `a` contendo 5 e 10. Em outras palavras, ambas as\\nlistas irão compartilhar a primeira lista contendo 5 e 10.\\n\\nTentar implementar esse cenário usando nossa definição de `List` com `Box\u003CT\u003E`\\nnão irá funcionar, como mostra a Listagem 15-17:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,4,0": {
+    "value": "\"enum List {\\n    Cons(i32, Box\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\n\\nfn main() {\\n    let a = Cons(5,\\n        Box::new(Cons(10,\\n            Box::new(Nil))));\\n    let b = Cons(3, Box::new(a));\\n    let c = Cons(4, Box::new(a));\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-17: Demonstrando que não é possível termos\\nduas listas usando `Box\u003CT\u003E` que tentam compartilhar posse de uma terceira\\nlista\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,6": {
+    "value": "\"Quando compilamos esse código, recebemos este erro:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,7,0": {
+    "value": "\"erro de valor movido: `a`\\n  --\u003E src/main.rs:13:30\\n   |\\n12 |     let b = Cons(3, Box::new(a));\\n   |                              - valor movido para cá\\n13 |     let c = Cons(4, Box::new(a));\\n   |                              ^ valor usado aqui depois de movido\\n   |\\n   = nota: o valor é movido porque `a` tem tipo `List`, que não implementa\\n   a trait `Copy`\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,8": {
+    "value": "\"As variantes `Cons` têm posse dos dados que elas contêm, então quando criamos a\\nlista `b`, `a` é movida para dentro de `b`, e `b` toma posse de `a`. Então,\\nquando tentamos usar `a` de novo na criação de `c`, não somos permitidos porque\\n`a` foi movida.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#body@0,9": {
+    "value": "\"Poderíamos mudar a definição de `Cons` para guardar referências, mas aí teríamos\\nque especificar parâmetros de tempo de vida (_lifetime parameters_). Fazendo\\nisso, estaríamos especificando que cada elemento da lista devesse viver por pelo\\nmenos tanto tempo quanto a lista inteira. O _verificador de empréstimo_ (_borrow\\nchecker_) não nos deixaria compilar `let a = Cons(10, \u0026Nil);`, por exemplo,\\nporque o valor temporário `Nil` seria destruído antes que `a` pudesse receber\\numa referência a ele.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#caption@0,17,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#caption@0,20,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,16": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#title@0,16": {
+    "value": "\"Clonar um `Rc\u003CT\u003E` Aumenta a Contagem de Referências\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#title@0,2": {
+    "value": "\"`Rc\u003CT\u003E`, o Ponteiro Inteligente com Contagem de Referências\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-04-rc#title@0,3": {
+    "value": "\"Usando `Rc\u003CT\u003E` para Compartilhar Dados\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -274,261 +529,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-04-rc#body@0,10": {
-    "value": "\"Em vez disso, vamos mudar nossa definição de `List` para usar o `Rc\u003CT\u003E` no lugar\\ndo `Box\u003CT\u003E`, como mostra a Listagem 15-18. Cada variante `Cons` agora vai conter\\num valor e um `Rc\u003CT\u003E` apontando para uma `List`. Quando criarmos `b`, em vez de\\ntomar posse de `a`, iremos clonar o `Rc\u003CList\u003E` que `a` está segurando, o que\\naumenta o número de referências de uma para duas e permite com que `a` e\\n`b`compartilhem posse dos dados naquele `Rc\u003CList\u003E`. Também vamos clonar `a`\\nquando criarmos `c`, o que aumenta o número de referências de duas para três.\\nCada vez que chamarmos `Rc::clone`, a contagem de referências ao valor dentro do\\n`Rc\u003CList\u003E` irá aumentar, e ele não será liberado até que haja zero referências a\\nele:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,11": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,12,0": {
-    "value": "\"enum List {\\n    Cons(i32, Rc\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\nuse std::rc::Rc;\\n\\nfn main() {\\n    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));\\n    let b = Cons(3, Rc::clone(\u0026a));\\n    let c = Cons(4, Rc::clone(\u0026a));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,13": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-18: Uma definição de `List` que usa o\\n`Rc\u003CT\u003E`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,14": {
-    "value": "\"Precisamos adicionar uma declaração `use` para trazer o `Rc\u003CT\u003E` ao escopo porque\\nele não está no prelúdio. Na `main`, criamos a lista contendo 5 e 10 e a\\narmazenamos em um novo `Rc\u003CList\u003E` em `a`. Então quando criamos `b` e `c`,\\nchamamos a função `Rc::clone` e passamos uma referência ao `Rc\u003CList\u003E` em `a`\\ncomo argumento.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,15": {
-    "value": "\"Poderíamos ter chamado `a.clone()` em vez de `Rc::clone(\u0026a)`, mas a convenção do\\nRust é usar `Rc::clone` neste caso. A implementação de `Rc::clone` não faz uma\\ncópia profunda de todos os dados como faz a implementação de `clone` da maioria\\ndos tipos. A chamada a `Rc::clone` apenas incrementa a contagem de referências,\\no que não leva muito tempo. Cópias profundas de dados podem levar muito tempo.\\nUsando `Rc::clone` para a contagem de referências, podemos distinguir\\nvisualmente entre os clones de cópia profunda e os clones que incrementam a\\ncontagem de referências. Quando estivermos procurando problemas de desempenho no\\ncódigo, precisamos apenas considerar os clones de cópia profunda e podemos\\nignorar as chamadas a `Rc::clone`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,16": {
-    "value": "\"Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a\\ncontagem de referências mudando conforme criamos e destruímos referências ao\\n`Rc\u003CList\u003E` em `a`.\\n\\nNa Listagem 15-19, vamos mudar a `main` para que tenha um escopo interno em\\nvolta da lista `c`; assim poderemos ver como a contagem de referências muda\\nquando `c` sai de escopo. Em cada ponto do programa onde a contagem de\\nreferências muda, iremos imprimir seu valor, que podemos obter chamando a função\\n`Rc::strong_count`. Essa função se chama `strong_count` (_contagem das\\nreferências fortes_) em vez de `count` (_contagem_) porque o tipo `Rc\u003CT\u003E` também\\ntem uma `weak_count` (_contagem das referências fracas_); veremos para que a\\n`weak_count` é usada na seção \\\"Evitando Ciclos de Referências\\\".\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,16,1,0": {
-    "value": "\"Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a\\ncontagem de referências mudando conforme criamos e destruímos referências ao\\n`Rc\u003CList\u003E` em `a`.\\n\\nNa Listagem 15-19, vamos mudar a `main` para que tenha um escopo interno em\\nvolta da lista `c`; assim poderemos ver como a contagem de referências muda\\nquando `c` sai de escopo. Em cada ponto do programa onde a contagem de\\nreferências muda, iremos imprimir seu valor, que podemos obter chamando a função\\n`Rc::strong_count`. Essa função se chama `strong_count` (_contagem das\\nreferências fortes_) em vez de `count` (_contagem_) porque o tipo `Rc\u003CT\u003E` também\\ntem uma `weak_count` (_contagem das referências fracas_); veremos para que a\\n`weak_count` é usada na seção \\\"Evitando Ciclos de Referências\\\".\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,17,0": {
-    "value": "\"# enum List {\\n#     Cons(i32, Rc\u003CList\u003E),\\n#     Nil,\\n# }\\n#\\n# use List::{Cons, Nil};\\n# use std::rc::Rc;\\n#\\nfn main() {\\n    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));\\n    println!(\\\"contagem depois de criar a = {}\\\", Rc::strong_count(\u0026a));\\n    let b = Cons(3, Rc::clone(\u0026a));\\n    println!(\\\"contagem depois de criar b = {}\\\", Rc::strong_count(\u0026a));\\n    {\\n        let c = Cons(4, Rc::clone(\u0026a));\\n        println!(\\\"contagem depois de criar c = {}\\\", Rc::strong_count(\u0026a));\\n    }\\n    println!(\\\"contagem depois que c sai de escopo = {}\\\", Rc::strong_count(\u0026a));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,18": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-19: Imprimindo a contagem de\\nreferências\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,19": {
-    "value": "\"Esse código imprime o seguinte:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,2": {
-    "value": "\"Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem\\nposse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos\\npossuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas\\npodem apontar para o mesmo vértice, e esse vértice é conceitualmente possuído\\npor todas as arestas que apontam para ele. Um vértice não deveria ser liberado a\\nnão ser que ele não tenha mais arestas apontando para ele.\\n\\nPara permitir posse múltipla, o Rust tem um tipo chamado `Rc\u003CT\u003E`. Seu nome é uma\\nabreviação para _reference counting_ (_contagem de referências_) que, como o\\nnome diz, mantém registro do número de referências a um valor para saber se ele\\nainda está em uso ou não. Se há zero referências a um valor, ele pode ser\\nliberado sem que nenhuma referência se torne inválida.\\n\\nImagine o `Rc\u003CT\u003E` como uma TV numa sala de família. Quando uma pessoa entra para\\nassistir à TV, ela a liga. Outros podem entrar na sala e assistir à TV. Quando a\\núltima pessoa sai da sala, ela desliga a TV porque essa não está mais em uso. Se\\nalguém desligasse a TV enquanto outros ainda estão assistindo, haveria revolta\\nentre os telespectadores restantes!\\n\\nNós usamos o tipo `Rc\u003CT\u003E` quando queremos alocar algum dado no heap para que\\nmúltiplas partes do nosso programa o leiam, e não conseguimos determinar em\\ntempo de compilação qual parte irá terminar de usar o dado por último. Se\\nsoubéssemos qual parte terminaria por último, poderíamos simplesmente tornar\\naquela parte a possuidora do dado e as regras normais de posse aplicadas em\\ntempo de compilação teriam efeito.\\n\\nNote que o `Rc\u003CT\u003E` serve apenas para cenários de thread única. Quando\\ndiscutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de\\nreferências em programas com múltiplas threads.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,2,1,0": {
-    "value": "\"Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem\\nposse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos\\npossuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas\\npodem apontar para o mesmo vértice, e esse vértice é conceitualmente possuído\\npor todas as arestas que apontam para ele. Um vértice não deveria ser liberado a\\nnão ser que ele não tenha mais arestas apontando para ele.\\n\\nPara permitir posse múltipla, o Rust tem um tipo chamado `Rc\u003CT\u003E`. Seu nome é uma\\nabreviação para _reference counting_ (_contagem de referências_) que, como o\\nnome diz, mantém registro do número de referências a um valor para saber se ele\\nainda está em uso ou não. Se há zero referências a um valor, ele pode ser\\nliberado sem que nenhuma referência se torne inválida.\\n\\nImagine o `Rc\u003CT\u003E` como uma TV numa sala de família. Quando uma pessoa entra para\\nassistir à TV, ela a liga. Outros podem entrar na sala e assistir à TV. Quando a\\núltima pessoa sai da sala, ela desliga a TV porque essa não está mais em uso. Se\\nalguém desligasse a TV enquanto outros ainda estão assistindo, haveria revolta\\nentre os telespectadores restantes!\\n\\nNós usamos o tipo `Rc\u003CT\u003E` quando queremos alocar algum dado no heap para que\\nmúltiplas partes do nosso programa o leiam, e não conseguimos determinar em\\ntempo de compilação qual parte irá terminar de usar o dado por último. Se\\nsoubéssemos qual parte terminaria por último, poderíamos simplesmente tornar\\naquela parte a possuidora do dado e as regras normais de posse aplicadas em\\ntempo de compilação teriam efeito.\\n\\nNote que o `Rc\u003CT\u003E` serve apenas para cenários de thread única. Quando\\ndiscutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de\\nreferências em programas com múltiplas threads.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,20,0": {
-    "value": "\"contagem depois de criar a = 1\\ncontagem depois de criar b = 2\\ncontagem depois de criar c = 3\\ncontagem depois que c sai de escopo = 2\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,21": {
-    "value": "\"Podemos ver que o `Rc\u003CList\u003E` em `a` tem uma contagem de referências inicial de\\num; depois, cada vez que chamamos `clone`, a contagem aumenta em um. Quando `c`\\nsai de escopo, a contagem diminui em um. Nós não temos que chamar uma função\\npara decrementar a contagem de referências como temos que fazer com a\\n`Rc::clone` para incrementá-la: a implementação da trait `Drop` diminui a\\ncontagem automaticamente quando um valor `Rc\u003CT\u003E` sai de escopo.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,22": {
-    "value": "\"O que não conseguimos ver nesse exemplo é que quando `b` e depois `a` saem de\\nescopo no final da `main`, a contagem se torna 0, e o `Rc\u003CList\u003E` é\\nliberado por completo nesse ponto. O uso do `Rc\u003CT\u003E` permite que um único valor\\ntenha múltiplos possuidores, e a contagem garante que o valor permaneça válido\\nenquanto algum dos possuidores ainda existir.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,23": {
-    "value": "\"Por funcionar com referências imutáveis, o `Rc\u003CT\u003E` nos permite compartilhar\\ndados entre diversas partes do nosso programa _apenas para leitura_. Se o\\n`Rc\u003CT\u003E` nos deixasse ter múltiplas referências mutáveis também, nós poderíamos\\nviolar uma das regras de empréstimo discutidas no Capítulo 4: múltiplos\\nempréstimos mutáveis do mesmo lugar podem causar corridas de dados (_data\\nraces_) e inconsistências. Mas conseguir modificar dados é muito útil! Na\\npróxima seção, discutiremos a pattern de mutabilidade interior (_interior\\nmutability_) e o tipo `RefCell\u003CT\u003E` que podemos usar junto com um `Rc\u003CT\u003E` para\\ntrabalhar com essa restrição de imutabilidade.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,3": {
-    "value": "\"Vamos retornar ao nosso exemplo de _cons list_ da Listagem 15-5. Lembre-se de\\nque a definimos usando o `Box\u003CT\u003E`. Desta vez, vamos criar duas listas que\\ncompartilham ambas a posse de uma terceira lista, o que conceitualmente vai se\\nparecer com a Figura 15-3:\\n\\n\u003Cimg alt=\\\"Duas listas que compartilham a posse de uma terceira lista\\\" src=\\\"img/trpl15-03.svg\\\" class=\\\"center\\\" /\u003E\\n\\n\u003Cspan class=\\\"caption\\\"\u003EFigura 15-3: Duas listas, `b` e `c`, compartilhando posse\\nde uma terceira lista, `a`\u003C/span\u003E\\n\\nVamos criar a lista `a` que contém 5 e depois 10. Então criaremos mais duas\\nlistas: `b`, que começa com 3 e `c`, que começa com 4. Ambas as listas `b` e `c`\\nirão então continuar na lista `a` contendo 5 e 10. Em outras palavras, ambas as\\nlistas irão compartilhar a primeira lista contendo 5 e 10.\\n\\nTentar implementar esse cenário usando nossa definição de `List` com `Box\u003CT\u003E`\\nnão irá funcionar, como mostra a Listagem 15-17:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,3,1,0": {
-    "value": "\"Vamos retornar ao nosso exemplo de _cons list_ da Listagem 15-5. Lembre-se de\\nque a definimos usando o `Box\u003CT\u003E`. Desta vez, vamos criar duas listas que\\ncompartilham ambas a posse de uma terceira lista, o que conceitualmente vai se\\nparecer com a Figura 15-3:\\n\\n\u003Cimg alt=\\\"Duas listas que compartilham a posse de uma terceira lista\\\" src=\\\"img/trpl15-03.svg\\\" class=\\\"center\\\" /\u003E\\n\\n\u003Cspan class=\\\"caption\\\"\u003EFigura 15-3: Duas listas, `b` e `c`, compartilhando posse\\nde uma terceira lista, `a`\u003C/span\u003E\\n\\nVamos criar a lista `a` que contém 5 e depois 10. Então criaremos mais duas\\nlistas: `b`, que começa com 3 e `c`, que começa com 4. Ambas as listas `b` e `c`\\nirão então continuar na lista `a` contendo 5 e 10. Em outras palavras, ambas as\\nlistas irão compartilhar a primeira lista contendo 5 e 10.\\n\\nTentar implementar esse cenário usando nossa definição de `List` com `Box\u003CT\u003E`\\nnão irá funcionar, como mostra a Listagem 15-17:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,4,0": {
-    "value": "\"enum List {\\n    Cons(i32, Box\u003CList\u003E),\\n    Nil,\\n}\\n\\nuse List::{Cons, Nil};\\n\\nfn main() {\\n    let a = Cons(5,\\n        Box::new(Cons(10,\\n            Box::new(Nil))));\\n    let b = Cons(3, Box::new(a));\\n    let c = Cons(4, Box::new(a));\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-17: Demonstrando que não é possível termos\\nduas listas usando `Box\u003CT\u003E` que tentam compartilhar posse de uma terceira\\nlista\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,6": {
-    "value": "\"Quando compilamos esse código, recebemos este erro:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,7,0": {
-    "value": "\"erro de valor movido: `a`\\n  --\u003E src/main.rs:13:30\\n   |\\n12 |     let b = Cons(3, Box::new(a));\\n   |                              - valor movido para cá\\n13 |     let c = Cons(4, Box::new(a));\\n   |                              ^ valor usado aqui depois de movido\\n   |\\n   = nota: o valor é movido porque `a` tem tipo `List`, que não implementa\\n   a trait `Copy`\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,8": {
-    "value": "\"As variantes `Cons` têm posse dos dados que elas contêm, então quando criamos a\\nlista `b`, `a` é movida para dentro de `b`, e `b` toma posse de `a`. Então,\\nquando tentamos usar `a` de novo na criação de `c`, não somos permitidos porque\\n`a` foi movida.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#body@0,9": {
-    "value": "\"Poderíamos mudar a definição de `Cons` para guardar referências, mas aí teríamos\\nque especificar parâmetros de tempo de vida (_lifetime parameters_). Fazendo\\nisso, estaríamos especificando que cada elemento da lista devesse viver por pelo\\nmenos tanto tempo quanto a lista inteira. O _verificador de empréstimo_ (_borrow\\nchecker_) não nos deixaria compilar `let a = Cons(10, \u0026Nil);`, por exemplo,\\nporque o valor temporário `Nil` seria destruído antes que `a` pudesse receber\\numa referência a ele.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-04-rc#caption@0,17,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-04-rc#caption@0,20,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-04-rc#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-04-rc#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-04-rc#open@0,16": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#title@0,16": {
-    "value": "\"Clonar um `Rc\u003CT\u003E` Aumenta a Contagem de Referências\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#title@0,2": {
-    "value": "\"`Rc\u003CT\u003E`, o Ponteiro Inteligente com Contagem de Referências\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-04-rc#title@0,3": {
-    "value": "\"Usando `Rc\u003CT\u003E` para Compartilhar Dados\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -739,7 +739,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -936,7 +936,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="rc-t-o-ponteiro-inteligente-com-contagem-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-04-rc#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>Rc&lt;T&gt;</code>, o Ponteiro Inteligente com Contagem de Referências</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="rc-t-o-ponteiro-inteligente-com-contagem-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>Rc&lt;T&gt;</code>, o Ponteiro Inteligente com Contagem de Referências</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem
 posse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos
 possuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas
@@ -967,7 +967,7 @@ tempo de compilação teriam efeito.</p>
 discutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de
 referências em programas com múltiplas threads.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="usando-rc-t-para-compartilhar-dados" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-04-rc#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>Rc&lt;T&gt;</code> para Compartilhar Dados</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="usando-rc-t-para-compartilhar-dados" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Usando <code>Rc&lt;T&gt;</code> para Compartilhar Dados</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos retornar ao nosso exemplo de <em>cons list</em> da Listagem 15-5. Lembre-se de
 que a definimos usando o <code>Box&lt;T&gt;</code>. Desta vez, vamos criar duas listas que
 compartilham ambas a posse de uma terceira lista, o que conceitualmente vai se
@@ -1086,7 +1086,7 @@ não irá funcionar, como mostra a Listagem 15-17:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-18: Uma definição de <code>List</code> que usa o <code>Rc&lt;T&gt;</code><!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Precisamos adicionar uma declaração <code>use</code> para trazer o <code>Rc&lt;T&gt;</code> ao escopo porque ele não está no prelúdio. Na <code>main</code>, criamos a lista contendo 5 e 10 e a armazenamos em um novo <code>Rc&lt;List&gt;</code> em <code>a</code>. Então quando criamos <code>b</code> e <code>c</code>, chamamos a função <code>Rc::clone</code> e passamos uma referência ao <code>Rc&lt;List&gt;</code> em <code>a</code> como argumento.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Poderíamos ter chamado <code>a.clone()</code> em vez de <code>Rc::clone(&amp;a)</code>, mas a convenção do Rust é usar <code>Rc::clone</code> neste caso. A implementação de <code>Rc::clone</code> não faz uma cópia profunda de todos os dados como faz a implementação de <code>clone</code> da maioria dos tipos. A chamada a <code>Rc::clone</code> apenas incrementa a contagem de referências, o que não leva muito tempo. Cópias profundas de dados podem levar muito tempo. Usando <code>Rc::clone</code> para a contagem de referências, podemos distinguir visualmente entre os clones de cópia profunda e os clones que incrementam a contagem de referências. Quando estivermos procurando problemas de desempenho no código, precisamos apenas considerar os clones de cópia profunda e podemos ignorar as chamadas a <code>Rc::clone</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="clonar-um-rc-t-aumenta-a-contagem-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-04-rc#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Clonar um <code>Rc&lt;T&gt;</code> Aumenta a Contagem de Referências</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="clonar-um-rc-t-aumenta-a-contagem-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-04-rc#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Clonar um <code>Rc&lt;T&gt;</code> Aumenta a Contagem de Referências</div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a
 contagem de referências mudando conforme criamos e destruímos referências ao
 <code>Rc&lt;List&gt;</code> em <code>a</code>.</p>

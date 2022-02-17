@@ -12,6 +12,387 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,10": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-21: Definindo a função `search_case_insensitive`\\npara forçar caixa baixa na consulta antes de compará-las\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,11": {
+    "value": "\"Primeiro, caixa baixa na string `query` e a armazenamos em uma variável sombreada com\\no mesmo nome. Chamar `to_lowercase` na consulta é necessário, portanto, não importa\\nse a consulta do usuário é “rust”, “RUST”, “Rust”, ou “rUsT”, trataremos a\\nconsulta como se fosse “rust” sendo insensível ao caso.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,12": {
+    "value": "\"Note que `query` é agora uma `String` ao invés de um fatia de string, porque chamar \\n`to_lowercase` cria novos dados em vez de referenciar dados existentes. Suponha que\\na consulta é “rUsT”, por exemplo: essa fatia de string não contém minúsculas\\n“u” ou “t” para nós usarmos, então temos que alocar uma nova `String` contendo\\n“rust”. Quando passamos `query` como um argumento para o método `contains` agora, nós\\nprecisamos adicionar um ampersand (\u0026) porque a assinatura de `contains` é definida para\\numa fatia de string.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,13": {
+    "value": "\"Em seguida, adicionamos uma chamada a `to_lowercase` em cada `line` antes de verificarmos se\\ncontém `query` para passar para caixa baixa em todos os caracteres. Agora que convertemos `line`\\ne `query` para letras minúsculas, encontraremos correspondências, não importa qual seja o caso da\\nconsulta.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,14": {
+    "value": "\"Vamos ver se esta implementação passa nos testes:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,15,0": {
+    "value": "\"running 2 tests\\ntest test::case_insensitive ... ok\\ntest test::case_sensitive ... ok\\n\\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
+    "dependencies": {
+      "0,0,0,1,1,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,16": {
+    "value": "\"Ótimo! Eles passaram. Agora, vamos chamar a nova função `search_case_insensitive`\\nda função `run`. Primeiro, adicionaremos uma opção de configuração ao\\n`Config` struct para alternar entre pesquisa sensível a maiúsculas e minúsculas.\\nAdicionar esse campo causará erros no compilador, já que não estamos inicializando\\no campo em nenhum lugar:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,17": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,18,0": {
+    "value": "\"pub struct Config {\\n    pub query: String,\\n    pub filename: String,\\n    pub case_sensitive: bool,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,19": {
+    "value": "\"Note que nós adicionamos o campo `case_sensitive` que contém um Booleano. Em seguida nós\\nprecisamos da função `run` para verificar o valor do campo `case_sensitive` e usá-la\\npara decidir se devemos chamar a função `search` ou a\\nfunção `search_case_insensitive`, conforme mostrado na Listagem 12-22. Note que isso ainda\\nnão irá compilar ainda:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,2": {
+    "value": "\"Melhoraremos `minigrep` adicionando um recurso extra: uma opção para\\npesquisa insensível às letras maiúsculas ou minúsculas, que o usuário poderá ativar através de\\nvariável de ambiente. Poderíamos fazer deste recurso uma opção de linha de comando e exigir que\\nos usuários entram cada vez que eles querem que ele se aplique, mas, em vez disso, usaremos um\\nvariável de ambiente. Isso permite que nossos usuários estabeleçam a variável de ambiente\\numa vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas naquela sessão do terminal.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,2,1,0": {
+    "value": "\"Melhoraremos `minigrep` adicionando um recurso extra: uma opção para\\npesquisa insensível às letras maiúsculas ou minúsculas, que o usuário poderá ativar através de\\nvariável de ambiente. Poderíamos fazer deste recurso uma opção de linha de comando e exigir que\\nos usuários entram cada vez que eles querem que ele se aplique, mas, em vez disso, usaremos um\\nvariável de ambiente. Isso permite que nossos usuários estabeleçam a variável de ambiente\\numa vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas naquela sessão do terminal.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,20": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,21,0": {
+    "value": "\"# use std::error::Error;\\n# use std::fs::File;\\n# use std::io::prelude::*;\\n#\\n# fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n# fn search_case_insensitive\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n# struct Config {\\n#     query: String,\\n#     filename: String,\\n#     case_sensitive: bool,\\n# }\\n#\\npub fn run(config: Config) -\u003E Result\u003C(), Box\u003CError\u003E\u003E {\\n    let mut f = File::open(config.filename)?;\\n\\n    let mut contents = String::new();\\n    f.read_to_string(\u0026mut contents)?;\\n\\n    let results = if config.case_sensitive {\\n        search(\u0026config.query, \u0026contents)\\n    } else {\\n        search_case_insensitive(\u0026config.query, \u0026contents)\\n    };\\n\\n    for line in results {\\n        println!(\\\"{}\\\", line);\\n    }\\n\\n    Ok(())\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,22": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-22: Chamando  `search` ou\\n`search_case_insensitive` baseado no valor em `config.case_sensitive`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,23": {
+    "value": "\"Finalmente, precisamos verificar a variável de ambiente. As funções para\\ntrabalhar com variáveis de ambiente estão no módulo `env` na biblioteca padrão\\n, por isso queremos trazer esse módulo para o escopo com uma linha `use std::env;`\\nno topo de *src/lib.rs*. Então vamos usar o método `var` do módulo `env`\\npara verificar uma variável de ambiente chamada `CASE_INSENSITIVE`, conforme\\nna Listagem 12-23:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,24": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,25,0": {
+    "value": "\"use std::env;\\n# struct Config {\\n#     query: String,\\n#     filename: String,\\n#     case_sensitive: bool,\\n# }\\n\\n\\\\// --snip--\\n\\nimpl Config {\\n    pub fn new(args: \u0026[String]) -\u003E Result\u003CConfig, \u0026'static str\u003E {\\n        if args.len() \u003C 3 {\\n            return Err(\\\"not enough arguments\\\");\\n        }\\n\\n        let query = args[1].clone();\\n        let filename = args[2].clone();\\n\\n        let case_sensitive = env::var(\\\"CASE_INSENSITIVE\\\").is_err();\\n\\n        Ok(Config { query, filename, case_sensitive })\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,26": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-23: Checando por uma variável de ambiente chamada\\n`CASE_INSENSITIVE`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,27": {
+    "value": "\"Aqui, criamos uma nova variável `case_sensitive`. Para definir seu valor, chamamos a\\nfunção `env::var` e passamos o nome da variável de ambiente `CASE_INSENSITIVE`\\n. O método `env::var` retorna um `Result` que será o sucesso\\nvariante `Ok` que contém o valor da variável de ambiente se a\\nvariável de ambiente está definida. Ele retornará a variante `Err` se a\\nvariável de ambiente não está definida.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,28": {
+    "value": "\"Estamos usando o método `is_err` no `Result` para verificar se é um erro\\ne, portanto, não definido, o que significa que *deveria* fazer uma pesquisa sensível a maiúsculas e minúsculas. Se \\na variável de ambiente `CASE_INSENSITIVE` está configurada para qualquer coisa,`is_err` irá\\nretornar false e realizará uma pesquisa sem distinção entre maiúsculas e minúsculas. Nós não nos importamos com\\no *valor* da variável de ambiente, apenas se está definido ou não,\\nestamos verificando `is_err` em vez de `unwrap`, `expect` ou qualquer um dos outros\\nmétodos que vimos em `Result`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,29": {
+    "value": "\"Nós passamos o valor na variável `case_sensitive` para a instância `Config`\\nna função `run` pode ler esse valor e decidir se deve chamar `search` ou\\n`search_case_insensitive` conforme implementamos na Listagem 12-22.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,3": {
+    "value": "\"Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando\\na variável de ambiente estiver ativada. Seguiremos com o processo TDD, então\\no primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a\\nnova função `search_case_insensitive` e renomear nosso antigo teste de\\n`one_result` para `case_sensitive` de forma a esclarecer as diferenças entre os dois\\ntestes, conforme mostrado na Listagem 12-20:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,3,1,0": {
+    "value": "\"Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando\\na variável de ambiente estiver ativada. Seguiremos com o processo TDD, então\\no primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a\\nnova função `search_case_insensitive` e renomear nosso antigo teste de\\n`one_result` para `case_sensitive` de forma a esclarecer as diferenças entre os dois\\ntestes, conforme mostrado na Listagem 12-20:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,30": {
+    "value": "\"Vamos tentar! Primeiro, executaremos nosso programa sem o conjunto de variáveis \\nde ambiente e com a consulta “to”, que deve corresponder a qualquer linha que contenha\\na palavra “to” em todas as letras minúsculas:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,31,0": {
+    "value": "\"$ cargo run to poem.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep to poem.txt`\\nAre you nobody, too?\\nHow dreary to be somebody!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,32": {
+    "value": "\"Parece que isso ainda funciona! Agora, vamos executar o programa com `CASE_INSENSITIVE`\\ndefinido como `1` mas com a mesma consulta “to”; devemos pegar linhas que contenham “to”\\nque possam ter letras maiúsculas:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,33,0": {
+    "value": "\"$ CASE_INSENSITIVE=1 cargo run to poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep to poem.txt`\\nAre you nobody, too?\\nHow dreary to be somebody!\\nTo tell your name the livelong day\\nTo an admiring bog!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,34": {
+    "value": "\"Se você estiver usando o PowerShell, precisará definir a variável de ambiente e\\nexecutar o programa em dois comandos em vez de um:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,35,0": {
+    "value": "\"$ $env.CASE_INSENSITIVE=1\\n\\\\$ cargo run to poem.txt\"",
+    "dependencies": {
+      "0,0,0,1,1,1,26,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,26,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,36": {
+    "value": "\"Excelente, também temos linhas contendo “To”! Nosso programa `minigrep` agora pode fazer\\nbusca insensível a maiúsculas e minúsculas controlada por uma variável de ambiente. Agora você \\nsabe como gerenciar as opções definidas usando argumentos de linha de comando ou variáveis de ambiente!\"",
+    "dependencies": {
+      "0,0,0,1,1,1,27:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,37": {
+    "value": "\"Alguns programas permitem argumentos *and* variáveis de ambiente para a mesma\\nconfiguração. Nesses casos, os programas decidem que um ou outro tenham\\nprecedência. Para outro exercício por conta própria, tente controlar o caso\\ninsensibilidade através de um argumento de linha de comando ou uma variável de ambiente\\n. Decida se o argumento da linha de comando ou a variável de ambiente\\ndeve ter precedência se o programa for executado com um conjunto para diferenciação de maiúsculas e minúsculas\\nou um conjunto para maiúsculas e minúsculas insensível.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,28:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,38": {
+    "value": "\"O módulo `std::env` contém muitos mais recursos úteis para lidar com\\nvariáveis de ambiente: confira sua documentação para ver o que está disponível.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,29:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,4,0": {
+    "value": "\"#[cfg(test)]\\nmod test {\\n    use super::*;\\n\\n    #[test]\\n    fn case_sensitive() {\\n        let query = \\\"duct\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\nDuct tape.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"safe, fast, productive.\\\"],\\n            search(query, contents)\\n        );\\n    }\\n\\n    #[test]\\n    fn case_insensitive() {\\n        let query = \\\"rUsT\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\nTrust me.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"Rust:\\\", \\\"Trust me.\\\"],\\n            search_case_insensitive(query, contents)\\n        );\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-20: Adicionando um novo teste de falha para a\\nfunção insensível à maiúsculas e minúsculas que estamos prestes a adicionar\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,6": {
+    "value": "\"Note que também editamos o `contents` do antigo teste. Adicionamos uma nova linha\\ncom o texto `“Duct tape”` usando um D maiúsculo que não deve corresponder à consulta\\n“duct” quando procuramos de forma sensível à maiúsculas e minúsculas. Alterando o teste antigo\\ndesta forma, ajuda a garantir que não quebramos acidentalmente a diferenciação de maiúsculas e minúsculas\\nna funcionalidade de pesquisa que já implementamos. Este teste deve passar agora\\ne deve continuar a passar enquanto trabalhamos na pesquisa insensível à maiúsculas e minúsculas.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,7": {
+    "value": "\"O novo teste para a pesquisa insensível usa “rUsT” para sua consulta. Na função\\n`search_case_insensitive` que estamos prestes a adicionar, a consulta “rUsT” deve\\ncombinar a linha que contém “Rust:” com um R maiúsculo e também a linha “Trust\\nme.”, embora ambos tenham uma caixa (maiúsculas e minúsculas) diferente da consulta. Este é o nosso teste de\\nfalha, e ele não compilará porque ainda não definimos a\\nfunção `search_case_insensitive`. Sinta-se livre para adicionar uma implementação\\nque sempre retorna um vetor vazio, semelhante à forma como fizemos para a função `search`\\nna Listagem 12-16 para ver a compilação e o teste falhar.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,8": {
+    "value": "\"A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase\\no mesmo que a função `search`. A única diferença é que vamos forçar minúsculas\\npara `query` e para cada `line`, qualquer que seja o caso dos argumentos de entrada,\\neles serão sempre minúsculos quando verificamos se a linha contém a consulta:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,8,1,0": {
+    "value": "\"A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase\\no mesmo que a função `search`. A única diferença é que vamos forçar minúsculas\\npara `query` e para cada `line`, qualquer que seja o caso dos argumentos de entrada,\\neles serão sempre minúsculos quando verificamos se a linha contém a consulta:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#body@0,9,0": {
+    "value": "\"fn search_case_insensitive\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    let query = query.to_lowercase();\\n    let mut results = Vec::new();\\n\\n    for line in contents.lines() {\\n        if line.to_lowercase().contains(\u0026query) {\\n            results.push(line);\\n        }\\n    }\\n\\n    results\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,15,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,18,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,25,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,16,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,31,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,22,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,33,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,24,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,35,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,26,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,26,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,26,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#caption@0,9,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,8": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#title@0,2": {
+    "value": "\"Trabalhando com Variáveis de Ambiente\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#title@0,3": {
+    "value": "\"Escrevendo um Teste de Falha para a Função `search` insensível a Maiúsculas e Minúsculas\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#title@0,8": {
+    "value": "\"Implementando a Função `search_case_insensitive`\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -293,387 +674,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,10": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-21: Definindo a função `search_case_insensitive`\\npara forçar caixa baixa na consulta antes de compará-las\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,11": {
-    "value": "\"Primeiro, caixa baixa na string `query` e a armazenamos em uma variável sombreada com\\no mesmo nome. Chamar `to_lowercase` na consulta é necessário, portanto, não importa\\nse a consulta do usuário é “rust”, “RUST”, “Rust”, ou “rUsT”, trataremos a\\nconsulta como se fosse “rust” sendo insensível ao caso.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,12": {
-    "value": "\"Note que `query` é agora uma `String` ao invés de um fatia de string, porque chamar \\n`to_lowercase` cria novos dados em vez de referenciar dados existentes. Suponha que\\na consulta é “rUsT”, por exemplo: essa fatia de string não contém minúsculas\\n“u” ou “t” para nós usarmos, então temos que alocar uma nova `String` contendo\\n“rust”. Quando passamos `query` como um argumento para o método `contains` agora, nós\\nprecisamos adicionar um ampersand (\u0026) porque a assinatura de `contains` é definida para\\numa fatia de string.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,13": {
-    "value": "\"Em seguida, adicionamos uma chamada a `to_lowercase` em cada `line` antes de verificarmos se\\ncontém `query` para passar para caixa baixa em todos os caracteres. Agora que convertemos `line`\\ne `query` para letras minúsculas, encontraremos correspondências, não importa qual seja o caso da\\nconsulta.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,14": {
-    "value": "\"Vamos ver se esta implementação passa nos testes:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,15,0": {
-    "value": "\"running 2 tests\\ntest test::case_insensitive ... ok\\ntest test::case_sensitive ... ok\\n\\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out\"",
-    "dependencies": {
-      "0,0,0,1,1,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,16": {
-    "value": "\"Ótimo! Eles passaram. Agora, vamos chamar a nova função `search_case_insensitive`\\nda função `run`. Primeiro, adicionaremos uma opção de configuração ao\\n`Config` struct para alternar entre pesquisa sensível a maiúsculas e minúsculas.\\nAdicionar esse campo causará erros no compilador, já que não estamos inicializando\\no campo em nenhum lugar:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,17": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,18,0": {
-    "value": "\"pub struct Config {\\n    pub query: String,\\n    pub filename: String,\\n    pub case_sensitive: bool,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,19": {
-    "value": "\"Note que nós adicionamos o campo `case_sensitive` que contém um Booleano. Em seguida nós\\nprecisamos da função `run` para verificar o valor do campo `case_sensitive` e usá-la\\npara decidir se devemos chamar a função `search` ou a\\nfunção `search_case_insensitive`, conforme mostrado na Listagem 12-22. Note que isso ainda\\nnão irá compilar ainda:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,2": {
-    "value": "\"Melhoraremos `minigrep` adicionando um recurso extra: uma opção para\\npesquisa insensível às letras maiúsculas ou minúsculas, que o usuário poderá ativar através de\\nvariável de ambiente. Poderíamos fazer deste recurso uma opção de linha de comando e exigir que\\nos usuários entram cada vez que eles querem que ele se aplique, mas, em vez disso, usaremos um\\nvariável de ambiente. Isso permite que nossos usuários estabeleçam a variável de ambiente\\numa vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas naquela sessão do terminal.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,2,1,0": {
-    "value": "\"Melhoraremos `minigrep` adicionando um recurso extra: uma opção para\\npesquisa insensível às letras maiúsculas ou minúsculas, que o usuário poderá ativar através de\\nvariável de ambiente. Poderíamos fazer deste recurso uma opção de linha de comando e exigir que\\nos usuários entram cada vez que eles querem que ele se aplique, mas, em vez disso, usaremos um\\nvariável de ambiente. Isso permite que nossos usuários estabeleçam a variável de ambiente\\numa vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas naquela sessão do terminal.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,20": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,21,0": {
-    "value": "\"# use std::error::Error;\\n# use std::fs::File;\\n# use std::io::prelude::*;\\n#\\n# fn search\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n# fn search_case_insensitive\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n#      vec![]\\n# }\\n#\\n# struct Config {\\n#     query: String,\\n#     filename: String,\\n#     case_sensitive: bool,\\n# }\\n#\\npub fn run(config: Config) -\u003E Result\u003C(), Box\u003CError\u003E\u003E {\\n    let mut f = File::open(config.filename)?;\\n\\n    let mut contents = String::new();\\n    f.read_to_string(\u0026mut contents)?;\\n\\n    let results = if config.case_sensitive {\\n        search(\u0026config.query, \u0026contents)\\n    } else {\\n        search_case_insensitive(\u0026config.query, \u0026contents)\\n    };\\n\\n    for line in results {\\n        println!(\\\"{}\\\", line);\\n    }\\n\\n    Ok(())\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,22": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-22: Chamando  `search` ou\\n`search_case_insensitive` baseado no valor em `config.case_sensitive`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,23": {
-    "value": "\"Finalmente, precisamos verificar a variável de ambiente. As funções para\\ntrabalhar com variáveis de ambiente estão no módulo `env` na biblioteca padrão\\n, por isso queremos trazer esse módulo para o escopo com uma linha `use std::env;`\\nno topo de *src/lib.rs*. Então vamos usar o método `var` do módulo `env`\\npara verificar uma variável de ambiente chamada `CASE_INSENSITIVE`, conforme\\nna Listagem 12-23:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,24": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,25,0": {
-    "value": "\"use std::env;\\n# struct Config {\\n#     query: String,\\n#     filename: String,\\n#     case_sensitive: bool,\\n# }\\n\\n\\\\// --snip--\\n\\nimpl Config {\\n    pub fn new(args: \u0026[String]) -\u003E Result\u003CConfig, \u0026'static str\u003E {\\n        if args.len() \u003C 3 {\\n            return Err(\\\"not enough arguments\\\");\\n        }\\n\\n        let query = args[1].clone();\\n        let filename = args[2].clone();\\n\\n        let case_sensitive = env::var(\\\"CASE_INSENSITIVE\\\").is_err();\\n\\n        Ok(Config { query, filename, case_sensitive })\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,26": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-23: Checando por uma variável de ambiente chamada\\n`CASE_INSENSITIVE`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,17:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,27": {
-    "value": "\"Aqui, criamos uma nova variável `case_sensitive`. Para definir seu valor, chamamos a\\nfunção `env::var` e passamos o nome da variável de ambiente `CASE_INSENSITIVE`\\n. O método `env::var` retorna um `Result` que será o sucesso\\nvariante `Ok` que contém o valor da variável de ambiente se a\\nvariável de ambiente está definida. Ele retornará a variante `Err` se a\\nvariável de ambiente não está definida.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,18:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,28": {
-    "value": "\"Estamos usando o método `is_err` no `Result` para verificar se é um erro\\ne, portanto, não definido, o que significa que *deveria* fazer uma pesquisa sensível a maiúsculas e minúsculas. Se \\na variável de ambiente `CASE_INSENSITIVE` está configurada para qualquer coisa,`is_err` irá\\nretornar false e realizará uma pesquisa sem distinção entre maiúsculas e minúsculas. Nós não nos importamos com\\no *valor* da variável de ambiente, apenas se está definido ou não,\\nestamos verificando `is_err` em vez de `unwrap`, `expect` ou qualquer um dos outros\\nmétodos que vimos em `Result`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,19:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,29": {
-    "value": "\"Nós passamos o valor na variável `case_sensitive` para a instância `Config`\\nna função `run` pode ler esse valor e decidir se deve chamar `search` ou\\n`search_case_insensitive` conforme implementamos na Listagem 12-22.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,20:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,3": {
-    "value": "\"Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando\\na variável de ambiente estiver ativada. Seguiremos com o processo TDD, então\\no primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a\\nnova função `search_case_insensitive` e renomear nosso antigo teste de\\n`one_result` para `case_sensitive` de forma a esclarecer as diferenças entre os dois\\ntestes, conforme mostrado na Listagem 12-20:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,3,1,0": {
-    "value": "\"Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando\\na variável de ambiente estiver ativada. Seguiremos com o processo TDD, então\\no primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a\\nnova função `search_case_insensitive` e renomear nosso antigo teste de\\n`one_result` para `case_sensitive` de forma a esclarecer as diferenças entre os dois\\ntestes, conforme mostrado na Listagem 12-20:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,30": {
-    "value": "\"Vamos tentar! Primeiro, executaremos nosso programa sem o conjunto de variáveis \\nde ambiente e com a consulta “to”, que deve corresponder a qualquer linha que contenha\\na palavra “to” em todas as letras minúsculas:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,21:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,31,0": {
-    "value": "\"$ cargo run to poem.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep to poem.txt`\\nAre you nobody, too?\\nHow dreary to be somebody!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,32": {
-    "value": "\"Parece que isso ainda funciona! Agora, vamos executar o programa com `CASE_INSENSITIVE`\\ndefinido como `1` mas com a mesma consulta “to”; devemos pegar linhas que contenham “to”\\nque possam ter letras maiúsculas:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,23:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,33,0": {
-    "value": "\"$ CASE_INSENSITIVE=1 cargo run to poem.txt\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep to poem.txt`\\nAre you nobody, too?\\nHow dreary to be somebody!\\nTo tell your name the livelong day\\nTo an admiring bog!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,34": {
-    "value": "\"Se você estiver usando o PowerShell, precisará definir a variável de ambiente e\\nexecutar o programa em dois comandos em vez de um:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,25:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,35,0": {
-    "value": "\"$ $env.CASE_INSENSITIVE=1\\n\\\\$ cargo run to poem.txt\"",
-    "dependencies": {
-      "0,0,0,1,1,1,26,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,26,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,36": {
-    "value": "\"Excelente, também temos linhas contendo “To”! Nosso programa `minigrep` agora pode fazer\\nbusca insensível a maiúsculas e minúsculas controlada por uma variável de ambiente. Agora você \\nsabe como gerenciar as opções definidas usando argumentos de linha de comando ou variáveis de ambiente!\"",
-    "dependencies": {
-      "0,0,0,1,1,1,27:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,37": {
-    "value": "\"Alguns programas permitem argumentos *and* variáveis de ambiente para a mesma\\nconfiguração. Nesses casos, os programas decidem que um ou outro tenham\\nprecedência. Para outro exercício por conta própria, tente controlar o caso\\ninsensibilidade através de um argumento de linha de comando ou uma variável de ambiente\\n. Decida se o argumento da linha de comando ou a variável de ambiente\\ndeve ter precedência se o programa for executado com um conjunto para diferenciação de maiúsculas e minúsculas\\nou um conjunto para maiúsculas e minúsculas insensível.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,28:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,38": {
-    "value": "\"O módulo `std::env` contém muitos mais recursos úteis para lidar com\\nvariáveis de ambiente: confira sua documentação para ver o que está disponível.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,29:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,4,0": {
-    "value": "\"#[cfg(test)]\\nmod test {\\n    use super::*;\\n\\n    #[test]\\n    fn case_sensitive() {\\n        let query = \\\"duct\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\nDuct tape.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"safe, fast, productive.\\\"],\\n            search(query, contents)\\n        );\\n    }\\n\\n    #[test]\\n    fn case_insensitive() {\\n        let query = \\\"rUsT\\\";\\n        let contents = \\\"\\\\\\nRust:\\nsafe, fast, productive.\\nPick three.\\nTrust me.\\\";\\n\\n        assert_eq!(\\n            vec![\\\"Rust:\\\", \\\"Trust me.\\\"],\\n            search_case_insensitive(query, contents)\\n        );\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-20: Adicionando um novo teste de falha para a\\nfunção insensível à maiúsculas e minúsculas que estamos prestes a adicionar\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,6": {
-    "value": "\"Note que também editamos o `contents` do antigo teste. Adicionamos uma nova linha\\ncom o texto `“Duct tape”` usando um D maiúsculo que não deve corresponder à consulta\\n“duct” quando procuramos de forma sensível à maiúsculas e minúsculas. Alterando o teste antigo\\ndesta forma, ajuda a garantir que não quebramos acidentalmente a diferenciação de maiúsculas e minúsculas\\nna funcionalidade de pesquisa que já implementamos. Este teste deve passar agora\\ne deve continuar a passar enquanto trabalhamos na pesquisa insensível à maiúsculas e minúsculas.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,7": {
-    "value": "\"O novo teste para a pesquisa insensível usa “rUsT” para sua consulta. Na função\\n`search_case_insensitive` que estamos prestes a adicionar, a consulta “rUsT” deve\\ncombinar a linha que contém “Rust:” com um R maiúsculo e também a linha “Trust\\nme.”, embora ambos tenham uma caixa (maiúsculas e minúsculas) diferente da consulta. Este é o nosso teste de\\nfalha, e ele não compilará porque ainda não definimos a\\nfunção `search_case_insensitive`. Sinta-se livre para adicionar uma implementação\\nque sempre retorna um vetor vazio, semelhante à forma como fizemos para a função `search`\\nna Listagem 12-16 para ver a compilação e o teste falhar.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,8": {
-    "value": "\"A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase\\no mesmo que a função `search`. A única diferença é que vamos forçar minúsculas\\npara `query` e para cada `line`, qualquer que seja o caso dos argumentos de entrada,\\neles serão sempre minúsculos quando verificamos se a linha contém a consulta:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,8,1,0": {
-    "value": "\"A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase\\no mesmo que a função `search`. A única diferença é que vamos forçar minúsculas\\npara `query` e para cada `line`, qualquer que seja o caso dos argumentos de entrada,\\neles serão sempre minúsculos quando verificamos se a linha contém a consulta:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/lib.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#body@0,9,0": {
-    "value": "\"fn search_case_insensitive\u003C'a\u003E(query: \u0026str, contents: \u0026'a str) -\u003E Vec\u003C\u0026'a str\u003E {\\n    let query = query.to_lowercase();\\n    let mut results = Vec::new();\\n\\n    for line in contents.lines() {\\n        if line.to_lowercase().contains(\u0026query) {\\n            results.push(line);\\n        }\\n    }\\n\\n    results\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,15,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,18,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,9,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,9,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,9,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,12,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,12,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,12,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,25,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,16,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,16,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,16,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,31,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,22,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,22,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,22,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,33,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,24,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,24,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,24,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,35,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,26,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,26,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,26,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#caption@0,9,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#open@0,8": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#title@0,2": {
-    "value": "\"Trabalhando com Variáveis de Ambiente\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#title@0,3": {
-    "value": "\"Escrevendo um Teste de Falha para a Função `search` insensível a Maiúsculas e Minúsculas\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-05-working-with-environment-variables#title@0,8": {
-    "value": "\"Implementando a Função `search_case_insensitive`\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -884,7 +884,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1081,9 +1081,9 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="trabalhando-com-variaveis-de-ambiente" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-05-working-with-environment-variables#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trabalhando com Variáveis de Ambiente</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="trabalhando-com-variaveis-de-ambiente" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Trabalhando com Variáveis de Ambiente</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Melhoraremos <code>minigrep</code> adicionando um recurso extra: uma opção para pesquisa insensível às letras maiúsculas ou minúsculas, que o usuário poderá ativar através de variável de ambiente. Poderíamos fazer deste recurso uma opção de linha de comando e exigir que os usuários entram cada vez que eles querem que ele se aplique, mas, em vez disso, usaremos um variável de ambiente. Isso permite que nossos usuários estabeleçam a variável de ambiente uma vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas naquela sessão do terminal.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-um-teste-de-falha-para-a-funcao-search-insensivel-a-maiusculas-e-minusculas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-05-working-with-environment-variables#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo um Teste de Falha para a Função <code>search</code> insensível a Maiúsculas e Minúsculas</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="escrevendo-um-teste-de-falha-para-a-funcao-search-insensivel-a-maiusculas-e-minusculas" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Escrevendo um Teste de Falha para a Função <code>search</code> insensível a Maiúsculas e Minúsculas</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Queremos adicionar uma nova função <code>search_case_insensitive</code> que chamaremos quando
 a variável de ambiente estiver ativada. Seguiremos com o processo TDD, então
 o primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a
@@ -1169,7 +1169,7 @@ testes, conforme mostrado na Listagem 12-20:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 12-20: Adicionando um novo teste de falha para a função insensível à maiúsculas e minúsculas que estamos prestes a adicionar<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Note que também editamos o <code>contents</code> do antigo teste. Adicionamos uma nova linha com o texto <code>“Duct tape”</code> usando um D maiúsculo que não deve corresponder à consulta “duct” quando procuramos de forma sensível à maiúsculas e minúsculas. Alterando o teste antigo desta forma, ajuda a garantir que não quebramos acidentalmente a diferenciação de maiúsculas e minúsculas na funcionalidade de pesquisa que já implementamos. Este teste deve passar agora e deve continuar a passar enquanto trabalhamos na pesquisa insensível à maiúsculas e minúsculas.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">O novo teste para a pesquisa insensível usa “rUsT” para sua consulta. Na função <code>search_case_insensitive</code> que estamos prestes a adicionar, a consulta “rUsT” deve combinar a linha que contém “Rust:” com um R maiúsculo e também a linha “Trust me.”, embora ambos tenham uma caixa (maiúsculas e minúsculas) diferente da consulta. Este é o nosso teste de falha, e ele não compilará porque ainda não definimos a função <code>search_case_insensitive</code>. Sinta-se livre para adicionar uma implementação que sempre retorna um vetor vazio, semelhante à forma como fizemos para a função <code>search</code> na Listagem 12-16 para ver a compilação e o teste falhar.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="implementando-a-funcao-search-case-insensitive" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-05-working-with-environment-variables#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando a Função <code>search_case_insensitive</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="implementando-a-funcao-search-case-insensitive" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-05-working-with-environment-variables#open@0,8&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Implementando a Função <code>search_case_insensitive</code></div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>A função <code>search_case_insensitive</code>, mostrada na Listagem 12-21, será quase
 o mesmo que a função <code>search</code>. A única diferença é que vamos forçar minúsculas
 para <code>query</code> e para cada <code>line</code>, qualquer que seja o caso dos argumentos de entrada,

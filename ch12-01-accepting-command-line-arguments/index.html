@@ -12,6 +12,264 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,10": {
+    "value": "\"Primeiro, trazemos o módulo `std::env` para o escopo com uma declaração `use`, então nós\\npodemos usar a função `args`. Observe que a função `std::env::args` é\\naninhada em dois níveis de módulos. Como discutimos no Capítulo 7, nos casos em que\\na função desejada está aninhada em mais de um módulo, é convenção\\ntrazer o módulo pai para o escopo em vez da função. Como resultado, nós\\npodemos facilmente usar outras funções de `std::env`. Também é menos ambíguo que\\nadicionar `use std::env::args` e depois chamando a função com apenas `args`\\nporque `args` pode ser facilmente confundido com uma função definida no\\nmódulo atual.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,11": {
+    "value": "\"\u003E ### A Função `args` e Unicode Inválido\\n\u003E\\n\u003E Note que `std::env::args` emitirá pânico se algum argumento contiver código\\n\u003E Unicode inválido. Se o seu programa precisar aceitar argumentos que sejam \\n\u003E Unicode inválidos , use `std::env::args_os` em vez disso. Essa função retorna valores `OsString`\\n\u003E em vez de valores `String`. Nós escolhemos usar `std::env::args` aqui\\n\u003E por simplicidade, porque os valores de `OsString` diferem por plataforma e são mais\\n\u003E complexo para trabalhar do que os valores de `String`.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,12": {
+    "value": "\"Na primeira linha do `main`, chamamos `env::args`, e usamos `collect` imediatamente\\npara transformar o iterador em um vetor contendo todos os valores produzidos pelo\\niterador. Podemos usar a função `collect` para criar muitos tipos de\\ncoleções, então nós explicitamente anotamos o tipo de `args` para especificar que nós\\nqueremos um vetor de strings. Embora raramente precisemos anotar tipos em\\nRust, `collect` é uma função que muitas vezes você precisa anotar, porque Rust\\nnão é capaz de inferir o tipo de coleção que deseja.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,13": {
+    "value": "\"Finalmente, imprimimos o vetor usando o formatador de debug, `:?`. Vamos tentar executar\\no código sem argumentos e depois com dois argumentos:\"",
+    "dependencies": {
+      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,14,0": {
+    "value": "\"$ cargo run\\n--snip--\\n[\\\"target/debug/minigrep\\\"]\\n\\n\\\\$ cargo run needle haystack\\n--snip--\\n[\\\"target/debug/minigrep\\\", \\\"needle\\\", \\\"haystack\\\"]\"",
+    "dependencies": {
+      "0,0,0,1,4,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,15": {
+    "value": "\"Observe que o primeiro valor no vetor é `\\\"target/debug/minigrep\\\"`, que\\né o nome do nosso binário. Isso corresponde ao comportamento da lista de argumentos em\\nC, permitindo que os programas usem o nome pelo qual eles foram invocados em sua execução.\\nGeralmente, é conveniente ter acesso ao nome do programa, caso desejemos imprimi-lo em mensagens ou \\nalterar o comportamento do programa com base no alias da linha de comando que foi usado \\npara chamar o programa. Mas, para os fins deste capítulo, vamos ignorá-lo e salvar apenas \\nos dois argumentos que precisamos.\"",
+    "dependencies": {
+      "0,0,0,1,4,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,16": {
+    "value": "\"Imprimir o valor do vetor de argumentos ilustra que o programa é\\ncapaz de acessar os valores especificados como argumentos da linha de comando. Agora precisamos\\nsalvar os valores dos dois argumentos nas variáveis para que possamos usar esses valores\\ndurante o resto do programa. Fazemos isso na Listagem 12-2:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,16,1,0": {
+    "value": "\"Imprimir o valor do vetor de argumentos ilustra que o programa é\\ncapaz de acessar os valores especificados como argumentos da linha de comando. Agora precisamos\\nsalvar os valores dos dois argumentos nas variáveis para que possamos usar esses valores\\ndurante o resto do programa. Fazemos isso na Listagem 12-2:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,17,0": {
+    "value": "\"use std::env;\\n\\nfn main() {\\n    let args: Vec\u003CString\u003E = env::args().collect();\\n\\n    let query = \u0026args[1];\\n    let filename = \u0026args[2];\\n\\n    println!(\\\"Searching for {}\\\", query);\\n    println!(\\\"In file {}\\\", filename);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,18": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-2: Criando variáveis para guardar o argumento de consulta\\ne argumento do nome do arquivo\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,19": {
+    "value": "\"Como vimos quando imprimimos o vetor, o nome do programa ocupa o primeiro\\nvalor no vetor em `args[0]`, então estamos começando no índice `1`. O primeiro\\nargumento `minigrep` é a string que estamos procurando, então colocamos uma\\nreferência ao primeiro argumento na variável `query`. O segundo argumento\\nserá o nome do arquivo, então colocamos uma referência ao segundo argumento no\\nvariável `filename`.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,2": {
+    "value": "\"Vamos criar um novo projeto usando, como sempre, `cargo new`. Chamaremos o nosso projeto\\n`minigrep` para distingui-lo da ferramenta` grep` que você já pode ter \\nno seu sistema.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,2,1,0": {
+    "value": "\"Vamos criar um novo projeto usando, como sempre, `cargo new`. Chamaremos o nosso projeto\\n`minigrep` para distingui-lo da ferramenta` grep` que você já pode ter \\nno seu sistema.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,20": {
+    "value": "\"Imprimimos temporariamente os valores dessas variáveis para provar que o código funciona\\ncomo pretendemos. Vamos executar este programa novamente com os argumentos `test`\\ne `sample.txt`:\"",
+    "dependencies": {
+      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,21,0": {
+    "value": "\"$ cargo run test sample.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep test sample.txt`\\nSearching for test\\nIn file sample.txt\"",
+    "dependencies": {
+      "0,0,0,1,5,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,22": {
+    "value": "\"Ótimo, o programa está funcionando! Os valores dos argumentos que precisamos estão sendo\\nsalvos nas variáveis certas. Mais tarde, adicionaremos algum tratamento de erro para lidar\\ncom certas situações errôneas potenciais, como quando o usuário não fornece\\nargumentos; por enquanto, ignoraremos essa situação, e trabalharemos na adição das \\nfuncinalidades de leitura dos arquivos.\"",
+    "dependencies": {
+      "0,0,0,1,5,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,3,0": {
+    "value": "\"$ cargo new --bin minigrep\\n     Created binary (application) `minigrep` project\\n\\\\$ cd minigrep\"",
+    "dependencies": {
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,4": {
+    "value": "\"A primeira tarefa é fazer que `minigrep` aceite seus dois argumentos de linha de comando: o\\nnome de arquivo e uma string para procurar. Ou seja, queremos ser capazes de administrar o nosso\\nprograma com `cargo run`, uma string para procurar e um caminho para um arquivo onde será feira a\\nprocura, dessa forma:\"",
+    "dependencies": {
+      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,5,0": {
+    "value": "\"$ cargo run searchstring example-filename.txt\"",
+    "dependencies": {
+      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,6": {
+    "value": "\"Neste momento, o programa gerado por `cargo new` não pode processar os argumentos que nós\\npassamos. No entanto, algumas bibliotecas existentes no [Crates.io](https://crates.io/)\\nque podem  nos ajudar a escrever um programa que aceite argumentos na linha de comando, mas\\ncomo você está aprendendo esses conceitos, vamos implementar essa capacidade\\nnós mesmos.\"",
+    "dependencies": {
+      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,7": {
+    "value": "\"Para garantir que `minigrep` seja capaz de ler os valores dos argumentos da linha de comando, nós\\nprecisamos de uma função fornecida na biblioteca padrão do Rust, que é\\n`std::env::args`. Esta função retorna um *iterador* da linha de comando\\ncom os argumentos que foram passados à `minigrep`. Ainda não discutimos iteradores\\n(nós os cobrimos totalmente no Capítulo 13), mas por enquanto você só precisa saber dois\\ndetalhes sobre iteradores: os iteradores produzem uma série de valores, e podemos chamar\\na função `collect` em um iterador para transformá-lo em uma coleção, como um\\nvetor, contendo todos os elementos que o iterador produz.\\n\\nUse o código na Listagem 12-1 para permitir que seu programa `minigrep` leia qualquer\\nargumento da linha de comando passados para ele e depois colete os valores em um vetor:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,7,1,0": {
+    "value": "\"Para garantir que `minigrep` seja capaz de ler os valores dos argumentos da linha de comando, nós\\nprecisamos de uma função fornecida na biblioteca padrão do Rust, que é\\n`std::env::args`. Esta função retorna um *iterador* da linha de comando\\ncom os argumentos que foram passados à `minigrep`. Ainda não discutimos iteradores\\n(nós os cobrimos totalmente no Capítulo 13), mas por enquanto você só precisa saber dois\\ndetalhes sobre iteradores: os iteradores produzem uma série de valores, e podemos chamar\\na função `collect` em um iterador para transformá-lo em uma coleção, como um\\nvetor, contendo todos os elementos que o iterador produz.\\n\\nUse o código na Listagem 12-1 para permitir que seu programa `minigrep` leia qualquer\\nargumento da linha de comando passados para ele e depois colete os valores em um vetor:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,8,0": {
+    "value": "\"use std::env;\\n\\nfn main() {\\n    let args: Vec\u003CString\u003E = env::args().collect();\\n    println!(\\\"{:?}\\\", args);\\n}\"",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#body@0,9": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-1: Coletando os argumentos da linha de comando\\num vetor e imprimindo-os\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,14,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,17,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,21,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,5,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,5,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,5,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,3,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,5,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,2,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#caption@0,8,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,16": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,7": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#title@0,16": {
+    "value": "\"Salvando os Valores do Argumento em Variáveis\"",
+    "dependencies": {
+      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#title@0,2": {
+    "value": "\"Aceitando Argumentos em Linha de Comando\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#title@0,7": {
+    "value": "\"Lendo os Valores do Argumento\"",
+    "dependencies": {
+      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -274,264 +532,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,10": {
-    "value": "\"Primeiro, trazemos o módulo `std::env` para o escopo com uma declaração `use`, então nós\\npodemos usar a função `args`. Observe que a função `std::env::args` é\\naninhada em dois níveis de módulos. Como discutimos no Capítulo 7, nos casos em que\\na função desejada está aninhada em mais de um módulo, é convenção\\ntrazer o módulo pai para o escopo em vez da função. Como resultado, nós\\npodemos facilmente usar outras funções de `std::env`. Também é menos ambíguo que\\nadicionar `use std::env::args` e depois chamando a função com apenas `args`\\nporque `args` pode ser facilmente confundido com uma função definida no\\nmódulo atual.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,11": {
-    "value": "\"\u003E ### A Função `args` e Unicode Inválido\\n\u003E\\n\u003E Note que `std::env::args` emitirá pânico se algum argumento contiver código\\n\u003E Unicode inválido. Se o seu programa precisar aceitar argumentos que sejam \\n\u003E Unicode inválidos , use `std::env::args_os` em vez disso. Essa função retorna valores `OsString`\\n\u003E em vez de valores `String`. Nós escolhemos usar `std::env::args` aqui\\n\u003E por simplicidade, porque os valores de `OsString` diferem por plataforma e são mais\\n\u003E complexo para trabalhar do que os valores de `String`.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,12": {
-    "value": "\"Na primeira linha do `main`, chamamos `env::args`, e usamos `collect` imediatamente\\npara transformar o iterador em um vetor contendo todos os valores produzidos pelo\\niterador. Podemos usar a função `collect` para criar muitos tipos de\\ncoleções, então nós explicitamente anotamos o tipo de `args` para especificar que nós\\nqueremos um vetor de strings. Embora raramente precisemos anotar tipos em\\nRust, `collect` é uma função que muitas vezes você precisa anotar, porque Rust\\nnão é capaz de inferir o tipo de coleção que deseja.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,13": {
-    "value": "\"Finalmente, imprimimos o vetor usando o formatador de debug, `:?`. Vamos tentar executar\\no código sem argumentos e depois com dois argumentos:\"",
-    "dependencies": {
-      "0,0,0,1,4,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,14,0": {
-    "value": "\"$ cargo run\\n--snip--\\n[\\\"target/debug/minigrep\\\"]\\n\\n\\\\$ cargo run needle haystack\\n--snip--\\n[\\\"target/debug/minigrep\\\", \\\"needle\\\", \\\"haystack\\\"]\"",
-    "dependencies": {
-      "0,0,0,1,4,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,15": {
-    "value": "\"Observe que o primeiro valor no vetor é `\\\"target/debug/minigrep\\\"`, que\\né o nome do nosso binário. Isso corresponde ao comportamento da lista de argumentos em\\nC, permitindo que os programas usem o nome pelo qual eles foram invocados em sua execução.\\nGeralmente, é conveniente ter acesso ao nome do programa, caso desejemos imprimi-lo em mensagens ou \\nalterar o comportamento do programa com base no alias da linha de comando que foi usado \\npara chamar o programa. Mas, para os fins deste capítulo, vamos ignorá-lo e salvar apenas \\nos dois argumentos que precisamos.\"",
-    "dependencies": {
-      "0,0,0,1,4,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,16": {
-    "value": "\"Imprimir o valor do vetor de argumentos ilustra que o programa é\\ncapaz de acessar os valores especificados como argumentos da linha de comando. Agora precisamos\\nsalvar os valores dos dois argumentos nas variáveis para que possamos usar esses valores\\ndurante o resto do programa. Fazemos isso na Listagem 12-2:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,16,1,0": {
-    "value": "\"Imprimir o valor do vetor de argumentos ilustra que o programa é\\ncapaz de acessar os valores especificados como argumentos da linha de comando. Agora precisamos\\nsalvar os valores dos dois argumentos nas variáveis para que possamos usar esses valores\\ndurante o resto do programa. Fazemos isso na Listagem 12-2:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,17,0": {
-    "value": "\"use std::env;\\n\\nfn main() {\\n    let args: Vec\u003CString\u003E = env::args().collect();\\n\\n    let query = \u0026args[1];\\n    let filename = \u0026args[2];\\n\\n    println!(\\\"Searching for {}\\\", query);\\n    println!(\\\"In file {}\\\", filename);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,18": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-2: Criando variáveis para guardar o argumento de consulta\\ne argumento do nome do arquivo\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,5,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,19": {
-    "value": "\"Como vimos quando imprimimos o vetor, o nome do programa ocupa o primeiro\\nvalor no vetor em `args[0]`, então estamos começando no índice `1`. O primeiro\\nargumento `minigrep` é a string que estamos procurando, então colocamos uma\\nreferência ao primeiro argumento na variável `query`. O segundo argumento\\nserá o nome do arquivo, então colocamos uma referência ao segundo argumento no\\nvariável `filename`.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,2": {
-    "value": "\"Vamos criar um novo projeto usando, como sempre, `cargo new`. Chamaremos o nosso projeto\\n`minigrep` para distingui-lo da ferramenta` grep` que você já pode ter \\nno seu sistema.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,2,1,0": {
-    "value": "\"Vamos criar um novo projeto usando, como sempre, `cargo new`. Chamaremos o nosso projeto\\n`minigrep` para distingui-lo da ferramenta` grep` que você já pode ter \\nno seu sistema.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,20": {
-    "value": "\"Imprimimos temporariamente os valores dessas variáveis para provar que o código funciona\\ncomo pretendemos. Vamos executar este programa novamente com os argumentos `test`\\ne `sample.txt`:\"",
-    "dependencies": {
-      "0,0,0,1,5,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,21,0": {
-    "value": "\"$ cargo run test sample.txt\\n   Compiling minigrep v0.1.0 (file:///projects/minigrep)\\n    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs\\n     Running `target/debug/minigrep test sample.txt`\\nSearching for test\\nIn file sample.txt\"",
-    "dependencies": {
-      "0,0,0,1,5,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,22": {
-    "value": "\"Ótimo, o programa está funcionando! Os valores dos argumentos que precisamos estão sendo\\nsalvos nas variáveis certas. Mais tarde, adicionaremos algum tratamento de erro para lidar\\ncom certas situações errôneas potenciais, como quando o usuário não fornece\\nargumentos; por enquanto, ignoraremos essa situação, e trabalharemos na adição das \\nfuncinalidades de leitura dos arquivos.\"",
-    "dependencies": {
-      "0,0,0,1,5,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,3,0": {
-    "value": "\"$ cargo new --bin minigrep\\n     Created binary (application) `minigrep` project\\n\\\\$ cd minigrep\"",
-    "dependencies": {
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,4": {
-    "value": "\"A primeira tarefa é fazer que `minigrep` aceite seus dois argumentos de linha de comando: o\\nnome de arquivo e uma string para procurar. Ou seja, queremos ser capazes de administrar o nosso\\nprograma com `cargo run`, uma string para procurar e um caminho para um arquivo onde será feira a\\nprocura, dessa forma:\"",
-    "dependencies": {
-      "0,0,0,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,5,0": {
-    "value": "\"$ cargo run searchstring example-filename.txt\"",
-    "dependencies": {
-      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,6": {
-    "value": "\"Neste momento, o programa gerado por `cargo new` não pode processar os argumentos que nós\\npassamos. No entanto, algumas bibliotecas existentes no [Crates.io](https://crates.io/)\\nque podem  nos ajudar a escrever um programa que aceite argumentos na linha de comando, mas\\ncomo você está aprendendo esses conceitos, vamos implementar essa capacidade\\nnós mesmos.\"",
-    "dependencies": {
-      "0,0,0,1,3:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,7": {
-    "value": "\"Para garantir que `minigrep` seja capaz de ler os valores dos argumentos da linha de comando, nós\\nprecisamos de uma função fornecida na biblioteca padrão do Rust, que é\\n`std::env::args`. Esta função retorna um *iterador* da linha de comando\\ncom os argumentos que foram passados à `minigrep`. Ainda não discutimos iteradores\\n(nós os cobrimos totalmente no Capítulo 13), mas por enquanto você só precisa saber dois\\ndetalhes sobre iteradores: os iteradores produzem uma série de valores, e podemos chamar\\na função `collect` em um iterador para transformá-lo em uma coleção, como um\\nvetor, contendo todos os elementos que o iterador produz.\\n\\nUse o código na Listagem 12-1 para permitir que seu programa `minigrep` leia qualquer\\nargumento da linha de comando passados para ele e depois colete os valores em um vetor:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,7,1,0": {
-    "value": "\"Para garantir que `minigrep` seja capaz de ler os valores dos argumentos da linha de comando, nós\\nprecisamos de uma função fornecida na biblioteca padrão do Rust, que é\\n`std::env::args`. Esta função retorna um *iterador* da linha de comando\\ncom os argumentos que foram passados à `minigrep`. Ainda não discutimos iteradores\\n(nós os cobrimos totalmente no Capítulo 13), mas por enquanto você só precisa saber dois\\ndetalhes sobre iteradores: os iteradores produzem uma série de valores, e podemos chamar\\na função `collect` em um iterador para transformá-lo em uma coleção, como um\\nvetor, contendo todos os elementos que o iterador produz.\\n\\nUse o código na Listagem 12-1 para permitir que seu programa `minigrep` leia qualquer\\nargumento da linha de comando passados para ele e depois colete os valores em um vetor:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,8,0": {
-    "value": "\"use std::env;\\n\\nfn main() {\\n    let args: Vec\u003CString\u003E = env::args().collect();\\n    println!(\\\"{:?}\\\", args);\\n}\"",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#body@0,9": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 12-1: Coletando os argumentos da linha de comando\\num vetor e imprimindo-os\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,4,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,14,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,6,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,6,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,6,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,17,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,21,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,5,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,5,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,5,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,5": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,3,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,5,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,2,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,2,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,2,0,2:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#caption@0,8,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,4,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,4,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,4,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#open@0,16": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#open@0,7": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#title@0,16": {
-    "value": "\"Salvando os Valores do Argumento em Variáveis\"",
-    "dependencies": {
-      "0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#title@0,2": {
-    "value": "\"Aceitando Argumentos em Linha de Comando\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch12-01-accepting-command-line-arguments#title@0,7": {
-    "value": "\"Lendo os Valores do Argumento\"",
-    "dependencies": {
-      "0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -742,7 +742,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -939,7 +939,7 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="aceitando-argumentos-em-linha-de-comando" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-01-accepting-command-line-arguments#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Aceitando Argumentos em Linha de Comando</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="aceitando-argumentos-em-linha-de-comando" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Aceitando Argumentos em Linha de Comando</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Vamos criar um novo projeto usando, como sempre, <code>cargo new</code>. Chamaremos o nosso projeto <code>minigrep</code> para distingui-lo da ferramenta<code> grep</code> que você já pode ter no seu sistema.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0,0:main-container-external:0.inner-external:0,0,0:main" style="background-color: rgba(58,64,78,1); border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(220,220,220,1); display: none; font-family: Open sans; font-size: 14px; font-weight: 400; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"></div>
 <div data-id="0,0,0,1,0,0,1:main-container-external:0.inner-external:0,0,0:main" style="background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 1px; box-sizing: border-box; color: rgba(77,77,77,1); display: none; font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">$ cargo new --bin minigrep
@@ -961,7 +961,7 @@ body.fpm-dark .ft_md a:visited code {
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,3:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Neste momento, o programa gerado por <code>cargo new</code> não pode processar os argumentos que nós passamos. No entanto, algumas bibliotecas existentes no <a href="https://crates.io/">Crates.io</a> que podem  nos ajudar a escrever um programa que aceite argumentos na linha de comando, mas como você está aprendendo esses conceitos, vamos implementar essa capacidade nós mesmos.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="lendo-os-valores-do-argumento" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-01-accepting-command-line-arguments#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Lendo os Valores do Argumento</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,4:main-container-external:0.inner-external:0,0,0:main" id="lendo-os-valores-do-argumento" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,7&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Lendo os Valores do Argumento</div>
 <div data-id="inner:0,0,0,1,4,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,4,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,4,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para garantir que <code>minigrep</code> seja capaz de ler os valores dos argumentos da linha de comando, nós
 precisamos de uma função fornecida na biblioteca padrão do Rust, que é
 <code>std::env::args</code>. Esta função retorna um <em>iterador</em> da linha de comando
@@ -1018,7 +1018,7 @@ argumento da linha de comando passados para ele e depois colete os valores em um
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" data-id="0,0,0,1,4,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,4:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Observe que o primeiro valor no vetor é <code>&quot;target/debug/minigrep&quot;</code>, que é o nome do nosso binário. Isso corresponde ao comportamento da lista de argumentos em C, permitindo que os programas usem o nome pelo qual eles foram invocados em sua execução. Geralmente, é conveniente ter acesso ao nome do programa, caso desejemos imprimi-lo em mensagens ou alterar o comportamento do programa com base no alias da linha de comando que foi usado para chamar o programa. Mas, para os fins deste capítulo, vamos ignorá-lo e salvar apenas os dois argumentos que precisamos.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="salvando-os-valores-do-argumento-em-variaveis" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch12-01-accepting-command-line-arguments#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Salvando os Valores do Argumento em Variáveis</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,5:main-container-external:0.inner-external:0,0,0:main" id="salvando-os-valores-do-argumento-em-variaveis" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch12-01-accepting-command-line-arguments#open@0,16&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Salvando os Valores do Argumento em Variáveis</div>
 <div data-id="inner:0,0,0,1,5,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,5,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,5,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Imprimir o valor do vetor de argumentos ilustra que o programa é
 capaz de acessar os valores especificados como argumentos da linha de comando. Agora precisamos
 salvar os valores dos dois argumentos nas variáveis para que possamos usar esses valores

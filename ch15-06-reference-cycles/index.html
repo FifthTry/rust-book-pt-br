@@ -12,6 +12,528 @@
       "0,0,0,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
     }
   },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,10": {
+    "value": "\"Nós modificamos `a` para que aponte para `b` em vez de `Nil`, o que cria um\\nciclo. Fazemos isso usando o método `tail` para obter uma referência ao\\n`RefCell\u003CRc\u003CList\u003E\u003E` em `a`, a qual colocamos na variável `link`. Então usamos o\\nmétodo `borrow_mut` no `RefCell\u003CRc\u003CList\u003E\u003E` para modificar o valor interno: de um\\n`Rc\u003CList\u003E` que guarda um valor `Nil` para o `Rc\u003CList\u003E` em `b`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,11": {
+    "value": "\"Quando rodamos esse código, mantendo o último `println!` comentado por ora,\\nobtemos esta saída:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,12,0": {
+    "value": "\"a: contagem de referências inicial = 1\\na: próximo item = Some(RefCell { value: Nil })\\na: contagem de referências depois da criação de b = 2\\nb: contagem de referências inicial = 1\\nb: próximo item = Some(RefCell { value: Cons(5, RefCell { value: Nil }) })\\nb: contagem de referências depois de mudar a = 2\\na: contagem de referências depois de mudar a = 2\"",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,13": {
+    "value": "\"A contagem de referências das instâncias de `Rc\u003CList\u003E` em ambos `a` e `b` é 2\\ndepois que mudamos a lista em `a` para apontar para `b`. No final da `main`, o\\nRust tentará destruir `b` primeiro, o que diminuirá em 1 a contagem em cada uma\\ndas instâncias de `Rc\u003CList\u003E` em `a` e `b`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,14": {
+    "value": "\"Contudo, como a variável `a` ainda está se referindo ao `Rc\u003CList\u003E` que estava em\\n`b`, ele terá uma contagem de 1 em vez de 0, então a memória que ele tem no heap\\nnão será destruída. A memória irá ficar lá com uma contagem de 1, para sempre.\\nPara visualizar esse ciclo de referências, criamos um diagrama na Figura 15-4:\"",
+    "dependencies": {
+      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,15": {
+    "value": "\"\u003Cimg alt=\\\"Ciclo de referências de listas\\\" src=\\\"img/trpl15-04.svg\\\" class=\\\"center\\\"\\n\\\\/\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,16": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-4: Um ciclo de referências das listas `a` e `b`\\napontando uma para a outra\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,17": {
+    "value": "\"Se você descomentar o último `println!` e rodar o programa, o Rust tentará\\nimprimir esse ciclo com `a` apontando para `b` apontando para `a` e assim por\\ndiante até estourar a pilha.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,18": {
+    "value": "\"Nesse exemplo, logo depois que criamos o ciclo de referências, o programa\\ntermina. As consequências desse ciclo não são muito graves. Se um programa mais\\ncomplexo aloca um monte de memória em um ciclo e não a libera por muito tempo,\\nele acaba usando mais memória do que precisa e pode sobrecarregar o sistema,\\nfazendo com que fique sem memória disponível.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,19": {
+    "value": "\"Criar ciclos de referências não é fácil de fazer, mas também não é impossível.\\nSe você tem valores `RefCell\u003CT\u003E` que contêm valores `Rc\u003CT\u003E` ou combinações\\naninhadas de tipos parecidas, com mutabilidade interior e contagem de\\nreferências, você deve se assegurar de que não está criando ciclos; você não\\npode contar com o Rust para pegá-los. Criar ciclos de referências seria um erro\\nde lógica no seu programa, e você deve usar testes automatizados, revisões de\\ncódigo e outras práticas de desenvolvimento de software para minimizá-los.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,2": {
+    "value": "\"As garantias de segurança de memória do Rust tornam _difícil_ mas não impossível\\nacidentalmente criar memória que nunca é liberada (conhecida como um _vazamento\\nde memória_, ou _memory leak_). O Rust garante em tempo de compilação que não\\nhaverá corridas de dados, mas não garante a prevenção de vazamentos de memória\\npor completo da mesma forma, o que significa que vazamentos de memória são\\n_memory safe_ em Rust. Podemos ver que o Rust permite vazamentos de memória\\nusando `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`: é possível criar referências onde os itens se\\nreferem uns aos outros em um ciclo. Isso cria vazamentos de memória porque a\\ncontagem de referências de cada item no ciclo nunca chegará a 0, e os valores\\nnunca serão destruídos.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,2,1,0": {
+    "value": "\"As garantias de segurança de memória do Rust tornam _difícil_ mas não impossível\\nacidentalmente criar memória que nunca é liberada (conhecida como um _vazamento\\nde memória_, ou _memory leak_). O Rust garante em tempo de compilação que não\\nhaverá corridas de dados, mas não garante a prevenção de vazamentos de memória\\npor completo da mesma forma, o que significa que vazamentos de memória são\\n_memory safe_ em Rust. Podemos ver que o Rust permite vazamentos de memória\\nusando `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`: é possível criar referências onde os itens se\\nreferem uns aos outros em um ciclo. Isso cria vazamentos de memória porque a\\ncontagem de referências de cada item no ciclo nunca chegará a 0, e os valores\\nnunca serão destruídos.\"",
+    "dependencies": {
+      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,20": {
+    "value": "\"Outra solução para evitar ciclos de referências é reorganizar suas estruturas de\\ndados para que algumas referências expressem posse e outras não. Assim, você\\npode ter ciclos feitos de algumas relações de posse e algumas relações de não\\nposse, e apenas as relações de posse afetam se um valor pode ou não ser\\ndestruído. Na Listagem 15-25, nós sempre queremos que as variantes `Cons`\\npossuam sua lista, então reorganizar a estrutura de dados não é possível. Vamos\\ndar uma olhada em um exemplo usando grafos feitos de vértices pais e vértices\\nfilhos para ver quando relações de não posse são um jeito apropriado de evitar\\nciclos de referências.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,21": {
+    "value": "\"Até agora, demonstramos que chamar `Rc::clone` aumenta a `strong_count`\\n(_contagem de referências fortes_) de uma instância `Rc\u003CT\u003E`, e que a instância\\n`Rc\u003CT\u003E` só é liberada se sua `strong_count` é 0. Também podemos criar uma\\n_referência fraca_ (_weak reference_) ao valor dentro de uma instância `Rc\u003CT\u003E`\\nchamando `Rc::downgrade` e passando-lhe uma referência ao `Rc\u003CT\u003E`. Quando\\nchamamos `Rc::downgrade`, nós obtemos um ponteiro inteligente do tipo `Weak\u003CT\u003E`.\\nEm vez de aumentar em 1 a `strong_count` na instância `Rc\u003CT\u003E`, chamar\\n`Rc::downgrade` aumenta em 1 a `weeak_count` (_contagem de referências fracas_).\\nO tipo `Rc\u003CT\u003E` usa a `weak_count` para registrar quantas referências `Weak\u003CT\u003E`\\nexistem, parecido com a `strong_count`. A diferença é que a `weak_count` não\\nprecisa ser 0 para a instância `Rc\u003CT\u003E` ser destruída.\\n\\nReferências fortes são o modo como podemos compartilhar posse de uma instância\\n`Rc\u003CT\u003E`. Referências fracas não expressam uma relação de posse. Elas não irão\\ncausar um ciclo de referências porque qualquer ciclo envolvendo algumas\\nreferências fracas será quebrado uma vez que a contagem de referências fortes\\ndos valores envolvidos for 0.\\n\\nComo o valor ao qual o `Weak\u003CT\u003E` faz referência pode ter sido destruído, para\\nfazer qualquer coisa com ele, precisamos nos assegurar de que ele ainda exista.\\nFazemos isso chamando o método `upgrade` na instância `Weak\u003CT\u003E`, o que nos\\nretornará uma `Option\u003CRc\u003CT\u003E\u003E`. Iremos obter um resultado de `Some` se o valor do\\n`Rc\u003CT\u003E` ainda não tiver sido destruído e um resultado de `None` caso ele já\\ntenha sido destruído. Como o `upgrade` retorna uma `Option\u003CT\u003E`, o Rust irá\\ngarantir que lidemos com ambos os casos `Some` e `None`, e não haverá um\\nponteiro inválido.\\n\\nComo exemplo, em vez de usarmos uma lista cujos itens sabem apenas a respeito do\\npróximo item, iremos criar uma árvore cujos itens sabem sobre seus itens filhos\\n_e_ sobre seus itens pais.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,21,1,0": {
+    "value": "\"Até agora, demonstramos que chamar `Rc::clone` aumenta a `strong_count`\\n(_contagem de referências fortes_) de uma instância `Rc\u003CT\u003E`, e que a instância\\n`Rc\u003CT\u003E` só é liberada se sua `strong_count` é 0. Também podemos criar uma\\n_referência fraca_ (_weak reference_) ao valor dentro de uma instância `Rc\u003CT\u003E`\\nchamando `Rc::downgrade` e passando-lhe uma referência ao `Rc\u003CT\u003E`. Quando\\nchamamos `Rc::downgrade`, nós obtemos um ponteiro inteligente do tipo `Weak\u003CT\u003E`.\\nEm vez de aumentar em 1 a `strong_count` na instância `Rc\u003CT\u003E`, chamar\\n`Rc::downgrade` aumenta em 1 a `weeak_count` (_contagem de referências fracas_).\\nO tipo `Rc\u003CT\u003E` usa a `weak_count` para registrar quantas referências `Weak\u003CT\u003E`\\nexistem, parecido com a `strong_count`. A diferença é que a `weak_count` não\\nprecisa ser 0 para a instância `Rc\u003CT\u003E` ser destruída.\\n\\nReferências fortes são o modo como podemos compartilhar posse de uma instância\\n`Rc\u003CT\u003E`. Referências fracas não expressam uma relação de posse. Elas não irão\\ncausar um ciclo de referências porque qualquer ciclo envolvendo algumas\\nreferências fracas será quebrado uma vez que a contagem de referências fortes\\ndos valores envolvidos for 0.\\n\\nComo o valor ao qual o `Weak\u003CT\u003E` faz referência pode ter sido destruído, para\\nfazer qualquer coisa com ele, precisamos nos assegurar de que ele ainda exista.\\nFazemos isso chamando o método `upgrade` na instância `Weak\u003CT\u003E`, o que nos\\nretornará uma `Option\u003CRc\u003CT\u003E\u003E`. Iremos obter um resultado de `Some` se o valor do\\n`Rc\u003CT\u003E` ainda não tiver sido destruído e um resultado de `None` caso ele já\\ntenha sido destruído. Como o `upgrade` retorna uma `Option\u003CT\u003E`, o Rust irá\\ngarantir que lidemos com ambos os casos `Some` e `None`, e não haverá um\\nponteiro inválido.\\n\\nComo exemplo, em vez de usarmos uma lista cujos itens sabem apenas a respeito do\\npróximo item, iremos criar uma árvore cujos itens sabem sobre seus itens filhos\\n_e_ sobre seus itens pais.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,22": {
+    "value": "\"Para começar, vamos construir uma árvore com vértices que saibam apenas sobre\\nseus vértices filhos. Iremos criar uma estrutura chamada `Vertice` que contenha\\nseu próprio valor `i32`, além de referências para seus valores filhos do tipo\\n`Vertice`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,22,1,0": {
+    "value": "\"Para começar, vamos construir uma árvore com vértices que saibam apenas sobre\\nseus vértices filhos. Iremos criar uma estrutura chamada `Vertice` que contenha\\nseu próprio valor `i32`, além de referências para seus valores filhos do tipo\\n`Vertice`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,23,0": {
+    "value": "\"use std::rc::Rc;\\nuse std::cell::RefCell;\\n\\n#[derive(Debug)]\\nstruct Vertice {\\n    valor: i32,\\n    filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,24": {
+    "value": "\"Queremos que um `Vertice` tenha posse de seus filhos, e queremos compartilhar\\nessa posse com variáveis para que possamos acessar cada `Vertice` da árvore\\ndiretamente. Para fazer isso, definimos os itens do `Vec\u003CT\u003E` para serem valores\\ndo tipo `Rc\u003CVertice\u003E`. Também queremos modificar quais vértices são filhos de\\noutro vértice, então temos um `RefCell\u003CT\u003E` em `filhos` em volta do\\n`Vec\u003CRc\u003CVertice\u003E\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,25": {
+    "value": "\"Em seguida, iremos usar nossa definição de struct e criar uma instância de\\n`Vertice` chamada `folha` com o valor 3 e nenhum filho, e outra instância\\nchamada `galho` com o valor 5 e `folha` como um de seus filhos, como mostra a\\nListagem 15-27:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,26": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,27,0": {
+    "value": "\"# use std::rc::Rc;\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    let galho = Rc::new(Vertice {\\n        valor: 5,\\n        filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n    });\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,28": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-27: Criando um vértice `folha` sem filhos e um\\nvértice `galho` com `folha` como um de seus filhos\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,29": {
+    "value": "\"Nós clonamos o `Rc\u003CVertice\u003E` em `folha` e armazenamos o resultado em `galho`, o\\nque significa que o `Vertice` em `folha` agora tem dois possuidores: `folha` e\\n`galho`. Podemos ir de `galho` para `folha` através de `galho.filhos`, mas não\\ntemos como ir de `folha` para `galho`. O motivo é que `folha` não tem referência\\na `galho` e não sabe que eles estão relacionados. Queremos que `folha` saiba que\\n`galho` é seu pai. Faremos isso em seguida.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,3": {
+    "value": "\"Vamos dar uma olhada em como um ciclo de referências poderia acontecer e como\\npreveni-lo, começando com a definição do enum `List` e um método `tail`\\n(_cauda_) na Listagem 15-25:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\\n\\n\u003C!-- A fn main escondida (primeira linha) está aqui para desabilitar o wrapping\\nautomático em uma fn main que os doc tests fazem; o `use List` falha se esta\\nlistagem é colocada dentro de uma main --\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,3,1,0": {
+    "value": "\"Vamos dar uma olhada em como um ciclo de referências poderia acontecer e como\\npreveni-lo, começando com a definição do enum `List` e um método `tail`\\n(_cauda_) na Listagem 15-25:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\\n\\n\u003C!-- A fn main escondida (primeira linha) está aqui para desabilitar o wrapping\\nautomático em uma fn main que os doc tests fazem; o `use List` falha se esta\\nlistagem é colocada dentro de uma main --\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,30": {
+    "value": "\"Para tornar o vértice filho ciente de seu pai, precisamos adicionar um campo\\n`pai` a nossa definição da struct `Vertice`. O problema é decidir qual deveria\\nser o tipo de `pai`. Sabemos que ele não pode conter um `Rc\u003CT\u003E` porque isso\\ncriaria um ciclo de referências com `folha.pai` apontando para `galho` e\\n`galho.filhos` apontando para `folha`, o que faria com que seus valores de\\n`strong_count` nunca chegassem a 0.\\n\\nPensando sobre as relações de outra forma, um vértice pai deveria ter posse de\\nseus filhos: se um vértice pai é destruído, seus vértices filhos também deveriam\\nser. Entretanto, um filho não deveria ter posse de seu pai: se destruirmos um\\nvértice filho, o pai ainda deveria existir. Esse é um caso para referências\\nfracas!\\n\\nEntão em vez de `Rc\u003CT\u003E`, faremos com que o tipo de `pai` use `Weak\u003CT\u003E`, mais\\nespecificamente um `RefCell\u003CWeak\u003CVertice\u003E\u003E`. Agora nossa definição da struct\\n`Vertice` fica assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,30,1,0": {
+    "value": "\"Para tornar o vértice filho ciente de seu pai, precisamos adicionar um campo\\n`pai` a nossa definição da struct `Vertice`. O problema é decidir qual deveria\\nser o tipo de `pai`. Sabemos que ele não pode conter um `Rc\u003CT\u003E` porque isso\\ncriaria um ciclo de referências com `folha.pai` apontando para `galho` e\\n`galho.filhos` apontando para `folha`, o que faria com que seus valores de\\n`strong_count` nunca chegassem a 0.\\n\\nPensando sobre as relações de outra forma, um vértice pai deveria ter posse de\\nseus filhos: se um vértice pai é destruído, seus vértices filhos também deveriam\\nser. Entretanto, um filho não deveria ter posse de seu pai: se destruirmos um\\nvértice filho, o pai ainda deveria existir. Esse é um caso para referências\\nfracas!\\n\\nEntão em vez de `Rc\u003CT\u003E`, faremos com que o tipo de `pai` use `Weak\u003CT\u003E`, mais\\nespecificamente um `RefCell\u003CWeak\u003CVertice\u003E\u003E`. Agora nossa definição da struct\\n`Vertice` fica assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,31,0": {
+    "value": "\"use std::rc::{Rc, Weak};\\nuse std::cell::RefCell;\\n\\n#[derive(Debug)]\\nstruct Vertice {\\n    valor: i32,\\n    pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n    filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,32": {
+    "value": "\"Agora um vértice pode se referir a seu vértice pai, mas não tem posse dele. Na\\nListagem 15-28, atualizamos a `main` com essa nova definição para que o vértice\\n`folha` tenha um jeito de se referir a seu pai, `galho`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,33": {
+    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,34,0": {
+    "value": "\"# use std::rc::{Rc, Weak};\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n\\n    let galho = Rc::new(Vertice {\\n        valor: 5,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n    });\\n\\n    *folha.pai.borrow_mut() = Rc::downgrade(\u0026galho);\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,35": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-28: Um vértice `folha` com uma referência\\n`Weak` a seu vértice pai `galho`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,36": {
+    "value": "\"Criar o vértice `folha` é semelhante a como o criamos na Listagem 15-27, com\\nexceção do campo `pai`: `folha` começa sem um pai, então criamos uma instância\\nnova e vazia de uma referência `Weak\u003CVertice\u003E`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,37": {
+    "value": "\"Nesse ponto, quando tentamos obter uma referência ao pai de `folha` usando o\\nmétodo `upgrade`, recebemos um valor `None`. Vemos isso na saída do primeiro\\ncomando `println!`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,38,0": {
+    "value": "\"pai de folha = None\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,39": {
+    "value": "\"Quando criamos o vértice `galho`, ele também tem uma nova referência\\n`Weak\u003CVertice\u003E` no campo `pai`, porque `galho` não tem um vértice pai. Nós ainda\\ntemos `folha` como um dos filhos de `galho`. Uma vez que temos a instância de\\n`Vertice` em `galho`, podemos modificar `folha` para lhe dar uma referência\\n`Weak\u003CVertice\u003E` a seu pai. Usamos o método `borrow_mut` do\\n`RefCell\u003CWeak\u003CVertice\u003E\u003E` no campo `pai` de `folha`, e então usamos a função\\n`Rc::downgrade` para criar uma referência `Weak\u003CVertice\u003E` a `galho` a partir do\\n`Rc\u003CVertice\u003E` em `galho`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,4,0": {
+    "value": "\"# fn main() {}\\nuse std::rc::Rc;\\nuse std::cell::RefCell;\\nuse List::{Cons, Nil};\\n\\n#[derive(Debug)]\\nenum List {\\n    Cons(i32, RefCell\u003CRc\u003CList\u003E\u003E),\\n    Nil,\\n}\\n\\nimpl List {\\n    fn tail(\u0026self) -\u003E Option\u003C\u0026RefCell\u003CRc\u003CList\u003E\u003E\u003E {\\n        match *self {\\n            Cons(_, ref item) =\u003E Some(item),\\n            Nil =\u003E None,\\n        }\\n    }\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,40": {
+    "value": "\"Quando imprimimos o pai de `folha` de novo, dessa vez recebemos uma variante\\n`Some` contendo `galho`: agora `folha` tem acesso a seu pai! Quando imprimimos\\n`folha`, nós também evitamos o ciclo que eventualmente terminou em um estouro de\\npilha como o que tivemos na Listagem 15-26: as referências `Weak\u003CVertice\u003E` são\\nimpressas como `(Weak)`:\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,41,0": {
+    "value": "\"pai de folha = Some(Vertice { valor: 5, pai: RefCell { valor: (Weak) },\\nfilhos: RefCell { valor: [Vertice { valor: 3, pai: RefCell { valor: (Weak) },\\nfilhos: RefCell { valor: [] } }] } })\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,42": {
+    "value": "\"A falta de saída infinita indica que esse código não criou um ciclo de\\nreferências. Também podemos perceber isso olhando para os valores que obtemos ao\\nchamar `Rc::strong_count` e `Rc::weak_count`.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,43": {
+    "value": "\"Para ver como os valores de `strong_count` e `weak_count` das instâncias de\\n`Rc\u003CVertice\u003E` mudam, vamos criar um novo escopo interno e mover a criação de\\n`galho` para dentro dele. Fazendo isso, podemos ver o que acontece quando\\n`galho` é criado e depois destruído quando sai de escopo. As modificações são\\nmostradas na Listagem 15-29:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,43,1,0": {
+    "value": "\"Para ver como os valores de `strong_count` e `weak_count` das instâncias de\\n`Rc\u003CVertice\u003E` mudam, vamos criar um novo escopo interno e mover a criação de\\n`galho` para dentro dele. Fazendo isso, podemos ver o que acontece quando\\n`galho` é criado e depois destruído quando sai de escopo. As modificações são\\nmostradas na Listagem 15-29:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,44,0": {
+    "value": "\"# use std::rc::{Rc, Weak};\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    println!(\\n        \\\"folha: fortes = {}, fracas = {}\\\",\\n        Rc::strong_count(\u0026folha),\\n        Rc::weak_count(\u0026folha),\\n    );\\n\\n    {\\n        let galho = Rc::new(Vertice {\\n            valor: 5,\\n            pai: RefCell::new(Weak::new()),\\n            filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n        });\\n\\n        *folha.pai.borrow_mut() = Rc::downgrade(\u0026galho);\\n\\n        println!(\\n            \\\"galho: fortes = {}, fracas = {}\\\",\\n            Rc::strong_count(\u0026galho),\\n            Rc::weak_count(\u0026galho),\\n        );\\n\\n        println!(\\n            \\\"folha: fortes = {}, fracas = {}\\\",\\n            Rc::strong_count(\u0026folha),\\n            Rc::weak_count(\u0026folha),\\n        );\\n    }\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n    println!(\\n        \\\"folha: fortes = {}, fracas = {}\\\",\\n        Rc::strong_count(\u0026folha),\\n        Rc::weak_count(\u0026folha),\\n    );\\n}\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,45": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-29: Criando `galho` em um escopo interno e\\nexaminando contagens de referências fortes e fracas\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,46": {
+    "value": "\"Depois que `folha` é criada, seu `Rc\u003CVertice\u003E` tem uma _strong count_ de 1 e uma\\n_weak count_ de 0. Dentro do escopo interno, criamos `galho` e o associamos a\\n`folha`. Nesse ponto, quando imprimimos as contagens, o `Rc\u003CVertice\u003E` em `galho`\\ntem uma strong count de 1 e uma weak count de 1 (porque `folha.pai` aponta para\\n`galho` com uma `Weak\u003CVertice\u003E`). Quando imprimirmos as contagens de `folha`,\\nveremos que ela terá uma strong count de 2, porque `galho` agora tem um clone do\\n`Rc\u003CVertice\u003E` de `folha` armazenado em `galho.filhos`, mas ainda terá uma weak\\ncount de 0.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,47": {
+    "value": "\"Quando o escopo interno termina, `galho` sai de escopo e a strong count do\\n`Rc\u003CVertice\u003E` diminui para 0, e então seu `Vertice` é destruído. A weak count de\\n1 por causa de `folha.pai` não tem nenhuma influência sobre se `Vertice` é\\ndestruído ou não, então não temos nenhum vazamento de memória!\\n\\nSe tentarmos acessar o pai de `folha` depois do fim do escopo, receberemos\\n`None` de novo. No fim do programa, o `Rc\u003CVertice\u003E` em `folha` tem uma strong\\ncount de 1 e uma weak count de 0, porque a variável `folha` agora é de novo a\\núnica referência ao `Rc\u003CVertice\u003E`.\\n\\nToda a lógica que gerencia as contagens e a destruição de valores faz parte de\\n`Rc\u003CT\u003E` e `Weak\u003CT\u003E` e suas implementações da trait `Drop`. Ao especificarmos na\\ndefinição de `Vertice` que a relação de um filho para o seu pai deva ser uma\\nreferência `Weak\u003CT\u003E`, somos capazes de ter vértices pai apontando para para\\nvértices filho e vice-versa sem criar ciclos de referência e vazamentos de\\nmemória.\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,48": {
+    "value": "\"Esse capítulo cobriu como usar ponteiros inteligentes para fazer garantias e\\ntrade-offs diferentes daqueles que o Rust faz por padrão com referências\\nnormais. O tipo `Box\u003CT\u003E` tem um tamanho conhecido e aponta para dados alocados\\nno heap. O tipo `Rc\u003CT\u003E` mantém registro do número de referências a dados no\\nheap, para que eles possam ter múltiplos possuidores. O tipo `RefCell\u003CT\u003E` com\\nsua mutabilidade interior nos dá um tipo que podemos usar quando precisamos de\\num tipo imutável mas precisamos mudar um valor interno ao tipo; ele também\\naplica as regras de empréstimo em tempo de execução em vez de em tempo de\\ncompilação.\\n\\nTambém foram discutidas as traits `Deref` e `Drop` que tornam possível muito da\\nfuncionalidade dos ponteiros inteligentes. Exploramos ciclos de referências que\\npodem causar vazamentos de memória e como preveni-los usando `Weak\u003CT\u003E`.\\n\\nSe esse capítulo tiver aguçado seu interesse e você quiser implementar seus\\npróprios ponteiros inteligentes, dê uma olhada no \\\"Rustnomicon\\\" em\\n_https://doc.rust-lang.org/stable/nomicon/_ para mais informação útil.\\n\\nEm seguida, conversaremos sobre concorrência em Rust. Você irá até aprender\\nsobre alguns novos ponteiros inteligentes.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,48,1,0": {
+    "value": "\"Esse capítulo cobriu como usar ponteiros inteligentes para fazer garantias e\\ntrade-offs diferentes daqueles que o Rust faz por padrão com referências\\nnormais. O tipo `Box\u003CT\u003E` tem um tamanho conhecido e aponta para dados alocados\\nno heap. O tipo `Rc\u003CT\u003E` mantém registro do número de referências a dados no\\nheap, para que eles possam ter múltiplos possuidores. O tipo `RefCell\u003CT\u003E` com\\nsua mutabilidade interior nos dá um tipo que podemos usar quando precisamos de\\num tipo imutável mas precisamos mudar um valor interno ao tipo; ele também\\naplica as regras de empréstimo em tempo de execução em vez de em tempo de\\ncompilação.\\n\\nTambém foram discutidas as traits `Deref` e `Drop` que tornam possível muito da\\nfuncionalidade dos ponteiros inteligentes. Exploramos ciclos de referências que\\npodem causar vazamentos de memória e como preveni-los usando `Weak\u003CT\u003E`.\\n\\nSe esse capítulo tiver aguçado seu interesse e você quiser implementar seus\\npróprios ponteiros inteligentes, dê uma olhada no \\\"Rustnomicon\\\" em\\n_https://doc.rust-lang.org/stable/nomicon/_ para mais informação útil.\\n\\nEm seguida, conversaremos sobre concorrência em Rust. Você irá até aprender\\nsobre alguns novos ponteiros inteligentes.\"",
+    "dependencies": {
+      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,5": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-25: Uma definição de cons list que contém um\\n`RefCell\u003CT\u003E` para que possamos modificar ao que se refere uma variante\\n`Cons`\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,6": {
+    "value": "\"Estamos usando outra variação da definição de `List` da Listagem 15-5. O segundo\\nelemento na variante `Cons` agora é um `RefCell\u003CRc\u003CList\u003E\u003E`, o que significa que\\nem vez de ter a habilidade de modificar o valor `i32` como fizemos na Listagem\\n15-24, queremos modificar a `List` à qual a variante `Cons` está apontando.\\nTambém estamos adicionando um método `tail` para nos facilitar o acesso ao\\nsegundo item quando tivermos uma variante `Cons`.\\n\\nNa Listagem 15-26, estamos adicionando uma função `main` que usa as definições\\nda Listagem 15-25. Este código cria uma lista em `a` e uma lista em `b` que\\naponta para a lista em `a`, e depois modifica a lista em `a` para apontar para\\n`b`, o que cria um ciclo de referências. Temos declarações de `println!` ao\\nlongo do caminho para mostrar quais são as contagens de referências em vários\\npontos do processo:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,7,0": {
+    "value": "\"# use List::{Cons, Nil};\\n# use std::rc::Rc;\\n# use std::cell::RefCell;\\n# #[derive(Debug)]\\n# enum List {\\n#     Cons(i32, RefCell\u003CRc\u003CList\u003E\u003E),\\n#     Nil,\\n# }\\n#\\n# impl List {\\n#     fn tail(\u0026self) -\u003E Option\u003C\u0026RefCell\u003CRc\u003CList\u003E\u003E\u003E {\\n#         match *self {\\n#             Cons(_, ref item) =\u003E Some(item),\\n#             Nil =\u003E None,\\n#         }\\n#     }\\n# }\\n#\\nfn main() {\\n    let a = Rc::new(Cons(5, RefCell::new(Rc::new(Nil))));\\n\\n    println!(\\\"a: contagem de referências inicial = {}\\\", Rc::strong_count(\u0026a));\\n    println!(\\\"a: próximo item = {:?}\\\", a.tail());\\n\\n    let b = Rc::new(Cons(10, RefCell::new(Rc::clone(\u0026a))));\\n\\n    println!(\\\"a: contagem de referências depois da criação de b = {}\\\", Rc::strong_count(\u0026a));\\n    println!(\\\"b: contagem de referências inicial = {}\\\", Rc::strong_count(\u0026b));\\n    println!(\\\"b: próximo item = {:?}\\\", b.tail());\\n\\n    if let Some(link) = a.tail() {\\n        *link.borrow_mut() = Rc::clone(\u0026b);\\n    }\\n\\n    println!(\\\"b: contagem de referências depois de mudar a = {}\\\", Rc::strong_count(\u0026b));\\n    println!(\\\"a: contagem de referências depois de mudar a = {}\\\", Rc::strong_count(\u0026a));\\n\\n    // Descomente a próxima linha para ver que temos um ciclo; ela irá\\n    // estourar a pilha\\n    // println!(\\\"a: próximo item = {:?}\\\", a.tail());\\n}\"",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,8": {
+    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-26: Criando um ciclo de referências de dois\\nvalores `List` apontando um para o outro\u003C/span\u003E\"",
+    "dependencies": {
+      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#body@0,9": {
+    "value": "\"Nós criamos uma instância de `Rc\u003CList\u003E` segurando um valor `List` na variável\\n`a` com a lista inicial de `5, Nil`. Então criamos uma instância de `Rc\u003CList\u003E`\\nsegurando outro valor `List` na variável `b` que contém o valor 10 e aponta para\\na lista em `a`.\"",
+    "dependencies": {
+      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,12,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,23,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,27,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,31,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,34,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,38,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,4,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,41,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,1,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,1,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,1,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,44,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#caption@0,7,0": {
+    "value": "null",
+    "dependencies": {
+      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
+      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
+      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,2": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,21": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,22": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,3": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,30": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,43": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,48": {
+    "value": "true",
+    "dependencies": {
+      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#site-logo@0,0,0,2": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#site-logo@0,0,0,3": {
+    "value": "\"https://fpm.dev/static/images/logo.svg\"",
+    "dependencies": {
+      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,0,0,3,0,1,1": {
+    "value": "\"/\"",
+    "dependencies": {
+      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,1,2,0,1,1": {
+    "value": "null",
+    "dependencies": {
+      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,2": {
+    "value": "\"Ciclos de Referências Podem Vazar Memória\"",
+    "dependencies": {
+      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,21": {
+    "value": "\"Prevenindo Ciclos de Referência: Transforme um `Rc\u003CT\u003E` em um `Weak\u003CT\u003E`\"",
+    "dependencies": {
+      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,22": {
+    "value": "\"Criando uma Estrutura de Dados em Árvore: Um `Vertice` com Vértices Filhos\"",
+    "dependencies": {
+      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,3": {
+    "value": "\"Criando um Ciclo de Referências\"",
+    "dependencies": {
+      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,30": {
+    "value": "\"Adicionando uma Referência de um Filho para o Seu Pai\"",
+    "dependencies": {
+      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,43": {
+    "value": "\"Visualizando Mudanças a `strong_count` e `weak_count`\"",
+    "dependencies": {
+      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#title@0,48": {
+    "value": "\"Resumo\"",
+    "dependencies": {
+      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
   "fpm#dark-mode": {
     "value": "false",
     "dependencies": {
@@ -308,528 +830,6 @@
     "dependencies": {
       "0,1,2,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
     }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,10": {
-    "value": "\"Nós modificamos `a` para que aponte para `b` em vez de `Nil`, o que cria um\\nciclo. Fazemos isso usando o método `tail` para obter uma referência ao\\n`RefCell\u003CRc\u003CList\u003E\u003E` em `a`, a qual colocamos na variável `link`. Então usamos o\\nmétodo `borrow_mut` no `RefCell\u003CRc\u003CList\u003E\u003E` para modificar o valor interno: de um\\n`Rc\u003CList\u003E` que guarda um valor `Nil` para o `Rc\u003CList\u003E` em `b`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,11": {
-    "value": "\"Quando rodamos esse código, mantendo o último `println!` comentado por ora,\\nobtemos esta saída:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,7:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,12,0": {
-    "value": "\"a: contagem de referências inicial = 1\\na: próximo item = Some(RefCell { value: Nil })\\na: contagem de referências depois da criação de b = 2\\nb: contagem de referências inicial = 1\\nb: próximo item = Some(RefCell { value: Cons(5, RefCell { value: Nil }) })\\nb: contagem de referências depois de mudar a = 2\\na: contagem de referências depois de mudar a = 2\"",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,13": {
-    "value": "\"A contagem de referências das instâncias de `Rc\u003CList\u003E` em ambos `a` e `b` é 2\\ndepois que mudamos a lista em `a` para apontar para `b`. No final da `main`, o\\nRust tentará destruir `b` primeiro, o que diminuirá em 1 a contagem em cada uma\\ndas instâncias de `Rc\u003CList\u003E` em `a` e `b`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,14": {
-    "value": "\"Contudo, como a variável `a` ainda está se referindo ao `Rc\u003CList\u003E` que estava em\\n`b`, ele terá uma contagem de 1 em vez de 0, então a memória que ele tem no heap\\nnão será destruída. A memória irá ficar lá com uma contagem de 1, para sempre.\\nPara visualizar esse ciclo de referências, criamos um diagrama na Figura 15-4:\"",
-    "dependencies": {
-      "0,0,0,1,0,1,10:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,15": {
-    "value": "\"\u003Cimg alt=\\\"Ciclo de referências de listas\\\" src=\\\"img/trpl15-04.svg\\\" class=\\\"center\\\"\\n\\\\/\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,16": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EFigura 15-4: Um ciclo de referências das listas `a` e `b`\\napontando uma para a outra\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,12:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,17": {
-    "value": "\"Se você descomentar o último `println!` e rodar o programa, o Rust tentará\\nimprimir esse ciclo com `a` apontando para `b` apontando para `a` e assim por\\ndiante até estourar a pilha.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,13:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,18": {
-    "value": "\"Nesse exemplo, logo depois que criamos o ciclo de referências, o programa\\ntermina. As consequências desse ciclo não são muito graves. Se um programa mais\\ncomplexo aloca um monte de memória em um ciclo e não a libera por muito tempo,\\nele acaba usando mais memória do que precisa e pode sobrecarregar o sistema,\\nfazendo com que fique sem memória disponível.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,19": {
-    "value": "\"Criar ciclos de referências não é fácil de fazer, mas também não é impossível.\\nSe você tem valores `RefCell\u003CT\u003E` que contêm valores `Rc\u003CT\u003E` ou combinações\\naninhadas de tipos parecidas, com mutabilidade interior e contagem de\\nreferências, você deve se assegurar de que não está criando ciclos; você não\\npode contar com o Rust para pegá-los. Criar ciclos de referências seria um erro\\nde lógica no seu programa, e você deve usar testes automatizados, revisões de\\ncódigo e outras práticas de desenvolvimento de software para minimizá-los.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,2": {
-    "value": "\"As garantias de segurança de memória do Rust tornam _difícil_ mas não impossível\\nacidentalmente criar memória que nunca é liberada (conhecida como um _vazamento\\nde memória_, ou _memory leak_). O Rust garante em tempo de compilação que não\\nhaverá corridas de dados, mas não garante a prevenção de vazamentos de memória\\npor completo da mesma forma, o que significa que vazamentos de memória são\\n_memory safe_ em Rust. Podemos ver que o Rust permite vazamentos de memória\\nusando `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`: é possível criar referências onde os itens se\\nreferem uns aos outros em um ciclo. Isso cria vazamentos de memória porque a\\ncontagem de referências de cada item no ciclo nunca chegará a 0, e os valores\\nnunca serão destruídos.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,2,1,0": {
-    "value": "\"As garantias de segurança de memória do Rust tornam _difícil_ mas não impossível\\nacidentalmente criar memória que nunca é liberada (conhecida como um _vazamento\\nde memória_, ou _memory leak_). O Rust garante em tempo de compilação que não\\nhaverá corridas de dados, mas não garante a prevenção de vazamentos de memória\\npor completo da mesma forma, o que significa que vazamentos de memória são\\n_memory safe_ em Rust. Podemos ver que o Rust permite vazamentos de memória\\nusando `Rc\u003CT\u003E` e `RefCell\u003CT\u003E`: é possível criar referências onde os itens se\\nreferem uns aos outros em um ciclo. Isso cria vazamentos de memória porque a\\ncontagem de referências de cada item no ciclo nunca chegará a 0, e os valores\\nnunca serão destruídos.\"",
-    "dependencies": {
-      "0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,20": {
-    "value": "\"Outra solução para evitar ciclos de referências é reorganizar suas estruturas de\\ndados para que algumas referências expressem posse e outras não. Assim, você\\npode ter ciclos feitos de algumas relações de posse e algumas relações de não\\nposse, e apenas as relações de posse afetam se um valor pode ou não ser\\ndestruído. Na Listagem 15-25, nós sempre queremos que as variantes `Cons`\\npossuam sua lista, então reorganizar a estrutura de dados não é possível. Vamos\\ndar uma olhada em um exemplo usando grafos feitos de vértices pais e vértices\\nfilhos para ver quando relações de não posse são um jeito apropriado de evitar\\nciclos de referências.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,21": {
-    "value": "\"Até agora, demonstramos que chamar `Rc::clone` aumenta a `strong_count`\\n(_contagem de referências fortes_) de uma instância `Rc\u003CT\u003E`, e que a instância\\n`Rc\u003CT\u003E` só é liberada se sua `strong_count` é 0. Também podemos criar uma\\n_referência fraca_ (_weak reference_) ao valor dentro de uma instância `Rc\u003CT\u003E`\\nchamando `Rc::downgrade` e passando-lhe uma referência ao `Rc\u003CT\u003E`. Quando\\nchamamos `Rc::downgrade`, nós obtemos um ponteiro inteligente do tipo `Weak\u003CT\u003E`.\\nEm vez de aumentar em 1 a `strong_count` na instância `Rc\u003CT\u003E`, chamar\\n`Rc::downgrade` aumenta em 1 a `weeak_count` (_contagem de referências fracas_).\\nO tipo `Rc\u003CT\u003E` usa a `weak_count` para registrar quantas referências `Weak\u003CT\u003E`\\nexistem, parecido com a `strong_count`. A diferença é que a `weak_count` não\\nprecisa ser 0 para a instância `Rc\u003CT\u003E` ser destruída.\\n\\nReferências fortes são o modo como podemos compartilhar posse de uma instância\\n`Rc\u003CT\u003E`. Referências fracas não expressam uma relação de posse. Elas não irão\\ncausar um ciclo de referências porque qualquer ciclo envolvendo algumas\\nreferências fracas será quebrado uma vez que a contagem de referências fortes\\ndos valores envolvidos for 0.\\n\\nComo o valor ao qual o `Weak\u003CT\u003E` faz referência pode ter sido destruído, para\\nfazer qualquer coisa com ele, precisamos nos assegurar de que ele ainda exista.\\nFazemos isso chamando o método `upgrade` na instância `Weak\u003CT\u003E`, o que nos\\nretornará uma `Option\u003CRc\u003CT\u003E\u003E`. Iremos obter um resultado de `Some` se o valor do\\n`Rc\u003CT\u003E` ainda não tiver sido destruído e um resultado de `None` caso ele já\\ntenha sido destruído. Como o `upgrade` retorna uma `Option\u003CT\u003E`, o Rust irá\\ngarantir que lidemos com ambos os casos `Some` e `None`, e não haverá um\\nponteiro inválido.\\n\\nComo exemplo, em vez de usarmos uma lista cujos itens sabem apenas a respeito do\\npróximo item, iremos criar uma árvore cujos itens sabem sobre seus itens filhos\\n_e_ sobre seus itens pais.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,21,1,0": {
-    "value": "\"Até agora, demonstramos que chamar `Rc::clone` aumenta a `strong_count`\\n(_contagem de referências fortes_) de uma instância `Rc\u003CT\u003E`, e que a instância\\n`Rc\u003CT\u003E` só é liberada se sua `strong_count` é 0. Também podemos criar uma\\n_referência fraca_ (_weak reference_) ao valor dentro de uma instância `Rc\u003CT\u003E`\\nchamando `Rc::downgrade` e passando-lhe uma referência ao `Rc\u003CT\u003E`. Quando\\nchamamos `Rc::downgrade`, nós obtemos um ponteiro inteligente do tipo `Weak\u003CT\u003E`.\\nEm vez de aumentar em 1 a `strong_count` na instância `Rc\u003CT\u003E`, chamar\\n`Rc::downgrade` aumenta em 1 a `weeak_count` (_contagem de referências fracas_).\\nO tipo `Rc\u003CT\u003E` usa a `weak_count` para registrar quantas referências `Weak\u003CT\u003E`\\nexistem, parecido com a `strong_count`. A diferença é que a `weak_count` não\\nprecisa ser 0 para a instância `Rc\u003CT\u003E` ser destruída.\\n\\nReferências fortes são o modo como podemos compartilhar posse de uma instância\\n`Rc\u003CT\u003E`. Referências fracas não expressam uma relação de posse. Elas não irão\\ncausar um ciclo de referências porque qualquer ciclo envolvendo algumas\\nreferências fracas será quebrado uma vez que a contagem de referências fortes\\ndos valores envolvidos for 0.\\n\\nComo o valor ao qual o `Weak\u003CT\u003E` faz referência pode ter sido destruído, para\\nfazer qualquer coisa com ele, precisamos nos assegurar de que ele ainda exista.\\nFazemos isso chamando o método `upgrade` na instância `Weak\u003CT\u003E`, o que nos\\nretornará uma `Option\u003CRc\u003CT\u003E\u003E`. Iremos obter um resultado de `Some` se o valor do\\n`Rc\u003CT\u003E` ainda não tiver sido destruído e um resultado de `None` caso ele já\\ntenha sido destruído. Como o `upgrade` retorna uma `Option\u003CT\u003E`, o Rust irá\\ngarantir que lidemos com ambos os casos `Some` e `None`, e não haverá um\\nponteiro inválido.\\n\\nComo exemplo, em vez de usarmos uma lista cujos itens sabem apenas a respeito do\\npróximo item, iremos criar uma árvore cujos itens sabem sobre seus itens filhos\\n_e_ sobre seus itens pais.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,22": {
-    "value": "\"Para começar, vamos construir uma árvore com vértices que saibam apenas sobre\\nseus vértices filhos. Iremos criar uma estrutura chamada `Vertice` que contenha\\nseu próprio valor `i32`, além de referências para seus valores filhos do tipo\\n`Vertice`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,22,1,0": {
-    "value": "\"Para começar, vamos construir uma árvore com vértices que saibam apenas sobre\\nseus vértices filhos. Iremos criar uma estrutura chamada `Vertice` que contenha\\nseu próprio valor `i32`, além de referências para seus valores filhos do tipo\\n`Vertice`:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,23,0": {
-    "value": "\"use std::rc::Rc;\\nuse std::cell::RefCell;\\n\\n#[derive(Debug)]\\nstruct Vertice {\\n    valor: i32,\\n    filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,24": {
-    "value": "\"Queremos que um `Vertice` tenha posse de seus filhos, e queremos compartilhar\\nessa posse com variáveis para que possamos acessar cada `Vertice` da árvore\\ndiretamente. Para fazer isso, definimos os itens do `Vec\u003CT\u003E` para serem valores\\ndo tipo `Rc\u003CVertice\u003E`. Também queremos modificar quais vértices são filhos de\\noutro vértice, então temos um `RefCell\u003CT\u003E` em `filhos` em volta do\\n`Vec\u003CRc\u003CVertice\u003E\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,25": {
-    "value": "\"Em seguida, iremos usar nossa definição de struct e criar uma instância de\\n`Vertice` chamada `folha` com o valor 3 e nenhum filho, e outra instância\\nchamada `galho` com o valor 5 e `folha` como um de seus filhos, como mostra a\\nListagem 15-27:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,26": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,27,0": {
-    "value": "\"# use std::rc::Rc;\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    let galho = Rc::new(Vertice {\\n        valor: 5,\\n        filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n    });\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,28": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-27: Criando um vértice `folha` sem filhos e um\\nvértice `galho` com `folha` como um de seus filhos\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,29": {
-    "value": "\"Nós clonamos o `Rc\u003CVertice\u003E` em `folha` e armazenamos o resultado em `galho`, o\\nque significa que o `Vertice` em `folha` agora tem dois possuidores: `folha` e\\n`galho`. Podemos ir de `galho` para `folha` através de `galho.filhos`, mas não\\ntemos como ir de `folha` para `galho`. O motivo é que `folha` não tem referência\\na `galho` e não sabe que eles estão relacionados. Queremos que `folha` saiba que\\n`galho` é seu pai. Faremos isso em seguida.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,3": {
-    "value": "\"Vamos dar uma olhada em como um ciclo de referências poderia acontecer e como\\npreveni-lo, começando com a definição do enum `List` e um método `tail`\\n(_cauda_) na Listagem 15-25:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\\n\\n\u003C!-- A fn main escondida (primeira linha) está aqui para desabilitar o wrapping\\nautomático em uma fn main que os doc tests fazem; o `use List` falha se esta\\nlistagem é colocada dentro de uma main --\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,3,1,0": {
-    "value": "\"Vamos dar uma olhada em como um ciclo de referências poderia acontecer e como\\npreveni-lo, começando com a definição do enum `List` e um método `tail`\\n(_cauda_) na Listagem 15-25:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\\n\\n\u003C!-- A fn main escondida (primeira linha) está aqui para desabilitar o wrapping\\nautomático em uma fn main que os doc tests fazem; o `use List` falha se esta\\nlistagem é colocada dentro de uma main --\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,30": {
-    "value": "\"Para tornar o vértice filho ciente de seu pai, precisamos adicionar um campo\\n`pai` a nossa definição da struct `Vertice`. O problema é decidir qual deveria\\nser o tipo de `pai`. Sabemos que ele não pode conter um `Rc\u003CT\u003E` porque isso\\ncriaria um ciclo de referências com `folha.pai` apontando para `galho` e\\n`galho.filhos` apontando para `folha`, o que faria com que seus valores de\\n`strong_count` nunca chegassem a 0.\\n\\nPensando sobre as relações de outra forma, um vértice pai deveria ter posse de\\nseus filhos: se um vértice pai é destruído, seus vértices filhos também deveriam\\nser. Entretanto, um filho não deveria ter posse de seu pai: se destruirmos um\\nvértice filho, o pai ainda deveria existir. Esse é um caso para referências\\nfracas!\\n\\nEntão em vez de `Rc\u003CT\u003E`, faremos com que o tipo de `pai` use `Weak\u003CT\u003E`, mais\\nespecificamente um `RefCell\u003CWeak\u003CVertice\u003E\u003E`. Agora nossa definição da struct\\n`Vertice` fica assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,30,1,0": {
-    "value": "\"Para tornar o vértice filho ciente de seu pai, precisamos adicionar um campo\\n`pai` a nossa definição da struct `Vertice`. O problema é decidir qual deveria\\nser o tipo de `pai`. Sabemos que ele não pode conter um `Rc\u003CT\u003E` porque isso\\ncriaria um ciclo de referências com `folha.pai` apontando para `galho` e\\n`galho.filhos` apontando para `folha`, o que faria com que seus valores de\\n`strong_count` nunca chegassem a 0.\\n\\nPensando sobre as relações de outra forma, um vértice pai deveria ter posse de\\nseus filhos: se um vértice pai é destruído, seus vértices filhos também deveriam\\nser. Entretanto, um filho não deveria ter posse de seu pai: se destruirmos um\\nvértice filho, o pai ainda deveria existir. Esse é um caso para referências\\nfracas!\\n\\nEntão em vez de `Rc\u003CT\u003E`, faremos com que o tipo de `pai` use `Weak\u003CT\u003E`, mais\\nespecificamente um `RefCell\u003CWeak\u003CVertice\u003E\u003E`. Agora nossa definição da struct\\n`Vertice` fica assim:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,31,0": {
-    "value": "\"use std::rc::{Rc, Weak};\\nuse std::cell::RefCell;\\n\\n#[derive(Debug)]\\nstruct Vertice {\\n    valor: i32,\\n    pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n    filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,32": {
-    "value": "\"Agora um vértice pode se referir a seu vértice pai, mas não tem posse dele. Na\\nListagem 15-28, atualizamos a `main` com essa nova definição para que o vértice\\n`folha` tenha um jeito de se referir a seu pai, `galho`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,33": {
-    "value": "\"\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,34,0": {
-    "value": "\"# use std::rc::{Rc, Weak};\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n\\n    let galho = Rc::new(Vertice {\\n        valor: 5,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n    });\\n\\n    *folha.pai.borrow_mut() = Rc::downgrade(\u0026galho);\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,35": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-28: Um vértice `folha` com uma referência\\n`Weak` a seu vértice pai `galho`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,36": {
-    "value": "\"Criar o vértice `folha` é semelhante a como o criamos na Listagem 15-27, com\\nexceção do campo `pai`: `folha` começa sem um pai, então criamos uma instância\\nnova e vazia de uma referência `Weak\u003CVertice\u003E`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,37": {
-    "value": "\"Nesse ponto, quando tentamos obter uma referência ao pai de `folha` usando o\\nmétodo `upgrade`, recebemos um valor `None`. Vemos isso na saída do primeiro\\ncomando `println!`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,38,0": {
-    "value": "\"pai de folha = None\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,39": {
-    "value": "\"Quando criamos o vértice `galho`, ele também tem uma nova referência\\n`Weak\u003CVertice\u003E` no campo `pai`, porque `galho` não tem um vértice pai. Nós ainda\\ntemos `folha` como um dos filhos de `galho`. Uma vez que temos a instância de\\n`Vertice` em `galho`, podemos modificar `folha` para lhe dar uma referência\\n`Weak\u003CVertice\u003E` a seu pai. Usamos o método `borrow_mut` do\\n`RefCell\u003CWeak\u003CVertice\u003E\u003E` no campo `pai` de `folha`, e então usamos a função\\n`Rc::downgrade` para criar uma referência `Weak\u003CVertice\u003E` a `galho` a partir do\\n`Rc\u003CVertice\u003E` em `galho`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,8:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,4,0": {
-    "value": "\"# fn main() {}\\nuse std::rc::Rc;\\nuse std::cell::RefCell;\\nuse List::{Cons, Nil};\\n\\n#[derive(Debug)]\\nenum List {\\n    Cons(i32, RefCell\u003CRc\u003CList\u003E\u003E),\\n    Nil,\\n}\\n\\nimpl List {\\n    fn tail(\u0026self) -\u003E Option\u003C\u0026RefCell\u003CRc\u003CList\u003E\u003E\u003E {\\n        match *self {\\n            Cons(_, ref item) =\u003E Some(item),\\n            Nil =\u003E None,\\n        }\\n    }\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,40": {
-    "value": "\"Quando imprimimos o pai de `folha` de novo, dessa vez recebemos uma variante\\n`Some` contendo `galho`: agora `folha` tem acesso a seu pai! Quando imprimimos\\n`folha`, nós também evitamos o ciclo que eventualmente terminou em um estouro de\\npilha como o que tivemos na Listagem 15-26: as referências `Weak\u003CVertice\u003E` são\\nimpressas como `(Weak)`:\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,9:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,41,0": {
-    "value": "\"pai de folha = Some(Vertice { valor: 5, pai: RefCell { valor: (Weak) },\\nfilhos: RefCell { valor: [Vertice { valor: 3, pai: RefCell { valor: (Weak) },\\nfilhos: RefCell { valor: [] } }] } })\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,42": {
-    "value": "\"A falta de saída infinita indica que esse código não criou um ciclo de\\nreferências. Também podemos perceber isso olhando para os valores que obtemos ao\\nchamar `Rc::strong_count` e `Rc::weak_count`.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,43": {
-    "value": "\"Para ver como os valores de `strong_count` e `weak_count` das instâncias de\\n`Rc\u003CVertice\u003E` mudam, vamos criar um novo escopo interno e mover a criação de\\n`galho` para dentro dele. Fazendo isso, podemos ver o que acontece quando\\n`galho` é criado e depois destruído quando sai de escopo. As modificações são\\nmostradas na Listagem 15-29:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,43,1,0": {
-    "value": "\"Para ver como os valores de `strong_count` e `weak_count` das instâncias de\\n`Rc\u003CVertice\u003E` mudam, vamos criar um novo escopo interno e mover a criação de\\n`galho` para dentro dele. Fazendo isso, podemos ver o que acontece quando\\n`galho` é criado e depois destruído quando sai de escopo. As modificações são\\nmostradas na Listagem 15-29:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,44,0": {
-    "value": "\"# use std::rc::{Rc, Weak};\\n# use std::cell::RefCell;\\n#\\n# #[derive(Debug)]\\n# struct Vertice {\\n#     valor: i32,\\n#     pai: RefCell\u003CWeak\u003CVertice\u003E\u003E,\\n#     filhos: RefCell\u003CVec\u003CRc\u003CVertice\u003E\u003E\u003E,\\n# }\\n#\\nfn main() {\\n    let folha = Rc::new(Vertice {\\n        valor: 3,\\n        pai: RefCell::new(Weak::new()),\\n        filhos: RefCell::new(vec![]),\\n    });\\n\\n    println!(\\n        \\\"folha: fortes = {}, fracas = {}\\\",\\n        Rc::strong_count(\u0026folha),\\n        Rc::weak_count(\u0026folha),\\n    );\\n\\n    {\\n        let galho = Rc::new(Vertice {\\n            valor: 5,\\n            pai: RefCell::new(Weak::new()),\\n            filhos: RefCell::new(vec![Rc::clone(\u0026folha)]),\\n        });\\n\\n        *folha.pai.borrow_mut() = Rc::downgrade(\u0026galho);\\n\\n        println!(\\n            \\\"galho: fortes = {}, fracas = {}\\\",\\n            Rc::strong_count(\u0026galho),\\n            Rc::weak_count(\u0026galho),\\n        );\\n\\n        println!(\\n            \\\"folha: fortes = {}, fracas = {}\\\",\\n            Rc::strong_count(\u0026folha),\\n            Rc::weak_count(\u0026folha),\\n        );\\n    }\\n\\n    println!(\\\"pai de folha = {:?}\\\", folha.pai.borrow().upgrade());\\n    println!(\\n        \\\"folha: fortes = {}, fracas = {}\\\",\\n        Rc::strong_count(\u0026folha),\\n        Rc::weak_count(\u0026folha),\\n    );\\n}\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,45": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-29: Criando `galho` em um escopo interno e\\nexaminando contagens de referências fortes e fracas\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,46": {
-    "value": "\"Depois que `folha` é criada, seu `Rc\u003CVertice\u003E` tem uma _strong count_ de 1 e uma\\n_weak count_ de 0. Dentro do escopo interno, criamos `galho` e o associamos a\\n`folha`. Nesse ponto, quando imprimimos as contagens, o `Rc\u003CVertice\u003E` em `galho`\\ntem uma strong count de 1 e uma weak count de 1 (porque `folha.pai` aponta para\\n`galho` com uma `Weak\u003CVertice\u003E`). Quando imprimirmos as contagens de `folha`,\\nveremos que ela terá uma strong count de 2, porque `galho` agora tem um clone do\\n`Rc\u003CVertice\u003E` de `folha` armazenado em `galho.filhos`, mas ainda terá uma weak\\ncount de 0.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,47": {
-    "value": "\"Quando o escopo interno termina, `galho` sai de escopo e a strong count do\\n`Rc\u003CVertice\u003E` diminui para 0, e então seu `Vertice` é destruído. A weak count de\\n1 por causa de `folha.pai` não tem nenhuma influência sobre se `Vertice` é\\ndestruído ou não, então não temos nenhum vazamento de memória!\\n\\nSe tentarmos acessar o pai de `folha` depois do fim do escopo, receberemos\\n`None` de novo. No fim do programa, o `Rc\u003CVertice\u003E` em `folha` tem uma strong\\ncount de 1 e uma weak count de 0, porque a variável `folha` agora é de novo a\\núnica referência ao `Rc\u003CVertice\u003E`.\\n\\nToda a lógica que gerencia as contagens e a destruição de valores faz parte de\\n`Rc\u003CT\u003E` e `Weak\u003CT\u003E` e suas implementações da trait `Drop`. Ao especificarmos na\\ndefinição de `Vertice` que a relação de um filho para o seu pai deva ser uma\\nreferência `Weak\u003CT\u003E`, somos capazes de ter vértices pai apontando para para\\nvértices filho e vice-versa sem criar ciclos de referência e vazamentos de\\nmemória.\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,3:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,48": {
-    "value": "\"Esse capítulo cobriu como usar ponteiros inteligentes para fazer garantias e\\ntrade-offs diferentes daqueles que o Rust faz por padrão com referências\\nnormais. O tipo `Box\u003CT\u003E` tem um tamanho conhecido e aponta para dados alocados\\nno heap. O tipo `Rc\u003CT\u003E` mantém registro do número de referências a dados no\\nheap, para que eles possam ter múltiplos possuidores. O tipo `RefCell\u003CT\u003E` com\\nsua mutabilidade interior nos dá um tipo que podemos usar quando precisamos de\\num tipo imutável mas precisamos mudar um valor interno ao tipo; ele também\\naplica as regras de empréstimo em tempo de execução em vez de em tempo de\\ncompilação.\\n\\nTambém foram discutidas as traits `Deref` e `Drop` que tornam possível muito da\\nfuncionalidade dos ponteiros inteligentes. Exploramos ciclos de referências que\\npodem causar vazamentos de memória e como preveni-los usando `Weak\u003CT\u003E`.\\n\\nSe esse capítulo tiver aguçado seu interesse e você quiser implementar seus\\npróprios ponteiros inteligentes, dê uma olhada no \\\"Rustnomicon\\\" em\\n_https://doc.rust-lang.org/stable/nomicon/_ para mais informação útil.\\n\\nEm seguida, conversaremos sobre concorrência em Rust. Você irá até aprender\\nsobre alguns novos ponteiros inteligentes.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,48,1,0": {
-    "value": "\"Esse capítulo cobriu como usar ponteiros inteligentes para fazer garantias e\\ntrade-offs diferentes daqueles que o Rust faz por padrão com referências\\nnormais. O tipo `Box\u003CT\u003E` tem um tamanho conhecido e aponta para dados alocados\\nno heap. O tipo `Rc\u003CT\u003E` mantém registro do número de referências a dados no\\nheap, para que eles possam ter múltiplos possuidores. O tipo `RefCell\u003CT\u003E` com\\nsua mutabilidade interior nos dá um tipo que podemos usar quando precisamos de\\num tipo imutável mas precisamos mudar um valor interno ao tipo; ele também\\naplica as regras de empréstimo em tempo de execução em vez de em tempo de\\ncompilação.\\n\\nTambém foram discutidas as traits `Deref` e `Drop` que tornam possível muito da\\nfuncionalidade dos ponteiros inteligentes. Exploramos ciclos de referências que\\npodem causar vazamentos de memória e como preveni-los usando `Weak\u003CT\u003E`.\\n\\nSe esse capítulo tiver aguçado seu interesse e você quiser implementar seus\\npróprios ponteiros inteligentes, dê uma olhada no \\\"Rustnomicon\\\" em\\n_https://doc.rust-lang.org/stable/nomicon/_ para mais informação útil.\\n\\nEm seguida, conversaremos sobre concorrência em Rust. Você irá até aprender\\nsobre alguns novos ponteiros inteligentes.\"",
-    "dependencies": {
-      "0,0,1,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,5": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-25: Uma definição de cons list que contém um\\n`RefCell\u003CT\u003E` para que possamos modificar ao que se refere uma variante\\n`Cons`\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,6": {
-    "value": "\"Estamos usando outra variação da definição de `List` da Listagem 15-5. O segundo\\nelemento na variante `Cons` agora é um `RefCell\u003CRc\u003CList\u003E\u003E`, o que significa que\\nem vez de ter a habilidade de modificar o valor `i32` como fizemos na Listagem\\n15-24, queremos modificar a `List` à qual a variante `Cons` está apontando.\\nTambém estamos adicionando um método `tail` para nos facilitar o acesso ao\\nsegundo item quando tivermos uma variante `Cons`.\\n\\nNa Listagem 15-26, estamos adicionando uma função `main` que usa as definições\\nda Listagem 15-25. Este código cria uma lista em `a` e uma lista em `b` que\\naponta para a lista em `a`, e depois modifica a lista em `a` para apontar para\\n`b`, o que cria um ciclo de referências. Temos declarações de `println!` ao\\nlongo do caminho para mostrar quais são as contagens de referências em vários\\npontos do processo:\\n\\n\u003Cspan class=\\\"filename\\\"\u003EArquivo: src/main.rs\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,7,0": {
-    "value": "\"# use List::{Cons, Nil};\\n# use std::rc::Rc;\\n# use std::cell::RefCell;\\n# #[derive(Debug)]\\n# enum List {\\n#     Cons(i32, RefCell\u003CRc\u003CList\u003E\u003E),\\n#     Nil,\\n# }\\n#\\n# impl List {\\n#     fn tail(\u0026self) -\u003E Option\u003C\u0026RefCell\u003CRc\u003CList\u003E\u003E\u003E {\\n#         match *self {\\n#             Cons(_, ref item) =\u003E Some(item),\\n#             Nil =\u003E None,\\n#         }\\n#     }\\n# }\\n#\\nfn main() {\\n    let a = Rc::new(Cons(5, RefCell::new(Rc::new(Nil))));\\n\\n    println!(\\\"a: contagem de referências inicial = {}\\\", Rc::strong_count(\u0026a));\\n    println!(\\\"a: próximo item = {:?}\\\", a.tail());\\n\\n    let b = Rc::new(Cons(10, RefCell::new(Rc::clone(\u0026a))));\\n\\n    println!(\\\"a: contagem de referências depois da criação de b = {}\\\", Rc::strong_count(\u0026a));\\n    println!(\\\"b: contagem de referências inicial = {}\\\", Rc::strong_count(\u0026b));\\n    println!(\\\"b: próximo item = {:?}\\\", b.tail());\\n\\n    if let Some(link) = a.tail() {\\n        *link.borrow_mut() = Rc::clone(\u0026b);\\n    }\\n\\n    println!(\\\"b: contagem de referências depois de mudar a = {}\\\", Rc::strong_count(\u0026b));\\n    println!(\\\"a: contagem de referências depois de mudar a = {}\\\", Rc::strong_count(\u0026a));\\n\\n    // Descomente a próxima linha para ver que temos um ciclo; ela irá\\n    // estourar a pilha\\n    // println!(\\\"a: próximo item = {:?}\\\", a.tail());\\n}\"",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,8": {
-    "value": "\"\u003Cspan class=\\\"caption\\\"\u003EListagem 15-26: Criando um ciclo de referências de dois\\nvalores `List` apontando um para o outro\u003C/span\u003E\"",
-    "dependencies": {
-      "0,0,0,1,0,1,4:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#body@0,9": {
-    "value": "\"Nós criamos uma instância de `Rc\u003CList\u003E` segurando um valor `List` na variável\\n`a` com a lista inicial de `5, Nil`. Então criamos uma instância de `Rc\u003CList\u003E`\\nsegurando outro valor `List` na variável `b` que contém o valor 10 e aponta para\\na lista em `a`.\"",
-    "dependencies": {
-      "0,0,0,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,12,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,8,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,8,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,8,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,23,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,27,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,0,1,4,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,0,1,4,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,0,1,4,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,31,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,34,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,38,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,7,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,7,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,7,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,4,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,41,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,1,1,10,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,1,1,10,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,1,1,10,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,44,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,1,1,2,1,0,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,1,1,2,1,0,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,1,1,2,1,0,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,2": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#caption@0,7,0": {
-    "value": "null",
-    "dependencies": {
-      "0,0,0,1,0,1,3,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]",
-      "0,0,0,1,0,1,3,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]",
-      "0,0,0,1,0,1,3,0,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0": "[{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-bottom-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-left-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}},{\"dependency_type\":\"Style\",\"condition\":\"$IsNull$\",\"parameters\":{\"border-top-right-radius\":{\"value\":{\"value\":\"4px\",\"important\":true},\"default\":null}}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,2": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,21": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,22": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,3": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,30": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,43": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#open@0,48": {
-    "value": "true",
-    "dependencies": {
-      "inner:0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#site-logo@0,0,0,2": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,2,0,0,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"$IsNotNull$\",\"parameters\":{}},{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#site-logo@0,0,0,3": {
-    "value": "\"https://fpm.dev/static/images/logo.svg\"",
-    "dependencies": {
-      "0,0,0,3,0,1,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,0,0,3,0,1,1": {
-    "value": "\"/\"",
-    "dependencies": {
-      "0,0,0,3,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,1,2,0,1,1": {
-    "value": "null",
-    "dependencies": {
-      "0,1,2,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,2": {
-    "value": "\"Ciclos de Referências Podem Vazar Memória\"",
-    "dependencies": {
-      "0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,21": {
-    "value": "\"Prevenindo Ciclos de Referência: Transforme um `Rc\u003CT\u003E` em um `Weak\u003CT\u003E`\"",
-    "dependencies": {
-      "0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,22": {
-    "value": "\"Criando uma Estrutura de Dados em Árvore: Um `Vertice` com Vértices Filhos\"",
-    "dependencies": {
-      "0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,3": {
-    "value": "\"Criando um Ciclo de Referências\"",
-    "dependencies": {
-      "0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,30": {
-    "value": "\"Adicionando uma Referência de um Filho para o Seu Pai\"",
-    "dependencies": {
-      "0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,43": {
-    "value": "\"Visualizando Mudanças a `strong_count` e `weak_count`\"",
-    "dependencies": {
-      "0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
-  },
-  "test/package/ch15-06-reference-cycles#title@0,48": {
-    "value": "\"Resumo\"",
-    "dependencies": {
-      "0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
-    }
   }
 }</script>
         <script type="ftd" id="ftd-external-children">{
@@ -1064,7 +1064,7 @@ body.fpm-dark .ft_md a:visited code {
     <body>
         <div data-id="main:root" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0:main" style="align-items: flex-start; background-color: rgba(255,255,255,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; background-color: rgba(17,64,74,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%; z-index: 10" class="ft_md"><div data-id="0,0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/header#sidebar-open&quot;,&quot;parameters&quot;:{}}]', this)" style="align-items: flex-start; background-color: rgba(227,227,227,0.9); border-radius: 0px; border-style: solid; border-width: 0px; bottom: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; left: 0px; position: fixed; right: 0px; top: 0px; white-space: initial; z-index: 1" class="ft_md"></div>
 <div data-id="0,0,0,1:main" style="align-items: flex-start; background-color: rgba(204,204,204,1); border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.05); box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; left: 0px; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: fixed; top: 0px; white-space: initial; width: 70%; z-index: 4" class="ft_md"><div data-id="0,0,0,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 0px" class="ft_md"></div></div>
-<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; white-space: initial">
+<div data-id="0,0,0,2:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: none; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; transform: translateX(10px) ; white-space: initial; width: 100%" class="ft_md"><a data-id="0,0,0,2,0:main" href="/" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="right-side-top:0,0,0,2,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,0,2,0,0,0:main" src="https://fpm.dev/static/images/logo.svg" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; height: 38px; white-space: initial">
 <div data-id="right-side-top:0,0,0,2,0,0,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"></div></div></a>
 <div data-id="bottom-row:0,0,0,2,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; padding-top: 29px; white-space: initial; width: 100%" class="ft_md"><div data-id="left-side:0,0,0,2,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,2,1,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div>
 <div data-id="right-side:0,0,0,2,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"><div data-id="0,0,0,2,1,1,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: auto" class="ft_md"></div></div></div></div>
@@ -1261,9 +1261,9 @@ body.fpm-dark .ft_md a:visited code {
 <div data-id="0,1,2,0,1,1:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(255,255,255,1); display: none; font-family: apple-system; font-size: 16px; font-weight: 600; line-height: 22px; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial" class="ft_md"></div></a></div>
 <div data-id="0,1,2,1:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0,1,2,1,0:main" data-spacing="margin-left:30px" style="align-items: flex-start; align-self: flex-end; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; margin-left: auto; white-space: initial; width: auto" class="ft_md"><a data-id="0,1,2,1,0,0:main" href="NA" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; margin-bottom: auto; margin-top: auto; min-width: 20px; white-space: initial; width: 20px" class="ft_md"><img alt="" data-id="main:root" src="https://res.cloudinary.com/dphj6havg/image/upload/v1640938143/github-light_thra25.svg" style="width: 100%"></a>
 <img alt="" data-id="0,1,2,1,0,1:main" src="https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fpm#dark-mode&quot;,&quot;parameters&quot;:{}}]', this)" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; height: 18px; margin-bottom: auto; margin-left: 30px; margin-top: auto; white-space: initial"></div></div></div>
-<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="ciclos-de-referencias-podem-vazar-memoria" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Ciclos de Referências Podem Vazar Memória</div>
+<div data-id="main-row:0,1,3:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,1,3,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; white-space: initial; width: 100%" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,0:main-container-external:0:main" id="ciclos-de-referencias-podem-vazar-memoria" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,2&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Ciclos de Referências Podem Vazar Memória</div>
 <div data-id="inner:0,0,0,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">As garantias de segurança de memória do Rust tornam <em>difícil</em> mas não impossível acidentalmente criar memória que nunca é liberada (conhecida como um <em>vazamento de memória</em>, ou <em>memory leak</em>). O Rust garante em tempo de compilação que não haverá corridas de dados, mas não garante a prevenção de vazamentos de memória por completo da mesma forma, o que significa que vazamentos de memória são <em>memory safe</em> em Rust. Podemos ver que o Rust permite vazamentos de memória usando <code>Rc&lt;T&gt;</code> e <code>RefCell&lt;T&gt;</code>: é possível criar referências onde os itens se referem uns aos outros em um ciclo. Isso cria vazamentos de memória porque a contagem de referências de cada item no ciclo nunca chegará a 0, e os valores nunca serão destruídos.</div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-ciclo-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um Ciclo de Referências</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,0:main-container-external:0.inner-external:0,0,0:main" id="criando-um-ciclo-de-referencias" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,3&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Criando um Ciclo de Referências</div>
 <div data-id="inner:0,0,0,1,0,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,0,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,0,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Vamos dar uma olhada em como um ciclo de referências poderia acontecer e como
 preveni-lo, começando com a definição do enum <code>List</code> e um método <code>tail</code>
 (<em>cauda</em>) na Listagem 15-25:</p>
@@ -1450,7 +1450,7 @@ pontos do processo:</p>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,14:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nesse exemplo, logo depois que criamos o ciclo de referências, o programa termina. As consequências desse ciclo não são muito graves. Se um programa mais complexo aloca um monte de memória em um ciclo e não a libera por muito tempo, ele acaba usando mais memória do que precisa e pode sobrecarregar o sistema, fazendo com que fique sem memória disponível.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,15:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Criar ciclos de referências não é fácil de fazer, mas também não é impossível. Se você tem valores <code>RefCell&lt;T&gt;</code> que contêm valores <code>Rc&lt;T&gt;</code> ou combinações aninhadas de tipos parecidas, com mutabilidade interior e contagem de referências, você deve se assegurar de que não está criando ciclos; você não pode contar com o Rust para pegá-los. Criar ciclos de referências seria um erro de lógica no seu programa, e você deve usar testes automatizados, revisões de código e outras práticas de desenvolvimento de software para minimizá-los.</div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" data-id="0,0,0,1,0,1,16:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Outra solução para evitar ciclos de referências é reorganizar suas estruturas de dados para que algumas referências expressem posse e outras não. Assim, você pode ter ciclos feitos de algumas relações de posse e algumas relações de não posse, e apenas as relações de posse afetam se um valor pode ou não ser destruído. Na Listagem 15-25, nós sempre queremos que as variantes <code>Cons</code> possuam sua lista, então reorganizar a estrutura de dados não é possível. Vamos dar uma olhada em um exemplo usando grafos feitos de vértices pais e vértices filhos para ver quando relações de não posse são um jeito apropriado de evitar ciclos de referências.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="prevenindo-ciclos-de-referencia-transforme-um-rc-t-em-um-weak-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Prevenindo Ciclos de Referência: Transforme um <code>Rc&lt;T&gt;</code> em um <code>Weak&lt;T&gt;</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0:main" data-id="0,0,0,1,1:main-container-external:0.inner-external:0,0,0:main" id="prevenindo-ciclos-de-referencia-transforme-um-rc-t-em-um-weak-t" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,0:main-container-external:0.inner-external:0,0,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,21&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 21px; font-weight: 700; line-height: 30px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Prevenindo Ciclos de Referência: Transforme um <code>Rc&lt;T&gt;</code> em um <code>Weak&lt;T&gt;</code></div>
 <div data-id="inner:0,0,0,1,1,1:main-container-external:0.inner-external:0,0,0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Até agora, demonstramos que chamar <code>Rc::clone</code> aumenta a <code>strong_count</code>
 (<em>contagem de referências fortes</em>) de uma instância <code>Rc&lt;T&gt;</code>, e que a instância
 <code>Rc&lt;T&gt;</code> só é liberada se sua <code>strong_count</code> é 0. Também podemos criar uma
@@ -1482,7 +1482,7 @@ ponteiro inválido.</p>
 próximo item, iremos criar uma árvore cujos itens sabem sobre seus itens filhos
 <em>e</em> sobre seus itens pais.</p>
 </p></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="criando-uma-estrutura-de-dados-em-arvore-um-vertice-com-vertices-filhos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Criando uma Estrutura de Dados em Árvore: Um <code>Vertice</code> com Vértices Filhos</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="criando-uma-estrutura-de-dados-em-arvore-um-vertice-com-vertices-filhos" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,22&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Criando uma Estrutura de Dados em Árvore: Um <code>Vertice</code> com Vértices Filhos</div>
 <div data-id="inner:0,0,0,1,1,1,0,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,0,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,0,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para começar, vamos construir uma árvore com vértices que saibam apenas sobre
 seus vértices filhos. Iremos criar uma estrutura chamada <code>Vertice</code> que contenha
 seu próprio valor <code>i32</code>, além de referências para seus valores filhos do tipo
@@ -1561,7 +1561,7 @@ seu próprio valor <code>i32</code>, além de referências para seus valores fil
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,5:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><!-- raw HTML omitted -->Listagem 15-27: Criando um vértice <code>folha</code> sem filhos e um vértice <code>galho</code> com <code>folha</code> como um de seus filhos<!-- raw HTML omitted --></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" data-id="0,0,0,1,1,1,0,1,6:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">Nós clonamos o <code>Rc&lt;Vertice&gt;</code> em <code>folha</code> e armazenamos o resultado em <code>galho</code>, o que significa que o <code>Vertice</code> em <code>folha</code> agora tem dois possuidores: <code>folha</code> e <code>galho</code>. Podemos ir de <code>galho</code> para <code>folha</code> através de <code>galho.filhos</code>, mas não temos como ir de <code>folha</code> para <code>galho</code>. O motivo é que <code>folha</code> não tem referência a <code>galho</code> e não sabe que eles estão relacionados. Queremos que <code>folha</code> saiba que <code>galho</code> é seu pai. Faremos isso em seguida.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="adicionando-uma-referencia-de-um-filho-para-o-seu-pai" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Adicionando uma Referência de um Filho para o Seu Pai</div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="adicionando-uma-referencia-de-um-filho-para-o-seu-pai" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,30&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Adicionando uma Referência de um Filho para o Seu Pai</div>
 <div data-id="inner:0,0,0,1,1,1,1,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,1,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,1,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para tornar o vértice filho ciente de seu pai, precisamos adicionar um campo
 <code>pai</code> a nossa definição da struct <code>Vertice</code>. O problema é decidir qual deveria
 ser o tipo de <code>pai</code>. Sabemos que ele não pode conter um <code>Rc&lt;T&gt;</code> porque isso
@@ -1693,7 +1693,7 @@ especificamente um <code>RefCell&lt;Weak&lt;Vertice&gt;&gt;</code>. Agora nossa 
 </span></pre>
 </div></div></div>
 <div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" data-id="0,0,0,1,1,1,1,1,11:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1.inner-external:0,0,0,1,1,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md">A falta de saída infinita indica que esse código não criou um ciclo de referências. Também podemos perceber isso olhando para os valores que obtemos ao chamar <code>Rc::strong_count</code> e <code>Rc::weak_count</code>.</div></div></div>
-<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="visualizando-mudancas-a-strong-count-e-weak-count" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,43&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Visualizando Mudanças a <code>strong_count</code> e <code>weak_count</code></div>
+<div data-ext-id="main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" data-id="0,0,0,1,1,1,2:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" id="visualizando-mudancas-a-strong-count-e-weak-count" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,43&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 18px; font-weight: 700; line-height: 24px; padding-bottom: 12px; padding-top: 34px; text-align: left; white-space: initial" class="ft_md">Visualizando Mudanças a <code>strong_count</code> e <code>weak_count</code></div>
 <div data-id="inner:0,0,0,1,1,1,2,1:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0,1,1,1,2,1,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,0,1,1,1,2,1,0,0:main-container-external:0.inner-external:0,0,0.inner-external:0,0,0,1,1:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Para ver como os valores de <code>strong_count</code> e <code>weak_count</code> das instâncias de
 <code>Rc&lt;Vertice&gt;</code> mudam, vamos criar um novo escopo interno e mover a criação de
 <code>galho</code> para dentro dele. Fazendo isso, podemos ver o que acontece quando
@@ -1830,7 +1830,7 @@ referência <code>Weak&lt;T&gt;</code>, somos capazes de ter vértices pai apont
 vértices filho e vice-versa sem criar ciclos de referência e vazamentos de
 memória.</p>
 </p></div></div></div></div></div></div></div>
-<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;test/package/ch15-06-reference-cycles#open@0,48&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
+<div data-ext-id="main-container-external:0:main" data-id="0,0,1:main-container-external:0:main" id="resumo" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;fifthtry.github.io/rust-book-pt-br//ch15-06-reference-cycles#open@0,48&quot;,&quot;parameters&quot;:{}}]', this)" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); cursor: pointer; font-family: apple-system; font-size: 26px; font-weight: 700; line-height: 32px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Resumo</div>
 <div data-id="inner:0,0,1,1:main-container-external:0:main" style="align-items: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,1,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(10,26,31,1); font-family: apple-system; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p data-id="0,0,1,1,0,0:main-container-external:0:main" style="border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md"><p>Esse capítulo cobriu como usar ponteiros inteligentes para fazer garantias e
 trade-offs diferentes daqueles que o Rust faz por padrão com referências
 normais. O tipo <code>Box&lt;T&gt;</code> tem um tamanho conhecido e aponta para dados alocados
