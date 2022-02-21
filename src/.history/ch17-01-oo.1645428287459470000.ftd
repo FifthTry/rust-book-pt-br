@@ -1,0 +1,205 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h2: O que significa orientado a objetos?
+
+
+Não existe um consenso na comunidade de programação sobre quais recursos uma
+linguagem precisa para ser considerada orientada a objetos. Rust é influenciada por diversos
+paradigmas diferentes, incluindo POO; por exemplo, exploramos os
+recursos que vieram da programação funcional no Capítulo 13. Indiscutivelmente, linguagens POO
+compartilham certas características comuns, nome para objetos, encapsulamento
+e herença. Vamos ver o que cada uma dessas características significam e
+se Rust as suportam.
+
+-- ft.h3: Objetos contêm dados e comportamentos
+
+
+O livro *Design Patterns: Elements of Reusable Object-Oriented Software*,
+informalmente referido como *O livro da Gangue dos Quatro*, é um catálogo de
+padrões de design orientado a objetos. Ele define POO como:
+
+> Programas orientados a objetos são feitos de objetos. Um *objeto* empacota ambos
+> dados e seus procedimentos que operam sobre estes dados. Os procedimentos são
+> tipicamente chamados de *métodos* or *operações*.
+
+Usando essa definição, Rust é orientada a objetos: structs e enums têm dados
+e os blocos `impl` fornecem métodos em structs e enums. Embora structs e
+enums com métodos não sejam *chamados* de objetos, eles fornecem a mesma
+funcionalidade, de acordo com a definição de objetos de Gangue dos Quatro.
+
+-- ft.h3: Encapsulamento que oculta detalhes de implementação
+
+
+Outro aspecto comumente associado a POO é a ideia de *encapsulamento*,
+o que significa que os detalhes de implementação de um objeto não são acessíveis ao
+código usando esse objeto. Portanto, a única maneira de interagir com um objeto é 
+através de sua API pública; codigo usando o objeto não deve ser capaz de alcançar
+coisas internas ao objeto e alterar dados ou comportamento diretamente. Isso permite que o
+programador altere e refatore as coisas internas de um objeto sem precisar
+mudar o código que usa este objeto.
+
+Discutimos como controlar o encapsulamento no Capítulo 7: podemos usar a palavra-chave `pub`
+para determinar quais módulos, tipos, funções e métodos em nossso código
+devem ser públicos e, por padrão, todo o restante é privado. Por exemplo,
+podemos definir uma estrutura `ColecaoDeMedia` que tem um campo contendo um vetor de
+valores de `i32`. A estrutura também pode ter um campo que contenha a média dos
+valores do vetor, o que significa que a média não precisa ser calculada
+toda vez que alguém precisar da média. Em outras palavras, `ColecaoDeMedia` irá
+armazenar em cache a média calculada para nós. A Listagem 17-1 tem a definição da
+estrutura `ColecaoDeMedia`:
+
+<span class="filename">Nome do arquivo: src/lib.rs</span>
+
+-- ft.code:
+lang: rust
+
+pub struct ColecaoDeMedia {
+    lista: Vec<i32>,
+    media: f64,
+}
+
+
+-- ft.markdown:
+
+<span class="caption">Listagem 17-1: A estrutura `ColecaoDeMedia`, que
+mantém uma lista de inteiros e a média dos itens dessa
+coleção</span>
+
+-- ft.markdown:
+
+A estrutura é marcada como `pub`, portanto, outro código possa usá-la, mas os campos dentro
+da estrutura permanecem privados. Isso é importante nesse caso porque queremos
+garantir que sempre que um valor seja adicionado ou removido da lista, a média também seja
+atualizada. Fazemos isso implementando os métodos `adicionar` `remover` e `media`
+na estrutura, conforme na Listagem 17-2:
+
+-- ft.markdown:
+
+<span class="filename">Nome do arquivo: src/lib.rs</span>
+
+-- ft.code:
+lang: rust
+
+# pub struct ColecaoDeMedia {
+#     lista: Vec<i32>,
+#     media: f64,
+# }
+impl ColecaoDeMedia {
+    pub fn adicionar(&mut self, valor: i32) {
+        self.lista.push(valor);
+        self.atualizar_media();
+    }
+
+    pub fn remover(&mut self) -> Option<i32> {
+        let resultado = self.lista.pop();
+        match resultado {
+            Some(valor) => {
+                self.atualizar_media();
+                Some(valor)
+            },
+            None => None,
+        }
+    }
+
+    pub fn media(&self) -> f64 {
+        self.media
+    }
+
+    fn atualizar_media(&mut self) {
+        let total: i32 = self.lista.iter().sum();
+        self.media = total as f64 / self.lista.len() as f64;
+    }
+}
+
+
+-- ft.markdown:
+
+<span class="caption">Listagem 17-2: Implementações dos métodos públicos
+`adicionar`, `remover`, and `media` na `ColecaoDeMedia`</span>
+
+-- ft.markdown:
+
+Os métodos públicos `adicionar`, `remover` e `media` são as únicas maneiras de modificar
+uma instância de `ColecaoDeMedia`. Quando um item é adicionado à `lista` usando o
+método `adicionar` ou removido usando o método `remover`, as implementações de cada uma
+chama o método privado `atualizar_media` que lida com a atualização do
+campo `media` também.
+
+-- ft.markdown:
+
+Deixamos os campos da `lista` e `media` privados, então não há como um
+código externo adicionar ou remover itens para o campo `lista` diretamente; senão,
+o campo `media` pode ficar desatualizado quando a `lista` é modificada. O método `media`
+retorna o valor contido no campo `media`, permitindo que código externo
+leia a `media`, mas não a modifique.
+
+-- ft.markdown:
+
+Porque encapsulamos os detalhes de implementação da `ColecaoDeMedia`,
+podemos facilmente alterar aspectos, como a estrutura de dados, no futuro. Por
+exemplo,  depomos usar um `HashSet` em vez de `Vec` para o campo `lista`. Contanto
+que as assinaturas dos métodos públicos `adicionar`, `remover` e `media`
+sejam os mesmos, o código que estiver usando `ColecaoDeMedia` não precisa ser alterado. Se tornássemos
+a `lista` pública, isso não seria necessariamente o caso: `HashSet`
+e `Vec` têm métodos diferentes para adicionar e remover itens, então código externo
+teria de mudar, se estivessemos modificando a `lista` diretamente.
+
+-- ft.markdown:
+
+Se encapsulamento é um aspecto requirido para uma linguagem ser considerada orientada
+a objetos, então Rust atende a este requisito. A opção de usar `pub` ou não para
+diferentes partes do código permitem encapsulamento dos detalhes de implementação.
+
+-- ft.h3: Herança como um sistema de tipos e como compartilhamento de código
+
+
+*Herença* é um mecanismo pelo qual um objeto pode herdar de um outro
+definição do objeto, assim obtendo obtendo os dados e o comportamento do objeto pai sem
+que você precise definido-los novamente.
+
+Se a linguagem precisa ter herança para ser uma linguagem orientada a objetos, então
+Rust nao é. Não há como definir uma estrutura que herde
+os campos e implementações de métodos da estrutura pai. No entanto, se você está acostumado a usar
+herança nos seus programas, pode usar uma outra solução em Rust,
+dependendo da sua razão pra obter a herança em primeiro lugar.
+
+Você escolhe herança por dois motivos principais. Uma é para reuso de código: você pode
+implementar comportamento específico para um tipo e herança permite que você
+reutilize essa implementação para um tipo diferente.  Você pode compartilhar códigos em Rust usando
+implementações do método de característica padrão, que você viu na Listagem 10-14,
+quando adicionamos uma implementação padrão do método `resumir` no
+trait `Resumo`. Qualquer tipo de implementação de trait `Resumo` teria o
+método `resumir` disponível sem precisar de outro código. Isso é semelhante a
+uma classe pai tendo uma imeplementação de um método e uma classe filha
+herdando a implementação do método. Também podemos sobrescrever a
+implementação padrão do método `resumir` quando implementamos o
+trait `Resumo`, que é similar a uma classe filha que sobrescreve a
+implementação do método herdado da classe pai.
+
+A outra razão para usar herança diz respeito ao sistema de tipos: permitir que um
+tipo filho seja usado nos mesmos lugares que o tipo pai. Isso também é
+chamado de *polimorfismo*, o que significa que você pode subistituir vários objetos um pelo
+outro em tempo de execução se eles compartilham certas características.
+
+> ### Polimorfismo
+>
+> Para muitas pessoas, polimorfismo é sinonimo de herança. Mas 
+> na verdade, é um conceito muito mais geral que se refere ao código que pode trabalhar com dados
+> de vários tipos. Para herança, esses tipos geralmente são subclasses.
+>
+> Alternativamente, Rust isa genéricos para abstrair sobre diferentes tipos possíveis e
+>trait bounds para impor restrições no que esses tipos devem fornecer. As vezes,
+> isso é chamado de *polimorfismo paramétrico limitado*
+
+Recentemente, herança caiu em desuso como uma solução de design de programação
+em muitas linguagens de programação, porque muitas vezes corre o risco de compartilhar mais código
+que o necessário. As subclasses nem sempre devem compartilhar todas as características de sua
+classe pai, mas o farão com herança. Isso pode fazer o design do programa
+menos flexível e introduzir a possibilidade de chamar métodos nas subclasses
+que não fazem sentido ou que causam erros porque os métodos não se aplicam
+à subclasse. Algumas linguagens também só permitem que uma subclasse herde de
+uma classe, restringindo a flexibilidade do design do programa.
+
+Por esses motivos, Rust usa abordagens diferentes, usando objetos trait em vez
+de herança. Vamos ver como objetos trait possibilitam o polimorfismo em Rust.

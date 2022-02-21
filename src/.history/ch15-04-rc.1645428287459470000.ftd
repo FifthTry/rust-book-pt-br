@@ -1,0 +1,269 @@
+-- ft.doc-page:
+toc: $ft.toc
+
+-- ft.h2: `Rc<T>`, o Ponteiro Inteligente com Contagem de Referências
+
+
+Na maioria dos casos, a posse é clara: você sabe exatamente qual variável tem
+posse de um dado valor. Contudo, há casos onde um único valor pode ter múltiplos
+possuidores. Por exemplo, em uma estrutura de dados em grafo, múltiplas arestas
+podem apontar para o mesmo vértice, e esse vértice é conceitualmente possuído
+por todas as arestas que apontam para ele. Um vértice não deveria ser liberado a
+não ser que ele não tenha mais arestas apontando para ele.
+
+Para permitir posse múltipla, o Rust tem um tipo chamado `Rc<T>`. Seu nome é uma
+abreviação para _reference counting_ (_contagem de referências_) que, como o
+nome diz, mantém registro do número de referências a um valor para saber se ele
+ainda está em uso ou não. Se há zero referências a um valor, ele pode ser
+liberado sem que nenhuma referência se torne inválida.
+
+Imagine o `Rc<T>` como uma TV numa sala de família. Quando uma pessoa entra para
+assistir à TV, ela a liga. Outros podem entrar na sala e assistir à TV. Quando a
+última pessoa sai da sala, ela desliga a TV porque essa não está mais em uso. Se
+alguém desligasse a TV enquanto outros ainda estão assistindo, haveria revolta
+entre os telespectadores restantes!
+
+Nós usamos o tipo `Rc<T>` quando queremos alocar algum dado no heap para que
+múltiplas partes do nosso programa o leiam, e não conseguimos determinar em
+tempo de compilação qual parte irá terminar de usar o dado por último. Se
+soubéssemos qual parte terminaria por último, poderíamos simplesmente tornar
+aquela parte a possuidora do dado e as regras normais de posse aplicadas em
+tempo de compilação teriam efeito.
+
+Note que o `Rc<T>` serve apenas para cenários de thread única. Quando
+discutirmos concorrência no Capítulo 16, cobriremos como fazer contagem de
+referências em programas com múltiplas threads.
+
+-- ft.h3: Usando `Rc<T>` para Compartilhar Dados
+
+
+Vamos retornar ao nosso exemplo de _cons list_ da Listagem 15-5. Lembre-se de
+que a definimos usando o `Box<T>`. Desta vez, vamos criar duas listas que
+compartilham ambas a posse de uma terceira lista, o que conceitualmente vai se
+parecer com a Figura 15-3:
+
+<img alt="Duas listas que compartilham a posse de uma terceira lista" src="img/trpl15-03.svg" class="center" />
+
+<span class="caption">Figura 15-3: Duas listas, `b` e `c`, compartilhando posse
+de uma terceira lista, `a`</span>
+
+Vamos criar a lista `a` que contém 5 e depois 10. Então criaremos mais duas
+listas: `b`, que começa com 3 e `c`, que começa com 4. Ambas as listas `b` e `c`
+irão então continuar na lista `a` contendo 5 e 10. Em outras palavras, ambas as
+listas irão compartilhar a primeira lista contendo 5 e 10.
+
+Tentar implementar esse cenário usando nossa definição de `List` com `Box<T>`
+não irá funcionar, como mostra a Listagem 15-17:
+
+<span class="filename">Arquivo: src/main.rs</span>
+
+-- ft.code:
+lang: rust,ignore
+
+enum List {
+    Cons(i32, Box<List>),
+    Nil,
+}
+
+use List::{Cons, Nil};
+
+fn main() {
+    let a = Cons(5,
+        Box::new(Cons(10,
+            Box::new(Nil))));
+    let b = Cons(3, Box::new(a));
+    let c = Cons(4, Box::new(a));
+}
+
+
+-- ft.markdown:
+
+<span class="caption">Listagem 15-17: Demonstrando que não é possível termos
+duas listas usando `Box<T>` que tentam compartilhar posse de uma terceira
+lista</span>
+
+-- ft.markdown:
+
+Quando compilamos esse código, recebemos este erro:
+
+-- ft.code:
+lang: text
+
+erro de valor movido: `a`
+  --> src/main.rs:13:30
+   |
+12 |     let b = Cons(3, Box::new(a));
+   |                              - valor movido para cá
+13 |     let c = Cons(4, Box::new(a));
+   |                              ^ valor usado aqui depois de movido
+   |
+   = nota: o valor é movido porque `a` tem tipo `List`, que não implementa
+   a trait `Copy`
+
+
+-- ft.markdown:
+
+As variantes `Cons` têm posse dos dados que elas contêm, então quando criamos a
+lista `b`, `a` é movida para dentro de `b`, e `b` toma posse de `a`. Então,
+quando tentamos usar `a` de novo na criação de `c`, não somos permitidos porque
+`a` foi movida.
+
+-- ft.markdown:
+
+Poderíamos mudar a definição de `Cons` para guardar referências, mas aí teríamos
+que especificar parâmetros de tempo de vida (_lifetime parameters_). Fazendo
+isso, estaríamos especificando que cada elemento da lista devesse viver por pelo
+menos tanto tempo quanto a lista inteira. O _verificador de empréstimo_ (_borrow
+checker_) não nos deixaria compilar `let a = Cons(10, &Nil);`, por exemplo,
+porque o valor temporário `Nil` seria destruído antes que `a` pudesse receber
+uma referência a ele.
+
+-- ft.markdown:
+
+Em vez disso, vamos mudar nossa definição de `List` para usar o `Rc<T>` no lugar
+do `Box<T>`, como mostra a Listagem 15-18. Cada variante `Cons` agora vai conter
+um valor e um `Rc<T>` apontando para uma `List`. Quando criarmos `b`, em vez de
+tomar posse de `a`, iremos clonar o `Rc<List>` que `a` está segurando, o que
+aumenta o número de referências de uma para duas e permite com que `a` e
+`b`compartilhem posse dos dados naquele `Rc<List>`. Também vamos clonar `a`
+quando criarmos `c`, o que aumenta o número de referências de duas para três.
+Cada vez que chamarmos `Rc::clone`, a contagem de referências ao valor dentro do
+`Rc<List>` irá aumentar, e ele não será liberado até que haja zero referências a
+ele:
+
+-- ft.markdown:
+
+<span class="filename">Arquivo: src/main.rs</span>
+
+-- ft.code:
+lang: rust
+
+enum List {
+    Cons(i32, Rc<List>),
+    Nil,
+}
+
+use List::{Cons, Nil};
+use std::rc::Rc;
+
+fn main() {
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    let b = Cons(3, Rc::clone(&a));
+    let c = Cons(4, Rc::clone(&a));
+}
+
+
+-- ft.markdown:
+
+<span class="caption">Listagem 15-18: Uma definição de `List` que usa o
+`Rc<T>`</span>
+
+-- ft.markdown:
+
+Precisamos adicionar uma declaração `use` para trazer o `Rc<T>` ao escopo porque
+ele não está no prelúdio. Na `main`, criamos a lista contendo 5 e 10 e a
+armazenamos em um novo `Rc<List>` em `a`. Então quando criamos `b` e `c`,
+chamamos a função `Rc::clone` e passamos uma referência ao `Rc<List>` em `a`
+como argumento.
+
+-- ft.markdown:
+
+Poderíamos ter chamado `a.clone()` em vez de `Rc::clone(&a)`, mas a convenção do
+Rust é usar `Rc::clone` neste caso. A implementação de `Rc::clone` não faz uma
+cópia profunda de todos os dados como faz a implementação de `clone` da maioria
+dos tipos. A chamada a `Rc::clone` apenas incrementa a contagem de referências,
+o que não leva muito tempo. Cópias profundas de dados podem levar muito tempo.
+Usando `Rc::clone` para a contagem de referências, podemos distinguir
+visualmente entre os clones de cópia profunda e os clones que incrementam a
+contagem de referências. Quando estivermos procurando problemas de desempenho no
+código, precisamos apenas considerar os clones de cópia profunda e podemos
+ignorar as chamadas a `Rc::clone`.
+
+-- ft.h3: Clonar um `Rc<T>` Aumenta a Contagem de Referências
+
+
+Vamos mudar nosso exemplo de trabalho na Listagem 15-18 para podermos ver a
+contagem de referências mudando conforme criamos e destruímos referências ao
+`Rc<List>` em `a`.
+
+Na Listagem 15-19, vamos mudar a `main` para que tenha um escopo interno em
+volta da lista `c`; assim poderemos ver como a contagem de referências muda
+quando `c` sai de escopo. Em cada ponto do programa onde a contagem de
+referências muda, iremos imprimir seu valor, que podemos obter chamando a função
+`Rc::strong_count`. Essa função se chama `strong_count` (_contagem das
+referências fortes_) em vez de `count` (_contagem_) porque o tipo `Rc<T>` também
+tem uma `weak_count` (_contagem das referências fracas_); veremos para que a
+`weak_count` é usada na seção "Evitando Ciclos de Referências".
+
+<span class="filename">Arquivo: src/main.rs</span>
+
+-- ft.code:
+lang: rust
+
+# enum List {
+#     Cons(i32, Rc<List>),
+#     Nil,
+# }
+#
+# use List::{Cons, Nil};
+# use std::rc::Rc;
+#
+fn main() {
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    println!("contagem depois de criar a = {}", Rc::strong_count(&a));
+    let b = Cons(3, Rc::clone(&a));
+    println!("contagem depois de criar b = {}", Rc::strong_count(&a));
+    {
+        let c = Cons(4, Rc::clone(&a));
+        println!("contagem depois de criar c = {}", Rc::strong_count(&a));
+    }
+    println!("contagem depois que c sai de escopo = {}", Rc::strong_count(&a));
+}
+
+
+-- ft.markdown:
+
+<span class="caption">Listagem 15-19: Imprimindo a contagem de
+referências</span>
+
+-- ft.markdown:
+
+Esse código imprime o seguinte:
+
+-- ft.code:
+lang: text
+
+contagem depois de criar a = 1
+contagem depois de criar b = 2
+contagem depois de criar c = 3
+contagem depois que c sai de escopo = 2
+
+
+-- ft.markdown:
+
+Podemos ver que o `Rc<List>` em `a` tem uma contagem de referências inicial de
+um; depois, cada vez que chamamos `clone`, a contagem aumenta em um. Quando `c`
+sai de escopo, a contagem diminui em um. Nós não temos que chamar uma função
+para decrementar a contagem de referências como temos que fazer com a
+`Rc::clone` para incrementá-la: a implementação da trait `Drop` diminui a
+contagem automaticamente quando um valor `Rc<T>` sai de escopo.
+
+-- ft.markdown:
+
+O que não conseguimos ver nesse exemplo é que quando `b` e depois `a` saem de
+escopo no final da `main`, a contagem se torna 0, e o `Rc<List>` é
+liberado por completo nesse ponto. O uso do `Rc<T>` permite que um único valor
+tenha múltiplos possuidores, e a contagem garante que o valor permaneça válido
+enquanto algum dos possuidores ainda existir.
+
+-- ft.markdown:
+
+Por funcionar com referências imutáveis, o `Rc<T>` nos permite compartilhar
+dados entre diversas partes do nosso programa _apenas para leitura_. Se o
+`Rc<T>` nos deixasse ter múltiplas referências mutáveis também, nós poderíamos
+violar uma das regras de empréstimo discutidas no Capítulo 4: múltiplos
+empréstimos mutáveis do mesmo lugar podem causar corridas de dados (_data
+races_) e inconsistências. Mas conseguir modificar dados é muito útil! Na
+próxima seção, discutiremos a pattern de mutabilidade interior (_interior
+mutability_) e o tipo `RefCell<T>` que podemos usar junto com um `Rc<T>` para
+trabalhar com essa restrição de imutabilidade.
