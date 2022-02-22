@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch03-00-common-programming-concepts.ftd
+self-timestamp: 1541864091000000000
+last-merged-version: 1480342568000000000
+package: fifthtry.github.io/rust-book-en/

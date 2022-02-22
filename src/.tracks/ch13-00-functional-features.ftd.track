@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch13-00-functional-features.ftd
+self-timestamp: 1518978939000000000
+last-merged-version: 645090114531446000
+package: fifthtry.github.io/rust-book-en/

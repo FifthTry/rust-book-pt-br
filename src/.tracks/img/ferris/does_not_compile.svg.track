@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: img/ferris/does_not_compile.svg
+self-timestamp: 1601319997000000000
+last-merged-version: 1544510439000000000
+package: fifthtry.github.io/rust-book-en/

@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch09-01-unrecoverable-errors-with-panic.ftd
+self-timestamp: 1523932699000000000
+last-merged-version: 645090114531446000
+package: fifthtry.github.io/rust-book-en/

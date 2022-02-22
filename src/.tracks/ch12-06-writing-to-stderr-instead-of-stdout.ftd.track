@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch12-06-writing-to-stderr-instead-of-stdout.ftd
+self-timestamp: 1571874576000000000
+last-merged-version: 591105226000000000
+package: fifthtry.github.io/rust-book-en/

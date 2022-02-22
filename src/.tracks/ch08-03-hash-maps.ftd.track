@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch08-03-hash-maps.ftd
+self-timestamp: 1511902885000000000
+last-merged-version: 1487560337000000000
+package: fifthtry.github.io/rust-book-en/

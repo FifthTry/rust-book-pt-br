@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch15-06-reference-cycles.ftd
+self-timestamp: 1537253652000000000
+last-merged-version: 488556598000000000
+package: fifthtry.github.io/rust-book-en/

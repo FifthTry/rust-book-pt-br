@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch09-02-recoverable-errors-with-result.ftd
+self-timestamp: 1523932699000000000
+last-merged-version: 1488061504000000000
+package: fifthtry.github.io/rust-book-en/

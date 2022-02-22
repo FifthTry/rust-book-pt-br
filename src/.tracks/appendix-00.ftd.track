@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: appendix-00.ftd
+self-timestamp: 1518978939000000000
+last-merged-version: 1470191143000000000
+package: fifthtry.github.io/rust-book-en/

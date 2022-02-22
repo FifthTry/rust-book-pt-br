@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: img/trpl04-03.svg
+self-timestamp: 1518907872000000000
+last-merged-version: 1478818704000000000
+package: fifthtry.github.io/rust-book-en/

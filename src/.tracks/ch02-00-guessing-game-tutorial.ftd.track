@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch02-00-guessing-game-tutorial.ftd
+self-timestamp: 1518385775000000000
+last-merged-version: 1487956586000000000
+package: fifthtry.github.io/rust-book-en/

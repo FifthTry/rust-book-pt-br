@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch06-00-enums.ftd
+self-timestamp: 1512425133000000000
+last-merged-version: 1485570322000000000
+package: fifthtry.github.io/rust-book-en/

@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch16-00-concurrency.ftd
+self-timestamp: 1518978939000000000
+last-merged-version: 544510439000000000
+package: fifthtry.github.io/rust-book-en/

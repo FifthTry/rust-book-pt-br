@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch10-03-lifetime-syntax.ftd
+self-timestamp: 1612643310000000000
+last-merged-version: 645090114531446000
+package: fifthtry.github.io/rust-book-en/

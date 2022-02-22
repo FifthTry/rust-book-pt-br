@@ -1,0 +1,7 @@
+
+-- import: fpm
+
+-- fpm.track: ch04-02-references-and-borrowing.ftd
+self-timestamp: 1592485142000000000
+last-merged-version: 1591105226000000000
+package: fifthtry.github.io/rust-book-en/
